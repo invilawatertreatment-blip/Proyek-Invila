@@ -6,14 +6,13 @@
     <title>Invila.asia | Water Transformation & Infrastructure</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --brand-blue: #0b5cab;
+            --brand-blue: #2563eb;
             --white: #ffffff;
             --border-color: #dbe6f0;
-            --shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
         }
 
         body { 
@@ -25,99 +24,92 @@
             padding: 0;
         }
 
-        /* Navigasi Action Button */
-        .btn-audit {
-            @apply bg-[#00e5ff] text-[#003366] px-5 py-2 rounded-lg font-bold text-[11px] uppercase tracking-wider transition-all border border-[#00e5ff];
+        /* --- TYPOGRAPHY OPTIMIZATION --- */
+        .hero-title {
+            font-weight: 800;
+            line-height: 1.1 !important; /* Jarak antar baris rapat & profesional */
+            letter-spacing: -0.04em !important;
+            color: #1e293b;
+            /* Kunci agar menjadi 2 baris di mobile */
+            max-width: 300px; 
         }
 
-        /* --- LOGO STRIP STYLING (GRID 3x3 MOBILE) --- */
+        .highlight-blue {
+            color: #3b82f6;
+            font-style: italic;
+        }
+
+        /* --- LOGO STRIP GRID 3x3 --- */
         .logo-wrap {
             background: var(--white);
             border: 1px solid var(--border-color);
             border-radius: 20px;
-            padding: 20px;
-            box-shadow: var(--shadow);
-            @apply mt-6 md:mt-12;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            @apply mt-10;
         }
 
-        .section-label {
-            display: inline-block;
-            @apply text-[12px] font-semibold text-slate-800 tracking-tight mb-5;
-        }
-
-        /* KUNCI GRID 3x3 UNTUK MOBILE */
         .logo-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 Kolom */
-            grid-template-rows: repeat(3, 1fr);    /* 3 Baris */
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
         }
 
         .logo-pill {
-            @apply flex items-center justify-center bg-white border border-slate-50 rounded-xl p-2 h-[85px];
-            -webkit-tap-highlight-color: transparent;
+            @apply flex items-center justify-center bg-white border border-slate-50 rounded-xl p-2 h-[80px];
         }
 
         .logo-pill img {
-            width: auto;
-            height: auto;
-            max-width: 95%; /* Perbesar logo maksimal */
-            max-height: 85%; /* Perbesar logo maksimal */
+            max-width: 90%;
+            max-height: 80%;
             object-fit: contain;
         }
 
-        /* --- DESKTOP ADJUSTMENT --- */
-        @media (min-width: 1024px) {
-            .logo-grid { 
-                grid-template-columns: repeat(9, 1fr); 
-                grid-template-rows: none;
-            }
-            .logo-pill { height: 90px; }
-        }
-
-        /* --- MOBILE SPECIFIC (iPhone & Android) --- */
+        /* --- MOBILE ADJUSTMENTS --- */
         @media (max-width: 768px) {
             .hero-container {
-                padding-top: 85px !important;
+                padding-top: 70px !important; /* Jarak logo nav ke judul sangat dekat */
             }
             .hero-title {
-                font-size: 34px !important;
-                line-height: 1.15 !important;
-                letter-spacing: -0.02em !important;
-                margin-bottom: 20px !important;
+                font-size: 38px !important;
+            }
+        }
+
+        /* Tablet & Desktop: Judul boleh lebih lebar */
+        @media (min-width: 769px) {
+            .hero-title {
+                max-width: 600px;
+                font-size: 56px !important;
             }
         }
     </style>
 </head>
 <body class="bg-white">
 
-    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-50">
-        <div class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
-            <div class="text-lg font-bold tracking-tighter text-blue-600 uppercase">
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="text-[18px] font-bold tracking-tighter text-blue-600 uppercase">
                 INVILA<span class="text-slate-300">.ASIA</span>
-            </div>
-            <div class="hidden md:flex">
-                <a href="#audit-kalkulator" class="btn-audit">Audit Simulasi</a>
             </div>
         </div>
     </nav>
 
-    <section class="hero-container relative min-h-screen flex flex-col px-5 pb-12 overflow-hidden pt-32">
+    <section class="hero-container relative flex flex-col px-6 pb-12 overflow-hidden pt-28">
         <div class="max-w-7xl mx-auto w-full">
             
-            <div class="grid lg:grid-cols-12 gap-8 items-start mb-8">
-                <div class="lg:col-span-6 z-10">
-                    <h1 class="hero-title text-4xl md:text-[48px] font-bold text-[#0f172a] mb-6 tracking-tight">
-                        Mengubah Air Limbah<br>
-                        Menjadi <span class="text-blue-600 italic">Nilai Strategis</span>
+            <div class="grid lg:grid-cols-12 gap-6 items-start mb-6">
+                <div class="lg:col-span-7">
+                    <h1 class="hero-title">
+                        Mengubah Air Limbah Menjadi <span class="highlight-blue">Nilai Strategis</span>
                     </h1>
-                    <p class="text-[16px] md:text-xl text-slate-500 mb-8 leading-relaxed max-w-xl">
-                        Air limbah menyimpan <span class="italic font-medium text-slate-700">untapped value</span> yang luar biasa. Melalui solusi <span class="font-semibold text-blue-600 underline underline-offset-4 decoration-blue-200">zero-CapEx</span> Invila™, kami mentransformasinya menjadi air bersih.
+                    
+                    <p class="text-[16px] md:text-xl text-slate-500 mb-8 mt-6 leading-relaxed max-w-md">
+                        Air limbah menyimpan <span class="italic font-medium text-slate-700">untapped value</span> yang luar biasa. Melalui solusi <span class="font-semibold text-blue-600 underline underline-offset-4 decoration-blue-100">zero-CapEx</span> Invila™.
                     </p>
                 </div>
 
-                <div class="lg:col-span-6">
-                    <div class="video-content overflow-hidden aspect-video bg-slate-900 relative shadow-2xl rounded-[24px] border-[3px] border-white">
+                <div class="lg:col-span-5">
+                    <div class="overflow-hidden aspect-video bg-slate-900 relative shadow-2xl rounded-[24px] border-[3px] border-white">
                         <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
                             <source src="kiw-industrial-project-video.mp4" type="video/mp4">
                         </video>
@@ -126,22 +118,22 @@
             </div>
 
             <div class="logo-wrap">
-                <div class="logo-header">
-                    <span class="section-label">Dipercaya Industri & Mitra Strategis</span>
+                <div class="mb-5">
+                    <span class="text-[11px] font-bold text-slate-800 tracking-tight">Dipercaya Industri & Mitra Strategis</span>
                 </div>
 
                 <div class="logo-grid">
-                    <div class="logo-pill"><img src="cemerlang-samudra-kontrindo.png" alt="Cemerlang"></div>
-                    <div class="logo-pill"><img src="kievit.png" alt="Kievit"></div>
-                    <div class="logo-pill"><img src="kiw.png" alt="KIW"></div>
+                    <div class="logo-pill"><img src="cemerlang-samudra-kontrindo.png" alt="Logo"></div>
+                    <div class="logo-pill"><img src="kievit.png" alt="Logo"></div>
+                    <div class="logo-pill"><img src="kiw.png" alt="Logo"></div>
                     
-                    <div class="logo-pill"><img src="patria-maritim-perkasa.png" alt="Patria"></div>
-                    <div class="logo-pill"><img src="united-tractors.png" alt="UT"></div>
-                    <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Petrokimia"></div>
+                    <div class="logo-pill"><img src="patria-maritim-perkasa.png" alt="Logo"></div>
+                    <div class="logo-pill"><img src="united-tractors.png" alt="Logo"></div>
+                    <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Logo"></div>
                     
-                    <div class="logo-pill"><img src="tirta-asasta-depok.png" alt="Tirta Asasta"></div>
-                    <div class="logo-pill"><img src="tirtanadi.png" alt="Tirtanadi"></div>
-                    <div class="logo-pill"><img src="wika.png" alt="Wika"></div>
+                    <div class="logo-pill"><img src="tirta-asasta-depok.png" alt="Logo"></div>
+                    <div class="logo-pill"><img src="tirtanadi.png" alt="Logo"></div>
+                    <div class="logo-pill"><img src="wika.png" alt="Logo"></div>
                 </div>
             </div>
         </div>
