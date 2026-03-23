@@ -20,16 +20,17 @@
             background-color: var(--white);
             color: #0f172a;
             -webkit-font-smoothing: antialiased;
-            margin: 0; padding: 0;
-            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
         }
 
-        /* --- TYPOGRAPHY --- */
+        /* --- TYPOGRAPHY OPTIMIZATION --- */
         .hero-title {
             font-weight: 800;
-            line-height: 1.1 !important;
+            line-height: 1.1 !important; /* Jarak antar baris rapat & profesional */
             letter-spacing: -0.04em !important;
             color: #1e293b;
+            /* Kunci agar menjadi 2 baris di mobile */
             max-width: 300px; 
         }
 
@@ -64,42 +65,17 @@
             object-fit: contain;
         }
 
-        /* --- SLOGAN OVERLAY --- */
-        #slogan-overlay {
-            display: none; /* Sembunyi awal */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            z-index: 40; /* Di bawah navbar (z-50) tapi di atas konten lain */
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        #slogan-overlay img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* Proporsional di Android & iPhone */
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
         /* --- MOBILE ADJUSTMENTS --- */
         @media (max-width: 768px) {
             .hero-container {
-                padding-top: 70px !important;
+                padding-top: 70px !important; /* Jarak logo nav ke judul sangat dekat */
             }
             .hero-title {
                 font-size: 38px !important;
             }
         }
 
+        /* Tablet & Desktop: Judul boleh lebih lebar */
         @media (min-width: 769px) {
             .hero-title {
                 max-width: 600px;
@@ -110,26 +86,14 @@
 </head>
 <body class="bg-white">
 
-    <!-- NAVIGASI (Tetap Terlihat z-50) -->
-    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- TRIGGER: Klik teks ini untuk memunculkan slogan -->
-            <div onclick="toggleSlogan(true)" class="text-[18px] font-bold tracking-tighter text-blue-600 uppercase cursor-pointer hover:opacity-70 transition-opacity">
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="text-[18px] font-bold tracking-tighter text-blue-600 uppercase">
                 INVILA<span class="text-slate-300">.ASIA</span>
-            </div>
-            <div class="hidden md:flex space-x-6 text-sm font-semibold text-slate-600">
-                <a href="#" class="hover:text-blue-600">Solutions</a>
-                <a href="#" class="hover:text-blue-600">Company</a>
             </div>
         </div>
     </nav>
 
-    <!-- SLOGAN OVERLAY (Full Halaman di bawah Nav) -->
-    <div id="slogan-overlay" onclick="toggleSlogan(false)">
-        <img src="slogan.png" alt="Slogan Invila">
-    </div>
-
-    <!-- MAIN CONTENT -->
     <section class="hero-container relative flex flex-col px-6 pb-12 overflow-hidden pt-28">
         <div class="max-w-7xl mx-auto w-full">
             
@@ -162,9 +126,11 @@
                     <div class="logo-pill"><img src="cemerlang-samudra-kontrindo.png" alt="Logo"></div>
                     <div class="logo-pill"><img src="kievit.png" alt="Logo"></div>
                     <div class="logo-pill"><img src="kiw.png" alt="Logo"></div>
+                    
                     <div class="logo-pill"><img src="patria-maritim-perkasa.png" alt="Logo"></div>
                     <div class="logo-pill"><img src="united-tractors.png" alt="Logo"></div>
                     <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Logo"></div>
+                    
                     <div class="logo-pill"><img src="tirta-asasta-depok.png" alt="Logo"></div>
                     <div class="logo-pill"><img src="tirtanadi.png" alt="Logo"></div>
                     <div class="logo-pill"><img src="wika.png" alt="Logo"></div>
@@ -172,33 +138,6 @@
             </div>
         </div>
     </section>
-
-    <script>
-        function toggleSlogan(show) {
-            const overlay = document.getElementById('slogan-overlay');
-            if (show) {
-                overlay.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Matikan scroll background
-                // Push state ke history agar tombol Back bisa menutup overlay
-                window.history.pushState({sloganOpen: true}, "");
-            } else {
-                overlay.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Aktifkan scroll
-            }
-        }
-
-        // Handle Tombol ESCAPE
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                toggleSlogan(false);
-            }
-        });
-
-        // Handle Tombol BACK di Browser/Android
-        window.onpopstate = function(event) {
-            toggleSlogan(false);
-        };
-    </script>
 
 </body>
 </html>
