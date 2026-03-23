@@ -11,145 +11,115 @@
     <style>
         :root {
             --brand-blue: #0b5cab;
-            --bg-light: #f8fbfe;
-            --border-color: #dbe6f0;
             --white: #ffffff;
+            --border-color: #dbe6f0;
             --shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
         }
 
         body { 
             font-family: 'Inter', sans-serif; 
-            scroll-behavior: smooth;
             background-color: var(--white);
             color: #0f172a;
             -webkit-font-smoothing: antialiased;
+            /* Memastikan tidak ada padding liar di mobile */
+            padding: 0;
+            margin: 0;
         }
 
         /* Navigasi Action Button */
         .btn-audit {
-            @apply bg-[#00e5ff] text-[#003366] px-6 py-2.5 rounded font-bold text-[12px] uppercase tracking-wider hover:bg-white hover:text-blue-600 transition-all border border-[#00e5ff] shadow-lg shadow-cyan-100/50;
-        }
-
-        /* Video Frame Styling */
-        .video-content {
-            box-shadow: 0 40px 80px -15px rgba(0,0,0,0.1);
-            border-radius: 2rem;
-            border: 4px solid white;
+            @apply bg-[#00e5ff] text-[#003366] px-5 py-2 rounded-lg font-bold text-[11px] uppercase tracking-wider hover:bg-white transition-all border border-[#00e5ff];
         }
 
         /* --- LOGO STRIP STYLING --- */
         .logo-wrap {
             background: var(--white);
             border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 30px;
+            border-radius: 20px;
+            padding: 20px;
             box-shadow: var(--shadow);
+            @apply mt-10 md:mt-16;
         }
 
         .section-label {
             display: inline-block;
-            font-size: 10px;
-            font-weight: 700;
-            color: var(--brand-blue);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: rgba(11, 92, 171, 0.08);
-            padding: 8px 16px;
-            border-radius: 50px;
-            margin-bottom: 24px;
+            @apply text-[9px] md:text-[10px] font-bold text-[#0b5cab] uppercase tracking-wider bg-blue-50 px-3 py-1.5 rounded-full mb-5;
         }
 
         .logo-grid {
             display: grid;
+            /* 9 Kolom Desktop, Otomatis menyesuaikan di HP */
             grid-template-columns: repeat(9, 1fr);
-            gap: 12px;
+            gap: 10px;
         }
 
         .logo-pill {
-            height: 95px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 18px;
-            padding: 8px;
-            transition: all 0.3s ease;
+            height: 70px;
+            @apply flex items-center justify-center bg-white border border-slate-100 rounded-xl p-2 transition-all;
             -webkit-tap-highlight-color: transparent;
         }
 
-        .logo-pill:hover {
-            transform: translateY(-5px);
-            border-color: var(--brand-blue);
-        }
-
         .logo-pill img {
-            width: auto;
-            height: auto;
-            max-width: 92%;
-            max-height: 85%;
+            max-width: 90%;
+            max-height: 80%;
             object-fit: contain;
         }
 
         .holding-pair {
-            background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
-            border-color: #cbdcf0;
+            @apply bg-blue-50/50 border-blue-100;
         }
 
-        /* --- RESPONSIVE BREAKPOINTS --- */
-        @media (max-width: 1100px) {
-            .logo-grid { grid-template-columns: repeat(5, 1fr); }
-        }
-
+        /* --- MOBILE SPECIFIC FIXES --- */
         @media (max-width: 768px) {
+            .hero-section {
+                padding-top: 100px; /* Jarak proporsional dari nav ke judul di HP */
+            }
             .logo-grid { grid-template-columns: repeat(3, 1fr); }
-            .logo-pill { height: 85px; }
+            .logo-pill { height: 80px; }
+            h1 { font-size: 38px !important; line-height: 1.1 !important; }
         }
 
         @media (max-width: 480px) {
             .logo-grid { grid-template-columns: repeat(2, 1fr); }
-            .logo-pill { height: 80px; }
+            h1 { font-size: 34px !important; }
         }
     </style>
 </head>
 <body class="bg-white">
 
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <div class="text-xl font-bold tracking-tighter text-blue-600 uppercase text-nowrap">
-                INVILA<span class="text-gray-400">.ASIA</span>
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-50">
+        <div class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
+            <div class="text-lg font-bold tracking-tighter text-blue-600 uppercase">
+                INVILA<span class="text-slate-300">.ASIA</span>
             </div>
-            <div class="hidden md:flex space-x-8 text-[12px] font-bold uppercase tracking-[0.15em] items-center text-slate-600">
-                <a href="#" class="hover:text-blue-600 transition">Why Us</a>
-                <a href="#" class="hover:text-blue-600 transition">Our Approach</a>
-                <a href="#" class="hover:text-blue-600 transition">Our Solutions</a>
-                <a href="#" class="hover:text-blue-600 transition">Customer Stories</a>
+            <div class="hidden md:block">
                 <a href="#audit-kalkulator" class="btn-audit">Audit Simulasi</a>
             </div>
         </div>
     </nav>
 
-    <section class="relative min-h-screen flex flex-col justify-center pt-32 pb-12 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 w-full">
-            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-20">
+    <section class="hero-section relative min-h-screen flex flex-col px-5 pb-12 overflow-hidden">
+        <div class="max-w-7xl mx-auto w-full">
+            
+            <div class="grid lg:grid-cols-12 gap-10 items-start">
                 
-                <div class="lg:col-span-6 z-10">
-                    <h1 class="text-4xl md:text-[48px] font-bold leading-[1.2] text-[#0f172a] mb-8 tracking-tight">
-                        Mengubah Air Limbah <br>Menjadi <span class="text-blue-600 italic">Nilai Strategis</span>
+                <div class="lg:col-span-6">
+                    <h1 class="text-[48px] md:text-[56px] font-bold leading-[1.15] text-[#0f172a] mb-6 tracking-tight">
+                        Mengubah Air Limbah<br>Menjadi <span class="text-blue-600 italic">Nilai Strategis</span>
                     </h1>
                     
-                    <p class="text-lg md:text-xl text-slate-500 mb-10 leading-relaxed max-w-xl">
-                        Air limbah sebenarnya menyimpan <span class="italic font-medium text-slate-700">untapped value</span> yang luar biasa. Melalui solusi <span class="font-semibold text-blue-600 underline underline-offset-8">zero-CapEx</span> dari Invila™, kami membantu Anda mentransformasinya menjadi air bersih.
+                    <p class="text-[17px] md:text-xl text-slate-500 mb-8 leading-relaxed max-w-xl">
+                        Air limbah menyimpan <span class="italic font-medium text-slate-700">untapped value</span> yang luar biasa. Melalui solusi <span class="font-semibold text-blue-600 underline underline-offset-4 decoration-blue-200">zero-CapEx</span> Invila™, kami mentransformasinya menjadi air bersih.
                     </p>
                 </div>
 
-                <div class="lg:col-span-6 video-container lg:-mt-1">
-                    <div class="video-content overflow-hidden aspect-video bg-slate-900 relative">
+                <div class="lg:col-span-6">
+                    <div class="video-content overflow-hidden aspect-video bg-slate-900 relative shadow-2xl rounded-[24px] border-[3px] border-white">
                         <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
                             <source src="kiw-industrial-project-video.mp4" type="video/mp4">
                         </video>
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-lg shadow-sm">
-                            <p class="text-[9px] font-bold text-slate-800 uppercase tracking-widest">Site / Plant Video</p>
+                        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2.5 py-1 rounded-md shadow-sm">
+                            <p class="text-[8px] font-bold text-slate-800 uppercase tracking-widest">Site / Plant Video</p>
                         </div>
                     </div>
                 </div>
@@ -157,18 +127,18 @@
 
             <div class="logo-wrap">
                 <div class="logo-header">
-                    <span class="section-label">Dipercaya oleh Industri & Mitra Strategis</span>
+                    <span class="section-label">Dipercaya Industri & Mitra Strategis</span>
                 </div>
 
                 <div class="logo-grid">
-                    <div class="logo-pill"><img src="cemerlang-samudra-kontrindo.png" alt="Cemerlang Samudra"></div>
+                    <div class="logo-pill"><img src="cemerlang-samudra-kontrindo.png" alt="Cemerlang"></div>
                     <div class="logo-pill"><img src="kievit.png" alt="Kievit"></div>
                     <div class="logo-pill"><img src="kiw.png" alt="KIW"></div>
                     
-                    <div class="logo-pill holding-pair"><img src="patria-maritim-perkasa.png" alt="Patria Maritim"></div>
-                    <div class="logo-pill holding-pair"><img src="united-tractors.png" alt="United Tractors"></div>
+                    <div class="logo-pill holding-pair"><img src="patria-maritim-perkasa.png" alt="Patria"></div>
+                    <div class="logo-pill holding-pair"><img src="united-tractors.png" alt="UT"></div>
                     
-                    <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Petrokimia Gresik"></div>
+                    <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Petrokimia"></div>
                     <div class="logo-pill"><img src="tirta-asasta-depok.png" alt="Tirta Asasta"></div>
                     <div class="logo-pill"><img src="tirtanadi.png" alt="Tirtanadi"></div>
                     <div class="logo-pill"><img src="wika.png" alt="Wika"></div>
