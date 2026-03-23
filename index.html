@@ -25,17 +25,19 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Navigasi Action Button */
         .btn-audit {
             @apply bg-[#00e5ff] text-[#003366] px-6 py-2.5 rounded font-bold text-[12px] uppercase tracking-wider hover:bg-white hover:text-blue-600 transition-all border border-[#00e5ff] shadow-lg shadow-cyan-100/50;
         }
 
+        /* Video Frame Styling */
         .video-content {
             box-shadow: 0 40px 80px -15px rgba(0,0,0,0.1);
             border-radius: 2rem;
             border: 4px solid white;
         }
 
-        /* --- LOGO STRIP STYLING (DIOPTIMASI) --- */
+        /* --- LOGO STRIP STYLING --- */
         .logo-wrap {
             background: var(--white);
             border: 1px solid var(--border-color);
@@ -64,17 +66,16 @@
         }
 
         .logo-pill {
-            height: 95px; /* Sedikit lebih tinggi agar logo besar leluasa */
+            height: 95px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
             border: 1px solid var(--border-color);
             border-radius: 18px;
-            padding: 8px; /* Padding dikecilkan agar logo bisa lebih besar */
+            padding: 8px;
             transition: all 0.3s ease;
             -webkit-tap-highlight-color: transparent;
-            overflow: hidden; /* Menjaga logo tidak keluar jalur */
         }
 
         .logo-pill:hover {
@@ -85,9 +86,9 @@
         .logo-pill img {
             width: auto;
             height: auto;
-            max-width: 92%; /* Mengisi lebar box hampir maksimal */
-            max-height: 85%; /* Mengisi tinggi box hampir maksimal */
-            object-fit: contain; /* Menjaga proporsi agar tidak gepeng */
+            max-width: 92%;
+            max-height: 85%;
+            object-fit: contain;
         }
 
         .holding-pair {
@@ -133,7 +134,7 @@
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-20">
                 
                 <div class="lg:col-span-6 z-10">
-                    <h1 class="text-5xl md:text-[64px] font-bold leading-[1.1] text-[#0f172a] mb-8 tracking-tight">
+                    <h1 class="text-4xl md:text-[48px] font-bold leading-[1.2] text-[#0f172a] mb-8 tracking-tight">
                         Mengubah Air Limbah <br>Menjadi <span class="text-blue-600 italic">Nilai Strategis</span>
                     </h1>
                     
@@ -142,7 +143,7 @@
                     </p>
                 </div>
 
-                <div class="lg:col-span-6 video-container lg:-mt-2">
+                <div class="lg:col-span-6 video-container lg:-mt-1">
                     <div class="video-content overflow-hidden aspect-video bg-slate-900 relative">
                         <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
                             <source src="kiw-industrial-project-video.mp4" type="video/mp4">
