@@ -8,36 +8,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .video-container {
-            perspective: 1000px;
-        }
+        .video-container { perspective: 1000px; }
         .video-content {
             box-shadow: 0 40px 80px -15px rgba(0,0,0,0.1);
-            border-radius: 1.5rem; /* Sudut lebih tajam sedikit untuk kesan industrial */
+            border-radius: 1.5rem;
         }
-        .video-content:hover {
-            transform: scale(1.01);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Style khusus kotak logo agar persis referensi */
+        .logo-box {
+            @apply bg-white border border-slate-200 p-3 rounded-2xl h-16 w-32 md:w-36 flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-300;
         }
+        * { -webkit-tap-highlight-color: transparent; }
     </style>
 </head>
 <body class="bg-[#f8fafc] text-[#1e293b]">
 
     <nav class="fixed w-full z-50 bg-[#f8fafc]/90 backdrop-blur-md border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <div class="text-xl font-bold tracking-tighter text-blue-600 uppercase">
+            <div class="text-xl font-bold tracking-tighter text-blue-600 uppercase text-nowrap">
                 INVILA<span class="text-gray-400">.ASIA</span>
             </div>
             <div class="hidden md:flex space-x-10 text-[12px] font-bold uppercase tracking-[0.15em] items-center">
-                <a href="#" class="hover:text-blue-600 transition">Why Us</a>
-                <a href="#" class="hover:text-blue-600 transition">Our Approach</a>
-                <a href="#" class="hover:text-blue-600 transition">Solutions</a>
-                <a href="#" class="bg-blue-600 text-white px-7 py-2.5 rounded hover:bg-blue-700 transition shadow-lg shadow-blue-100">Get in Touch</a>
+                <a href="#" class="hover:text-blue-600 transition text-slate-600">Mengapa Kami</a>
+                <a href="#" class="hover:text-blue-600 transition text-slate-600">Solusi</a>
+                <a href="#" class="hover:text-blue-600 transition text-slate-600">Teknologi</a>
+                <a href="#" class="bg-blue-600 text-white px-7 py-2.5 rounded hover:bg-blue-700 transition shadow-lg shadow-blue-100 font-bold">Hubungi Kami</a>
             </div>
         </div>
     </nav>
 
-    <section class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
+    <section class="relative min-h-screen flex items-center pt-28 pb-12 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 w-full">
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                 
@@ -46,44 +45,36 @@
                         Mengubah Air Limbah <br>Menjadi <span class="text-blue-600 italic">Nilai Strategis</span>
                     </h1>
                     
-                    <p class="text-lg md:text-xl text-slate-500 mb-10 leading-relaxed max-w-xl">
+                    <p class="text-lg md:text-xl text-slate-500 mb-12 leading-relaxed max-w-xl">
                         Air limbah sebenarnya menyimpan <span class="italic font-medium text-slate-700">untapped value</span> yang luar biasa. Melalui solusi <span class="font-semibold text-blue-600 underline underline-offset-8">zero-CapEx</span> dari Invila™, kami membantu Anda mentransformasinya menjadi air bersih.
                     </p>
 
-                    <div class="mt-16 pt-8 border-t border-slate-200">
-                        <p class="text-[10px] uppercase tracking-[0.3em] font-bold text-slate-400 mb-6">Trusted By Industrial Leaders</p>
-                        <div class="flex flex-wrap gap-10 opacity-40 grayscale">
-                            <span class="font-black text-xl tracking-tighter text-slate-800 italic uppercase">Kiw Industrial</span>
-                            <span class="font-black text-xl tracking-tighter text-slate-800 italic uppercase">Eco-Plant</span>
-                            <span class="font-black text-xl tracking-tighter text-slate-800 italic uppercase">Asia-Water</span>
+                    <div class="mt-16">
+                        <div class="inline-block bg-[#eef4ff] border border-blue-200 px-5 py-2 rounded-full mb-8 shadow-sm">
+                            <p class="text-[10px] md:text-[11px] uppercase tracking-[0.1em] font-bold text-[#1e40af]">
+                                DIPERCAYA UNTUK PROYEK AIR INDUSTRI, UTILITAS KAWASAN, DAN SISTEM BERSKALA BESAR
+                            </p>
+                        </div>
+                        
+                        <div class="flex flex-wrap items-center gap-4 justify-center md:justify-start">
+                            <div class="logo-box"><img src="cemerlang-samudra-kontrindo.png" alt="Cemerlang Samudra" class="max-h-full object-contain"></div>
+                            <div class="logo-box"><img src="kievit.png" alt="Kievit" class="max-h-full object-contain"></div>
+                            <div class="logo-box"><img src="kiw.png" alt="KIW" class="max-h-full object-contain"></div>
+                            <div class="logo-box"><img src="patria-maritim-perkasa.png" alt="Patria Maritim" class="max-h-full object-contain"></div>
+                            <div class="logo-box"><img src="united-tractors.png" alt="United Tractors" class="max-h-full object-contain"></div>
+                            <div class="logo-box"><img src="petrokimia-gresik.png" alt="Petrokimia" class="max-h-full object-contain"></div>
+                            <div class="logo-box"><img src="tirta-asasta-depok.png" alt="Tirta Asasta" class="max-h-full object-contain"></div>
+                            <div class="logo-box"><img src="tirtanadi.png" alt="Tirtanadi" class="max-h-full object-contain"></div>
+                            <div class="logo-box"><img src="wika.png" alt="Wika" class="max-h-full object-contain"></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="lg:col-span-5 video-container">
-                    <div class="video-content overflow-hidden aspect-video bg-slate-900 flex items-center justify-center relative shadow-2xl">
-                        <video 
-                            autoplay 
-                            loop 
-                            muted 
-                            playsinline 
-                            class="absolute inset-0 w-full h-full object-cover"
-                        >
+                    <div class="video-content overflow-hidden aspect-video bg-slate-900 relative shadow-2xl">
+                        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
                             <source src="kiw-industrial-project-video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
                         </video>
-
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-
-                        <div class="absolute bottom-6 left-6 flex items-center gap-3 z-10">
-                            <div class="w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </div>
-                            <div>
-                                <p class="text-[10px] font-bold text-white uppercase tracking-widest">Project Video</p>
-                                <p class="text-[9px] text-blue-200">KIW Industrial Project</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -94,20 +85,20 @@
     <section class="py-16 bg-white border-y border-slate-100">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             <div>
-                <div class="text-3xl md:text-5xl font-bold text-slate-900 mb-1 tracking-tighter italic">0%</div>
-                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">CapEx Investment</div>
+                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic">0%</div>
+                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">Investasi CapEx</div>
             </div>
             <div>
-                <div class="text-3xl md:text-5xl font-bold text-slate-900 mb-1 tracking-tighter italic">100%</div>
-                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">Compliance</div>
+                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic">100%</div>
+                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">Kepatuhan Baku Mutu</div>
             </div>
             <div>
-                <div class="text-3xl md:text-5xl font-bold text-slate-900 mb-1 tracking-tighter italic">24/7</div>
-                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">Active Support</div>
+                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic">24/7</div>
+                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">Dukungan Operasional</div>
             </div>
             <div>
-                <div class="text-3xl md:text-5xl font-bold text-slate-900 mb-1 tracking-tighter italic">30%+</div>
-                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">Cost Savings</div>
+                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic">30%+</div>
+                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">Potensi Efisiensi OPEX</div>
             </div>
         </div>
     </section>
