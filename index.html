@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* 1. Pengaturan Variabel & Global Style */
         :root {
             --brand-blue: #0b5cab;
             --bg-light: #f8fbfe;
@@ -26,7 +25,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 2. Custom CSS untuk Navigasi & Video */
         .btn-audit {
             @apply bg-[#00e5ff] text-[#003366] px-6 py-2.5 rounded font-bold text-[12px] uppercase tracking-wider hover:bg-white hover:text-blue-600 transition-all border border-[#00e5ff] shadow-lg shadow-cyan-100/50;
         }
@@ -37,7 +35,7 @@
             border: 4px solid white;
         }
 
-        /* 3. Logo Strip Styling (Sesuai Struktur Kode Kamu) */
+        /* --- LOGO STRIP STYLING (DIOPTIMASI) --- */
         .logo-wrap {
             background: var(--white);
             border: 1px solid var(--border-color);
@@ -61,21 +59,22 @@
 
         .logo-grid {
             display: grid;
-            grid-template-columns: repeat(9, 1fr); /* 9 Kolom Sejajar di Desktop */
+            grid-template-columns: repeat(9, 1fr);
             gap: 12px;
         }
 
         .logo-pill {
-            height: 90px;
+            height: 95px; /* Sedikit lebih tinggi agar logo besar leluasa */
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 10px;
+            border-radius: 18px;
+            padding: 8px; /* Padding dikecilkan agar logo bisa lebih besar */
             transition: all 0.3s ease;
             -webkit-tap-highlight-color: transparent;
+            overflow: hidden; /* Menjaga logo tidak keluar jalur */
         }
 
         .logo-pill:hover {
@@ -84,18 +83,19 @@
         }
 
         .logo-pill img {
-            max-width: 100%;
-            max-height: 55px;
-            object-fit: contain;
+            width: auto;
+            height: auto;
+            max-width: 92%; /* Mengisi lebar box hampir maksimal */
+            max-height: 85%; /* Mengisi tinggi box hampir maksimal */
+            object-fit: contain; /* Menjaga proporsi agar tidak gepeng */
         }
 
-        /* Aksen United Tractors Holding */
         .holding-pair {
             background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
             border-color: #cbdcf0;
         }
 
-        /* 4. Responsive Breakpoints (Android & iPhone Friendly) */
+        /* --- RESPONSIVE BREAKPOINTS --- */
         @media (max-width: 1100px) {
             .logo-grid { grid-template-columns: repeat(5, 1fr); }
         }
@@ -172,27 +172,6 @@
                     <div class="logo-pill"><img src="tirtanadi.png" alt="Tirtanadi"></div>
                     <div class="logo-pill"><img src="wika.png" alt="Wika"></div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 bg-white border-y border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-            <div>
-                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic">0%</div>
-                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">Investasi CapEx</div>
-            </div>
-            <div>
-                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic">100%</div>
-                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">Kepatuhan Baku Mutu</div>
-            </div>
-            <div>
-                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic">24/7</div>
-                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">Dukungan Operasional</div>
-            </div>
-            <div>
-                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic">30%+</div>
-                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">Potensi Efisiensi OPEX</div>
             </div>
         </div>
     </section>
