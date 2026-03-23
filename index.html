@@ -11,18 +11,13 @@
         .video-container { perspective: 1000px; }
         .video-content {
             box-shadow: 0 40px 80px -15px rgba(0,0,0,0.1);
-            border-radius: 2rem; /* Sudut lebih lembut sesuai gambar */
+            border-radius: 2rem;
         }
-        /* Style Frame Utama Logo Strip */
-        .logo-strip-frame {
-            @apply bg-white/50 border border-slate-200 rounded-3xl p-6 md:p-8 mt-16 shadow-sm;
-        }
-        .logo-box {
-            @apply bg-white border border-slate-100 p-2 rounded-xl h-16 w-32 flex-shrink-0 flex items-center justify-center shadow-sm;
-        }
+        /* Tombol Audit */
         .btn-audit {
             @apply bg-[#00e5ff] text-[#003366] px-6 py-2.5 rounded font-bold text-[12px] uppercase tracking-wider hover:bg-white hover:text-blue-600 transition-all border border-[#00e5ff] shadow-lg shadow-cyan-100/50;
         }
+        /* Menghilangkan scrollbar */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -46,7 +41,7 @@
 
     <section class="relative min-h-screen flex flex-col justify-center pt-32 pb-12 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 w-full">
-            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-20">
                 
                 <div class="lg:col-span-6 z-10">
                     <h1 class="text-5xl md:text-[64px] font-bold leading-[1.1] text-[#0f172a] mb-8 tracking-tight">
@@ -58,7 +53,8 @@
                     </p>
                 </div>
 
-                <div class="lg:col-span-6 video-container lg:-mt-2"> <div class="video-content overflow-hidden aspect-video bg-slate-900 relative shadow-2xl border-4 border-white">
+                <div class="lg:col-span-6 video-container lg:-mt-2">
+                    <div class="video-content overflow-hidden aspect-video bg-slate-900 relative shadow-2xl border-4 border-white">
                         <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
                             <source src="kiw-industrial-project-video.mp4" type="video/mp4">
                         </video>
@@ -67,34 +63,33 @@
                         </div>
                     </div>
                 </div>
-
             </div>
+        </div>
 
-            <div class="logo-strip-frame">
-                <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
-                    <div class="bg-[#eef4ff] border border-blue-200 px-4 py-1.5 rounded-full inline-block">
-                        <p class="text-[10px] md:text-[11px] uppercase tracking-[0.1em] font-bold text-[#1e40af]">
-                            DIPERCAYA UNTUK PROYEK AIR INDUSTRI & SISTEM BERSKALA BESAR
-                        </p>
-                    </div>
+        <div class="w-full bg-white/50 border-y border-slate-100 py-10">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="bg-[#eef4ff] border border-blue-200 px-4 py-1.5 rounded-full inline-block mb-10">
+                    <p class="text-[10px] md:text-[11px] uppercase tracking-[0.1em] font-bold text-[#1e40af]">
+                        DIPERCAYA UNTUK PROYEK AIR INDUSTRI & SISTEM BERSKALA BESAR
+                    </p>
                 </div>
 
-                <div class="flex flex-nowrap overflow-x-auto gap-4 no-scrollbar items-center">
-                    <div class="logo-box"><img src="cemerlang-samudra-kontrindo.png" alt="Cemerlang" class="max-h-8 object-contain"></div>
-                    <div class="logo-box"><img src="kievit.png" alt="Kievit" class="max-h-8 object-contain"></div>
-                    <div class="logo-box"><img src="kiw.png" alt="KIW" class="max-h-8 object-contain"></div>
-                    <div class="logo-box border-blue-200 bg-blue-50/30"><img src="patria-maritim-perkasa.png" alt="Patria" class="max-h-8 object-contain"></div>
-                    <div class="logo-box border-blue-200 bg-blue-50/30"><img src="united-tractors.png" alt="UT" class="max-h-8 object-contain"></div>
-                    <div class="logo-box"><img src="petrokimia-gresik.png" alt="Petrokimia" class="max-h-8 object-contain"></div>
-                    <div class="logo-box"><img src="tirta-asasta-depok.png" alt="Tirta Asasta" class="max-h-8 object-contain"></div>
-                    <div class="logo-box"><img src="tirtanadi.png" alt="Tirtanadi" class="max-h-8 object-contain"></div>
-                    <div class="logo-box"><img src="wika.png" alt="Wika" class="max-h-8 object-contain"></div>
+                <div class="flex flex-nowrap md:flex-wrap items-center justify-between gap-8 md:gap-12 overflow-x-auto no-scrollbar">
+                    <img src="cemerlang-samudra-kontrindo.png" alt="Cemerlang" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-80">
+                    <img src="kievit.png" alt="Kievit" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-80">
+                    <img src="kiw.png" alt="KIW" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-80">
+                    <img src="patria-maritim-perkasa.png" alt="Patria" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-80">
+                    <img src="united-tractors.png" alt="UT" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-80">
+                    <img src="petrokimia-gresik.png" alt="Petrokimia" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-80">
+                    <img src="tirta-asasta-depok.png" alt="Tirta Asasta" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-80 text-nowrap">
+                    <img src="tirtanadi.png" alt="Tirtanadi" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-80">
+                    <img src="wika.png" alt="Wika" class="h-10 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-80">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-white border-y border-slate-100">
+    <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             <div>
                 <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic">0%</div>
