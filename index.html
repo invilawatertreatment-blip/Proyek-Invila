@@ -2,50 +2,135 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invila.asia | Water Transformation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Invila.asia | Water Transformation & Infrastructure</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .video-container { perspective: 1000px; }
-        .video-content {
-            box-shadow: 0 40px 80px -15px rgba(0,0,0,0.1);
-            border-radius: 2rem;
+        /* 1. Pengaturan Variabel & Global Style */
+        :root {
+            --brand-blue: #0b5cab;
+            --bg-light: #f8fbfe;
+            --border-color: #dbe6f0;
+            --white: #ffffff;
+            --shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
         }
-        /* Style Bingkai Logo per Box sesuai referensi */
-        .logo-box {
-            @apply bg-white border border-slate-200 rounded-[2rem] p-6 h-28 w-48 md:w-64 flex-shrink-0 flex items-center justify-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300;
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            scroll-behavior: smooth;
+            background-color: var(--white);
+            color: #0f172a;
+            -webkit-font-smoothing: antialiased;
         }
-        /* Tombol Audit Simulasi */
+
+        /* 2. Custom CSS untuk Navigasi & Video */
         .btn-audit {
             @apply bg-[#00e5ff] text-[#003366] px-6 py-2.5 rounded font-bold text-[12px] uppercase tracking-wider hover:bg-white hover:text-blue-600 transition-all border border-[#00e5ff] shadow-lg shadow-cyan-100/50;
         }
-        /* Sembunyikan scrollbar */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .video-content {
+            box-shadow: 0 40px 80px -15px rgba(0,0,0,0.1);
+            border-radius: 2rem;
+            border: 4px solid white;
+        }
+
+        /* 3. Logo Strip Styling (Sesuai Struktur Kode Kamu) */
+        .logo-wrap {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--brand-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: rgba(11, 92, 171, 0.08);
+            padding: 8px 16px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr); /* 9 Kolom Sejajar di Desktop */
+            gap: 12px;
+        }
+
+        .logo-pill {
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 10px;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .logo-pill:hover {
+            transform: translateY(-5px);
+            border-color: var(--brand-blue);
+        }
+
+        .logo-pill img {
+            max-width: 100%;
+            max-height: 55px;
+            object-fit: contain;
+        }
+
+        /* Aksen United Tractors Holding */
+        .holding-pair {
+            background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+            border-color: #cbdcf0;
+        }
+
+        /* 4. Responsive Breakpoints (Android & iPhone Friendly) */
+        @media (max-width: 1100px) {
+            .logo-grid { grid-template-columns: repeat(5, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .logo-grid { grid-template-columns: repeat(3, 1fr); }
+            .logo-pill { height: 85px; }
+        }
+
+        @media (max-width: 480px) {
+            .logo-grid { grid-template-columns: repeat(2, 1fr); }
+            .logo-pill { height: 80px; }
+        }
     </style>
 </head>
-<body class="bg-[#f8fafc] text-[#1e293b]">
+<body class="bg-white">
 
-    <nav class="fixed w-full z-50 bg-[#f8fafc]/90 backdrop-blur-md border-b border-slate-100">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="text-xl font-bold tracking-tighter text-blue-600 uppercase text-nowrap">
                 INVILA<span class="text-gray-400">.ASIA</span>
             </div>
             <div class="hidden md:flex space-x-8 text-[12px] font-bold uppercase tracking-[0.15em] items-center text-slate-600">
-                <a href="#" class="hover:text-blue-600 transition text-nowrap">Why Us</a>
-                <a href="#" class="hover:text-blue-600 transition text-nowrap">Our Approach</a>
-                <a href="#" class="hover:text-blue-600 transition text-nowrap">Our Solutions</a>
-                <a href="#" class="hover:text-blue-600 transition text-nowrap">Customer Stories</a>
-                <a href="#audit-kalkulator" class="btn-audit text-nowrap">Audit Simulasi</a>
+                <a href="#" class="hover:text-blue-600 transition">Why Us</a>
+                <a href="#" class="hover:text-blue-600 transition">Our Approach</a>
+                <a href="#" class="hover:text-blue-600 transition">Our Solutions</a>
+                <a href="#" class="hover:text-blue-600 transition">Customer Stories</a>
+                <a href="#audit-kalkulator" class="btn-audit">Audit Simulasi</a>
             </div>
         </div>
     </nav>
 
     <section class="relative min-h-screen flex flex-col justify-center pt-32 pb-12 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 w-full">
-            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-16">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-20">
                 
                 <div class="lg:col-span-6 z-10">
                     <h1 class="text-5xl md:text-[64px] font-bold leading-[1.1] text-[#0f172a] mb-8 tracking-tight">
@@ -58,61 +143,56 @@
                 </div>
 
                 <div class="lg:col-span-6 video-container lg:-mt-2">
-                    <div class="video-content overflow-hidden aspect-video bg-slate-900 relative shadow-2xl border-4 border-white">
+                    <div class="video-content overflow-hidden aspect-video bg-slate-900 relative">
                         <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
                             <source src="kiw-industrial-project-video.mp4" type="video/mp4">
                         </video>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-lg shadow-sm">
+                            <p class="text-[9px] font-bold text-slate-800 uppercase tracking-widest">Site / Plant Video</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="w-full bg-slate-50/50 border-y border-slate-100 py-14">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="bg-[#eef4ff] border border-blue-200 px-5 py-2 rounded-full inline-block mb-10 shadow-sm">
-                    <p class="text-[10px] md:text-[11px] uppercase tracking-[0.1em] font-bold text-[#1e40af]">
-                        DIPERCAYA UNTUK PROYEK AIR INDUSTRI & SISTEM BERSKALA BESAR
-                    </p>
+            <div class="logo-wrap">
+                <div class="logo-header">
+                    <span class="section-label">Dipercaya oleh Industri & Mitra Strategis</span>
                 </div>
 
-                <div class="flex flex-nowrap items-center gap-6 overflow-x-auto no-scrollbar pb-6">
-                    <div class="logo-box"><img src="cemerlang-samudra-kontrindo.png" alt="Cemerlang" class="max-h-16 w-auto object-contain"></div>
-                    <div class="logo-box"><img src="kievit.png" alt="Kievit" class="max-h-16 w-auto object-contain"></div>
-                    <div class="logo-box"><img src="kiw.png" alt="KIW" class="max-h-16 w-auto object-contain"></div>
+                <div class="logo-grid">
+                    <div class="logo-pill"><img src="cemerlang-samudra-kontrindo.png" alt="Cemerlang Samudra"></div>
+                    <div class="logo-pill"><img src="kievit.png" alt="Kievit"></div>
+                    <div class="logo-pill"><img src="kiw.png" alt="KIW"></div>
                     
-                    <div class="logo-box border-blue-100 bg-blue-50/40">
-                        <img src="patria-maritim-perkasa.png" alt="Patria" class="max-h-16 w-auto object-contain">
-                    </div>
-                    <div class="logo-box border-blue-100 bg-blue-50/40">
-                        <img src="united-tractors.png" alt="UT" class="max-h-16 w-auto object-contain text-nowrap">
-                    </div>
+                    <div class="logo-pill holding-pair"><img src="patria-maritim-perkasa.png" alt="Patria Maritim"></div>
+                    <div class="logo-pill holding-pair"><img src="united-tractors.png" alt="United Tractors"></div>
                     
-                    <div class="logo-box"><img src="petrokimia-gresik.png" alt="Petrokimia" class="max-h-16 w-auto object-contain"></div>
-                    <div class="logo-box"><img src="tirta-asasta-depok.png" alt="Tirta Asasta" class="max-h-16 w-auto object-contain"></div>
-                    <div class="logo-box"><img src="tirtanadi.png" alt="Tirtanadi" class="max-h-16 w-auto object-contain"></div>
-                    <div class="logo-box"><img src="wika.png" alt="Wika" class="max-h-16 w-auto object-contain"></div>
+                    <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Petrokimia Gresik"></div>
+                    <div class="logo-pill"><img src="tirta-asasta-depok.png" alt="Tirta Asasta"></div>
+                    <div class="logo-pill"><img src="tirtanadi.png" alt="Tirtanadi"></div>
+                    <div class="logo-pill"><img src="wika.png" alt="Wika"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-white border-b border-slate-100">
+    <section class="py-16 bg-white border-y border-slate-100">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             <div>
-                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic text-nowrap">0%</div>
-                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em] text-nowrap">Investasi CapEx</div>
+                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic">0%</div>
+                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">Investasi CapEx</div>
             </div>
             <div>
-                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic text-nowrap">100%</div>
-                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em] text-nowrap">Kepatuhan Baku Mutu</div>
+                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic">100%</div>
+                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">Kepatuhan Baku Mutu</div>
             </div>
             <div>
-                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic text-nowrap">24/7</div>
-                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em] text-nowrap">Dukungan Operasional</div>
+                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic">24/7</div>
+                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">Dukungan Operasional</div>
             </div>
             <div>
-                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic text-nowrap">30%+</div>
-                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em] text-nowrap">Potensi Efisiensi OPEX</div>
+                <div class="text-3xl md:text-5xl font-bold text-[#0f172a] mb-1 tracking-tighter italic">30%+</div>
+                <div class="text-[10px] font-bold uppercase text-slate-400 tracking-[0.2em]">Potensi Efisiensi OPEX</div>
             </div>
         </div>
     </section>
