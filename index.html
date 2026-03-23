@@ -13,9 +13,9 @@
             box-shadow: 0 40px 80px -15px rgba(0,0,0,0.1);
             border-radius: 1.5rem;
         }
-        /* Style khusus kotak logo agar persis referensi */
+        /* Kotak logo yang presisi */
         .logo-box {
-            @apply bg-white border border-slate-200 p-3 rounded-2xl h-16 w-32 md:w-36 flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-300;
+            @apply bg-white border border-slate-200 p-3 rounded-xl h-20 w-full flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-300;
         }
         * { -webkit-tap-highlight-color: transparent; }
     </style>
@@ -31,7 +31,7 @@
                 <a href="#" class="hover:text-blue-600 transition text-slate-600">Mengapa Kami</a>
                 <a href="#" class="hover:text-blue-600 transition text-slate-600">Solusi</a>
                 <a href="#" class="hover:text-blue-600 transition text-slate-600">Teknologi</a>
-                <a href="#" class="bg-blue-600 text-white px-7 py-2.5 rounded hover:bg-blue-700 transition shadow-lg shadow-blue-100 font-bold">Hubungi Kami</a>
+                <a href="#" class="bg-blue-600 text-white px-7 py-2.5 rounded hover:bg-blue-700 transition shadow-lg shadow-blue-100 font-bold text-nowrap">Hubungi Kami</a>
             </div>
         </div>
     </nav>
@@ -49,23 +49,27 @@
                         Air limbah sebenarnya menyimpan <span class="italic font-medium text-slate-700">untapped value</span> yang luar biasa. Melalui solusi <span class="font-semibold text-blue-600 underline underline-offset-8">zero-CapEx</span> dari Invila™, kami membantu Anda mentransformasinya menjadi air bersih.
                     </p>
 
-                    <div class="mt-16">
+                    <div class="mt-16 max-w-2xl">
                         <div class="inline-block bg-[#eef4ff] border border-blue-200 px-5 py-2 rounded-full mb-8 shadow-sm">
                             <p class="text-[10px] md:text-[11px] uppercase tracking-[0.1em] font-bold text-[#1e40af]">
-                                DIPERCAYA UNTUK PROYEK AIR INDUSTRI, UTILITAS KAWASAN, DAN SISTEM BERSKALA BESAR
+                                DIPERCAYA UNTUK PROYEK AIR INDUSTRI & SISTEM BERSKALA BESAR
                             </p>
                         </div>
                         
-                        <div class="flex flex-wrap items-center gap-4 justify-center md:justify-start">
-                            <div class="logo-box"><img src="cemerlang-samudra-kontrindo.png" alt="Cemerlang Samudra" class="max-h-full object-contain"></div>
-                            <div class="logo-box"><img src="kievit.png" alt="Kievit" class="max-h-full object-contain"></div>
-                            <div class="logo-box"><img src="kiw.png" alt="KIW" class="max-h-full object-contain"></div>
-                            <div class="logo-box"><img src="patria-maritim-perkasa.png" alt="Patria Maritim" class="max-h-full object-contain"></div>
-                            <div class="logo-box"><img src="united-tractors.png" alt="United Tractors" class="max-h-full object-contain"></div>
-                            <div class="logo-box"><img src="petrokimia-gresik.png" alt="Petrokimia" class="max-h-full object-contain"></div>
-                            <div class="logo-box"><img src="tirta-asasta-depok.png" alt="Tirta Asasta" class="max-h-full object-contain"></div>
-                            <div class="logo-box"><img src="tirtanadi.png" alt="Tirtanadi" class="max-h-full object-contain"></div>
-                            <div class="logo-box"><img src="wika.png" alt="Wika" class="max-h-full object-contain"></div>
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-3 md:grid-cols-5 gap-3">
+                                <div class="logo-box"><img src="cemerlang-samudra-kontrindo.png" alt="Cemerlang" class="max-h-full object-contain"></div>
+                                <div class="logo-box"><img src="kievit.png" alt="Kievit" class="max-h-full object-contain"></div>
+                                <div class="logo-box"><img src="kiw.png" alt="KIW" class="max-h-full object-contain"></div>
+                                <div class="logo-box bg-blue-50/50"><img src="patria-maritim-perkasa.png" alt="Patria" class="max-h-full object-contain"></div>
+                                <div class="logo-box bg-blue-50/50"><img src="united-tractors.png" alt="UT" class="max-h-full object-contain"></div>
+                            </div>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:max-w-[80%]">
+                                <div class="logo-box"><img src="petrokimia-gresik.png" alt="Petrokimia" class="max-h-full object-contain"></div>
+                                <div class="logo-box"><img src="tirta-asasta-depok.png" alt="Tirta Asasta" class="max-h-full object-contain"></div>
+                                <div class="logo-box"><img src="tirtanadi.png" alt="Tirtanadi" class="max-h-full object-contain"></div>
+                                <div class="logo-box"><img src="wika.png" alt="Wika" class="max-h-full object-contain"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
