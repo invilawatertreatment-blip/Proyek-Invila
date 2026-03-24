@@ -35,10 +35,15 @@
         
         .safe-container { @apply max-w-7xl mx-auto px-6 sm:px-10 md:px-12 lg:px-16; }
 
-        /* --- LOGO MARQUEE (Dominan & Percaya Diri) --- */
+        /* --- LOGO MARQUEE (Proporsional) --- */
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .marquee { display: flex; width: max-content; animation: scroll 40s linear infinite; }
-        .logo-item-marquee { transition: all 0.3s ease; @apply h-14 sm:h-16 md:h-24 object-contain mx-10 md:mx-16; }
+        
+        /* Ukuran Logo Marquee disesuaikan agar elegan */
+        .logo-item-marquee { 
+            transition: all 0.3s ease; 
+            @apply h-8 sm:h-10 md:h-14 object-contain mx-8 md:mx-12; 
+        }
 
         /* --- ECCENTRIC ANIMATION --- */
         @keyframes rotate-eccentric {
@@ -46,9 +51,15 @@
             100% { transform: rotate(360deg) translate(15%, 0) rotate(-360deg); }
         }
         .animated-circle { position: absolute; border-radius: 50%; pointer-events: none; border-width: 2px !important; }
-        .circle-1 { width: 220px; height: 220px; border: 2px solid var(--gradiant-blue); animation: rotate-eccentric 10s linear infinite; }
-        .circle-2 { width: 250px; height: 250px; border: 2px dashed var(--gradiant-green); animation: rotate-eccentric 12s linear infinite reverse; }
-        .circle-3 { width: 280px; height: 280px; border: 2px solid var(--gradiant-indigo); animation: rotate-eccentric 15s linear infinite; }
+        .circle-1 { width: 180px; height: 180px; border: 2px solid var(--gradiant-blue); animation: rotate-eccentric 10s linear infinite; }
+        .circle-2 { width: 210px; height: 210px; border: 2px dashed var(--gradiant-green); animation: rotate-eccentric 12s linear infinite reverse; }
+        .circle-3 { width: 240px; height: 240px; border: 2px solid var(--gradiant-indigo); animation: rotate-eccentric 15s linear infinite; }
+
+        @media (min-width: 768px) {
+            .circle-1 { width: 240px; height: 240px; }
+            .circle-2 { width: 280px; height: 280px; }
+            .circle-3 { width: 320px; height: 320px; }
+        }
 
         @keyframes text-appearance {
             0%, 25% { opacity: 0; transform: scale(0.9) translateY(10px); }
@@ -65,13 +76,13 @@
 
         /* --- STAT CIRCLES --- */
         .stat-circle {
-            @apply w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] md:w-[200px] md:h-[200px] rounded-full flex flex-col items-center justify-center text-center transition-all duration-500 border border-black/5 flex-shrink-0;
+            @apply w-[130px] h-[130px] sm:w-[150px] sm:h-[150px] md:w-[180px] md:h-[180px] rounded-full flex flex-col items-center justify-center text-center transition-all duration-500 border border-black/5 flex-shrink-0 bg-white;
         }
         .stat-circle:hover { transform: scale(1.05) translateY(-5px); @apply shadow-2xl; }
 
-        /* Logo Wall - Ultra Confident */
-        .logo-wall-item { @apply h-14 sm:h-20 md:h-28 object-contain transition-all duration-300; }
-        .logo-wall-item:hover { transform: translateY(-8px) scale(1.1); }
+        /* Logo Wall - Balanced Scales */
+        .logo-wall-item { @apply h-9 sm:h-12 md:h-16 object-contain transition-all duration-300; }
+        .logo-wall-item:hover { transform: translateY(-5px) scale(1.05); }
 
         .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
         input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
@@ -83,7 +94,7 @@
     <!-- NAVIGASI -->
     <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
         <div class="safe-container py-4 md:py-5 flex justify-between items-center">
-            <a href="#" class="text-2xl font-[900] tracking-tighter text-slate-900 flex items-start uppercase leading-none">
+            <a href="#" class="text-xl md:text-2xl font-[900] tracking-tighter text-slate-900 flex items-start uppercase leading-none">
                 INVILA<span class="text-blue-600 text-[10px] font-bold ml-0.5" style="vertical-align: super; line-height: 1;">TM</span>
             </a>
             <div class="hidden md:flex space-x-12 text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500">
@@ -131,14 +142,14 @@
             </div>
         </div>
 
-        <!-- Trust Bar Logo Marquee -->
-        <div class="mt-20 md:mt-32 border-y border-slate-100 py-12 md:py-20 overflow-hidden bg-slate-50/50">
+        <!-- Trust Bar Logo Marquee (Ukuran Seimbang) -->
+        <div class="mt-20 md:mt-32 border-y border-slate-100 py-10 md:py-14 overflow-hidden bg-slate-50/50">
             <div class="marquee items-center">
                 <img src="wika.png" class="logo-item-marquee" alt="Wika">
                 <img src="united-tractors.png" class="logo-item-marquee" alt="United Tractors">
                 <img src="petrokimia-gresik.png" class="logo-item-marquee" alt="Petrokimia Gresik">
                 <img src="kievit.png" class="logo-item-marquee" alt="Kievit">
-                <img src="kiw.png" class="logo-item-marquee" alt="KIW">
+                <img src="kiw.png" class="logo-item-marquee" alt="KIW" style="height: 1.5rem;">
                 <img src="tirtanadi.png" class="logo-item-marquee" alt="Tirtanadi">
                 <img src="tirta-asasta-depok.png" class="logo-item-marquee" alt="Tirta Asasta">
                 <!-- Loop -->
@@ -146,7 +157,7 @@
                 <img src="united-tractors.png" class="logo-item-marquee" alt="United Tractors">
                 <img src="petrokimia-gresik.png" class="logo-item-marquee" alt="Petrokimia Gresik">
                 <img src="kievit.png" class="logo-item-marquee" alt="Kievit">
-                <img src="kiw.png" class="logo-item-marquee" alt="KIW">
+                <img src="kiw.png" class="logo-item-marquee" alt="KIW" style="height: 1.5rem;">
                 <img src="tirtanadi.png" class="logo-item-marquee" alt="Tirtanadi">
                 <img src="tirta-asasta-depok.png" class="logo-item-marquee" alt="Tirta Asasta">
             </div>
@@ -198,7 +209,6 @@
                     </div>
                 </div>
 
-                <!-- Visual Animation Section -->
                 <div class="relative flex justify-center items-center h-[450px] md:h-[500px] reveal">
                     <div class="animated-circle circle-1"></div>
                     <div class="animated-circle circle-2"></div>
@@ -211,19 +221,18 @@
                 </div>
             </div>
 
-            <!-- 3 STAT CIRCLES -->
             <div class="flex flex-wrap md:flex-row gap-8 justify-center items-center reveal pt-12">
-                <div class="stat-circle bg-slate-900 text-white shadow-2xl">
-                    <div class="text-4xl font-black text-blue-400 italic">10+</div>
-                    <div class="text-[9px] uppercase tracking-[0.3em] font-bold opacity-60 mt-2 leading-relaxed">Years of<br>Stability</div>
+                <div class="stat-circle text-slate-900 shadow-xl border-slate-100">
+                    <div class="text-3xl md:text-4xl font-black text-blue-600 italic">10+</div>
+                    <div class="text-[8px] uppercase tracking-[0.2em] font-bold text-slate-400 mt-2 leading-relaxed">Years of<br>Stability</div>
                 </div>
                 <div class="stat-circle bg-blue-600 text-white shadow-2xl">
-                    <div class="text-4xl font-black italic">833</div>
-                    <div class="text-[9px] uppercase tracking-[0.3em] font-bold opacity-80 mt-2 leading-relaxed">LPS Peak<br>Delivery</div>
+                    <div class="text-3xl md:text-4xl font-black italic">833</div>
+                    <div class="text-[8px] uppercase tracking-[0.2em] font-bold opacity-80 mt-2 leading-relaxed">LPS Peak<br>Delivery</div>
                 </div>
-                <div class="stat-circle bg-white text-slate-900 shadow-xl border-slate-100">
-                    <div class="text-4xl font-black text-cyan-500 italic">ZERO</div>
-                    <div class="text-[9px] uppercase tracking-[0.3em] font-bold text-slate-400 mt-2 leading-relaxed">Capital<br>Risk (WaaS)</div>
+                <div class="stat-circle bg-slate-900 text-white shadow-2xl">
+                    <div class="text-3xl md:text-4xl font-black text-cyan-400 italic">ZERO</div>
+                    <div class="text-[8px] uppercase tracking-[0.2em] font-bold opacity-60 mt-2 leading-relaxed">Capital<br>Risk (WaaS)</div>
                 </div>
             </div>
         </div>
@@ -260,24 +269,24 @@
         </div>
     </section>
 
-    <!-- STRATEGIC PARTNERS WALL (POSITIONED ABOVE PROJECTS) -->
-    <section class="py-24 md:py-40 bg-white border-y border-slate-100">
+    <!-- STRATEGIC PARTNERS WALL (UKURAN PROPORSIONAL) -->
+    <section class="py-24 md:py-32 bg-white border-y border-slate-100">
         <div class="safe-container text-center">
             <h2 class="text-blue-600 font-bold text-xs uppercase tracking-[0.5em] mb-4 reveal">Trusted by Industry Giants</h2>
-            <h3 class="text-4xl md:text-6xl font-black text-slate-900 italic mb-20 md:mb-32 reveal uppercase tracking-tight">Strategic Ecosystem</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-16 md:gap-24 items-center justify-items-center">
+            <h3 class="text-3xl md:text-5xl font-black text-slate-900 italic mb-16 md:mb-24 reveal uppercase tracking-tight">Strategic Ecosystem</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-10 md:gap-14 items-center justify-items-center">
                 <img src="wika.png" class="logo-wall-item" alt="Wika">
                 <img src="united-tractors.png" class="logo-wall-item" alt="United Tractors">
                 <img src="petrokimia-gresik.png" class="logo-wall-item" alt="Petrokimia Gresik">
-                <img src="kiw.png" class="logo-wall-item" alt="KIW" style="height: 4rem;">
+                <img src="kiw.png" class="logo-wall-item" alt="KIW" style="height: 2rem;">
                 <img src="tirtanadi.png" class="logo-wall-item" alt="Tirtanadi">
                 <img src="tirta-asasta-depok.png" class="logo-wall-item" alt="Tirta Asasta">
                 <img src="1tirta-asasta-citayam.png" class="logo-wall-item" alt="Citayam">
                 <img src="kievit.png" class="logo-wall-item" alt="Kievit">
                 <img src="patria-maritim-perkasa.png" class="logo-wall-item" alt="Patria">
-                <img src="cemerlang-samudra-kontrindo.png" class="logo-wall-item" alt="CSK">
+                <img src="cemerlang-samudra-kontrindo.png" class="logo-wall-item" alt="CSK" style="height: 2rem;">
                 <img src="dinkes depok.png" class="logo-wall-item" alt="Dinkes">
-                <div class="text-sm font-black text-slate-400 uppercase tracking-widest leading-tight text-left border-l-4 border-slate-200 pl-8">AND MANY<br>GLOBAL PARTNERS...</div>
+                <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-tight text-left border-l-2 border-slate-200 pl-6">AND MANY<br>GLOBAL PARTNERS...</div>
             </div>
         </div>
     </section>
@@ -294,8 +303,8 @@
                 <div class="group reveal">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="KIW WaaS">
-                        <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-8 py-4 rounded-[2rem] shadow-xl">
-                            <img src="kiw.png" class="h-10 object-contain" alt="Logo KIW">
+                        <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-6 py-3 rounded-2xl shadow-xl">
+                            <img src="kiw.png" class="h-6 md:h-8 object-contain" alt="Logo KIW">
                         </div>
                     </div>
                     <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">SCALABLE WAAS: KIW SEMARANG (2.160 M³/HARI)</h5>
@@ -305,8 +314,8 @@
                 <div class="group reveal" style="transition-delay: 0.1s;">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Tirtanadi Sunggal">
-                        <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-8 py-4 rounded-[2rem] shadow-xl">
-                            <img src="tirtanadi.png" class="h-12 object-contain" alt="Logo Tirtanadi">
+                        <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-6 py-3 rounded-2xl shadow-xl">
+                            <img src="tirtanadi.png" class="h-8 md:h-10 object-contain" alt="Logo Tirtanadi">
                         </div>
                     </div>
                     <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">TRANSFORMASI AIR MINUM KOTA MEDAN (1.000 LPS)</h5>
@@ -337,7 +346,7 @@
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-[450px_1fr] gap-12 md:gap-20 reveal">
+            <div class="grid lg:grid-cols-[400px_1fr] gap-12 md:gap-20 reveal">
                 <div class="glass-panel p-10 md:p-14 rounded-[4rem] space-y-10 border-white/5 shadow-2xl">
                     <div class="flex items-center gap-5 mb-4">
                         <div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-slate-900 font-black text-xl shadow-lg">IV</div>
@@ -365,7 +374,7 @@
                     <div class="bg-gradient-to-br from-slate-900 to-black p-12 md:p-24 rounded-[5rem] border border-white/5 shadow-2xl relative overflow-hidden group">
                         <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 blur-[150px]"></div>
                         <span class="text-blue-400 font-bold text-sm uppercase tracking-[0.5em]">Monthly Potential Saving</span>
-                        <h2 id="view-monthly-saving" class="text-5xl sm:text-7xl md:text-[120px] font-black tracking-tighter mt-12 leading-none italic transition-all duration-500 break-fix">Rp 0</h2>
+                        <h2 id="view-monthly-saving" class="text-5xl sm:text-7xl md:text-[110px] font-black tracking-tighter mt-12 leading-none italic transition-all duration-500 break-fix">Rp 0</h2>
                     </div>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="glass-panel p-10 rounded-[3rem] border-white/5">
@@ -423,7 +432,7 @@
             </div>
             <div style="background: #eff6ff; padding: 30px; border-radius: 24px; border: 1px solid #dbeafe; margin-bottom: 40px;">
                 <h4 style="font-size: 12px; font-weight: 900; margin-bottom: 15px; text-transform: uppercase; italic: true;">Catatan: Angka ini bukan hayalan.</h4>
-                <p style="font-size: 11px; color: #1e40af; line-height: 1.6;">Bagi Invila™, inilah alasan transformasi menjadi WaaS Provider: karena klien membutuhkan hasil yang terus bekerja. Dengan teknologi yang sudah proven untuk melayani air publik dan industri raksasa, model Zero-CapEx kami mengubah biaya tetap yang membebani menjadi kinerja operasional yang lebih terukur. Angka ini adalah refleksi nyata keandalan sistem kami.</p>
+                <p style="font-size: 10px; color: #1e40af; line-height: 1.6;">Bagi Invila™, inilah alasan transformasi menjadi WaaS Provider: karena klien membutuhkan hasil yang terus bekerja. Dengan teknologi yang sudah proven untuk melayani air publik dan industri raksasa, model Zero-CapEx kami mengubah biaya tetap yang membebani menjadi kinerja operasional yang lebih terukur. Angka ini adalah refleksi nyata keandalan sistem kami.</p>
             </div>
         </div>
     </div>
