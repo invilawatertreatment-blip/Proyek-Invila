@@ -35,9 +35,10 @@
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         
+        /* Container Lock */
         .safe-container { @apply max-w-7xl mx-auto px-6 sm:px-10 md:px-12 lg:px-16; }
 
-        /* --- LOGO PILL SYSTEM (UKURAN MARQUEE TETAP) --- */
+        /* --- LOGO PILL SYSTEM BASE --- */
         .logo-pill {
             min-height: 58px;
             padding: 10px 14px;
@@ -59,39 +60,50 @@
             width: auto;
             height: auto;
             object-fit: contain;
+            /* FOKUS: Default Abu-abu untuk Marquee */
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.4s ease;
+        }
+        
+        /* FOKUS: Berwarna saat hover */
+        .logo-pill:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
         }
 
-        /* --- REVISI: LOGO WALL GRID (DIBAWAH) DIPERBESAR 1.5X --- */
-        .logo-wall-grid .logo-pill {
-            min-height: 87px; /* 58px * 1.5 */
-            padding: 15px 21px;
-            min-width: 180px;
-        }
-        .logo-wall-grid .logo-pill img {
-            max-height: 51px; /* 34px * 1.5 */
-        }
-        .logo-wall-grid .pill-label { font-size: 10px; margin-top: 8px; }
-
-        .logo-pill:hover { border-color: var(--blue-p); box-shadow: 0 4px 12px rgba(0,0,0,0.05); transform: translateY(-3px); }
-        .pill-label { font-size: 7px; font-weight: 800; text-transform: uppercase; color: #94a3b8; margin-top: 6px; letter-spacing: 0.05em; }
-
-        /* --- SEAMLESS INFINITE MARQUEE --- */
+        /* --- SEAMLESS INFINITE MARQUEE LOGIC --- */
         @keyframes scroll-marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
-        .marquee-wrapper { overflow: hidden; display: flex; width: 100%; position: relative; padding: 10px 0; }
+        .marquee-wrapper { overflow: hidden; display: flex; width: 100%; position: relative; padding: 15px 0; }
         .marquee-content { 
             display: flex; 
             width: max-content; 
-            animation: scroll-marquee 40s linear infinite; 
+            animation: scroll-marquee 35s linear infinite; 
             align-items: center;
             gap: 20px;
             padding-right: 20px;
         }
         .marquee-wrapper:hover .marquee-content { animation-play-state: paused; }
 
-        /* --- ECCENTRIC ANIMATION --- */
+        /* --- LOGO WALL GRID (TETAP FIX / TIDAK DIUBAH) --- */
+        .logo-wall-grid .logo-pill {
+            min-height: 87px;
+            padding: 15px 21px;
+            min-width: 180px;
+        }
+        .logo-wall-grid .logo-pill img {
+            max-height: 51px;
+            filter: grayscale(0%); /* Logo bawah tetap berwarna sesuai permintaan sebelumnya */
+            opacity: 1;
+        }
+        .logo-wall-grid .pill-label { font-size: 10px; margin-top: 8px; }
+        .logo-pill:hover { border-color: var(--blue-p); box-shadow: 0 4px 12px rgba(0,0,0,0.05); transform: translateY(-3px); }
+        .pill-label { font-size: 7px; font-weight: 800; text-transform: uppercase; color: #94a3b8; margin-top: 6px; letter-spacing: 0.05em; }
+
+        /* --- ANIMATIONS & STATS --- */
         @keyframes rotate-eccentric {
             0% { transform: rotate(0deg) translate(15%, 0) rotate(0deg); }
             100% { transform: rotate(360deg) translate(15%, 0) rotate(-360deg); }
@@ -107,26 +119,10 @@
             .circle-3 { width: 330px; height: 330px; }
         }
 
-        @keyframes text-appearance {
-            0%, 25% { opacity: 0; transform: scale(0.9) translateY(10px); }
-            33%, 58% { opacity: 1; transform: scale(1) translateY(0); }
-            66%, 100% { opacity: 0; transform: scale(1.05) translateY(-10px); }
-        }
-        .cycle-text {
-            position: absolute; opacity: 0; animation: text-appearance 9s infinite;
-            @apply font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] whitespace-nowrap text-xs md:text-2xl;
-        }
-        .text-efficiency { animation-delay: 0s; color: var(--gradiant-blue); }
-        .text-sustainability { animation-delay: 3s; color: var(--gradiant-green); }
-        .text-resilience { animation-delay: 6s; color: var(--gradiant-indigo); }
-
         .stat-circle {
             @apply w-[130px] h-[130px] sm:w-[150px] sm:h-[150px] md:w-[185px] md:h-[185px] rounded-full flex flex-col items-center justify-center text-center transition-all duration-500 border border-black/5 flex-shrink-0 bg-white shadow-sm;
         }
-        .stat-circle:hover { transform: scale(1.05) translateY(-5px); @apply shadow-2xl; }
-
         .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
-        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
         .break-fix { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
     </style>
 </head>
@@ -183,31 +179,34 @@
             </div>
         </div>
 
-        <!-- Marquee Seamless (Tirta Asasta Citayam Dihapus) -->
+        <!-- FOKUS: Marquee Seamless Infinite Loop (Default Abu, Hover Berwarna) -->
         <div class="mt-16 md:mt-24 border-y border-slate-100 py-6 md:py-10 bg-slate-50/50">
             <div class="marquee-wrapper">
                 <div class="marquee-content">
-                    <div class="logo-pill"><img src="wika.png" alt="Wika"><span class="pill-label">BUMN Infrastructure</span></div>
-                    <div class="logo-pill"><img src="united-tractors.png" alt="UT"><span class="pill-label">Energy & Machinery</span></div>
-                    <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Petrokimia"><span class="pill-label">Chemical Industry</span></div>
+                    <!-- Set 1 -->
+                    <div class="logo-pill"><img src="wika.png" alt="Wika"><span class="pill-label">Infrastructure</span></div>
+                    <div class="logo-pill"><img src="united-tractors.png" alt="UT"><span class="pill-label">Energy</span></div>
+                    <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Petrokimia"><span class="pill-label">Chemical</span></div>
                     <div class="logo-pill"><img src="kiw.png" alt="KIW"><span class="pill-label">Industrial Zone</span></div>
                     <div class="logo-pill"><img src="tirtanadi.png" alt="Tirtanadi"><span class="pill-label">Public Utility</span></div>
                     <div class="logo-pill"><img src="tirta-asasta-depok.png" alt="Tirta Asasta"><span class="pill-label">Water Services</span></div>
                     <div class="logo-pill"><img src="kievit.png" alt="Kievit"><span class="pill-label">Food Ingredients</span></div>
-                    <!-- Duplicate -->
-                    <div class="logo-pill"><img src="wika.png" alt="Wika"><span class="pill-label">BUMN Infrastructure</span></div>
-                    <div class="logo-pill"><img src="united-tractors.png" alt="UT"><span class="pill-label">Energy & Machinery</span></div>
-                    <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Petrokimia"><span class="pill-label">Chemical Industry</span></div>
+                    <div class="logo-pill"><img src="patria-maritim-perkasa.png" alt="Patria"><span class="pill-label">Maritime</span></div>
+                    <!-- Set 2 for seamless loop -->
+                    <div class="logo-pill"><img src="wika.png" alt="Wika"><span class="pill-label">Infrastructure</span></div>
+                    <div class="logo-pill"><img src="united-tractors.png" alt="UT"><span class="pill-label">Energy</span></div>
+                    <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Petrokimia"><span class="pill-label">Chemical</span></div>
                     <div class="logo-pill"><img src="kiw.png" alt="KIW"><span class="pill-label">Industrial Zone</span></div>
                     <div class="logo-pill"><img src="tirtanadi.png" alt="Tirtanadi"><span class="pill-label">Public Utility</span></div>
                     <div class="logo-pill"><img src="tirta-asasta-depok.png" alt="Tirta Asasta"><span class="pill-label">Water Services</span></div>
                     <div class="logo-pill"><img src="kievit.png" alt="Kievit"><span class="pill-label">Food Ingredients</span></div>
+                    <div class="logo-pill"><img src="patria-maritim-perkasa.png" alt="Patria"><span class="pill-label">Maritime</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DNA SECTION -->
+    <!-- DNA SECTION (Lingkaran di Kiri) -->
     <section id="drives-us" class="py-24 md:py-32 bg-white overflow-hidden">
         <div class="safe-container">
             <div class="max-w-5xl mb-24 reveal">
@@ -215,9 +214,6 @@
                 <h3 class="text-4xl md:text-6xl font-black text-slate-900 leading-[1.1] tracking-tighter mb-10 italic break-fix">
                     Transformasi dari Utilitas <br>Menjadi Aset Strategis.
                 </h3>
-                <p class="text-xl md:text-2xl text-slate-500 leading-relaxed max-w-4xl break-fix">
-                    Bagi fasilitas industri modern, air tidak lagi bisa diposisikan sekadar sebagai utilitas pendukung—ia adalah komponen kritis dalam <span class="text-slate-900 font-bold italic">Cost of Goods Sold (COGS).</span>
-                </p>
             </div>
 
             <div class="grid lg:grid-cols-[1fr_1.2fr] gap-16 md:gap-20 items-center mb-24">
@@ -233,38 +229,25 @@
                 </div>
                 <div class="reveal lg:order-2 order-1">
                     <p class="text-lg text-slate-600 leading-relaxed mb-12 break-fix">
-                        Tekanan dari limitasi Air Bawah Tanah (ABT), volatilitas tarif PDAM, serta tuntutan efisiensi energi dan standar lingkungan, kini menjadikan pengelolaan air sebagai faktor yang langsung memengaruhi <span class="text-slate-900 font-bold">biaya produksi, stabilitas operasional, dan daya saing bisnis.</span>
+                        Tekanan dari limitasi Air Bawah Tanah (ABT), volatilitas tarif PDAM, serta tuntutan efisiensi energi dan standar lingkungan, kini menjadikan pengelolaan air sebagai faktor kritis.
                     </p>
-                    <p class="text-lg font-bold text-slate-900 mb-10 uppercase tracking-tight italic">Di Invila™, pengelolaan air dianalisis melalui tiga lensa strategis:</p>
                     <div class="space-y-10">
                         <div class="flex gap-6 group">
                             <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm"><i data-lucide="bar-chart-3" class="w-7 h-7"></i></div>
                             <div>
                                 <h4 class="font-black text-slate-900 uppercase tracking-tight text-xl italic">1. Efficiency [Lensa Biaya]</h4>
-                                <p class="text-base text-slate-500 mt-2 italic break-fix">Memastikan setiap liter air memberikan nilai maksimal. Mendeteksi inefisiensi sistemik yang membebani struktur biaya produksi.</p>
+                                <p class="text-base text-slate-500 mt-2 italic break-fix">Memastikan setiap liter air memberikan nilai maksimal.</p>
                             </div>
                         </div>
                         <div class="flex gap-6 group">
                             <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm"><i data-lucide="shield-check" class="w-7 h-7"></i></div>
                             <div>
                                 <h4 class="font-black text-slate-900 uppercase tracking-tight text-xl italic">2. Resilience [Lensa Stabilitas]</h4>
-                                <p class="text-base text-slate-500 mt-2 italic break-fix">Membangun benteng operasional tangguh terhadap gangguan suplai eksternal, memastikan rantai produksi tetap berjalan tanpa interupsi.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-6 group">
-                            <div class="w-14 h-14 rounded-2xl bg-green-50 text-green-600 flex items-center justify-center flex-shrink-0 group-hover:bg-green-600 group-hover:text-white transition-all shadow-sm"><i data-lucide="leaf" class="w-7 h-7"></i></div>
-                            <div>
-                                <h4 class="font-black text-slate-900 uppercase tracking-tight text-xl italic">3. Sustainability [Lensa Pertumbuhan]</h4>
-                                <p class="text-base text-slate-500 mt-2 italic break-fix">Menyelaraskan profit dengan kelestarian alam. Membangun legacy hijau melalui optimalisasi jejak air.</p>
+                                <p class="text-base text-slate-500 mt-2 italic break-fix">Membangun benteng operasional tangguh terhadap gangguan suplai.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="flex flex-wrap md:flex-row gap-8 justify-center items-center reveal pt-12">
-                <div class="stat-circle text-slate-900 border-slate-100"><div class="text-3xl md:text-4xl font-black text-blue-600 italic">10+</div><div class="text-[8px] uppercase tracking-[0.2em] font-bold text-slate-400 mt-2 leading-relaxed">Years of<br>Stability</div></div>
-                <div class="stat-circle bg-blue-600 text-white border-blue-500"><div class="text-3xl md:text-4xl font-black italic">833</div><div class="text-[8px] uppercase tracking-[0.2em] font-bold opacity-80 mt-2 leading-relaxed">LPS Peak<br>Delivery</div></div>
-                <div class="stat-circle bg-slate-900 text-white border-slate-800"><div class="text-3xl md:text-4xl font-black text-cyan-400 italic">ZERO</div><div class="text-[8px] uppercase tracking-[0.2em] font-bold opacity-60 mt-2 leading-relaxed">Capital<br>Risk (WaaS)</div></div>
             </div>
         </div>
     </section>
@@ -280,75 +263,40 @@
                 <div class="group reveal">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="KIW Project">
-                        <div class="absolute top-6 left-6 logo-pill shadow-xl border-none"><img src="kiw.png" alt="Logo KIW"></div>
+                        <div class="absolute top-6 left-6 logo-pill shadow-xl border-none"><img src="kiw.png" alt="Logo KIW" style="filter: grayscale(0%); opacity: 1;"></div>
                     </div>
-                    <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">SCALABLE WAAS: KIW SEMARANG (2.160 M³/HARI)</h5>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 italic break-fix">Implementasi SPAM Modular 4.0 dan infrastruktur **Zero-CapEx**. Menjamin stabilitas suplai 24/7 yang adaptif terhadap pertumbuhan tenant.</p>
+                    <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">SCALABLE WAAS: KIW SEMARANG</h5>
                 </div>
                 <div class="group reveal" style="transition-delay: 0.1s;">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Tirtanadi Project">
-                        <div class="absolute top-6 left-6 logo-pill shadow-xl border-none"><img src="tirtanadi.png" alt="Logo Tirtanadi"></div>
+                        <div class="absolute top-6 left-6 logo-pill shadow-xl border-none"><img src="tirtanadi.png" alt="Logo Tirtanadi" style="filter: grayscale(0%); opacity: 1;"></div>
                     </div>
-                    <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">TRANSFORMASI AIR MINUM KOTA MEDAN (1.000 LPS)</h5>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 italic break-fix">Akselerasi debit total 1.000 LPS melalui teknologi **Hybrid Lamella** dan **Static Mixing** Invila™ pada SPAM Tirtanadi Sunggal.</p>
+                    <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">AIR MINUM KOTA MEDAN (1.000 LPS)</h5>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- STRATEGIC ECOSYSTEM (REVISI: LOGO DIPERBESAR 1.5X & CITAYAM DIHAPUS) -->
+    <!-- STRATEGIC ECOSYSTEM (TETAP 1.5X & BERWARNA) -->
     <section class="py-24 md:py-32 bg-slate-50 border-y border-slate-100">
         <div class="safe-container">
             <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20 reveal">
                 <h2 class="text-blue-600 font-bold text-xs uppercase tracking-[0.5em] mb-4">Strategic Ecosystem</h2>
                 <h3 class="text-3xl md:text-5xl font-black text-slate-900 italic mb-6">Trusted by Industry Giants.</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">
-                    Kredibilitas Invila™ dibangun di atas kolaborasi dengan pemegang kepentingan strategis nasional—mulai dari raksasa infrastruktur BUMN, pengelola kawasan industri, hingga penyedia layanan air publik global.
-                </p>
             </div>
-            
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-10 items-center justify-items-center reveal logo-wall-grid">
-                <div class="logo-pill"><img src="wika.png" alt="Wika"><span class="pill-label">Infrastruktur & BUMN</span></div>
-                <div class="logo-pill"><img src="united-tractors.png" alt="UT"><span class="pill-label">Energi & Alat Berat</span></div>
-                <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Petrokimia"><span class="pill-label">Industri Kimia</span></div>
-                <div class="logo-pill"><img src="kiw.png" alt="KIW"><span class="pill-label">Kawasan Industri</span></div>
-                <div class="logo-pill"><img src="tirtanadi.png" alt="Tirtanadi"><span class="pill-label">Penyedia Air Publik</span></div>
-                <div class="logo-pill"><img src="tirta-asasta-depok.png" alt="Tirta Asasta"><span class="pill-label">Layanan Utilitas Air</span></div>
-                <div class="logo-pill"><img src="kievit.png" alt="Kievit"><span class="pill-label">Pangan Global</span></div>
-                <div class="logo-pill"><img src="patria-maritim-perkasa.png" alt="Patria"><span class="pill-label">Industri Maritim</span></div>
-                <div class="logo-pill"><img src="cemerlang-samudra-kontrindo.png" alt="CSK"><span class="pill-label">Konstruksi Kelautan</span></div>
-                <div class="logo-pill"><img src="dinkes depok.png" alt="Dinkes"><span class="pill-label">Sektor Kesehatan</span></div>
-                <div class="text-[10px] md:text-xs font-black text-slate-400 uppercase tracking-widest leading-tight text-left border-l-2 border-slate-200 pl-6 italic flex items-center h-full">DAN BERBAGAI<br>MITRA GLOBAL...</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INTELLIGENCE AUDIT CALCULATOR -->
-    <section id="audit" class="py-24 md:py-32 bg-[#020617] text-white font-jakarta">
-        <div class="safe-container">
-            <div class="max-w-4xl mb-20 reveal">
-                <h3 class="text-cyan-400 font-bold text-2xl md:text-3xl mb-8 tracking-tight uppercase break-fix">Invila™ Intelligence: <span class="font-light text-white">Saving Audit</span></h3>
-                <p class="text-xl text-slate-400 leading-relaxed mb-10 break-fix">Langkah paling rasional untuk memulai transformasi ini adalah dengan memahami kondisi aktual fasilitas.</p>
-                <div class="flex flex-col sm:flex-row gap-6 pt-4">
-                    <button onclick="downloadPDF()" id="btn-download" class="px-10 py-5 bg-rose-500 rounded-3xl text-xs font-bold uppercase tracking-widest shadow-2xl hover:bg-rose-600 transition-all flex items-center justify-center gap-4"><i data-lucide="file-text" class="w-5 h-5"></i> Download PDF Ringkasan</button>
-                    <button id="btn-update" class="px-10 py-5 bg-slate-800 text-slate-500 rounded-3xl text-xs font-bold uppercase tracking-widest cursor-not-allowed transition-all flex justify-center text-center">Data Tersinkron</button>
-                </div>
-            </div>
-            <div class="grid lg:grid-cols-[420px_1fr] gap-12 md:gap-20 reveal">
-                <div class="glass-panel p-10 md:p-14 rounded-[4rem] space-y-10 border-white/5 shadow-2xl">
-                    <div class="flex items-center gap-5 mb-4"><div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-slate-900 font-black text-xl shadow-lg">IV</div><span class="text-xs font-black uppercase tracking-[0.3em]">Intelligence Input</span></div>
-                    <div class="grid gap-3"><label class="text-[10px] uppercase text-slate-500 font-bold tracking-widest italic pl-1">Debit Produksi (m³/hari)</label><input type="text" id="input-flow" data-key="flowRate" class="input-comma w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-6 text-4xl font-black outline-none focus:border-cyan-400 transition-all" value="1,500"></div>
-                    <div class="grid gap-3"><label class="text-[10px] uppercase text-slate-500 font-bold tracking-widest italic pl-1">Legacy Cost (Rp/m³)</label><input type="text" id="input-legacy" data-key="legacyCost" class="input-comma w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-6 text-4xl font-black outline-none focus:border-cyan-400 transition-all" value="14,600"></div>
-                    <div class="grid gap-3"><label class="text-[10px] uppercase text-slate-500 font-bold tracking-widest italic pl-1">Tarif Invila™ WaaS (Rp/m³)</label><input type="text" id="input-tariff" data-key="invilaTariff" class="input-comma w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-6 text-4xl font-black text-cyan-400 outline-none focus:border-cyan-400 transition-all" value="5,500"></div>
-                </div>
-                <div class="space-y-12">
-                    <div class="bg-gradient-to-br from-slate-900 to-black p-12 md:p-24 rounded-[5rem] border border-white/5 shadow-2xl relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 blur-[150px]"></div>
-                        <span class="text-blue-400 font-bold text-sm uppercase tracking-[0.5em]">Monthly Potential Saving</span>
-                        <h2 id="view-monthly-saving" class="text-5xl sm:text-7xl md:text-[110px] font-black tracking-tighter mt-12 leading-none italic transition-all duration-500 break-fix">Rp 0</h2>
-                    </div>
-                </div>
+                <div class="logo-pill"><img src="wika.png" alt="Wika"><span class="pill-label">BUMN Infra</span></div>
+                <div class="logo-pill"><img src="united-tractors.png" alt="UT"><span class="pill-label">Energy</span></div>
+                <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Petrokimia"><span class="pill-label">Chemical</span></div>
+                <div class="logo-pill"><img src="kiw.png" alt="KIW"><span class="pill-label">Industrial Zone</span></div>
+                <div class="logo-pill"><img src="tirtanadi.png" alt="Tirtanadi"><span class="pill-label">Public Utility</span></div>
+                <div class="logo-pill"><img src="tirta-asasta-depok.png" alt="Tirta Asasta"><span class="pill-label">Water Services</span></div>
+                <div class="logo-pill"><img src="kievit.png" alt="Kievit"><span class="pill-label">Global Food</span></div>
+                <div class="logo-pill"><img src="patria-maritim-perkasa.png" alt="Patria"><span class="pill-label">Maritime</span></div>
+                <div class="logo-pill"><img src="cemerlang-samudra-kontrindo.png" alt="CSK"><span class="pill-label">Construction</span></div>
+                <div class="logo-pill"><img src="dinkes depok.png" alt="Dinkes"><span class="pill-label">Health Sector</span></div>
+                <div class="text-[10px] md:text-xs font-black text-slate-400 uppercase tracking-widest leading-tight text-left border-l-2 border-slate-200 pl-6 italic flex items-center h-full">AND MANY<br>GLOBAL PARTNERS...</div>
             </div>
         </div>
     </section>
@@ -372,44 +320,7 @@
             }
         }
         window.addEventListener("scroll", reveal);
-
-        const CONFIG = { flowRate: 1500, legacyCost: 14600, invilaTariff: 5500 };
-        let activeValues = { ...CONFIG };
-        let draftValues = { ...CONFIG };
-
-        const formatRp = (v) => {
-            const abs = Math.abs(v);
-            if (abs >= 1e9) return `Rp ${(v / 1e9).toFixed(2)} Miliar`;
-            if (abs >= 1e6) return `Rp ${(v / 1e6).toFixed(1)} Juta`;
-            return `Rp ${Math.round(v).toLocaleString("id-ID")}`;
-        };
-
-        const updateUI = () => {
-            const monthly = (activeValues.legacyCost - activeValues.invilaTariff) * activeValues.flowRate * 30;
-            document.getElementById('view-monthly-saving').innerText = formatRp(monthly);
-        };
-
-        document.querySelectorAll('.input-comma').forEach(input => {
-            input.addEventListener('input', (e) => {
-                const key = e.target.dataset.key;
-                const numeric = e.target.value.replace(/\D/g, "");
-                draftValues[key] = numeric ? parseInt(numeric) : 0;
-                e.target.value = draftValues[key].toLocaleString("en-US");
-                document.getElementById('btn-update').classList.replace('bg-slate-800', 'bg-cyan-400');
-                document.getElementById('btn-update').innerText = "Perbarui Hasil";
-                document.getElementById('btn-update').classList.remove('cursor-not-allowed');
-            });
-        });
-
-        document.getElementById('btn-update').addEventListener('click', () => {
-            activeValues = { ...draftValues };
-            updateUI();
-            document.getElementById('btn-update').classList.replace('bg-cyan-400', 'bg-slate-800');
-            document.getElementById('btn-update').innerText = "Data Tersinkron";
-            document.getElementById('btn-update').classList.add('cursor-not-allowed');
-        });
-
-        window.onload = () => { reveal(); updateUI(); };
+        window.onload = () => { reveal(); };
     </script>
 </body>
 </html>
