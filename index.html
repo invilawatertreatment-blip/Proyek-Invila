@@ -47,13 +47,12 @@
             animation: scroll-marquee 40s linear infinite; 
             align-items: center;
         }
-        /* Memastikan logo berhenti saat di-hover untuk memudahkan klien melihat */
         .marquee-wrapper:hover .marquee-content { animation-play-state: paused; }
 
-        /* Ukuran Logo Marquee Proporsional */
+        /* REVISI SIZE: Logo Marquee dikecilkan drastis (20% dari sebelumnya) */
         .logo-item-marquee { 
-            @apply h-8 sm:h-10 md:h-12 object-contain mx-8 md:mx-14 flex-shrink-0; 
-            transition: transform 0.3s ease;
+            @apply h-2.5 sm:h-3 md:h-4 object-contain mx-6 md:mx-10 flex-shrink-0 opacity-60 grayscale hover:grayscale-0 hover:opacity-100; 
+            transition: all 0.4s ease;
         }
 
         /* --- ECCENTRIC ANIMATION --- */
@@ -91,8 +90,8 @@
         }
         .stat-circle:hover { transform: scale(1.05) translateY(-5px); @apply shadow-2xl; }
 
-        /* Logo Wall - Balanced Scales */
-        .logo-wall-item { @apply h-8 sm:h-11 md:h-13 lg:h-15 object-contain transition-all duration-300; }
+        /* Logo Wall - Proporsional */
+        .logo-wall-item { @apply h-8 sm:h-10 md:h-12 object-contain transition-all duration-300 opacity-80 hover:opacity-100; }
         
         .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
         input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
@@ -152,11 +151,10 @@
             </div>
         </div>
 
-        <!-- Trust Bar Logo Marquee (Sangat Seamless & Berputar Terus) -->
-        <div class="mt-16 md:mt-24 border-y border-slate-100 py-10 md:py-14 bg-slate-50/50">
+        <!-- Trust Bar Logo Marquee (REVISI: Size 20% / Sangat Minimalis) -->
+        <div class="mt-16 md:mt-24 border-y border-slate-100 py-6 md:py-8 bg-slate-50/50">
             <div class="marquee-wrapper">
                 <div class="marquee-content">
-                    <!-- Original Set -->
                     <img src="wika.png" class="logo-item-marquee" alt="Wika">
                     <img src="united-tractors.png" class="logo-item-marquee" alt="United Tractors">
                     <img src="petrokimia-gresik.png" class="logo-item-marquee" alt="Petrokimia Gresik">
@@ -166,7 +164,7 @@
                     <img src="tirta-asasta-depok.png" class="logo-item-marquee" alt="Tirta Asasta">
                     <img src="1tirta-asasta-citayam.png" class="logo-item-marquee" alt="Citayam">
                     <img src="patria-maritim-perkasa.png" class="logo-item-marquee" alt="Patria">
-                    <!-- Duplicate Set (For Seamless Loop) -->
+                    <!-- Duplicate Set -->
                     <img src="wika.png" class="logo-item-marquee" alt="Wika">
                     <img src="united-tractors.png" class="logo-item-marquee" alt="United Tractors">
                     <img src="petrokimia-gresik.png" class="logo-item-marquee" alt="Petrokimia Gresik">
@@ -322,7 +320,7 @@
                 <div class="group reveal">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="KIW WaaS">
-                        <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-5 py-3 rounded-2xl shadow-xl">
+                        <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-6 py-3 rounded-2xl shadow-xl">
                             <img src="kiw.png" class="h-6 sm:h-8 object-contain" alt="Logo KIW">
                         </div>
                     </div>
@@ -333,7 +331,7 @@
                 <div class="group reveal" style="transition-delay: 0.1s;">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Tirtanadi Sunggal">
-                        <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-5 py-3 rounded-2xl shadow-xl">
+                        <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-6 py-3 rounded-2xl shadow-xl">
                             <img src="tirtanadi.png" class="h-6 sm:h-9 object-contain" alt="Logo Tirtanadi">
                         </div>
                     </div>
@@ -420,11 +418,11 @@
             <div class="text-3xl font-black tracking-tighter text-navy mb-10 uppercase italic">
                 INVILA<sup class="text-blue-600 text-[12px] ml-1">TM</sup>
             </div>
-            <p class="text-[11px] text-slate-400 font-bold uppercase tracking-[0.4em] italic px-4">© 2026 Invila.asia | Strategic Infrastructure Group</p>
+            <p class="text-[11px] text-slate-400 font-bold uppercase tracking-[0.5em] italic px-4">© 2026 Invila.asia | Strategic Infrastructure Group</p>
         </div>
     </footer>
 
-    <!-- PDF TEMPLATE (HIDDEN) -->
+    <!-- PDF TEMPLATE -->
     <div style="position: absolute; top: -9999px; left: -9999px;">
         <div id="pdf-template" style="width: 210mm; padding: 25mm; background: white; color: #0f172a; font-family: 'Inter', sans-serif;">
             <div style="border-bottom: 3px solid #0f172a; padding-bottom: 20px; margin-bottom: 40px; display: flex; justify-content: space-between; align-items: flex-end;">
@@ -435,10 +433,7 @@
                 <div style="font-size: 14px; font-weight: 900; letter-spacing: -1px;">INVILA™ INTELLIGENCE</div>
             </div>
             <h2 style="font-size: 32px; font-weight: 900; line-height: 1.1; margin-bottom: 30px;">Financial upside of shifting to Invila™.</h2>
-            <div style="background: #f8fafc; padding: 40px; border-radius: 32px; border: 1px solid #e2e8f0; margin-bottom: 30px;">
-                <div style="font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1px;">Estimasi Penghematan Bulanan</div>
-                <div id="pdf-monthly-saving" style="font-size: 60px; font-weight: 900; color: #0f172a; letter-spacing: -3px; line-height: 1;">-</div>
-            </div>
+            <div id="pdf-monthly-saving" style="font-size: 60px; font-weight: 900; color: #0f172a; letter-spacing: -3px; line-height: 1; margin-bottom: 30px;">-</div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px;">
                 <div style="background: #f1f5f9; padding: 25px; border-radius: 24px; border-left: 5px solid #0f172a;">
                     <div style="font-size: 8px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 1px;">Penghematan Tahunan</div>
@@ -448,10 +443,6 @@
                     <div style="font-size: 8px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 1px;">Komitmen CapEx Dihindari</div>
                     <div id="pdf-capex-avoided-p" style="font-size: 22px; font-weight: 900; color: #0f172a; margin-top: 8px;">-</div>
                 </div>
-            </div>
-            <div style="background: #eff6ff; padding: 30px; border-radius: 24px; border: 1px solid #dbeafe; margin-bottom: 40px;">
-                <h4 style="font-size: 12px; font-weight: 900; margin-bottom: 15px; text-transform: uppercase; font-style: italic;">Catatan: Angka ini bukan hayalan.</h4>
-                <p style="font-size: 10px; color: #1e40af; line-height: 1.6;">Bagi Invila™, inilah alasan transformasi menjadi WaaS Provider: karena klien membutuhkan hasil yang terus bekerja. Dengan teknologi yang sudah proven untuk melayani air publik dan industri raksasa, model Zero-CapEx kami mengubah biaya tetap yang membebani menjadi kinerja operasional yang lebih terukur. Angka ini adalah refleksi nyata keandalan sistem kami.</p>
             </div>
         </div>
     </div>
@@ -509,7 +500,7 @@
                 btn.classList.replace('bg-slate-800', 'bg-cyan-400');
                 btn.classList.replace('text-slate-500', 'text-black');
                 btn.classList.remove('cursor-not-allowed');
-                btn.innerText = "Perbarui Hasil Audit";
+                btn.innerText = "Perbarui Audit";
             } else {
                 btn.classList.replace('bg-cyan-400', 'bg-slate-800');
                 btn.classList.replace('text-black', 'text-slate-500');
