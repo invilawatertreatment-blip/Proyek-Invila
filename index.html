@@ -53,6 +53,27 @@
             width: fit-content;
             min-width: 120px;
         }
+        
+        /* Marquee Specific Logic for Seamless Close Loop */
+        .marquee-wrapper { overflow: hidden; display: flex; width: 100%; position: relative; padding: 20px 0; }
+        
+        @keyframes scroll-marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .marquee-content { 
+            display: flex; 
+            width: max-content; 
+            animation: scroll-marquee 40s linear infinite; 
+            align-items: center;
+            will-change: transform;
+        }
+        .marquee-content:hover { animation-play-state: paused; }
+
+        /* Jarak antar logo diatur via margin untuk akurasi loop */
+        .marquee-content .logo-pill { margin-right: 24px; }
+
         .logo-pill img {
             max-height: 34px;
             max-width: 100%;
@@ -63,12 +84,13 @@
             opacity: 0.6;
             transition: all 0.4s ease;
         }
+        
         .logo-pill:hover img {
             filter: grayscale(0%);
             opacity: 1;
         }
 
-        /* --- LOGO WALL GRID --- */
+        /* --- LOGO WALL GRID (TETAP 1.5X & FIX) --- */
         .logo-wall-grid .logo-pill {
             min-height: 87px; 
             padding: 15px 21px;
@@ -83,22 +105,6 @@
 
         .logo-pill:hover { border-color: var(--blue-p); box-shadow: 0 4px 12px rgba(0,0,0,0.05); transform: translateY(-3px); }
         .pill-label { font-size: 7px; font-weight: 800; text-transform: uppercase; color: #94a3b8; margin-top: 6px; letter-spacing: 0.05em; }
-
-        /* --- SEAMLESS INFINITE MARQUEE --- */
-        @keyframes scroll-marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .marquee-wrapper { overflow: hidden; display: flex; width: 100%; position: relative; padding: 15px 0; }
-        .marquee-content { 
-            display: flex; 
-            width: max-content; 
-            animation: scroll-marquee 40s linear infinite; 
-            align-items: center;
-            gap: 20px;
-            padding-right: 20px;
-        }
-        .marquee-wrapper:hover .marquee-content { animation-play-state: paused; }
 
         /* --- ECCENTRIC ANIMATION --- */
         @keyframes rotate-eccentric {
@@ -168,7 +174,7 @@
                             <div class="risk-item"><i data-lucide="alert-circle" class="w-4 h-4 text-blue-500"></i> Beban Tarif Limbah WWTP</div>
                         </div>
 
-                        <!-- FOKUS: HIGHLIGHT SOLUSI (Outline Box, Background Putih) -->
+                        <!-- ZERO-CAPEX SOLUTION BOX (Background Putih Bersih + Outline) -->
                         <div class="p-8 bg-white text-slate-900 rounded-[2rem] relative overflow-hidden shadow-sm border border-slate-200 transition-all hover:shadow-xl hover:border-blue-200">
                             <div class="relative z-10 space-y-6">
                                 <div>
@@ -197,7 +203,7 @@
                     <div class="rounded-[40px] overflow-hidden border-[8px] border-white shadow-2xl aspect-video bg-slate-900 relative">
                         <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-80">
                             <source src="kiw-industrial-project-video.mp4" type="video/mp4">
-                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1000" alt="Invila Industrial">
+                            
                         </video>
                         <div class="absolute bottom-4 left-6 flex items-center gap-2">
                             <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
@@ -208,10 +214,11 @@
             </div>
         </div>
 
-        <!-- Marquee Seamless Infinite Loop -->
+        <!-- MARQUEE INFINITE SEAMLESS (FOKUS: CLOSE LOOP) -->
         <div class="mt-16 md:mt-24 border-y border-slate-100 py-6 md:py-10 bg-slate-50/50">
             <div class="marquee-wrapper">
                 <div class="marquee-content">
+                    <!-- Set 1 -->
                     <div class="logo-pill"><img src="wika.png" alt="Wika"><span class="pill-label">Infrastructure</span></div>
                     <div class="logo-pill"><img src="united-tractors.png" alt="UT"><span class="pill-label">Energy</span></div>
                     <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Petrokimia"><span class="pill-label">Chemical</span></div>
@@ -220,7 +227,7 @@
                     <div class="logo-pill"><img src="tirta-asasta-depok.png" alt="Tirta Asasta"><span class="pill-label">Water Services</span></div>
                     <div class="logo-pill"><img src="kievit.png" alt="Kievit"><span class="pill-label">Food Ingredients</span></div>
                     <div class="logo-pill"><img src="patria-maritim-perkasa.png" alt="Patria"><span class="pill-label">Maritime</span></div>
-                    <!-- Duplicate -->
+                    <!-- Set 2 (Identical for seamless close loop) -->
                     <div class="logo-pill"><img src="wika.png" alt="Wika"><span class="pill-label">Infrastructure</span></div>
                     <div class="logo-pill"><img src="united-tractors.png" alt="UT"><span class="pill-label">Energy</span></div>
                     <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Petrokimia"><span class="pill-label">Chemical</span></div>
@@ -245,6 +252,7 @@
             </div>
 
             <div class="grid lg:grid-cols-[1fr_1.2fr] gap-16 md:gap-20 items-center mb-24">
+                <!-- Visual Animation (KIRI) -->
                 <div class="relative flex justify-center items-center h-[400px] md:h-[500px] reveal lg:order-1 order-2">
                     <div class="animated-circle circle-1"></div>
                     <div class="animated-circle circle-2"></div>
@@ -315,14 +323,14 @@
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="group reveal">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="KIW">
+                        
                         <div class="absolute top-6 left-6 logo-pill shadow-xl border-none"><img src="kiw.png" alt="Logo KIW" style="filter:grayscale(0%); opacity:1;"></div>
                     </div>
                     <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">SCALABLE WAAS: KIW SEMARANG</h5>
                 </div>
                 <div class="group reveal" style="transition-delay: 0.1s;">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Tirtanadi">
+                        
                         <div class="absolute top-6 left-6 logo-pill shadow-xl border-none"><img src="tirtanadi.png" alt="Logo Tirtanadi" style="filter:grayscale(0%); opacity:1;"></div>
                     </div>
                     <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">AIR MINUM KOTA MEDAN (1.000 LPS)</h5>
@@ -331,7 +339,7 @@
         </div>
     </section>
 
-    <!-- STRATEGIC ECOSYSTEM (FIX DI BAWAH) -->
+    <!-- STRATEGIC ECOSYSTEM (LOGO BAWAH TETAP FIX 1.5X) -->
     <section class="py-24 md:py-32 bg-slate-50 border-y border-slate-100">
         <div class="safe-container">
             <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20 reveal">
