@@ -36,10 +36,10 @@
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         
-        /* KUNCI: Jarak sisi kiri & kanan proporsional untuk Mobile & Desktop */
+        /* KUNCI: Jarak sisi kiri & kanan proporsional */
         .safe-container { @apply max-w-7xl mx-auto px-6 sm:px-10 md:px-12 lg:px-16; }
 
-        /* --- SEAMLESS INFINITE LOOP (REVISI SIZE 10%) --- */
+        /* --- SEAMLESS INFINITE LOOP (UKURAN EMAS B2B) --- */
         @keyframes scroll-marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -48,13 +48,14 @@
         .marquee-content { 
             display: flex; 
             width: max-content; 
-            animation: scroll-marquee 30s linear infinite; 
+            animation: scroll-marquee 35s linear infinite; 
             align-items: center;
         }
+        .marquee-wrapper:hover .marquee-content { animation-play-state: paused; }
 
-        /* Logo Marquee Size (Sangat Mikro & Elegan) */
+        /* Ukuran Logo Marquee yang Proporsional & Berwibawa */
         .logo-item-marquee { 
-            @apply h-1.5 sm:h-2 md:h-2.5 object-contain mx-5 sm:mx-8 md:mx-10 flex-shrink-0 opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500;
+            @apply h-8 sm:h-10 md:h-14 object-contain mx-8 md:mx-14 flex-shrink-0 transition-all duration-300;
         }
 
         /* --- ECCENTRIC ANIMATION --- */
@@ -80,7 +81,7 @@
         }
         .cycle-text {
             position: absolute; opacity: 0; animation: text-appearance 9s infinite;
-            @apply font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] whitespace-nowrap text-xs md:text-2xl;
+            @apply font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] whitespace-nowrap text-sm md:text-2xl;
         }
         .text-efficiency { animation-delay: 0s; color: var(--gradiant-blue); }
         .text-sustainability { animation-delay: 3s; color: var(--gradiant-green); }
@@ -92,9 +93,10 @@
         }
         .stat-circle:hover { transform: scale(1.05) translateY(-5px); @apply shadow-2xl; }
 
-        /* Logo Wall - Proporsional Mikro */
-        .logo-wall-item { @apply h-2.5 sm:h-3.5 md:h-5 object-contain transition-all duration-300 opacity-80 hover:opacity-100; }
-        
+        /* Logo Wall - Confidence & Elegance */
+        .logo-wall-item { @apply h-10 sm:h-14 md:h-18 lg:h-22 object-contain transition-all duration-300 opacity-90 hover:opacity-100; }
+        .logo-wall-item:hover { transform: translateY(-5px) scale(1.05); }
+
         .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
         input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
         .break-fix { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
@@ -135,12 +137,15 @@
                         Melalui solusi <span class="text-slate-900 font-bold underline decoration-blue-200 underline-offset-8 italic">Zero-CapEx</span> Invila™, kami mentransformasi utilitas air industri menjadi aset operasional bersih.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#audit" class="bg-slate-900 text-white px-10 py-5 rounded-2xl font-bold uppercase text-xs tracking-widest hover:scale-105 transition-all shadow-2xl">Mulai Audit</a>
+                        <a href="#audit" class="bg-slate-900 text-white px-10 py-5 rounded-2xl font-bold uppercase text-xs tracking-widest hover:scale-105 transition-all shadow-2xl">Mulai Audit Penghematan</a>
                     </div>
                 </div>
                 <div class="relative reveal active lg:block">
                     <div class="rounded-[40px] overflow-hidden border-[8px] border-white shadow-2xl aspect-video bg-slate-900 relative">
-                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover opacity-80" alt="Invila Industrial">
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-80">
+                            <source src="kiw-industrial-project-video.mp4" type="video/mp4">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1000" alt="Invila Industrial Facility">
+                        </video>
                         <div class="absolute bottom-4 left-6 flex items-center gap-2">
                             <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                             <span class="text-[9px] font-bold text-white uppercase tracking-widest">DECN-IV™ System Live</span>
@@ -150,23 +155,23 @@
             </div>
         </div>
 
-        <!-- Marquee (REVISI SIZE 10%) -->
-        <div class="mt-16 md:mt-24 border-y border-slate-100 py-4 md:py-6 bg-slate-50/50">
+        <!-- Marquee Infinite Loop -->
+        <div class="mt-16 md:mt-24 border-y border-slate-100 py-8 md:py-12 bg-slate-50/50">
             <div class="marquee-wrapper">
                 <div class="marquee-content">
                     <img src="wika.png" class="logo-item-marquee" alt="Wika">
-                    <img src="united-tractors.png" class="logo-item-marquee" alt="UT">
-                    <img src="petrokimia-gresik.png" class="logo-item-marquee" alt="Petrokimia">
+                    <img src="united-tractors.png" class="logo-item-marquee" alt="United Tractors">
+                    <img src="petrokimia-gresik.png" class="logo-item-marquee" alt="Petrokimia Gresik">
                     <img src="kievit.png" class="logo-item-marquee" alt="Kievit">
                     <img src="kiw.png" class="logo-item-marquee" alt="KIW">
                     <img src="tirtanadi.png" class="logo-item-marquee" alt="Tirtanadi">
                     <img src="tirta-asasta-depok.png" class="logo-item-marquee" alt="Tirta Asasta">
                     <img src="1tirta-asasta-citayam.png" class="logo-item-marquee" alt="Citayam">
                     <img src="patria-maritim-perkasa.png" class="logo-item-marquee" alt="Patria">
-                    <!-- Duplicates -->
+                    <!-- Set Kedua -->
                     <img src="wika.png" class="logo-item-marquee" alt="Wika">
-                    <img src="united-tractors.png" class="logo-item-marquee" alt="UT">
-                    <img src="petrokimia-gresik.png" class="logo-item-marquee" alt="Petrokimia">
+                    <img src="united-tractors.png" class="logo-item-marquee" alt="United Tractors">
+                    <img src="petrokimia-gresik.png" class="logo-item-marquee" alt="Petrokimia Gresik">
                     <img src="kievit.png" class="logo-item-marquee" alt="Kievit">
                     <img src="kiw.png" class="logo-item-marquee" alt="KIW">
                     <img src="tirtanadi.png" class="logo-item-marquee" alt="Tirtanadi">
@@ -181,7 +186,6 @@
     <!-- DNA SECTION: ECONOMICS OF WATER (Lingkaran di Kiri) -->
     <section id="drives-us" class="py-24 md:py-32 bg-white overflow-hidden">
         <div class="safe-container">
-            <!-- Title Narrative -->
             <div class="max-w-5xl mb-24 reveal">
                 <h2 class="text-blue-600 font-bold text-xs uppercase tracking-[0.4em] mb-6">Economics of Water</h2>
                 <h3 class="text-4xl md:text-6xl font-black text-slate-900 leading-[1.1] tracking-tighter mb-10 italic break-fix">
@@ -192,10 +196,9 @@
                 </p>
             </div>
 
-            <!-- MODIFIKASI: Lingkaran di Kiri, Teks di Kanan -->
             <div class="grid lg:grid-cols-[1fr_1.2fr] gap-16 md:gap-20 items-center mb-24">
                 
-                <!-- Visual Animation Section (KIRI) -->
+                <!-- Visual Animation (KIRI) -->
                 <div class="relative flex justify-center items-center h-[400px] md:h-[500px] reveal lg:order-1 order-2">
                     <div class="animated-circle circle-1"></div>
                     <div class="animated-circle circle-2"></div>
@@ -207,7 +210,7 @@
                     </div>
                 </div>
 
-                <!-- Text Narrative Section (KANAN) -->
+                <!-- Narrative Text (KANAN) -->
                 <div class="reveal lg:order-2 order-1">
                     <p class="text-lg text-slate-600 leading-relaxed mb-12 break-fix">
                         Tekanan dari limitasi Air Bawah Tanah (ABT), volatilitas tarif PDAM, serta tuntutan efisiensi energi dan standar lingkungan, kini menjadikan pengelolaan air sebagai faktor yang langsung memengaruhi <span class="text-slate-900 font-bold">biaya produksi, stabilitas operasional, dan daya saing bisnis.</span>
@@ -233,14 +236,14 @@
                             <div class="w-14 h-14 rounded-2xl bg-green-50 text-green-600 flex items-center justify-center flex-shrink-0 group-hover:bg-green-600 group-hover:text-white transition-all shadow-sm"><i data-lucide="leaf" class="w-7 h-7"></i></div>
                             <div>
                                 <h4 class="font-black text-slate-900 uppercase tracking-tight text-xl italic">3. Sustainability [Lensa Pertumbuhan]</h4>
-                                <p class="text-base text-slate-500 mt-2 italic break-fix">Menyelaraskan profit dengan kelestarian alam. Membangun legacy hijau yang patuh regulasi melalui optimalisasi jejak air.</p>
+                                <p class="text-base text-slate-500 mt-2 italic break-fix">Menyelaraskan profit dengan kelestarian alam. Membangun legacy hijau melalui optimalisasi jejak air.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- STAT CIRCLES -->
+            <!-- 3 STAT CIRCLES -->
             <div class="flex flex-wrap md:flex-row gap-8 justify-center items-center reveal pt-12">
                 <div class="stat-circle text-slate-900 border-slate-100">
                     <div class="text-3xl md:text-4xl font-black text-blue-600 italic">10+</div>
@@ -276,7 +279,7 @@
                 <div class="bg-white p-12 rounded-[48px] border border-slate-100 flex flex-col reveal transition-all hover:shadow-2xl group" style="transition-delay: 0.1s;">
                     <div class="w-14 h-14 bg-slate-900 text-white rounded-2xl flex items-center justify-center font-bold mb-8 group-hover:bg-blue-600 transition-all text-xl shadow-lg">2</div>
                     <h4 class="text-xl font-black text-slate-900 mb-4 uppercase italic">Validation & Precision</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow italic break-fix">Validasi melalui Technical Assessment (TCA) mendalam untuk presisi data lapangan.</p>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow italic break-fix">Validasi melalui Technical Assessment (TCA) mendalam untuk mendapatkan presisi data lapangan.</p>
                     <p class="text-[11px] font-black text-blue-600 border-t border-slate-200 pt-6 uppercase tracking-[0.2em]">Output: Kepastian Nilai Efisiensi.</p>
                 </div>
                 <div class="bg-white p-12 rounded-[48px] border border-slate-100 flex flex-col reveal transition-all hover:shadow-2xl group" style="transition-delay: 0.2s;">
@@ -289,12 +292,12 @@
         </div>
     </section>
 
-    <!-- STRATEGIC PARTNERS GRID (REVISI SIZE 10% - DI ATAS PROJECTS) -->
+    <!-- STRATEGIC ECOSYSTEM WALL (Positioned Above Projects) -->
     <section class="py-24 md:py-32 bg-white border-y border-slate-100">
         <div class="safe-container text-center">
             <h2 class="text-blue-600 font-bold text-xs uppercase tracking-[0.5em] mb-4 reveal">Trusted by Industry Giants</h2>
             <h3 class="text-3xl md:text-5xl font-black text-slate-900 italic mb-16 md:mb-24 reveal uppercase tracking-tight">Strategic Ecosystem</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-10 items-center justify-items-center">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-14 items-center justify-items-center">
                 <img src="wika.png" class="logo-wall-item" alt="Wika">
                 <img src="united-tractors.png" class="logo-wall-item" alt="UT">
                 <img src="petrokimia-gresik.png" class="logo-wall-item" alt="Petrokimia">
@@ -306,7 +309,7 @@
                 <img src="patria-maritim-perkasa.png" class="logo-wall-item" alt="Patria">
                 <img src="cemerlang-samudra-kontrindo.png" class="logo-wall-item" alt="CSK">
                 <img src="dinkes depok.png" class="logo-wall-item" alt="Dinkes">
-                <div class="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-tight text-left border-l-2 border-slate-200 pl-6 italic">DAN BERBAGAI<br>MITRA GLOBAL...</div>
+                <div class="text-[9px] font-black text-slate-400 uppercase tracking-widest leading-tight text-left border-l-2 border-slate-200 pl-6 italic">DAN BERBAGAI<br>MITRA GLOBAL...</div>
             </div>
         </div>
     </section>
@@ -316,28 +319,26 @@
         <div class="safe-container">
             <div class="text-center mb-24 reveal">
                 <h2 class="text-blue-600 font-bold text-xs uppercase tracking-[0.5em] mb-6">Featured Projects</h2>
-                <h3 class="text-4xl md:text-7xl font-[900] text-slate-900 tracking-tighter italic break-fix">Proven Performance.</h3>
+                <h3 class="text-4xl md:text-7xl font-[900] text-slate-900 tracking-tighter italic break-fix text-center">Proven Performance.</h3>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="group reveal">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="KIW WaaS">
+                        <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="KIW Project">
                         <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-5 py-3 rounded-2xl shadow-xl border border-black/5">
-                            <!-- Logo Mikro pada Project Card -->
-                            <img src="kiw.png" class="h-4 object-contain" alt="Logo KIW">
+                            <img src="kiw.png" class="h-8 object-contain" alt="KIW">
                         </div>
                     </div>
                     <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">SCALABLE WAAS: KIW SEMARANG (2.160 M³/HARI)</h5>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 italic break-fix">Implementasi SPAM Modular 4.0 dan infrastruktur **Zero-CapEx**. Menjamin stabilitas suplai 24/7 yang adaptif terhadap pertumbuhan tenant.</p>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 italic break-fix">Implementasi SPAM Modular 4.0 dan infrastruktur **Zero-CapEx**. Menjamin kestabilan bekalan 24/7 yang adaptif terhadap pertumbuhan tenant.</p>
                 </div>
 
                 <div class="group reveal" style="transition-delay: 0.1s;">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Tirtanadi Sunggal">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Tirtanadi Project">
                         <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-5 py-3 rounded-2xl shadow-xl border border-black/5">
-                            <!-- Logo Mikro pada Project Card -->
-                            <img src="tirtanadi.png" class="h-6 object-contain" alt="Logo Tirtanadi">
+                            <img src="tirtanadi.png" class="h-10 object-contain" alt="Tirtanadi">
                         </div>
                     </div>
                     <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">TRANSFORMASI AIR MINUM KOTA MEDAN (1.000 LPS)</h5>
@@ -355,16 +356,16 @@
                     Invila™ Intelligence: <span class="font-light text-white">Saving Audit</span>
                 </h3>
                 <p class="text-xl text-slate-400 leading-relaxed mb-10 break-fix">
-                    Langkah paling rasional untuk memulai transformasi ini adalah dengan memahami kondisi aktual fasilitas. Invila™ Intelligence menerjemahkan parameter operasional menjadi pemetaan potensi nyata.
+                    Langkah paling rasional untuk memulakan transformasi ini adalah dengan memahami kondisi aktual fasiliti. Invila™ Intelligence menerjemahkan parameter operasional menjadi pemetaan potensi nyata.
                 </p>
                 <blockquote class="text-2xl md:text-4xl font-extralight text-cyan-300 italic border-l-4 border-cyan-400 pl-8 mb-12 break-fix leading-snug">
-                    "Data adalah titik awal dari optimasi yang presisi."
+                    "Data adalah titik permulaan daripada pengoptimuman yang presisi."
                 </blockquote>
                 <div class="flex flex-col sm:flex-row gap-6 pt-4">
                     <button onclick="downloadPDF()" id="btn-download" class="px-10 py-5 bg-rose-500 rounded-3xl text-xs font-bold uppercase tracking-widest shadow-2xl hover:bg-rose-600 transition-all flex items-center justify-center gap-4">
                         <i data-lucide="file-text" class="w-5 h-5"></i> Download Laporan PDF
                     </button>
-                    <button id="btn-update" class="px-10 py-5 bg-slate-800 text-slate-500 rounded-3xl text-xs font-bold uppercase tracking-widest cursor-not-allowed transition-all flex justify-center">Tersinkron</button>
+                    <button id="btn-update" class="px-10 py-5 bg-slate-800 text-slate-500 rounded-3xl text-xs font-bold uppercase tracking-widest cursor-not-allowed transition-all flex justify-center">Data Tersinkron</button>
                 </div>
             </div>
 
@@ -375,7 +376,7 @@
                         <span class="text-xs font-black uppercase tracking-[0.3em]">Intelligence Input</span>
                     </div>
                     <div class="grid gap-3">
-                        <label class="text-[10px] uppercase text-slate-500 font-bold tracking-widest italic pl-1">Debit Produksi (m³/hari)</label>
+                        <label class="text-[10px] uppercase text-slate-500 font-bold tracking-widest italic pl-1">Debit Pengeluaran (m³/hari)</label>
                         <input type="text" id="input-flow" data-key="flowRate" class="input-comma w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-6 text-4xl font-black outline-none focus:border-cyan-400 transition-all" value="1,500">
                     </div>
                     <div class="grid gap-3">
@@ -408,7 +409,7 @@
                             <div id="view-five-year-saving" class="text-2xl md:text-3xl font-black text-rose-400 italic">Rp 0</div>
                         </div>
                         <div class="glass-panel p-10 rounded-[3rem] border-cyan-400/20 col-span-full lg:col-span-1">
-                            <div class="text-[10px] uppercase font-bold text-slate-500 mb-3 tracking-widest italic font-bold">CapEx Avoided</div>
+                            <div class="text-[10px] uppercase font-bold text-slate-500 mb-3 tracking-widest font-bold italic">CapEx Avoided</div>
                             <div id="view-capex-value" class="text-2xl md:text-3xl font-black text-cyan-300 italic">Rp 0</div>
                         </div>
                     </div>
@@ -451,7 +452,7 @@
             </div>
             <div style="background: #eff6ff; padding: 30px; border-radius: 24px; border: 1px solid #dbeafe;">
                 <h4 style="font-size: 12px; font-weight: 900; margin-bottom: 15px; text-transform: uppercase; font-style: italic;">Catatan: Angka ini bukan hayalan.</h4>
-                <p style="font-size: 10px; color: #1e40af; line-height: 1.6;">Bagi Invila™, inilah alasan transformasi menjadi WaaS Provider: karena klien membutuhkan hasil yang terus bekerja. Dengan teknologi yang sudah proven untuk melayani air publik dan industri raksasa, model Zero-CapEx kami mengubah biaya tetap yang membebani menjadi kinerja operasional yang lebih terukur. Angka ini adalah refleksi nyata keandalan sistem kami.</p>
+                <p style="font-size: 10px; color: #1e40af; line-height: 1.6;">Bagi Invila™, inilah alasan transformasi menjadi WaaS Provider: kerana klien memerlukan hasil yang terus bekerja. Dengan teknologi yang sudah terbukti untuk melayani air awam dan industri gergasi, model Zero-CapEx kami mengubah kos tetap yang membebani menjadi prestasi operasional yang lebih terukur. Angka ini adalah refleksi nyata keandalan sistem kami.</p>
             </div>
         </div>
     </div>
@@ -509,7 +510,7 @@
                 btn.classList.replace('bg-slate-800', 'bg-cyan-400');
                 btn.classList.replace('text-slate-500', 'text-black');
                 btn.classList.remove('cursor-not-allowed');
-                btn.innerText = "Perbarui Audit";
+                btn.innerText = "Perbarui Hasil Audit";
             } else {
                 btn.classList.replace('bg-cyan-400', 'bg-slate-800');
                 btn.classList.replace('text-black', 'text-slate-500');
