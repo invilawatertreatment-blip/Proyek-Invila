@@ -35,7 +35,7 @@
         
         .safe-container { @apply max-w-7xl mx-auto px-6 sm:px-10 md:px-12 lg:px-16; }
 
-        /* --- KUNCI: INFINITE SEAMLESS MARQUEE --- */
+        /* --- SEAMLESS MARQUEE (REVISI SIZE 20%) --- */
         @keyframes scroll-marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -49,9 +49,9 @@
         }
         .marquee-wrapper:hover .marquee-content { animation-play-state: paused; }
 
-        /* REVISI SIZE: Logo Marquee dikecilkan drastis (20% dari sebelumnya) */
+        /* Ukuran diperkecil agar elegan & proporsional */
         .logo-item-marquee { 
-            @apply h-2.5 sm:h-3 md:h-4 object-contain mx-6 md:mx-10 flex-shrink-0 opacity-60 grayscale hover:grayscale-0 hover:opacity-100; 
+            @apply h-4 sm:h-5 md:h-7 object-contain mx-6 sm:mx-10 md:mx-14 flex-shrink-0 opacity-70 grayscale hover:grayscale-0 hover:opacity-100; 
             transition: all 0.4s ease;
         }
 
@@ -86,12 +86,14 @@
 
         /* --- STAT CIRCLES --- */
         .stat-circle {
-            @apply w-[130px] h-[130px] sm:w-[150px] sm:h-[150px] md:w-[185px] md:h-[185px] rounded-full flex flex-col items-center justify-center text-center transition-all duration-500 border border-black/5 flex-shrink-0 bg-white;
+            @apply w-[130px] h-[130px] sm:w-[150px] sm:h-[150px] md:w-[185px] md:h-[185px] rounded-full flex flex-col items-center justify-center text-center transition-all duration-500 border border-black/5 flex-shrink-0 bg-white shadow-sm;
         }
         .stat-circle:hover { transform: scale(1.05) translateY(-5px); @apply shadow-2xl; }
 
-        /* Logo Wall - Proporsional */
-        .logo-wall-item { @apply h-8 sm:h-10 md:h-12 object-contain transition-all duration-300 opacity-80 hover:opacity-100; }
+        /* --- LOGO WALL GRID (REVISI SIZE 20%) --- */
+        .logo-wall-item { 
+            @apply h-6 sm:h-8 md:h-10 lg:h-12 object-contain transition-all duration-300 opacity-80 hover:opacity-100; 
+        }
         
         .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
         input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
@@ -151,7 +153,7 @@
             </div>
         </div>
 
-        <!-- Trust Bar Logo Marquee (REVISI: Size 20% / Sangat Minimalis) -->
+        <!-- Marquee (REVISI SIZE 20%) -->
         <div class="mt-16 md:mt-24 border-y border-slate-100 py-6 md:py-8 bg-slate-50/50">
             <div class="marquee-wrapper">
                 <div class="marquee-content">
@@ -239,15 +241,15 @@
 
             <!-- STAT CIRCLES -->
             <div class="flex flex-wrap md:flex-row gap-8 justify-center items-center reveal pt-12">
-                <div class="stat-circle text-slate-900 shadow-xl border-slate-100">
+                <div class="stat-circle text-slate-900 border-slate-100">
                     <div class="text-3xl md:text-4xl font-black text-blue-600 italic">10+</div>
                     <div class="text-[8px] uppercase tracking-[0.2em] font-bold text-slate-400 mt-2 leading-relaxed">Years of<br>Stability</div>
                 </div>
-                <div class="stat-circle bg-blue-600 text-white shadow-2xl">
+                <div class="stat-circle bg-blue-600 text-white border-blue-500">
                     <div class="text-3xl md:text-4xl font-black italic">833</div>
                     <div class="text-[8px] uppercase tracking-[0.2em] font-bold opacity-80 mt-2 leading-relaxed">LPS Peak<br>Delivery</div>
                 </div>
-                <div class="stat-circle bg-slate-900 text-white shadow-2xl">
+                <div class="stat-circle bg-slate-900 text-white border-slate-800">
                     <div class="text-3xl md:text-4xl font-black text-cyan-400 italic">ZERO</div>
                     <div class="text-[8px] uppercase tracking-[0.2em] font-bold opacity-60 mt-2 leading-relaxed">Capital<br>Risk (WaaS)</div>
                 </div>
@@ -286,12 +288,12 @@
         </div>
     </section>
 
-    <!-- STRATEGIC PARTNERS GRID -->
+    <!-- STRATEGIC PARTNERS GRID (REVISI SIZE 20%) -->
     <section class="py-24 md:py-32 bg-white border-y border-slate-100">
         <div class="safe-container text-center">
             <h2 class="text-blue-600 font-bold text-xs uppercase tracking-[0.5em] mb-4 reveal">Trusted by Industry Giants</h2>
             <h3 class="text-3xl md:text-5xl font-black text-slate-900 italic mb-16 md:mb-24 reveal uppercase tracking-tight">Strategic Ecosystem</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-14 items-center justify-items-center">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-10 items-center justify-items-center">
                 <img src="wika.png" class="logo-wall-item" alt="Wika">
                 <img src="united-tractors.png" class="logo-wall-item" alt="United Tractors">
                 <img src="petrokimia-gresik.png" class="logo-wall-item" alt="Petrokimia Gresik">
@@ -320,8 +322,8 @@
                 <div class="group reveal">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="KIW WaaS">
-                        <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-6 py-3 rounded-2xl shadow-xl">
-                            <img src="kiw.png" class="h-6 sm:h-8 object-contain" alt="Logo KIW">
+                        <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-5 py-3 rounded-2xl shadow-xl border border-black/5">
+                            <img src="kiw.png" class="h-6 object-contain" alt="Logo KIW">
                         </div>
                     </div>
                     <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">SCALABLE WAAS: KIW SEMARANG (2.160 M³/HARI)</h5>
@@ -331,8 +333,8 @@
                 <div class="group reveal" style="transition-delay: 0.1s;">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Tirtanadi Sunggal">
-                        <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-6 py-3 rounded-2xl shadow-xl">
-                            <img src="tirtanadi.png" class="h-6 sm:h-9 object-contain" alt="Logo Tirtanadi">
+                        <div class="absolute top-6 left-6 bg-white/95 backdrop-blur px-5 py-3 rounded-2xl shadow-xl border border-black/5">
+                            <img src="tirtanadi.png" class="h-8 object-contain" alt="Logo Tirtanadi">
                         </div>
                     </div>
                     <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">TRANSFORMASI AIR MINUM KOTA MEDAN (1.000 LPS)</h5>
@@ -418,11 +420,11 @@
             <div class="text-3xl font-black tracking-tighter text-navy mb-10 uppercase italic">
                 INVILA<sup class="text-blue-600 text-[12px] ml-1">TM</sup>
             </div>
-            <p class="text-[11px] text-slate-400 font-bold uppercase tracking-[0.5em] italic px-4">© 2026 Invila.asia | Strategic Infrastructure Group</p>
+            <p class="text-[11px] text-slate-400 font-bold uppercase tracking-[0.4em] italic px-4">© 2026 Invila.asia | Strategic Infrastructure Group</p>
         </div>
     </footer>
 
-    <!-- PDF TEMPLATE -->
+    <!-- PDF TEMPLATE (HIDDEN) -->
     <div style="position: absolute; top: -9999px; left: -9999px;">
         <div id="pdf-template" style="width: 210mm; padding: 25mm; background: white; color: #0f172a; font-family: 'Inter', sans-serif;">
             <div style="border-bottom: 3px solid #0f172a; padding-bottom: 20px; margin-bottom: 40px; display: flex; justify-content: space-between; align-items: flex-end;">
@@ -500,7 +502,7 @@
                 btn.classList.replace('bg-slate-800', 'bg-cyan-400');
                 btn.classList.replace('text-slate-500', 'text-black');
                 btn.classList.remove('cursor-not-allowed');
-                btn.innerText = "Perbarui Audit";
+                btn.innerText = "Perbarui Hasil Audit";
             } else {
                 btn.classList.replace('bg-cyan-400', 'bg-slate-800');
                 btn.classList.replace('text-black', 'text-slate-500');
