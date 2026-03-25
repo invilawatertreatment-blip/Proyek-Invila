@@ -37,7 +37,7 @@
         
         .safe-container { @apply max-w-7xl mx-auto px-6 sm:px-10 md:px-12 lg:px-16; }
 
-        /* --- LOGO PILL SYSTEM (Sesuai Spesifikasi: 58px Box, 34px Logo) --- */
+        /* --- LOGO PILL SYSTEM --- */
         .logo-pill {
             min-height: 58px;
             padding: 10px 14px;
@@ -68,7 +68,7 @@
             opacity: 1;
         }
 
-        /* --- LOGO WALL GRID (DIBAWAH) DIPERBESAR 1.5X --- */
+        /* --- LOGO WALL GRID --- */
         .logo-wall-grid .logo-pill {
             min-height: 87px; 
             padding: 15px 21px;
@@ -134,15 +134,12 @@
             <a href="#" class="text-xl md:text-2xl font-[900] tracking-tighter text-slate-900 flex items-start uppercase leading-none">
                 INVILA<span class="text-blue-600 text-[10px] font-bold ml-0.5" style="vertical-align: super; line-height: 1;">TM</span>
             </a>
-            <div class="hidden md:flex space-x-12 text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500">
+            <div class="flex space-x-12 text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500">
                 <a href="#drives-us" class="hover:text-blue-600 transition-all">Economics</a>
                 <a href="#roadmap" class="hover:text-blue-600 transition-all">Pathway</a>
                 <a href="#success-stories" class="hover:text-blue-600 transition-all">Stories</a>
                 <a href="#audit" class="hover:text-blue-600 transition-all">Intelligence</a>
             </div>
-            <button class="bg-blue-600 text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg shadow-blue-500/20 hover:bg-slate-900 transition-all active:scale-95">
-                Hubungi Partner
-            </button>
         </div>
     </nav>
 
@@ -171,34 +168,28 @@
                             <div class="risk-item"><i data-lucide="alert-circle" class="w-4 h-4 text-blue-500"></i> Beban Tarif Limbah WWTP</div>
                         </div>
 
-                        <!-- FOKUS: HIGHLIGHT SOLUSI BARU -->
-                        <div class="p-8 bg-slate-900 text-white rounded-[2rem] relative overflow-hidden shadow-2xl border border-white/5">
-                            <div class="absolute top-0 right-0 w-48 h-48 bg-blue-600/20 blur-3xl"></div>
-                            
+                        <!-- FOKUS: HIGHLIGHT SOLUSI (Outline Box, Background Putih) -->
+                        <div class="p-8 bg-white text-slate-900 rounded-[2rem] relative overflow-hidden shadow-sm border border-slate-200 transition-all hover:shadow-xl hover:border-blue-200">
                             <div class="relative z-10 space-y-6">
                                 <div>
-                                    <span class="text-blue-400 font-black text-xs uppercase tracking-[0.2em]">Zero-CapEx Solution</span>
+                                    <span class="text-blue-600 font-black text-xs uppercase tracking-[0.2em]">Zero-CapEx Solution</span>
                                     <p class="text-base md:text-lg leading-relaxed mt-2">
-                                        Kebutuhan air industri menjadi layanan terukur dan ringan secara finansial—<span class="text-blue-200 font-bold">melindungi arus kas Anda.</span>
+                                        Kebutuhan air industri menjadi layanan terukur dan ringan secara finansial—<span class="text-blue-600 font-bold">melindungi arus kas Anda.</span>
                                     </p>
                                 </div>
 
-                                <div class="pt-4 border-t border-white/10">
-                                    <div class="flex items-center gap-4 mb-4">
-                                        <div class="px-3 py-1 bg-white/10 rounded-full text-[9px] font-bold uppercase tracking-widest border border-white/10">Build</div>
-                                        <div class="px-3 py-1 bg-white/10 rounded-full text-[9px] font-bold uppercase tracking-widest border border-white/10">Finance</div>
-                                        <div class="px-3 py-1 bg-white/10 rounded-full text-[9px] font-bold uppercase tracking-widest border border-white/10">Operate</div>
+                                <div class="pt-4 border-t border-slate-100">
+                                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                                        <div class="px-3 py-1 bg-slate-50 rounded-full text-[9px] font-bold uppercase tracking-widest border border-slate-200 text-slate-600">Build</div>
+                                        <div class="px-3 py-1 bg-slate-50 rounded-full text-[9px] font-bold uppercase tracking-widest border border-slate-200 text-slate-600">Finance</div>
+                                        <div class="px-3 py-1 bg-slate-50 rounded-full text-[9px] font-bold uppercase tracking-widest border border-slate-200 text-slate-600">Operate</div>
                                     </div>
-                                    <p class="text-sm text-slate-300 leading-relaxed">
-                                        Invila™ membangun, membiayai, dan mengoperasikan sistem air Anda <span class="text-white font-bold italic underline decoration-blue-500 underline-offset-4">end-to-end</span>. Anda cukup membayar air yang digunakan.
+                                    <p class="text-sm text-slate-500 leading-relaxed">
+                                        Invila™ membangun, membiayai, dan mengoperasikan sistem air Anda <span class="text-slate-900 font-bold italic underline decoration-blue-500 underline-offset-4">end-to-end</span>. Anda cukup membayar air yang digunakan.
                                     </p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <a href="#audit" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-bold uppercase text-xs tracking-widest hover:scale-105 transition-all shadow-2xl">Mulai Audit Penghematan</a>
                     </div>
                 </div>
 
@@ -217,7 +208,7 @@
             </div>
         </div>
 
-        <!-- Marquee Seamless Infinite Loop (Size 20%) -->
+        <!-- Marquee Seamless Infinite Loop -->
         <div class="mt-16 md:mt-24 border-y border-slate-100 py-6 md:py-10 bg-slate-50/50">
             <div class="marquee-wrapper">
                 <div class="marquee-content">
@@ -243,7 +234,7 @@
         </div>
     </section>
 
-    <!-- DNA SECTION (Circle on Left) -->
+    <!-- DNA SECTION -->
     <section id="drives-us" class="py-24 md:py-32 bg-white overflow-hidden">
         <div class="safe-container">
             <div class="max-w-5xl mb-24 reveal">
@@ -340,7 +331,7 @@
         </div>
     </section>
 
-    <!-- STRATEGIC ECOSYSTEM (1.5x) -->
+    <!-- STRATEGIC ECOSYSTEM (FIX DI BAWAH) -->
     <section class="py-24 md:py-32 bg-slate-50 border-y border-slate-100">
         <div class="safe-container">
             <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20 reveal">
