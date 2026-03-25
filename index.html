@@ -10,10 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- PDF Engine -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
     <style>
         :root { 
             --navy: #0f172a; 
@@ -35,7 +31,6 @@
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         
-        /* Container Lock */
         .safe-container { @apply max-w-7xl mx-auto px-6 sm:px-10 md:px-12 lg:px-16; }
 
         /* --- LOGO PILL SYSTEM BASE --- */
@@ -54,25 +49,26 @@
             width: fit-content;
             min-width: 120px;
         }
-        .logo-pill img {
+        
+        /* FOKUS: Marquee Logo Default Abu-abu */
+        .marquee-wrapper .logo-pill img {
             max-height: 34px;
             max-width: 100%;
             width: auto;
             height: auto;
             object-fit: contain;
-            /* FOKUS: Default Abu-abu untuk Marquee */
             filter: grayscale(100%);
             opacity: 0.6;
             transition: all 0.4s ease;
         }
         
-        /* FOKUS: Berwarna saat hover */
-        .logo-pill:hover img {
+        /* FOKUS: Marquee Logo Berwarna saat hover */
+        .marquee-wrapper .logo-pill:hover img {
             filter: grayscale(0%);
             opacity: 1;
         }
 
-        /* --- SEAMLESS INFINITE MARQUEE LOGIC --- */
+        /* --- SEAMLESS INFINITE MARQUEE --- */
         @keyframes scroll-marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -88,7 +84,7 @@
         }
         .marquee-wrapper:hover .marquee-content { animation-play-state: paused; }
 
-        /* --- LOGO WALL GRID (TETAP FIX / TIDAK DIUBAH) --- */
+        /* --- LOGO WALL GRID (FIX DI BAWAH - DIPERBESAR 1.5X) --- */
         .logo-wall-grid .logo-pill {
             min-height: 87px;
             padding: 15px 21px;
@@ -96,14 +92,21 @@
         }
         .logo-wall-grid .logo-pill img {
             max-height: 51px;
-            filter: grayscale(0%); /* Logo bawah tetap berwarna sesuai permintaan sebelumnya */
+            filter: grayscale(0%);
             opacity: 1;
         }
         .logo-wall-grid .pill-label { font-size: 10px; margin-top: 8px; }
+        
         .logo-pill:hover { border-color: var(--blue-p); box-shadow: 0 4px 12px rgba(0,0,0,0.05); transform: translateY(-3px); }
         .pill-label { font-size: 7px; font-weight: 800; text-transform: uppercase; color: #94a3b8; margin-top: 6px; letter-spacing: 0.05em; }
 
-        /* --- ANIMATIONS & STATS --- */
+        /* --- STAT CIRCLES (GAMBAR 6d965e) --- */
+        .stat-circle {
+            @apply w-[130px] h-[130px] sm:w-[150px] sm:h-[150px] md:w-[185px] md:h-[185px] rounded-full flex flex-col items-center justify-center text-center transition-all duration-500 border border-black/5 flex-shrink-0 bg-white shadow-sm;
+        }
+        .stat-circle:hover { transform: scale(1.05) translateY(-5px); @apply shadow-2xl; }
+
+        /* Animations */
         @keyframes rotate-eccentric {
             0% { transform: rotate(0deg) translate(15%, 0) rotate(0deg); }
             100% { transform: rotate(360deg) translate(15%, 0) rotate(-360deg); }
@@ -119,9 +122,6 @@
             .circle-3 { width: 330px; height: 330px; }
         }
 
-        .stat-circle {
-            @apply w-[130px] h-[130px] sm:w-[150px] sm:h-[150px] md:w-[185px] md:h-[185px] rounded-full flex flex-col items-center justify-center text-center transition-all duration-500 border border-black/5 flex-shrink-0 bg-white shadow-sm;
-        }
         .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
         .break-fix { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
     </style>
@@ -146,7 +146,7 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="pt-32 md:pt-48 pb-12 md:pb-16 bg-white relative overflow-hidden">
         <div class="safe-container relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -179,11 +179,10 @@
             </div>
         </div>
 
-        <!-- FOKUS: Marquee Seamless Infinite Loop (Default Abu, Hover Berwarna) -->
+        <!-- MARQUEE INFINITE SEAMLESS (Abu-abu ke Warna saat Hover) -->
         <div class="mt-16 md:mt-24 border-y border-slate-100 py-6 md:py-10 bg-slate-50/50">
             <div class="marquee-wrapper">
                 <div class="marquee-content">
-                    <!-- Set 1 -->
                     <div class="logo-pill"><img src="wika.png" alt="Wika"><span class="pill-label">Infrastructure</span></div>
                     <div class="logo-pill"><img src="united-tractors.png" alt="UT"><span class="pill-label">Energy</span></div>
                     <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Petrokimia"><span class="pill-label">Chemical</span></div>
@@ -192,7 +191,7 @@
                     <div class="logo-pill"><img src="tirta-asasta-depok.png" alt="Tirta Asasta"><span class="pill-label">Water Services</span></div>
                     <div class="logo-pill"><img src="kievit.png" alt="Kievit"><span class="pill-label">Food Ingredients</span></div>
                     <div class="logo-pill"><img src="patria-maritim-perkasa.png" alt="Patria"><span class="pill-label">Maritime</span></div>
-                    <!-- Set 2 for seamless loop -->
+                    <!-- Set 2 for Loop -->
                     <div class="logo-pill"><img src="wika.png" alt="Wika"><span class="pill-label">Infrastructure</span></div>
                     <div class="logo-pill"><img src="united-tractors.png" alt="UT"><span class="pill-label">Energy</span></div>
                     <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Petrokimia"><span class="pill-label">Chemical</span></div>
@@ -206,7 +205,7 @@
         </div>
     </section>
 
-    <!-- DNA SECTION (Lingkaran di Kiri) -->
+    <!-- DNA SECTION -->
     <section id="drives-us" class="py-24 md:py-32 bg-white overflow-hidden">
         <div class="safe-container">
             <div class="max-w-5xl mb-24 reveal">
@@ -222,31 +221,41 @@
                     <div class="animated-circle circle-2"></div>
                     <div class="animated-circle circle-3"></div>
                     <div class="flex flex-col justify-center items-center w-full relative z-10">
-                        <div class="text-efficiency cycle-text">Efficiency</div>
-                        <div class="text-sustainability cycle-text">Sustainability</div>
-                        <div class="text-resilience cycle-text">Resilience</div>
+                        <div class="text-[10px] md:text-xl font-bold text-blue-600 uppercase tracking-widest">Efficiency</div>
                     </div>
                 </div>
                 <div class="reveal lg:order-2 order-1">
                     <p class="text-lg text-slate-600 leading-relaxed mb-12 break-fix">
-                        Tekanan dari limitasi Air Bawah Tanah (ABT), volatilitas tarif PDAM, serta tuntutan efisiensi energi dan standar lingkungan, kini menjadikan pengelolaan air sebagai faktor kritis.
+                        Tekanan dari limitasi Air Bawah Tanah (ABT), volatilitas tarif PDAM, serta tuntutan efisiensi energi kini menjadikan pengelolaan air sebagai faktor kritis operasional.
                     </p>
                     <div class="space-y-10">
                         <div class="flex gap-6 group">
                             <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm"><i data-lucide="bar-chart-3" class="w-7 h-7"></i></div>
                             <div>
-                                <h4 class="font-black text-slate-900 uppercase tracking-tight text-xl italic">1. Efficiency [Lensa Biaya]</h4>
+                                <h4 class="font-black text-slate-900 uppercase tracking-tight text-xl italic">Efficiency [Lensa Biaya]</h4>
                                 <p class="text-base text-slate-500 mt-2 italic break-fix">Memastikan setiap liter air memberikan nilai maksimal.</p>
                             </div>
                         </div>
-                        <div class="flex gap-6 group">
-                            <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm"><i data-lucide="shield-check" class="w-7 h-7"></i></div>
-                            <div>
-                                <h4 class="font-black text-slate-900 uppercase tracking-tight text-xl italic">2. Resilience [Lensa Stabilitas]</h4>
-                                <p class="text-base text-slate-500 mt-2 italic break-fix">Membangun benteng operasional tangguh terhadap gangguan suplai.</p>
-                            </div>
-                        </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- STAT CIRCLES (FOKUS: GAMBAR 6d965e) -->
+            <div class="flex flex-wrap md:flex-row gap-8 justify-center items-center reveal pt-12">
+                <!-- Kiri -->
+                <div class="stat-circle text-slate-900 border-slate-100">
+                    <div class="text-3xl md:text-4xl font-black text-blue-600 italic">10+</div>
+                    <div class="text-[8px] uppercase tracking-[0.2em] font-bold text-slate-400 mt-2 leading-relaxed text-center">Years of<br>Stability</div>
+                </div>
+                <!-- TENGAH (Target Anda untuk diganti nanti) -->
+                <div class="stat-circle bg-blue-600 text-white border-blue-500">
+                    <div class="text-3xl md:text-4xl font-black italic text-center">833</div>
+                    <div class="text-[8px] uppercase tracking-[0.2em] font-bold opacity-80 mt-2 leading-relaxed text-center">LPS Peak<br>Delivery</div>
+                </div>
+                <!-- Kanan -->
+                <div class="stat-circle bg-slate-900 text-white border-slate-800">
+                    <div class="text-3xl md:text-4xl font-black text-cyan-400 italic">ZERO</div>
+                    <div class="text-[8px] uppercase tracking-[0.2em] font-bold opacity-60 mt-2 leading-relaxed text-center">Capital<br>Risk [WaaS]</div>
                 </div>
             </div>
         </div>
@@ -256,21 +265,21 @@
     <section id="success-stories" class="py-24 md:py-32 bg-white">
         <div class="safe-container">
             <div class="text-center mb-24 reveal">
-                <h2 class="text-blue-600 font-bold text-xs uppercase tracking-[0.5em] mb-6 text-center">Featured Projects</h2>
+                <h2 class="text-blue-600 font-bold text-xs uppercase tracking-[0.5em] mb-6 text-center uppercase">Featured Projects</h2>
                 <h3 class="text-4xl md:text-7xl font-[900] text-slate-900 tracking-tighter italic break-fix text-center">Proven Performance.</h3>
             </div>
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="group reveal">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="KIW Project">
-                        <div class="absolute top-6 left-6 logo-pill shadow-xl border-none"><img src="kiw.png" alt="Logo KIW" style="filter: grayscale(0%); opacity: 1;"></div>
+                        <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="KIW">
+                        <div class="absolute top-6 left-6 logo-pill shadow-xl border-none"><img src="kiw.png" alt="KIW" style="filter:grayscale(0%); opacity:1;"></div>
                     </div>
                     <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">SCALABLE WAAS: KIW SEMARANG</h5>
                 </div>
                 <div class="group reveal" style="transition-delay: 0.1s;">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Tirtanadi Project">
-                        <div class="absolute top-6 left-6 logo-pill shadow-xl border-none"><img src="tirtanadi.png" alt="Logo Tirtanadi" style="filter: grayscale(0%); opacity: 1;"></div>
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Tirtanadi">
+                        <div class="absolute top-6 left-6 logo-pill shadow-xl border-none"><img src="tirtanadi.png" alt="Tirtanadi" style="filter:grayscale(0%); opacity:1;"></div>
                     </div>
                     <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">AIR MINUM KOTA MEDAN (1.000 LPS)</h5>
                 </div>
@@ -278,7 +287,7 @@
         </div>
     </section>
 
-    <!-- STRATEGIC ECOSYSTEM (TETAP 1.5X & BERWARNA) -->
+    <!-- STRATEGIC ECOSYSTEM (FIX DI BAWAH - DIPERBESAR 1.5X) -->
     <section class="py-24 md:py-32 bg-slate-50 border-y border-slate-100">
         <div class="safe-container">
             <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20 reveal">
@@ -323,4 +332,4 @@
         window.onload = () => { reveal(); };
     </script>
 </body>
-</html>
+</html>ml>
