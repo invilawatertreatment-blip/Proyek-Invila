@@ -10,6 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     
+    <!-- PDF Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
     <style>
         :root { 
             --navy: #0f172a; 
@@ -33,7 +37,7 @@
         
         .safe-container { @apply max-w-7xl mx-auto px-6 sm:px-10 md:px-12 lg:px-16; }
 
-        /* --- LOGO PILL SYSTEM BASE --- */
+        /* --- LOGO PILL SYSTEM (Sesuai Spesifikasi: 58px Box, 34px Logo) --- */
         .logo-pill {
             min-height: 58px;
             padding: 10px 14px;
@@ -49,9 +53,7 @@
             width: fit-content;
             min-width: 120px;
         }
-        
-        /* FOKUS: Marquee Logo Default Abu-abu */
-        .marquee-wrapper .logo-pill img {
+        .logo-pill img {
             max-height: 34px;
             max-width: 100%;
             width: auto;
@@ -61,12 +63,26 @@
             opacity: 0.6;
             transition: all 0.4s ease;
         }
-        
-        /* FOKUS: Marquee Logo Berwarna saat hover */
-        .marquee-wrapper .logo-pill:hover img {
+        .logo-pill:hover img {
             filter: grayscale(0%);
             opacity: 1;
         }
+
+        /* --- LOGO WALL GRID (DIBAWAH) DIPERBESAR 1.5X --- */
+        .logo-wall-grid .logo-pill {
+            min-height: 87px; 
+            padding: 15px 21px;
+            min-width: 180px;
+        }
+        .logo-wall-grid .logo-pill img {
+            max-height: 51px; 
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        .logo-wall-grid .pill-label { font-size: 10px; margin-top: 8px; }
+
+        .logo-pill:hover { border-color: var(--blue-p); box-shadow: 0 4px 12px rgba(0,0,0,0.05); transform: translateY(-3px); }
+        .pill-label { font-size: 7px; font-weight: 800; text-transform: uppercase; color: #94a3b8; margin-top: 6px; letter-spacing: 0.05em; }
 
         /* --- SEAMLESS INFINITE MARQUEE --- */
         @keyframes scroll-marquee {
@@ -77,36 +93,14 @@
         .marquee-content { 
             display: flex; 
             width: max-content; 
-            animation: scroll-marquee 35s linear infinite; 
+            animation: scroll-marquee 40s linear infinite; 
             align-items: center;
             gap: 20px;
             padding-right: 20px;
         }
         .marquee-wrapper:hover .marquee-content { animation-play-state: paused; }
 
-        /* --- LOGO WALL GRID (FIX DI BAWAH - DIPERBESAR 1.5X) --- */
-        .logo-wall-grid .logo-pill {
-            min-height: 87px;
-            padding: 15px 21px;
-            min-width: 180px;
-        }
-        .logo-wall-grid .logo-pill img {
-            max-height: 51px;
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-        .logo-wall-grid .pill-label { font-size: 10px; margin-top: 8px; }
-        
-        .logo-pill:hover { border-color: var(--blue-p); box-shadow: 0 4px 12px rgba(0,0,0,0.05); transform: translateY(-3px); }
-        .pill-label { font-size: 7px; font-weight: 800; text-transform: uppercase; color: #94a3b8; margin-top: 6px; letter-spacing: 0.05em; }
-
-        /* --- STAT CIRCLES --- */
-        .stat-circle {
-            @apply w-[130px] h-[130px] sm:w-[150px] sm:h-[150px] md:w-[185px] md:h-[185px] rounded-full flex flex-col items-center justify-center text-center transition-all duration-500 border border-black/5 flex-shrink-0 bg-white shadow-sm;
-        }
-        .stat-circle:hover { transform: scale(1.05) translateY(-5px); @apply shadow-2xl; }
-
-        /* Animations */
+        /* --- ECCENTRIC ANIMATION --- */
         @keyframes rotate-eccentric {
             0% { transform: rotate(0deg) translate(15%, 0) rotate(0deg); }
             100% { transform: rotate(360deg) translate(15%, 0) rotate(-360deg); }
@@ -122,8 +116,14 @@
             .circle-3 { width: 330px; height: 330px; }
         }
 
-        .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
+        .stat-circle {
+            @apply w-[130px] h-[130px] sm:w-[150px] sm:h-[150px] md:w-[185px] md:h-[185px] rounded-full flex flex-col items-center justify-center text-center transition-all duration-500 border border-black/5 flex-shrink-0 bg-white shadow-sm;
+        }
+        .stat-circle:hover { transform: scale(1.05) translateY(-5px); @apply shadow-2xl; }
+
         .break-fix { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+
+        .risk-item { @apply flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100 transition-all hover:bg-white hover:border-blue-200 hover:shadow-md; }
     </style>
 </head>
 <body class="text-slate-900">
@@ -146,24 +146,62 @@
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section class="pt-32 md:pt-48 pb-12 md:pb-16 bg-white relative overflow-hidden">
         <div class="safe-container relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div class="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
                 <div class="reveal active">
-                    <div class="inline-block px-4 py-1.5 mb-8 rounded-full bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-widest leading-none">
+                    <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-widest leading-none">
                         Water-as-a-Service (WaaS) Model
                     </div>
-                    <h1 class="text-4xl sm:text-5xl md:text-7xl font-[900] text-slate-900 leading-[1.1] tracking-tighter mb-8 md:mb-10 italic break-fix">
+                    <h1 class="text-4xl sm:text-5xl md:text-7xl font-[900] text-slate-900 leading-[1.1] tracking-tighter mb-10 italic break-fix">
                         Mengubah Air Limbah Menjadi <span class="text-blue-600">Nilai Strategis.</span>
                     </h1>
-                    <p class="text-xl text-slate-500 max-w-xl leading-relaxed mb-10 md:mb-12 break-fix">
-                        Melalui solusi <span class="text-slate-900 font-bold underline decoration-blue-200 underline-offset-8 italic">Zero-CapEx</span> Invila™, kami mentransformasi utilitas air industri menjadi aset operasional bersih.
-                    </p>
+
+                    <!-- RISIKO INDUSTRI -->
+                    <div class="space-y-8 mb-10">
+                        <p class="text-slate-500 text-lg leading-relaxed border-l-2 border-slate-200 pl-4 italic">
+                            Air kini bertransformasi dari sekadar utilitas menjadi <span class="text-slate-900 font-bold">risiko finansial yang mengancam margin</span> bisnis Anda:
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-slate-600">
+                            <div class="risk-item"><i data-lucide="droplets" class="w-4 h-4 text-blue-500"></i> Kualitas Baku Tidak Pasti</div>
+                            <div class="risk-item"><i data-lucide="trending-up" class="w-4 h-4 text-blue-500"></i> Kenaikan Tarif PDAM</div>
+                            <div class="risk-item"><i data-lucide="gauge" class="w-4 h-4 text-blue-500"></i> Pemangkasan Kuota ABT</div>
+                            <div class="risk-item"><i data-lucide="alert-circle" class="w-4 h-4 text-blue-500"></i> Beban Tarif Limbah WWTP</div>
+                        </div>
+
+                        <!-- FOKUS: HIGHLIGHT SOLUSI BARU -->
+                        <div class="p-8 bg-slate-900 text-white rounded-[2rem] relative overflow-hidden shadow-2xl border border-white/5">
+                            <div class="absolute top-0 right-0 w-48 h-48 bg-blue-600/20 blur-3xl"></div>
+                            
+                            <div class="relative z-10 space-y-6">
+                                <div>
+                                    <span class="text-blue-400 font-black text-xs uppercase tracking-[0.2em]">Zero-CapEx Solution</span>
+                                    <p class="text-base md:text-lg leading-relaxed mt-2">
+                                        Kebutuhan air industri menjadi layanan terukur dan ringan secara finansial—<span class="text-blue-200 font-bold">melindungi arus kas Anda.</span>
+                                    </p>
+                                </div>
+
+                                <div class="pt-4 border-t border-white/10">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="px-3 py-1 bg-white/10 rounded-full text-[9px] font-bold uppercase tracking-widest border border-white/10">Build</div>
+                                        <div class="px-3 py-1 bg-white/10 rounded-full text-[9px] font-bold uppercase tracking-widest border border-white/10">Finance</div>
+                                        <div class="px-3 py-1 bg-white/10 rounded-full text-[9px] font-bold uppercase tracking-widest border border-white/10">Operate</div>
+                                    </div>
+                                    <p class="text-sm text-slate-300 leading-relaxed">
+                                        Invila™ membangun, membiayai, dan mengoperasikan sistem air Anda <span class="text-white font-bold italic underline decoration-blue-500 underline-offset-4">end-to-end</span>. Anda cukup membayar air yang digunakan.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="flex gap-4">
-                        <a href="#audit" class="bg-slate-900 text-white px-10 py-5 rounded-2xl font-bold uppercase text-xs tracking-widest hover:scale-105 transition-all shadow-2xl">Mulai Audit</a>
+                        <a href="#audit" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-bold uppercase text-xs tracking-widest hover:scale-105 transition-all shadow-2xl">Mulai Audit Penghematan</a>
                     </div>
                 </div>
+
                 <div class="relative reveal active lg:block">
                     <div class="rounded-[40px] overflow-hidden border-[8px] border-white shadow-2xl aspect-video bg-slate-900 relative">
                         <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-80">
@@ -179,7 +217,7 @@
             </div>
         </div>
 
-        <!-- MARQUEE INFINITE SEAMLESS -->
+        <!-- Marquee Seamless Infinite Loop (Size 20%) -->
         <div class="mt-16 md:mt-24 border-y border-slate-100 py-6 md:py-10 bg-slate-50/50">
             <div class="marquee-wrapper">
                 <div class="marquee-content">
@@ -191,7 +229,7 @@
                     <div class="logo-pill"><img src="tirta-asasta-depok.png" alt="Tirta Asasta"><span class="pill-label">Water Services</span></div>
                     <div class="logo-pill"><img src="kievit.png" alt="Kievit"><span class="pill-label">Food Ingredients</span></div>
                     <div class="logo-pill"><img src="patria-maritim-perkasa.png" alt="Patria"><span class="pill-label">Maritime</span></div>
-                    <!-- Set 2 for Loop -->
+                    <!-- Duplicate -->
                     <div class="logo-pill"><img src="wika.png" alt="Wika"><span class="pill-label">Infrastructure</span></div>
                     <div class="logo-pill"><img src="united-tractors.png" alt="UT"><span class="pill-label">Energy</span></div>
                     <div class="logo-pill"><img src="petrokimia-gresik.png" alt="Petrokimia"><span class="pill-label">Chemical</span></div>
@@ -205,7 +243,7 @@
         </div>
     </section>
 
-    <!-- DNA SECTION -->
+    <!-- DNA SECTION (Circle on Left) -->
     <section id="drives-us" class="py-24 md:py-32 bg-white overflow-hidden">
         <div class="safe-container">
             <div class="max-w-5xl mb-24 reveal">
@@ -216,44 +254,58 @@
             </div>
 
             <div class="grid lg:grid-cols-[1fr_1.2fr] gap-16 md:gap-20 items-center mb-24">
-                <!-- Visual Animation (KIRI) -->
                 <div class="relative flex justify-center items-center h-[400px] md:h-[500px] reveal lg:order-1 order-2">
                     <div class="animated-circle circle-1"></div>
                     <div class="animated-circle circle-2"></div>
                     <div class="animated-circle circle-3"></div>
                     <div class="flex flex-col justify-center items-center w-full relative z-10">
-                        <div class="text-[10px] md:text-xl font-bold text-blue-600 uppercase tracking-widest">Efficiency</div>
+                        <div class="text-[10px] md:text-xl font-bold text-blue-600 uppercase tracking-widest">DNA Efficiency</div>
                     </div>
                 </div>
+
                 <div class="reveal lg:order-2 order-1">
-                    <p class="text-lg text-slate-600 leading-relaxed mb-12 break-fix">
-                        Tekanan dari limitasi Air Bawah Tanah (ABT), volatilitas tarif PDAM, serta tuntutan efisiensi energi kini menjadikan pengelolaan air sebagai faktor kritis operasional.
-                    </p>
-                    <div class="space-y-10">
+                    <div class="space-y-12">
                         <div class="flex gap-6 group">
-                            <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm"><i data-lucide="bar-chart-3" class="w-7 h-7"></i></div>
+                            <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm">
+                                <i data-lucide="bar-chart-3" class="w-7 h-7"></i>
+                            </div>
                             <div>
-                                <h4 class="font-black text-slate-900 uppercase tracking-tight text-xl italic">Efficiency [Lensa Biaya]</h4>
-                                <p class="text-base text-slate-500 mt-2 italic break-fix">Memastikan setiap liter air memberikan nilai maksimal.</p>
+                                <h4 class="font-black text-slate-900 uppercase tracking-tight text-xl italic">1. Efficiency [Lensa Biaya]</h4>
+                                <p class="text-base text-slate-500 mt-2 italic break-fix">Memastikan setiap liter air memberikan nilai maksimal. Mendeteksi inefisiensi sistemik yang membebani struktur biaya produksi.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 group">
+                            <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm">
+                                <i data-lucide="shield-check" class="w-7 h-7"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-slate-900 uppercase tracking-tight text-xl italic">2. Resilience [Lensa Stabilitas]</h4>
+                                <p class="text-base text-slate-500 mt-2 italic break-fix">Membangun benteng operasional tangguh terhadap gangguan suplai eksternal.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 group">
+                            <div class="w-14 h-14 rounded-2xl bg-green-50 text-green-600 flex items-center justify-center flex-shrink-0 group-hover:bg-green-600 group-hover:text-white transition-all shadow-sm">
+                                <i data-lucide="leaf" class="w-7 h-7"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-slate-900 uppercase tracking-tight text-xl italic">3. Sustainability [Lensa Pertumbuhan]</h4>
+                                <p class="text-base text-slate-500 mt-2 italic break-fix">Menyelaraskan profit dengan kelestarian alam melalui optimalisasi jejak air.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- STAT CIRCLES (DATA BARU) -->
+            <!-- STAT CIRCLES -->
             <div class="flex flex-wrap md:flex-row gap-8 justify-center items-center reveal pt-12">
-                <!-- Kiri -->
                 <div class="stat-circle text-slate-900 border-slate-100">
                     <div class="text-3xl md:text-4xl font-black text-blue-600 italic">10+</div>
                     <div class="text-[8px] uppercase tracking-[0.2em] font-bold text-slate-400 mt-2 leading-relaxed text-center">Years of<br>Stability</div>
                 </div>
-                <!-- TENGAH (Revisi: INSTALLED SPAM CAPACITY) -->
                 <div class="stat-circle bg-blue-600 text-white border-blue-500">
                     <div class="text-3xl md:text-4xl font-black italic text-center">78.1</div>
                     <div class="text-[8px] uppercase tracking-[0.2em] font-bold opacity-80 mt-2 leading-relaxed text-center italic">INSTALLED SPAM CAPACITY<br>MILLION m³/YEAR</div>
                 </div>
-                <!-- Kanan -->
                 <div class="stat-circle bg-slate-900 text-white border-slate-800">
                     <div class="text-3xl md:text-4xl font-black text-cyan-400 italic">ZERO</div>
                     <div class="text-[8px] uppercase tracking-[0.2em] font-bold opacity-60 mt-2 leading-relaxed text-center italic">Capital<br>Risk [WaaS]</div>
@@ -273,14 +325,14 @@
                 <div class="group reveal">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="KIW">
-                        <div class="absolute top-6 left-6 logo-pill shadow-xl border-none"><img src="kiw.png" alt="KIW" style="filter:grayscale(0%); opacity:1;"></div>
+                        <div class="absolute top-6 left-6 logo-pill shadow-xl border-none"><img src="kiw.png" alt="Logo KIW" style="filter:grayscale(0%); opacity:1;"></div>
                     </div>
                     <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">SCALABLE WAAS: KIW SEMARANG</h5>
                 </div>
                 <div class="group reveal" style="transition-delay: 0.1s;">
                     <div class="relative rounded-[48px] overflow-hidden bg-slate-100 aspect-[16/10] mb-8 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Tirtanadi">
-                        <div class="absolute top-6 left-6 logo-pill shadow-xl border-none"><img src="tirtanadi.png" alt="Tirtanadi" style="filter:grayscale(0%); opacity:1;"></div>
+                        <div class="absolute top-6 left-6 logo-pill shadow-xl border-none"><img src="tirtanadi.png" alt="Logo Tirtanadi" style="filter:grayscale(0%); opacity:1;"></div>
                     </div>
                     <h5 class="text-2xl font-black text-slate-900 mb-6 leading-tight uppercase italic break-fix">AIR MINUM KOTA MEDAN (1.000 LPS)</h5>
                 </div>
@@ -288,7 +340,7 @@
         </div>
     </section>
 
-    <!-- STRATEGIC ECOSYSTEM (FIX DI BAWAH - DIPERBESAR 1.5X) -->
+    <!-- STRATEGIC ECOSYSTEM (1.5x) -->
     <section class="py-24 md:py-32 bg-slate-50 border-y border-slate-100">
         <div class="safe-container">
             <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20 reveal">
