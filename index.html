@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INVILA™ | Infrastruktur Air Industri Tanpa Investasi CAPEX</title>
     
-    <!-- Fonts: Noto Serif untuk kesan premium & Inter untuk aspek teknis -->
+    <!-- Fonts: Noto Serif & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -44,45 +44,55 @@
         }
 
         /* --- HEADER & LOGO --- */
-        .brand-text { font-size: 48px; line-height: 1; font-weight: 700; }
+        .brand-text { font-size: clamp(32px, 4vw, 48px); line-height: 1; font-weight: 700; }
         .brand-tm { font-size: 18px; vertical-align: super; margin-left: 2px; }
         .sub-brand-text { font-size: 11px; letter-spacing: 0.05em; line-height: 1.2; font-weight: 700; }
+        
         .logo-container { height: 100px; display: flex; align-items: center; }
         .logo-img { height: 100px; width: auto; object-fit: contain; }
+        
+        /* Optimized Hanging Logo for Mobile */
         .hanging-logo { transform: translateY(18px); filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1)); z-index: 60; }
+        @media (max-width: 768px) {
+            .hanging-logo { transform: translateY(5px); height: 70px; }
+            .logo-img { height: 70px; }
+            .brand-text { font-size: 28px; }
+            .sub-brand-text { font-size: 8px; }
+        }
         
         .header-scrolled { background-color: rgba(255, 255, 255, 0.98); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.08); padding-top: 0.1rem; padding-bottom: 0.1rem; }
         
-        /* Navigasi: Ukuran ditingkatkan untuk audiens eksekutif senior */
-        .nav-link { font-size: 13.5px; font-weight: 700; letter-spacing: 0.02em; color: #475569; transition: all 0.3s; }
+        .nav-link { font-size: 14px; font-weight: 700; letter-spacing: 0.01em; color: #475569; transition: all 0.3s; }
         .nav-link:hover { color: var(--brand); }
         .divider { width: 1px; height: 14px; background-color: #e2e8f0; margin: 0 16px; }
 
         /* --- HERO & SECTIONS --- */
-        .hero-section { min-height: 100vh; padding-top: 200px; padding-bottom: 100px; background: linear-gradient(to bottom, #fff, #f5f7fb); }
-        .hero-kicker { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--brand); margin-bottom: 24px; display: block; }
-        .hero-headline { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.05; letter-spacing: -0.04em; font-weight: 900; color: var(--ink); margin-bottom: 32px; }
+        .hero-section { min-height: 100vh; padding-top: clamp(140px, 15vh, 200px); padding-bottom: 80px; background: linear-gradient(to bottom, #fff, #f5f7fb); }
+        .hero-kicker { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--brand); margin-bottom: 20px; display: block; }
+        .hero-headline { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.05; letter-spacing: -0.04em; font-weight: 900; color: var(--ink); margin-bottom: 32px; }
         
-        .benefit-card { background: #fff; border: 1px solid rgba(15, 23, 42, 0.08); border-radius: 24px; padding: 32px; transition: 0.3s; }
+        .benefit-card { background: #fff; border: 1px solid rgba(15, 23, 42, 0.08); border-radius: 24px; padding: 28px; transition: 0.3s; height: 100%; display: flex; flex-direction: column; }
         .benefit-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--brand); }
         
+        .hero-visual-box { position: relative; border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 40px 100px rgba(15, 23, 42, 0.1); height: clamp(400px, 60vh, 550px); background: #000; }
+        .visual-overlay-badge { position: absolute; top: 20px; right: 20px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(10px); color: #fff; padding: 10px 20px; border-radius: 99px; font-size: 10px; font-weight: 800; border: 1px solid rgba(255,255,255,0.1); tracking-widest; }
+
         .commitment-card { background: var(--ink); color: #fff; padding: 80px 40px; border-radius: var(--radius-xl); text-align: center; position: relative; overflow: hidden; }
         .bg-video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.15; pointer-events: none; }
 
         .portfolio-item { position: relative; border-radius: 20px; overflow: hidden; height: 320px; background: #e2e8f0; }
         .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-        .portfolio-item:hover img { transform: scale(1.08); }
-        .portfolio-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; background: linear-gradient(transparent, rgba(15, 23, 42, 0.9)); color: #fff; }
+        .portfolio-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; background: linear-gradient(transparent, rgba(15, 23, 42, 0.95)); color: #fff; }
 
-        /* --- DASHBOARD SIMULATION --- */
-        .phone-frame { width: 320px; height: 640px; background: #000; border-radius: 50px; padding: 12px; border: 6px solid #1e293b; box-shadow: 0 50px 100px rgba(0,0,0,0.5); margin: 0 auto; }
+        .phone-frame { width: 300px; height: 600px; background: #000; border-radius: 50px; padding: 12px; border: 6px solid #1e293b; box-shadow: 0 50px 100px rgba(0,0,0,0.5); margin: 0 auto; }
         .pulse { width: 6px; height: 6px; background: var(--success); border-radius: 50%; animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(2.5); opacity: 0; } }
 
+        /* Responsive Mobile Handling */
         @media (max-width: 1024px) {
-            .hanging-logo { transform: translateY(0); height: 70px; }
-            .logo-img { height: 70px; }
-            .hero-section { padding-top: 140px; }
+            .hero-headline { text-align: center; }
+            .hero-sub { text-align: center; margin-left: auto; margin-right: auto; }
+            .hero-cta-group { justify-content: center; }
         }
     </style>
 </head>
@@ -92,63 +102,60 @@
     <header id="main-header" class="fixed top-0 left-0 right-0 z-50 py-3 bg-white border-b border-slate-100 transition-all duration-300">
         <div class="max-w-[1440px] mx-auto px-6 md:px-12 flex justify-between items-center overflow-visible">
             
-            <!-- Branding: Proporsi Seimbang -->
+            <!-- Branding: Executive-First Hierarchy -->
             <div class="flex items-center group cursor-pointer overflow-visible">
                 <div class="logo-container hanging-logo transition-transform duration-500 group-hover:scale-105">
                     <img src="logo-invila.png" alt="Logo INVILA" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <!-- Fallback SVG -->
                     <svg class="logo-img hidden" viewBox="0 0 100 125" fill="#2257d8"><path d="M50 5C50 5 12 48 12 80C12 101.5 29.5 118 50 118C70.5 118 88 101.5 88 80C88 48 50 5 50 5Z"/></svg>
                 </div>
-                <div class="ml-6 flex flex-col justify-center">
-                    <h1 class="font-serif brand-text text-slate-900 tracking-tight">INVILA<span class="brand-tm">TM</span></h1>
+                <div class="ml-4 md:ml-6 flex flex-col justify-center">
+                    <h1 class="font-serif brand-text text-slate-900 tracking-tight leading-none">INVILA<span class="brand-tm">TM</span></h1>
                     <p class="font-serif sub-brand-text text-royalBlue uppercase">ZERO CAPeX WATER INFRASTRUCTURE FOR INDUSTRY</p>
                 </div>
             </div>
 
-            <!-- Nav Desktop: Executive-First Legibility -->
+            <!-- Nav Desktop: Improved Font Size & Spacing -->
             <nav class="hidden xl:flex items-center">
                 <div class="flex items-center mr-10">
                     <a href="#kenapa-zero-capex" class="nav-link">KENAPA ZERO CAPeX</a>
                     <div class="divider"></div>
-                    <a href="#solusi" class="nav-link">SOLUSI</a>
+                    <a href="#solusi" class="nav-link uppercase">Solusi</a>
                     <div class="divider"></div>
-                    <a href="#cara-kerja" class="nav-link">CARA KERJA</a>
+                    <a href="#cara-kerja" class="nav-link uppercase">Cara Kerja</a>
                     <div class="divider"></div>
-                    <a href="#dampak-bisnis" class="nav-link">DAMPAK BISNIS</a>
+                    <a href="#dampak-bisnis" class="nav-link uppercase text-ink">Dampak Bisnis</a>
                 </div>
-                <div class="flex items-center gap-4">
-                    <a href="https://wa.me/6285219493322" target="_blank" class="bg-royalBlue px-8 py-3.5 rounded-full text-[12px] font-extrabold text-white shadow-xl shadow-blue-100 hover:bg-[#1a44b0] transition-all uppercase tracking-wider">ANALISA SAVINGS</a>
-                </div>
+                <a href="https://wa.me/6285219493322" target="_blank" class="bg-royalBlue px-8 py-3.5 rounded-full text-[12px] font-extrabold text-white shadow-xl shadow-blue-100 hover:bg-[#1a44b0] transition-all uppercase tracking-wider">Analisa Potensi Savings</a>
             </nav>
 
-            <!-- Mobile Menu Toggle (Simplified) -->
-            <button class="xl:hidden p-2 text-ink">
+            <!-- Mobile Menu -->
+            <button class="xl:hidden p-2 text-ink" onclick="toggleMobileMenu()">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
     </header>
 
-    <!-- SECTION 1: HERO -->
+    <!-- SECTION 1: HERO (RECREATED IN STYLE OF SECTION 3) -->
     <section class="hero-section">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
                 
-                <!-- Konten Hero: Fokus pada Reliability Skala Besar -->
+                <!-- Hero Content -->
                 <div class="lg:col-span-7">
                     <span class="hero-kicker">Saat Kepastian Air dan Efisiensi Operasional Menjadi Prioritas</span>
                     <h2 class="hero-headline">
                         Saat Kepastian Air Menjadi Kebutuhan, <span class="text-royalBlue">CAPEX Tidak Harus Menjadi Hambatan Ekspansi.</span>
                     </h2>
-                    <p class="text-xl text-slate-500 font-light leading-relaxed mb-10 max-w-[700px]">
-                        Solusi infrastruktur air tanpa investasi awal untuk manufaktur skala besar yang menuntut <strong>reliability tinggi</strong> dan stabilitas pasokan kritikal di atas 1.000 m³/hari.
+                    <p class="text-xl text-slate-500 font-light leading-relaxed mb-10 max-w-[700px] hero-sub">
+                        Solusi infrastruktur air tanpa investasi awal untuk manufaktur skala besar (>1.000 m³/hari) yang menuntut <strong>reliability tinggi</strong> dan stabilitas pasokan kritikal.
                     </p>
                     
-                    <div class="flex flex-wrap gap-4 mb-16">
-                        <a href="#konsultasi" class="bg-royalBlue text-white px-10 py-5 rounded-full font-black text-xs uppercase tracking-widest shadow-2xl shadow-blue-200 hover:scale-105 transition-all">Konsultasikan Kondisi Site Anda</a>
-                        <a href="#visit" class="bg-white border border-slate-200 text-ink px-10 py-5 rounded-full font-black text-xs uppercase tracking-widest hover:border-royalBlue hover:text-royalBlue transition-all">Bahas Kesiapan Site</a>
+                    <div class="flex flex-wrap gap-4 mb-16 hero-cta-group">
+                        <a href="#konsultasi" class="bg-royalBlue text-white px-10 py-5 rounded-full font-black text-xs uppercase tracking-widest shadow-2xl shadow-blue-200 hover:scale-105 transition-all w-full md:w-auto text-center">Konsultasikan Kondisi Site</a>
+                        <a href="#visit" class="bg-white border border-slate-200 text-ink px-10 py-5 rounded-full font-black text-xs uppercase tracking-widest hover:border-royalBlue hover:text-royalBlue transition-all w-full md:w-auto text-center">Bahas Kesiapan Site</a>
                     </div>
 
-                    <!-- Benefit Cards: Berurutan Berdasarkan Prioritas CEO -->
+                    <!-- Benefit Cards: CEO Strategic Ordering -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="benefit-card">
                             <span class="text-royalBlue font-black text-[10px] uppercase tracking-widest mb-3 block">Reliability & Continuity</span>
@@ -156,47 +163,52 @@
                             <p class="text-slate-500 text-[12px] leading-relaxed">Menjamin stabilitas utilitas untuk operasi 24/7 tanpa risiko downtime akibat kegagalan infrastruktur.</p>
                         </div>
                         <div class="benefit-card">
-                            <span class="text-royalBlue font-black text-[10px] uppercase tracking-widest mb-3 block">Cash Flow Optimization</span>
+                            <span class="text-royalBlue font-black text-[10px] uppercase tracking-widest mb-3 block">Optimalisasi Cash Flow</span>
                             <h4 class="font-black text-ink text-sm mb-2">Tanpa CAPEX di Awal</h4>
-                            <p class="text-slate-500 text-[12px] leading-relaxed">Dialokasikan modal kerja Anda untuk ekspansi lini produksi utama, bukan untuk aset utilitas pendukung.</p>
+                            <p class="text-slate-500 text-[12px] leading-relaxed">Alokasikan modal kerja untuk ekspansi lini produksi utama, bukan untuk aset utilitas pendukung.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <span class="text-royalBlue font-black text-[10px] uppercase tracking-widest mb-3 block">Compliance & Risk</span>
+                            <h4 class="font-black text-ink text-sm mb-2">Efisiensi Regulasi</h4>
+                            <p class="text-slate-500 text-[12px] leading-relaxed">Sistem yang mematuhi standar lingkungan terbaru tanpa membebani sumber daya engineering internal.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <span class="text-royalBlue font-black text-[10px] uppercase tracking-widest mb-3 block">Digital Control</span>
+                            <h4 class="font-black text-ink text-sm mb-2">Monitoring SCADA-IoT</h4>
+                            <p class="text-slate-500 text-[12px] leading-relaxed">Visibilitas penuh flow rate dan kualitas air secara real-time langsung melalui smartphone manajemen.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Visual Hero: Industrial Proof -->
-                <div class="lg:col-span-5">
-                    <div class="relative group">
-                        <div class="relative rounded-[40px] overflow-hidden shadow-2xl bg-ink h-[500px]">
-                            <!-- Simulasi Video/Visual Proyek -->
-                            <video autoplay muted loop class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000">
-                                <source src="Invila Landing Page Depan.mp4" type="video/mp4">
-                            </video>
-                            
-                            <!-- Overlay Micro-Proof -->
-                            <div class="absolute top-6 right-6 bg-ink/80 backdrop-blur-md text-white text-[10px] font-black px-5 py-2.5 rounded-full border border-white/10 tracking-widest">INDUSTRIAL PROOF</div>
-                            
-                            <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-6 rounded-[24px] shadow-xl">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <div class="w-8 h-8 rounded-lg bg-royalBlue flex items-center justify-center text-white font-bold text-xs shadow-inner">I</div>
-                                    <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Project Snapshot</span>
-                                </div>
-                                <h5 class="font-black text-ink text-sm mb-1">Implementasi Utilitas Air Industri</h5>
-                                <p class="text-[11px] text-slate-500 leading-relaxed mb-3">Kapasitas Produksi > 1.000 m³/hari dengan Monitoring Berbasis SCADA-IoT.</p>
-                                <div class="flex items-center gap-2">
-                                    <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                                    <span class="text-[9px] font-bold text-emerald-600 uppercase">Operational Performance Verified</span>
-                                </div>
+                <!-- Hero Visual: Heavy Industrial Proof -->
+                <div class="lg:col-span-5 w-full">
+                    <div class="hero-visual-box group">
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-80 transition-transform duration-1000 group-hover:scale-105">
+                            <source src="Invila Landing Page Depan.mp4" type="video/mp4">
+                        </video>
+                        <div class="visual-overlay-badge">INDUSTRIAL PROOF</div>
+                        
+                        <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-6 rounded-[24px] shadow-2xl">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-8 h-8 rounded-lg bg-royalBlue flex items-center justify-center text-white font-bold text-xs">I</div>
+                                <span class="text-[10px] font-black uppercase tracking-widest text-slate-400 font-sans">Project Snapshot</span>
+                            </div>
+                            <h5 class="font-black text-ink text-sm mb-1">Implementasi Utilitas Air Industri</h5>
+                            <p class="text-[11px] text-slate-500 leading-relaxed mb-4">Kapasitas Produksi > 1.000 m³/hari dengan Stabilitas Operasional Berbasis IoT.</p>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                                <span class="text-[9px] font-bold text-emerald-600 uppercase tracking-wider">Operational Performance Verified</span>
                             </div>
                         </div>
-                        <p class="mt-6 text-center text-slate-400 text-[11px] font-medium italic">Sistem dirancang untuk mendukung manufaktur dengan kebutuhan utilitas kritikal.</p>
                     </div>
+                    <p class="mt-6 text-center text-slate-400 text-[11px] font-medium italic">Sistem dirancang untuk manufaktur dengan kebutuhan utilitas kritikal.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- SECTION 3: STRATEGIC ASSET TRANSFER -->
+    <!-- SECTION 3: STRATEGIC ASSET TRANSFER (INTEGRATED) -->
     <section id="solusi" class="py-32 bg-white">
         <div class="max-w-[1140px] mx-auto px-6">
             
@@ -208,10 +220,10 @@
                 </div>
             </header>
 
-            <!-- Commitment Card: Skin in the Game -->
+            <!-- Commitment Card -->
             <div class="mb-32">
                 <article class="commitment-card">
-                    <video autoplay muted loop class="bg-video-overlay">
+                    <video autoplay muted loop playsinline class="bg-video-overlay">
                         <source src="kiw-industrial-project-video.mp4" type="video/mp4">
                     </video>
                     <span class="absolute top-[-15px] left-1/2 -translate-x-1/2 bg-royalBlue text-white text-[10px] font-black px-8 py-2.5 rounded-full uppercase tracking-[0.2em] z-10 shadow-lg">Skin in the Game</span>
@@ -222,18 +234,18 @@
                     </p>
                 </article>
 
-                <!-- Social Proof: Partner Grayscale Bar -->
-                <div class="flex flex-wrap justify-center items-center gap-12 mt-16 opacity-40 grayscale pointer-events-none">
-                    <img src="tirtanadi.png" alt="Tirtanadi" class="h-8">
-                    <img src="petrokimia-gresik.png" alt="Petrokimia Gresik" class="h-8">
-                    <img src="kievit.png" alt="Kievit" class="h-8">
-                    <img src="united-tractors.png" alt="United Tractors" class="h-8">
-                    <img src="kiw.png" alt="KIW" class="h-8">
-                    <img src="tirta-asasta-depok.png" alt="Tirta Asasta" class="h-8">
+                <!-- Partner Grayscale Bar -->
+                <div class="flex flex-wrap justify-center items-center gap-10 mt-16 opacity-40 grayscale pointer-events-none">
+                    <img src="tirtanadi.png" alt="Tirtanadi" class="h-7 md:h-8">
+                    <img src="petrokimia-gresik.png" alt="Petrokimia Gresik" class="h-7 md:h-8">
+                    <img src="kievit.png" alt="Kievit" class="h-7 md:h-8">
+                    <img src="united-tractors.png" alt="United Tractors" class="h-7 md:h-8">
+                    <img src="kiw.png" alt="KIW" class="h-7 md:h-8">
+                    <img src="tirta-asasta-depok.png" alt="Tirta Asasta" class="h-7 md:h-8">
                 </div>
             </div>
 
-            <!-- Proven Infrastructure Portfolio Grid -->
+            <!-- Proven Infrastructure Portfolio -->
             <div class="mb-32">
                 <h3 class="text-center font-black text-2xl uppercase tracking-[0.3em] mb-16 text-ink">Proven Strategic Infrastructure</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -241,42 +253,28 @@
                         <img src="SPAM II KIW (Modular) WaaS.png" alt="KIW Project">
                         <div class="portfolio-overlay">
                             <h4 class="font-bold text-xl mb-1">SPAM II Kawasan Industri Wijayakusuma</h4>
-                            <p class="text-xs text-white/60 tracking-widest uppercase">Modular WaaS Implementation</p>
+                            <p class="text-[10px] text-white/60 tracking-widest uppercase font-black">Modular WaaS Implementation</p>
                         </div>
                     </div>
                     <div class="portfolio-item group">
                         <img src="IPAL – IPA Kievit Indonesia Salatiga Plant.png" alt="Kievit Project">
                         <div class="portfolio-overlay">
                             <h4 class="font-bold text-xl mb-1">IPA Kievit Indonesia Salatiga Plant</h4>
-                            <p class="text-xs text-white/60 tracking-widest uppercase">Industrial Water Treatment</p>
-                        </div>
-                    </div>
-                    <div class="portfolio-item group">
-                        <img src="WTP 300 LPS Tirta Asasta Legong.png" alt="Tirta Asasta Project">
-                        <div class="portfolio-overlay">
-                            <h4 class="font-bold text-xl mb-1">WTP 300 LPS Tirta Asasta</h4>
-                            <p class="text-xs text-white/60 tracking-widest uppercase">Large Scale Infrastructure</p>
-                        </div>
-                    </div>
-                    <div class="portfolio-item group">
-                        <img src="SPAM United Tractor - Patria Maritim Perkasa.png" alt="Patria Project">
-                        <div class="portfolio-overlay">
-                            <h4 class="font-bold text-xl mb-1">SPAM Patria Maritim Perkasa</h4>
-                            <p class="text-xs text-white/60 tracking-widest uppercase">Industrial Utility Managed</p>
+                            <p class="text-[10px] text-white/60 tracking-widest uppercase font-black">Industrial Water Treatment</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- SCADA Visibility Section -->
-            <div class="p-10 md:p-20 bg-ink rounded-[48px] flex flex-col lg:flex-row items-center gap-16 text-white overflow-hidden shadow-2xl relative">
-                <div class="flex-1 relative z-10">
+            <!-- SCADA Display -->
+            <div class="p-8 md:p-20 bg-ink rounded-[48px] flex flex-col lg:flex-row items-center gap-16 text-white overflow-hidden shadow-2xl relative">
+                <div class="flex-1 relative z-10 text-center lg:text-left">
                     <span class="hero-kicker text-brandLight">Management Visibility</span>
                     <h3 class="text-4xl md:text-5xl font-black mb-8 leading-tight tracking-tight">Visibility is Control.</h3>
-                    <p class="text-slate-400 text-xl font-light leading-relaxed max-w-[500px]">Pantau kualitas, flow rate, dan status kepatuhan regulasi secara real-time langsung melalui smartphone Anda.</p>
+                    <p class="text-slate-400 text-xl font-light leading-relaxed max-w-[500px] mx-auto lg:mx-0">Pantau kualitas, flow rate, dan status kepatuhan secara real-time melalui smartphone Anda.</p>
                 </div>
                 
-                <div class="phone-frame relative z-10">
+                <div class="phone-frame relative z-10 flex-shrink-0">
                     <div class="phone-screen flex flex-col p-6">
                         <div class="flex justify-between items-center mb-8">
                             <span class="text-[10px] font-black tracking-widest text-brandLight uppercase">INVILA™ LIVE SCADA</span>
@@ -310,38 +308,39 @@
                     </div>
                 </div>
                 
-                <!-- Dekorative BG Element -->
                 <div class="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] bg-royalBlue/10 blur-[120px] rounded-full pointer-events-none"></div>
             </div>
 
-            <!-- Closing Statement -->
+            <!-- Closing -->
             <div class="mt-32 text-center border-t border-slate-100 pt-24">
                 <h3 class="font-serif text-3xl italic text-slate-800 mb-8 max-w-[800px] mx-auto">Fokus Pada Profitabilitas Anda, Kami Urus Infrastruktur Airnya.</h3>
                 <p class="text-2xl font-serif italic text-slate-400 leading-relaxed max-w-[950px] mx-auto">
                     "Dengan INVILA™, utilitas air bukan lagi beban modal yang menyusut, melainkan <strong>fondasi kokoh yang siap mendukung ekspansi bisnis Anda tanpa henti.</strong>"
                 </p>
             </div>
-
         </div>
     </section>
 
-    <!-- FOOTER SIMPLE -->
+    <!-- FOOTER -->
     <footer class="py-12 bg-white border-t border-slate-50">
         <div class="max-w-[1280px] mx-auto px-12 text-center">
-            <p class="text-[11px] font-bold text-slate-400 uppercase tracking-[0.3em]">© 2026 INVILA™ Infrastructure. All Rights Reserved.</p>
+            <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">© 2026 INVILA™ Infrastructure. Industrial Trust Managed.</p>
         </div>
     </footer>
 
     <script>
-        // Efek scroll header untuk transisi transparan ke solid
+        // Header Transition
         window.addEventListener('scroll', function() {
             const header = document.getElementById('main-header');
-            if (window.scrollY > 50) {
-                header.classList.add('header-scrolled');
-            } else {
-                header.classList.remove('header-scrolled');
-            }
+            if (window.scrollY > 50) header.classList.add('header-scrolled');
+            else header.classList.remove('header-scrolled');
         });
+
+        // Mobile Menu Placeholder Logic
+        function toggleMobileMenu() {
+            console.log("Toggle Menu clicked");
+            // Logic for mobile overlay can be added here
+        }
     </script>
 </body>
 </html>
