@@ -104,41 +104,52 @@
             100% { transform: translateX(-50%); }
         }
 
-        .marquee-container {
+        .marquee-wrapper {
             overflow: hidden;
-            white-space: nowrap;
+            width: 100%;
             position: relative;
+            background: white;
+            padding: 2.5rem 0;
         }
 
         .marquee-content {
-            display: inline-flex;
+            display: flex;
+            width: max-content;
             animation: marquee 40s linear infinite;
-            gap: 5rem;
         }
 
-        .marquee-container:hover .marquee-content {
+        .marquee-wrapper:hover .marquee-content {
             animation-play-state: paused;
         }
 
-        .client-logo-grid img { 
-            filter: grayscale(100%) opacity(0.5); 
-            transition: all 0.4s ease; 
+        .client-logo-item {
+            padding: 0 3rem;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .client-logo-item img { 
             height: 45px;
             width: auto;
+            filter: grayscale(100%) opacity(0.4); 
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
             object-fit: contain;
-            flex-shrink: 0;
         }
 
         @media (min-width: 1024px) {
-            .client-logo-grid img { height: 65px; }
+            .client-logo-item img { height: 65px; }
         }
 
-        .client-logo-grid img:hover { 
+        .client-logo-item img:hover { 
             filter: grayscale(0%) opacity(1); 
             transform: scale(1.1); 
         }
 
         .project-card:hover img { transform: scale(1.05); }
+
+        .executive-para { border-left: 5px solid var(--brand); padding-left: 35px; }
     </style>
 </head>
 <body class="bg-offWhite font-sans text-slate-900 leading-normal overflow-x-hidden">
@@ -180,23 +191,23 @@
     </header>
 
     <main>
-        <!-- HERO SECTION WITH BACKGROUND VIDEO -->
+        <!-- HERO SECTION WITH VIDEO -->
         <section id="hero" class="relative min-h-[85vh] flex items-center pt-24 overflow-hidden bg-ink">
             <!-- Background Video Terintegrasi -->
             <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-40">
                 <source src="Invila Landing Page Depan.mp4" type="video/mp4">
             </video>
             
-            <div class="container mx-auto px-6 lg:px-12 relative z-10 py-20">
+            <div class="container mx-auto px-6 lg:px-12 relative z-10 py-20 text-center lg:text-left">
                 <div class="max-w-4xl">
                     <span class="kicker text-white opacity-80">Industrial Water Resilience</span>
                     <h2 class="headline uppercase mb-8 text-white">Transformasi Air Limbah Menjadi <span class="text-brandLight">Aset Air Bersih</span></h2>
-                    <p class="text-base lg:text-2xl text-slate-200 font-medium mb-12 max-w-[750px] leading-relaxed">
+                    <p class="text-base lg:text-2xl text-slate-200 font-medium mb-12 max-w-[750px] leading-relaxed mx-auto lg:mx-0">
                         Suplai air bersih siap produksi tanpa biaya investasi awal (Zero CapEx). 
                         Solusi strategis untuk menghadapi pembatasan kuota ABT dan kenaikan tarif PDAM industri.
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row gap-5">
+                    <div class="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
                         <a href="#audit-tool" class="bg-royalBlue text-white px-12 py-6 rounded-full font-black text-[12px] uppercase tracking-widest shadow-2xl hover:bg-blue-700 transition-all text-center">
                             Mulai Audit Penghematan
                         </a>
@@ -208,110 +219,47 @@
             </div>
         </section>
 
-        <!-- CLIENT LOGOS MARQUEE -->
-        <section class="py-16 bg-white border-y border-slate-50">
-            <div class="w-full">
-                <p class="text-center text-[10px] font-black uppercase tracking-[0.6em] text-slate-400 mb-12 italic">DIPERCAYA OLEH INDUSTRI TERKEMUKA</p>
-                
-                <div class="marquee-container">
-                    <div class="marquee-content client-logo-grid">
-                        <!-- Iterasi 1 -->
-                        <img src="petrokimia-gresik.png" alt="Petrokimia Gresik">
-                        <img src="united-tractors.png" alt="United Tractors">
-                        <img src="kievit.png" alt="Kievit">
-                        <img src="kiw.png" alt="KIW">
-                        <img src="patria-maritim-perkasa.png" alt="Patria">
-                        <img src="cemerlang-samudra-kontrindo.png" alt="CSK">
-                        <img src="tirta-asasta-depok.png" alt="Tirta Asasta">
-                        <img src="dinkes depok.png" alt="Dinkes">
-                        <img src="tirtanadi.png" alt="Tirtanadi">
-                        <img src="wika.png" alt="WIKA">
-                        
-                        <!-- Iterasi 2 (Seamless Loop) -->
-                        <img src="petrokimia-gresik.png" alt="Petrokimia Gresik">
-                        <img src="united-tractors.png" alt="United Tractors">
-                        <img src="kievit.png" alt="Kievit">
-                        <img src="kiw.png" alt="KIW">
-                        <img src="patria-maritim-perkasa.png" alt="Patria">
-                        <img src="cemerlang-samudra-kontrindo.png" alt="CSK">
-                        <img src="tirta-asasta-depok.png" alt="Tirta Asasta">
-                        <img src="dinkes depok.png" alt="Dinkes">
-                        <img src="tirtanadi.png" alt="Tirtanadi">
-                        <img src="wika.png" alt="WIKA">
-                    </div>
+        <!-- LOGO MARQUEE -->
+        <section class="border-y border-slate-100 bg-white overflow-hidden">
+            <p class="text-center text-[10px] font-black uppercase tracking-[0.6em] text-slate-400 pt-10 italic">DIPERCAYA OLEH INDUSTRI TERKEMUKA</p>
+            <div class="marquee-wrapper">
+                <div class="marquee-content">
+                    <div class="client-logo-item"><img src="petrokimia-gresik.png" alt="Petrokimia Gresik"></div>
+                    <div class="client-logo-item"><img src="united-tractors.png" alt="United Tractors"></div>
+                    <div class="client-logo-item"><img src="kievit.png" alt="Kievit"></div>
+                    <div class="client-logo-item"><img src="kiw.png" alt="KIW"></div>
+                    <div class="client-logo-item"><img src="patria-maritim-perkasa.png" alt="Patria"></div>
+                    <div class="client-logo-item"><img src="cemerlang-samudra-kontrindo.png" alt="CSK"></div>
+                    <div class="client-logo-item"><img src="tirta-asasta-depok.png" alt="Tirta Asasta"></div>
+                    <div class="client-logo-item"><img src="dinkes depok.png" alt="Dinkes"></div>
+                    <div class="client-logo-item"><img src="tirtanadi.png" alt="Tirtanadi"></div>
+                    <div class="client-logo-item"><img src="wika.png" alt="WIKA"></div>
+                    <!-- Duplicate for loop -->
+                    <div class="client-logo-item"><img src="petrokimia-gresik.png" alt="Petrokimia Gresik"></div>
+                    <div class="client-logo-item"><img src="united-tractors.png" alt="United Tractors"></div>
+                    <div class="client-logo-item"><img src="kievit.png" alt="Kievit"></div>
+                    <div class="client-logo-item"><img src="kiw.png" alt="KIW"></div>
+                    <div class="client-logo-item"><img src="patria-maritim-perkasa.png" alt="Patria"></div>
+                    <div class="client-logo-item"><img src="cemerlang-samudra-kontrindo.png" alt="CSK"></div>
+                    <div class="client-logo-item"><img src="tirta-asasta-depok.png" alt="Tirta Asasta"></div>
+                    <div class="client-logo-item"><img src="dinkes depok.png" alt="Dinkes"></div>
+                    <div class="client-logo-item"><img src="tirtanadi.png" alt="Tirtanadi"></div>
+                    <div class="client-logo-item"><img src="wika.png" alt="WIKA"></div>
                 </div>
             </div>
         </section>
 
-        <!-- ANALISIS MASALAH & RISK -->
-        <section id="overview" class="py-24 bg-surface px-4 lg:px-12">
-            <div class="max-w-[1400px] mx-auto">
-                <div class="grid lg:grid-cols-12 gap-12 items-start">
-                    <div class="lg:col-span-4">
-                        <span class="kicker">Problem Identification</span>
-                        <h3 class="font-serif italic text-2xl lg:text-5xl text-ink mb-6 uppercase font-bold leading-tight">Risiko Finansial <span class="text-royalBlue">Utilitas Air</span> Industri</h3>
-                        
-                        <div class="mt-12 rounded-3xl overflow-hidden shadow-xl border border-slate-200 group project-card">
-                            <img src="WTP 300 LPS Tirta Asasta Citayam.png" alt="WTP Citayam" class="w-full h-auto transition-transform duration-700">
-                            <div class="p-4 bg-white">
-                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Featured Implementation</p>
-                                <p class="text-xs font-bold text-ink">WTP 300 LPS Tirta Asasta Citayam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-8">
-                        <div class="bg-white p-6 lg:p-14 rounded-[3rem] border border-slate-100 shadow-sm">
-                            <div class="overflow-x-auto rounded-2xl border border-slate-100 mb-10 bg-white">
-                                <table class="w-full text-left diagnostic-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Masalah Utama</th>
-                                            <th>Tantangan Operasional</th>
-                                            <th>Dampak Strategis</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-[12px] leading-relaxed font-medium">
-                                        <tr>
-                                            <td class="p-6 font-black text-ink uppercase">1. Tarif PDAM Industri</td>
-                                            <td class="p-6">Kenaikan tarif progresif yang sulit diprediksi setiap tahunnya.</td>
-                                            <td class="p-6 font-black text-roseAccent uppercase italic">Erosi Margin Laba Bersih.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-6 font-black text-ink uppercase">2. Pembatasan SIPPA</td>
-                                            <td class="p-6">Pengetatan kuota Air Bawah Tanah (ABT) & kenaikan pajak air.</td>
-                                            <td class="p-6 font-black text-roseAccent uppercase italic">Risiko Kontinuitas Produksi.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-6 font-black text-ink uppercase">3. Asset Inefficiency</td>
-                                            <td class="p-6">WWTP lama yang hanya menjadi beban pemeliharaan tanpa nilai ROI.</td>
-                                            <td class="p-6 font-black text-roseAccent uppercase italic">Hambatan Arus Kas (Cash Flow).</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="grid grid-cols-2 gap-4 mt-8">
-                                <img src="Clarifier 1 PDAM Tirtanadi Sunggal.png" class="rounded-2xl border border-slate-100 shadow-sm aspect-video object-cover hover:opacity-90 transition-opacity" alt="Clarifier Tirtanadi">
-                                <img src="IPAL – IPA Kievit Indonesia Salatiga Plant.png" class="rounded-2xl border border-slate-100 shadow-sm aspect-video object-cover hover:opacity-90 transition-opacity" alt="IPA Kievit Salatiga">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PORTFOLIO SECTION -->
-        <section id="projects" class="py-24 bg-white px-4 lg:px-12">
+        <!-- PORTFOLIO IMPLEMENTASI -->
+        <section id="projects" class="py-24 bg-white px-4 lg:px-12 text-center lg:text-left">
             <div class="max-w-[1400px] mx-auto">
                 <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-6">
-                    <div class="max-w-2xl text-left">
+                    <div class="max-w-2xl">
                         <span class="kicker">Real Implementation</span>
-                        <h2 class="text-3xl lg:text-5xl font-black uppercase tracking-tight text-ink">Infrastruktur yang <span class="text-royalBlue">Sudah Beroperasi</span></h2>
+                        <h2 class="text-3xl lg:text-5xl font-black uppercase tracking-tight text-ink">Portfolio <span class="text-royalBlue">Infrastruktur</span></h2>
                     </div>
-                    <a href="https://wa.me/6285219493322" class="text-[10px] font-black uppercase tracking-[0.3em] text-royalBlue hover:underline">Lihat Semua Proyek</a>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project 1 -->
                     <div class="group cursor-pointer">
                         <div class="rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-lg mb-6 aspect-video">
                             <img src="SPAM II KIW (Modular) WaaS.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="KIW WaaS">
@@ -319,7 +267,6 @@
                         <h4 class="text-lg font-black uppercase tracking-tight text-ink">SPAM II KIW (Modular) WaaS</h4>
                         <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-2">Kawasan Industri Wijayakusuma</p>
                     </div>
-                    <!-- Project 2 -->
                     <div class="group cursor-pointer">
                         <div class="rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-lg mb-6 aspect-video">
                             <img src="WTP 300 LPS Tirta Asasta Legong.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Tirta Asasta Legong">
@@ -327,29 +274,27 @@
                         <h4 class="text-lg font-black uppercase tracking-tight text-ink">WTP 300 LPS Tirta Asasta Legong</h4>
                         <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-2">Depok, Jawa Barat</p>
                     </div>
-                    <!-- Project 3 -->
                     <div class="group cursor-pointer">
                         <div class="rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-lg mb-6 aspect-video">
                             <img src="SPAM United Tractor - Patria Maritim Perkasa.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="United Tractor">
                         </div>
-                        <h4 class="text-lg font-black uppercase tracking-tight text-ink">SPAM United Tractor - Patria Maritim</h4>
+                        <h4 class="text-lg font-black uppercase tracking-tight text-ink">SPAM UT - Patria Maritim</h4>
                         <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-2">Batam Project</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- AUDIT EBITDA CALCULATOR -->
+        <!-- AUDIT CALCULATOR -->
         <section id="audit-tool" class="py-24 bg-offWhite px-4 lg:px-12 overflow-hidden">
             <div class="max-w-[1400px] mx-auto">
                 <div class="p-6 lg:p-16 space-y-10 relative overflow-hidden shadow-2xl bg-ink border border-white/5 rounded-[3rem] lg:rounded-[5rem]">
-                    
                     <header class="border-b border-white/10 pb-8 flex flex-col lg:flex-row justify-between lg:items-end gap-5 relative z-10">
-                        <div>
+                        <div class="text-center lg:text-left">
                             <h2 class="text-2xl lg:text-6xl font-black text-white uppercase italic tracking-tighter">INTELLIGENCE <span class="text-roseAccent">SAVING AUDIT</span></h2>
                             <p class="text-[9px] lg:text-[11px] uppercase tracking-[0.4em] text-slate-500 mt-2 font-black">Industrial Operational Performance Savings Analysis</p>
                         </div>
-                        <div class="flex items-center gap-3">
+                        <div class="flex items-center gap-3 justify-center">
                             <span class="w-3 h-3 bg-roseAccent rounded-full animate-pulse"></span>
                             <span class="text-[11px] font-black text-roseAccent uppercase tracking-widest">Live EBITDA Analysis</span>
                         </div>
@@ -357,7 +302,7 @@
 
                     <div class="grid lg:grid-cols-12 gap-8 lg:gap-14 relative z-10">
                         <aside class="lg:col-span-4 space-y-6">
-                            <div class="bg-white/5 border border-white/10 p-6 lg:p-10 rounded-[2rem] space-y-8">
+                            <div class="bg-white/5 border border-white/10 p-6 lg:p-10 rounded-[2rem] space-y-8 backdrop-blur-sm">
                                 <div class="space-y-2">
                                     <label class="text-[11px] font-black uppercase text-slate-400 tracking-wider">Nama Perusahaan</label>
                                     <input type="text" id="input-client-name" placeholder="Input Nama Perusahaan..." class="compact-input">
@@ -372,25 +317,23 @@
                                 </div>
                                 <div class="space-y-2">
                                     <label class="text-[11px] font-black uppercase text-roseAccent tracking-wider">Tarif INVILA™ (Rp/m³)</label>
-                                    <input type="text" id="input-tariff" value="5,500" class="compact-input !text-roseAccent">
+                                    <input type="text" id="input-tariff" value="5,500" class="compact-input !text-roseAccent font-black">
                                 </div>
                             </div>
                         </aside>
 
                         <div class="lg:col-span-8 flex flex-col gap-6">
-                            <div class="p-10 lg:p-20 rounded-[3rem] border-l-8 border-royalBlue bg-gradient-to-br from-blue-950/30 to-dashboardDark flex flex-col justify-center shadow-inner relative overflow-hidden">
-                                <!-- Background Proyek di Dashboard -->
+                            <div class="p-10 lg:p-20 rounded-[3rem] border-l-8 border-royalBlue bg-gradient-to-br from-blue-950/30 to-dashboardDark flex flex-col justify-center shadow-inner relative overflow-hidden text-center lg:text-left">
                                 <img src="SPAM II KIW (Modular) WaaS.png" class="absolute right-0 top-0 h-full opacity-10 object-cover" alt="KIW WaaS">
-                                
                                 <span class="text-blue-400 font-black text-[12px] lg:text-[18px] uppercase tracking-[0.5em] mb-6 relative">Potensi EBITDA Savings (Per Bulan)</span>
                                 <h2 id="view-monthly-saving" class="text-value-main tracking-tighter relative">Rp 0</h2>
                             </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-white">
-                                <div class="p-10 rounded-[2rem] border border-white/5 bg-white/5">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-white text-center lg:text-left">
+                                <div class="p-10 rounded-[2rem] border border-white/5 bg-white/5 backdrop-blur-sm">
                                     <span class="text-[11px] font-black uppercase text-slate-500 mb-4 block tracking-widest">Annual Savings</span>
                                     <div id="view-annual-saving" class="text-3xl lg:text-5xl font-black italic tracking-tighter text-blue-200">Rp 0</div>
                                 </div>
-                                <div class="p-10 rounded-[2rem] border border-roseAccent/20 bg-roseAccent/10">
+                                <div class="p-10 rounded-[2rem] border border-roseAccent/20 bg-roseAccent/10 backdrop-blur-sm">
                                     <span class="text-[11px] font-black uppercase text-roseAccent mb-4 block tracking-widest">Estimated Project Value</span>
                                     <div id="view-capex-total" class="text-3xl lg:text-5xl font-black italic tracking-tighter text-rose-100">Rp 0</div>
                                 </div>
@@ -407,17 +350,17 @@
 
         <!-- CHART PROJECTION -->
         <section id="strategic-projections" class="py-24 bg-white px-4 lg:px-12 text-center">
-            <h2 class="text-3xl lg:text-6xl font-black uppercase text-ink leading-tight mb-20 px-4">
+            <h2 class="text-3xl lg:text-6xl font-black uppercase text-ink leading-tight mb-20 px-4 tracking-tighter">
                 Efisiensi Kumulatif: <br/><span class="text-slate-300 italic">PDAM vs</span> <span class="text-royalBlue italic">Skema INVILA™</span>
             </h2>
 
-            <div class="max-w-[1400px] mx-auto bg-surface p-8 lg:p-20 rounded-[4rem] border border-slate-100 relative overflow-hidden mb-24 shadow-inner">
+            <div class="max-w-[1400px] mx-auto bg-surface p-8 lg:p-20 rounded-[4rem] border border-slate-100 relative overflow-hidden mb-24 shadow-inner text-left">
                 <div class="flex items-end justify-between gap-3 lg:gap-10 h-[400px] lg:h-[600px] border-b-4 border-slate-200 px-2 lg:px-10 relative">
                     <div id="chart-container" class="absolute inset-0 flex items-end justify-between px-2 lg:px-10 pb-1 gap-2 lg:gap-8">
                         <!-- JS Inject Bars -->
                     </div>
                 </div>
-                <div class="flex justify-center gap-8 mt-12 text-[10px] font-black uppercase tracking-widest">
+                <div class="flex flex-wrap justify-center gap-8 mt-12 text-[10px] font-black uppercase tracking-widest">
                     <div class="flex items-center gap-2 text-roseAccent"><span class="w-3 h-3 bg-roseAccent/20 border border-roseAccent rounded"></span> Biaya PDAM</div>
                     <div class="flex items-center gap-2 text-royalBlue"><span class="w-3 h-3 bg-royalBlue rounded"></span> Biaya INVILA™ Plan</div>
                 </div>
@@ -495,7 +438,7 @@
                         <span class="absolute -top-10 left-1/2 -translate-x-1/2 text-[8px] lg:text-[12px] font-black text-ink whitespace-nowrap bg-white/90 backdrop-blur px-2 py-1 rounded border border-slate-100 shadow-sm opacity-0 group-hover/bar:opacity-100 transition-opacity z-20">Saved: ${formatM(saving)}</span>
                         ${i === 5 ? `<span class="absolute -top-14 left-1/2 -translate-x-1/2 text-[10px] lg:text-[16px] font-black text-white bg-royalBlue px-4 py-2 rounded-xl shadow-2xl whitespace-nowrap uppercase">TOTAL SAVING: ${formatM(saving)}</span>` : ''}
                     </div>
-                    <span class="absolute -bottom-8 text-[9px] lg:text-[11px] font-black text-slate-400 uppercase tracking-widest">Y${i}</span>
+                    <span class="absolute -bottom-8 text-[9px] lg:text-[11px] font-black text-slate-400 uppercase tracking-widest">Tahun ${i}</span>
                 `;
                 container.appendChild(barGroup);
             }
