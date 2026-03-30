@@ -231,18 +231,18 @@
             </div>
         </section>
 
-        <!-- SECTION 4: INTELLIGENCE SAVING AUDIT (MOBILE REFINED) -->
+        <!-- SECTION 4: INTELLIGENCE SAVING AUDIT (MOBILE REFINED & RESTORED SAVINGS) -->
         <section id="audit-tool" class="py-12 lg:py-24 bg-offWhite">
             <div class="container mx-auto px-4 lg:px-6">
                 <div class="dashboard-wrapper p-4 lg:p-16 space-y-6 lg:space-y-10 relative overflow-hidden shadow-2xl">
                     <header class="border-b border-white/10 pb-4 relative z-10 flex flex-col lg:flex-row justify-between lg:items-end gap-3">
                         <div>
                             <h2 class="text-lg lg:text-3xl font-black text-white uppercase italic tracking-tighter">INTELLIGENCE <span class="text-roseAccent">SAVING AUDIT</span> </h2>
-                            <p class="text-[8px] lg:text-[10px] uppercase tracking-[0.4em] text-slate-500 mt-1">Industrial Operational Performance Recovery</p>
+                            <p class="text-[8px] lg:text-[10px] uppercase tracking-[0.4em] text-slate-500 mt-1">Industrial Operational Performance Savings Analysis</p>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="w-2 h-2 bg-roseAccent rounded-full animate-pulse"></span>
-                            <span class="text-[9px] font-black text-roseAccent uppercase tracking-widest">Live EBITDA Analysis</span>
+                            <span class="text-[9px] font-black text-roseAccent uppercase tracking-widest">Live EBITDA Savings Analysis</span>
                         </div>
                     </header>
 
@@ -274,7 +274,7 @@
                             <!-- Internal Tech Note -->
                             <div class="hidden lg:block bg-blue-900/10 border border-blue-500/10 p-4 rounded-2xl">
                                 <p class="text-[10px] text-slate-400 leading-relaxed italic">
-                                    *Analisis ini menggunakan perbandingan tarif dasar air industri (PDAM) vs Biaya Layanan Unit INVILA (LPS-Base). EBITDA recovery dihitung sebagai efisiensi kas langsung.
+                                    *Analisis ini menggunakan perbandingan tarif dasar air industri (PDAM) vs Biaya Layanan Unit INVILA (LPS-Base). EBITDA savings dihitung sebagai efisiensi kas langsung.
                                 </p>
                             </div>
                         </aside>
@@ -283,18 +283,18 @@
                         <div class="lg:col-span-8 flex flex-col gap-4">
                             <!-- Main Metric -->
                             <div class="glass-panel p-6 lg:p-12 rounded-2xl lg:rounded-[3rem] border-l-4 border-royalBlue bg-gradient-to-br from-blue-950/20 to-transparent flex flex-col justify-center">
-                                <span class="text-blue-400 font-black text-[9px] lg:text-[12px] uppercase tracking-[0.4em] mb-4 block">Potensi EBITDA Recovery (Per Bulan)</span>
+                                <span class="text-blue-400 font-black text-[9px] lg:text-[12px] uppercase tracking-[0.4em] mb-4 block">Potensi EBITDA Savings (Per Bulan)</span>
                                 <h2 id="view-monthly-saving" class="text-value-main">Rp 0</h2>
                             </div>
                             
                             <!-- Sub Metrics Grid -->
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="glass-panel p-5 lg:p-8 rounded-2xl border border-white/5">
-                                    <span class="text-[8px] lg:text-[10px] font-black uppercase text-slate-500 mb-2 block tracking-widest">Annual Recovery</span>
+                                    <span class="text-[8px] lg:text-[10px] font-black uppercase text-slate-500 mb-2 block tracking-widest">Annual Savings</span>
                                     <div id="view-annual-saving" class="text-base lg:text-3xl font-black italic text-white leading-tight">Rp 0</div>
                                 </div>
                                 <div class="glass-panel p-5 lg:p-8 rounded-2xl border border-roseAccent/20 bg-roseAccent/5">
-                                    <span class="text-[8px] lg:text-[10px] font-black uppercase text-roseAccent mb-2 block tracking-widest">CAPEX Value Avoided</span>
+                                    <span class="text-[8px] lg:text-[10px] font-black uppercase text-roseAccent mb-2 block tracking-widest">CAPEX Savings Value</span>
                                     <div id="view-capex-total" class="text-base lg:text-3xl font-black italic text-white leading-tight">Rp 0</div>
                                 </div>
                             </div>
@@ -316,7 +316,7 @@
                     </p>
 
                     <button onclick="downloadReport()" id="btn-download" class="w-full py-5 bg-roseAccent rounded-xl text-[10px] font-black uppercase tracking-[0.3em] text-white shadow-xl hover:bg-red-600 active:scale-95 transition-all">
-                        Download Strategic Audit Report PDF
+                        Download Strategic Savings Report PDF
                     </button>
                 </div>
             </div>
@@ -460,7 +460,7 @@
                 </div>
             </div>
             <div style="margin-bottom: 60px;">
-                <h1 style="font-size: 32px; font-weight: 900; text-transform: uppercase; color: #01040a;">RINGKASAN POTENSI EBITDA</h1>
+                <h1 style="font-size: 32px; font-weight: 900; text-transform: uppercase; color: #01040a;">RINGKASAN POTENSI EBITDA SAVINGS</h1>
             </div>
             <div style="background: #f8fafc; padding: 40px; border-radius: 30px; border: 1px solid #e2e8f0; margin-bottom: 40px;">
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px;">
@@ -470,7 +470,7 @@
                 </div>
             </div>
             <div style="background: #ffffff; padding: 40px; border-radius: 35px; border: 3px solid #f43f5e; margin-bottom: 40px;">
-                <div style="font-size: 12px; font-weight: 800; color: #f43f5e; text-transform: uppercase;">Recovery Bulanan</div>
+                <div style="font-size: 12px; font-weight: 800; color: #f43f5e; text-transform: uppercase;">Savings Bulanan</div>
                 <div id="pdf-val-monthly" style="font-size: 40px; font-weight: 900; color: #01040a; margin-top: 10px;">-</div>
             </div>
         </div>
@@ -565,7 +565,7 @@
                 pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 210, 297);
                 pdf.save(`Invila-Audit-Report.pdf`);
             } catch (err) { console.error(err); } 
-            finally { btn.innerText = 'DOWNLOAD STRATEGIC AUDIT PDF'; }
+            finally { btn.innerText = 'DOWNLOAD STRATEGIC SAVINGS REPORT PDF'; }
         }
 
         window.addEventListener('scroll', function() {
