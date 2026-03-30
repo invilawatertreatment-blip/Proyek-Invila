@@ -58,9 +58,9 @@
             .sub-brand-text { font-size: 13px; }
         }
 
-        .logo-container { height: 70px; display: flex; align-items: center; }
-        .logo-img { height: 70px; width: auto; object-fit: contain; }
-        .hanging-logo { transform: translateY(12px); filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.1)); z-index: 60; }
+        .logo-container { height: 60px; display: flex; align-items: center; }
+        .logo-img { height: 60px; width: auto; object-fit: contain; }
+        .hanging-logo { transform: translateY(10px); filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.1)); z-index: 60; }
         
         @media (min-width: 1024px) {
             .logo-container { height: 110px; }
@@ -70,48 +70,42 @@
 
         .header-scrolled { background-color: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         
-        /* Mobile Spacing & Font Adjustments */
-        .kicker { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.2em; color: var(--brand); margin-bottom: 12px; display: block; }
-        .headline { font-size: 2rem; line-height: 1.2; letter-spacing: -0.02em; font-weight: 900; color: var(--ink); }
+        /* Typography & Spacing */
+        .kicker { font-size: 0.6rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.2em; color: var(--brand); margin-bottom: 8px; display: block; }
+        .headline { font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.02em; font-weight: 900; color: var(--ink); }
         
         @media (min-width: 1024px) {
             .kicker { font-size: 0.75rem; margin-bottom: 24px; }
             .headline { font-size: 3.8rem; }
         }
 
-        .executive-para { border-left: 3px solid #e2e8f0; padding: 8px 0 8px 20px; transition: border-color 0.4s; }
-        @media (min-width: 1024px) { .executive-para { padding: 10px 0 10px 35px; border-left-width: 4px; } }
-
-        /* Dashboard Mobile optimization */
-        .dashboard-wrapper { background-color: #01040a; border-radius: 2rem; border: 1px solid rgba(255, 255, 255, 0.05); }
+        /* Compact Audit Dashboard for Mobile */
+        .dashboard-wrapper { background-color: #01040a; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.05); }
         @media (min-width: 1024px) { .dashboard-wrapper { border-radius: 4rem; } }
 
-        .text-value-huge { font-size: 2.2rem; line-height: 1.1; font-weight: 900; }
-        @media (min-width: 1024px) { .text-value-huge { font-size: 8rem; } }
+        .compact-input { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 0.75rem; padding: 0.75rem; width: 100%; font-weight: 900; font-size: 1.25rem; color: white; outline: none; }
+        .compact-input:focus { border-color: #f43f5e; background: rgba(244, 63, 94, 0.05); }
 
-        .roadmap-step { border-left: 2px solid #e2e8f0; padding-left: 24px; position: relative; padding-bottom: 40px; }
+        .text-value-main { font-size: 2.25rem; font-weight: 900; line-height: 1; color: white; }
+        @media (min-width: 1024px) { .text-value-main { font-size: 7.5rem; } }
+
+        .roadmap-step { border-left: 2px solid #e2e8f0; padding-left: 20px; position: relative; padding-bottom: 30px; }
         .roadmap-step::before { content: ""; position: absolute; left: -7px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--brand); border: 2px solid white; }
-        @media (min-width: 1024px) { 
-            .roadmap-step { padding-left: 40px; border-left-width: 3px; }
-            .roadmap-step::before { left: -9px; width: 15px; height: 15px; border-width: 4px; }
-        }
 
-        /* Control Center Mobile */
         .dashboard-container { border-radius: 1.5rem; background-color: #020617; }
-        @media (min-width: 1024px) { .dashboard-container { border-radius: 3rem; } }
-
+        
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-thumb { background: #2257d8; border-radius: 10px; }
 
-        section { scroll-margin-top: 100px; }
+        section { scroll-margin-top: 80px; }
         body { -webkit-font-smoothing: antialiased; }
     </style>
 </head>
 <body class="bg-offWhite font-sans text-slate-900 leading-normal overflow-x-hidden">
 
     <!-- HEADER NAVIGATION -->
-    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 py-2 bg-white border-b border-slate-100 transition-all duration-300">
-        <div class="max-w-[1440px] mx-auto px-4 md:px-12 flex justify-between items-center">
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 py-1 bg-white border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-12 flex justify-between items-center h-14 md:h-20">
             
             <div class="flex items-center group cursor-pointer">
                 <div class="logo-container hanging-logo">
@@ -125,16 +119,15 @@
 
             <nav class="hidden xl:flex items-center">
                 <div class="flex items-center mr-10">
-                    <a href="#overview" class="nav-link">ANALISIS MASALAH</a>
+                    <a href="#overview" class="nav-link">ANALISIS</a>
                     <div class="w-px h-3 bg-slate-200 mx-4"></div>
                     <a href="#audit-tool" class="nav-link text-royalBlue">AUDIT EBITDA</a>
                     <div class="w-px h-3 bg-slate-200 mx-4"></div>
                     <a href="#solution" class="nav-link">KOMITMEN</a>
                 </div>
-                <a href="https://wa.me/6285219493322" class="bg-royalBlue px-8 py-4 rounded-full text-[11px] font-black text-white uppercase tracking-widest">Asesmen</a>
+                <a href="https://wa.me/6285219493322" class="bg-royalBlue px-6 py-3 rounded-full text-[10px] font-black text-white uppercase tracking-widest">Asesmen</a>
             </nav>
             
-            <!-- Mobile Menu Toggle (Simplified) -->
             <div class="xl:hidden p-2">
                 <i data-lucide="menu" class="w-6 h-6 text-ink"></i>
             </div>
@@ -142,41 +135,41 @@
     </header>
 
     <main>
-        <!-- SECTION 1: HERO (Mobile: 160px padding) -->
-        <section id="hero" class="pt-40 md:pt-[280px] pb-16 lg:pb-32">
+        <!-- SECTION 1: HERO -->
+        <section id="hero" class="pt-28 md:pt-[280px] pb-12 lg:pb-32">
             <div class="max-w-[1200px] mx-auto px-4 md:px-6">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                     <div class="lg:col-span-7">
                         <span class="kicker">Integrated Water Solutions</span>
-                        <h2 class="headline uppercase mb-6 lg:mb-10">Transformasi Air Limbah Menjadi <span class="text-royalBlue">Air Bersih</span></h2>
-                        <p class="text-lg lg:text-xl text-slate-500 font-light leading-relaxed mb-10 max-w-[750px]">
+                        <h2 class="headline uppercase mb-5 lg:mb-10">Transformasi Air Limbah Menjadi <span class="text-royalBlue">Air Bersih</span></h2>
+                        <p class="text-base lg:text-xl text-slate-500 font-light leading-relaxed mb-8 max-w-[750px]">
                             Suplai air bersih siap produksi tanpa CapEx awal. Solusi tepat untuk biaya PDAM tinggi dan pembatasan ABT industri.
                         </p>
 
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-                            <div class="flex items-center gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm">
-                                <i data-lucide="shield-check" class="w-5 h-5 text-royalBlue shrink-0"></i>
-                                <p class="text-[12px] font-bold text-ink uppercase tracking-tighter">Zero CapEx Investasi</p>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
+                            <div class="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-royalBlue shrink-0"></i>
+                                <p class="text-[10px] font-black text-ink uppercase leading-tight">Zero CapEx Investasi</p>
                             </div>
-                            <div class="flex items-center gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm">
-                                <i data-lucide="activity" class="w-5 h-5 text-royalBlue shrink-0"></i>
-                                <p class="text-[12px] font-bold text-ink uppercase tracking-tighter">SLA Performa 100%</p>
+                            <div class="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <i data-lucide="activity" class="w-4 h-4 text-royalBlue shrink-0"></i>
+                                <p class="text-[10px] font-black text-ink uppercase leading-tight">SLA Performa 100%</p>
                             </div>
                         </div>
 
-                        <a href="https://wa.me/6285219493322" class="bg-royalBlue text-white px-10 py-5 rounded-full font-black text-[12px] uppercase tracking-widest shadow-xl flex items-center justify-center gap-3 w-full sm:w-max">
+                        <a href="https://wa.me/6285219493322" class="bg-royalBlue text-white px-8 py-4 rounded-full font-black text-[11px] uppercase tracking-widest shadow-xl flex items-center justify-center gap-3 w-full sm:w-max">
                             <i data-lucide="phone-call" class="w-4 h-4"></i> Jadwalkan Call Eksekutif
                         </a>
                     </div>
 
                     <div class="lg:col-span-5">
-                        <div class="rounded-3xl lg:rounded-[40px] overflow-hidden bg-ink aspect-square lg:aspect-[4/5] shadow-2xl relative border border-slate-200">
+                        <div class="rounded-2xl lg:rounded-[40px] overflow-hidden bg-ink aspect-video lg:aspect-[4/5] shadow-2xl relative border border-slate-200">
                             <video id="hero-video" class="w-full h-full object-cover opacity-60" autoplay muted loop playsinline>
                                 <source src="KIW 1.mp4" type="video/mp4">
                             </video>
                             <div class="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent"></div>
-                            <div class="absolute bottom-6 left-6 right-6 text-center">
-                                <p class="text-white font-serif italic text-lg leading-tight">Jaminan kesinambungan produksi skala industri.</p>
+                            <div class="absolute bottom-4 left-4 right-4 text-center">
+                                <p class="text-white font-serif italic text-sm md:text-lg leading-tight">Jaminan kesinambungan produksi skala industri.</p>
                             </div>
                         </div>
                     </div>
@@ -185,24 +178,24 @@
         </section>
 
         <!-- SECTION 2: EXECUTIVE AUDIT -->
-        <section id="overview" class="py-16 lg:py-32 bg-surface">
+        <section id="overview" class="py-12 lg:py-32 bg-surface">
             <div class="max-w-[1100px] mx-auto px-4">
-                <div class="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-24 items-center">
                     <div>
                         <span class="kicker">Audit Masalah</span>
-                        <h3 class="font-serif italic text-3xl lg:text-4xl text-ink mb-6 lg:mb-10 uppercase font-bold leading-tight">
+                        <h3 class="font-serif italic text-2xl lg:text-4xl text-ink mb-5 lg:mb-10 uppercase font-bold leading-tight">
                             Sistem Air Anda Adalah <span class="text-royalBlue">Kebocoran Laba</span> yang Tersembunyi.
                         </h3>
                         <div class="executive-para border-royalBlue">
-                            <p class="text-lg lg:text-xl text-slate-700 font-light leading-relaxed">
+                            <p class="text-base lg:text-xl text-slate-700 font-light leading-relaxed">
                                 Inefisiensi utilitas adalah pemborosan kas 24 jam. Tarif PDAM Industri yang tinggi menekan EBITDA Anda secara langsung setiap harinya.
                             </p>
                         </div>
                     </div>
-                    <div class="bg-white p-8 lg:p-12 rounded-[2rem] lg:rounded-[3.5rem] shadow-sm border border-slate-100">
-                        <h4 class="font-black text-royalBlue uppercase text-[10px] tracking-[0.3em] mb-4 underline decoration-4 underline-offset-8">The Cost Trap</h4>
-                        <h3 class="text-xl lg:text-2xl font-black mb-6 leading-snug">Hentikan Pemborosan pada Aset yang <span class="text-royalBlue">Menyusut Nilainya.</span></h3>
-                        <p class="text-slate-500 font-light italic leading-relaxed">
+                    <div class="bg-white p-6 lg:p-12 rounded-2xl lg:rounded-[3.5rem] shadow-sm border border-slate-100">
+                        <h4 class="font-black text-royalBlue uppercase text-[9px] tracking-[0.3em] mb-4 underline decoration-4 underline-offset-8">The Cost Trap</h4>
+                        <h3 class="text-lg lg:text-2xl font-black mb-4 leading-snug">Hentikan Pemborosan pada Aset yang <span class="text-royalBlue">Menyusut Nilainya.</span></h3>
+                        <p class="text-sm lg:text-base text-slate-500 font-light italic leading-relaxed">
                             Jangan biarkan neraca keuangan Anda terbebani oleh Bangkai infrastruktur yang salah desain atau manajemen yang buruk.
                         </p>
                     </div>
@@ -210,200 +203,134 @@
             </div>
         </section>
 
-        <!-- SECTION 4: SAVING AUDIT (Locked Red Color) -->
-        <section id="audit-tool" class="py-16 lg:py-20 bg-offWhite">
+        <!-- SECTION 4: SAVING AUDIT (Compact Mobile) -->
+        <section id="audit-tool" class="py-12 lg:py-20 bg-offWhite">
             <div class="container mx-auto px-4">
-                <div class="dashboard-wrapper p-6 lg:p-20 space-y-10 lg:space-y-12 relative overflow-hidden">
-                    <header class="flex flex-col md:flex-row justify-between border-b border-white/10 pb-8 gap-4 relative z-10">
-                        <div>
-                            <h2 class="text-xl lg:text-4xl font-black text-white uppercase italic">INTELLIGENCE <span class="text-roseAccent">SAVING AUDIT</span> </h2>
-                            <p class="text-[9px] uppercase tracking-widest text-slate-500 mt-2">Operational Performance Insight</p>
-                        </div>
+                <div class="dashboard-wrapper p-4 lg:p-20 space-y-6 lg:space-y-12 relative overflow-hidden">
+                    <header class="border-b border-white/10 pb-4 relative z-10">
+                        <h2 class="text-lg lg:text-4xl font-black text-white uppercase italic">INTELLIGENCE <span class="text-roseAccent">SAVING AUDIT</span> </h2>
+                        <p class="text-[8px] lg:text-[10px] uppercase tracking-widest text-slate-500 mt-1">Operational Performance Recovery Analysis</p>
                     </header>
 
-                    <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 relative z-10">
-                        <aside class="lg:col-span-4 space-y-8">
-                            <div class="grid gap-2">
-                                <label class="text-[10px] font-black uppercase text-slate-500 tracking-widest">Debit (m³/hari)</label>
-                                <input type="text" id="input-flow" data-key="flowRate" class="bg-white/5 border border-white/10 w-full rounded-xl px-6 py-5 text-3xl font-black text-white outline-none focus:border-roseAccent transition-all" value="1,500">
+                    <div class="grid lg:grid-cols-12 gap-4 lg:gap-10 relative z-10">
+                        <!-- Inputs: Compact Grid on Mobile -->
+                        <aside class="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-3">
+                            <div class="col-span-2 lg:col-span-1">
+                                <label class="text-[8px] lg:text-[10px] font-black uppercase text-slate-500 tracking-widest mb-1 block">Debit (m³/hari)</label>
+                                <input type="text" id="input-flow" data-key="flowRate" class="compact-input" value="1,500">
                             </div>
-                            <div class="grid gap-2">
-                                <label class="text-[10px] font-black uppercase text-slate-500 tracking-widest">Tarif Saat Ini (Rp/m³)</label>
-                                <input type="text" id="input-legacy" data-key="legacyCost" class="bg-white/5 border border-white/10 w-full rounded-xl px-6 py-5 text-3xl font-black text-white outline-none focus:border-roseAccent transition-all" value="14,600">
+                            <div>
+                                <label class="text-[8px] lg:text-[10px] font-black uppercase text-slate-500 tracking-widest mb-1 block">Tarif PDAM (Rp)</label>
+                                <input type="text" id="input-legacy" data-key="legacyCost" class="compact-input" value="14,600">
                             </div>
-                            <div class="grid gap-2">
-                                <label class="text-[10px] font-black uppercase text-roseAccent tracking-widest">Tarif INVILA™ (Rp/m³)</label>
-                                <input type="text" id="input-tariff" data-key="invilaTariff" class="bg-white/5 border border-white/10 w-full rounded-xl px-6 py-5 text-3xl font-black text-roseAccent outline-none" value="5,500">
+                            <div>
+                                <label class="text-[8px] lg:text-[10px] font-black uppercase text-roseAccent tracking-widest mb-1 block">Tarif INVILA (Rp)</label>
+                                <input type="text" id="input-tariff" data-key="invilaTariff" class="compact-input !text-roseAccent" value="5,500">
                             </div>
                         </aside>
 
-                        <div class="lg:col-span-8 flex flex-col gap-8">
-                            <div class="glass-panel p-10 lg:p-16 rounded-[2.5rem] lg:rounded-[4rem] flex-grow flex flex-col justify-center border-l-4 border-royalBlue">
-                                <span class="text-blue-400 font-black text-[10px] uppercase tracking-[0.4em] mb-4 block">Monthly EBITDA Recovery</span>
-                                <h2 id="view-monthly-saving" class="text-4xl lg:text-[7.5rem] font-black tracking-tighter italic text-white leading-none">Rp 0</h2>
+                        <!-- Results: High Density for Mobile -->
+                        <div class="lg:col-span-8 flex flex-col gap-3">
+                            <div class="glass-panel p-5 lg:p-16 rounded-2xl lg:rounded-[4rem] border-l-4 border-royalBlue text-center lg:text-left">
+                                <span class="text-blue-400 font-black text-[8px] lg:text-[10px] uppercase tracking-[0.4em] mb-2 block">Monthly EBITDA Recovery</span>
+                                <h2 id="view-monthly-saving" class="text-value-main">Rp 0</h2>
                             </div>
                             
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="glass-panel p-8 rounded-[2rem] border border-white/5">
-                                    <span class="text-[10px] font-black uppercase text-slate-500 mb-2 block">Annual Recovery</span>
-                                    <div id="view-annual-saving" class="text-2xl lg:text-4xl font-black italic text-white">Rp 0</div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="glass-panel p-4 rounded-xl border border-white/5">
+                                    <span class="text-[8px] font-black uppercase text-slate-500 mb-1 block">Annual Recovery</span>
+                                    <div id="view-annual-saving" class="text-lg lg:text-4xl font-black italic text-white leading-tight">Rp 0</div>
                                 </div>
-                                <div class="glass-panel p-8 rounded-[2rem] border border-roseAccent/20">
-                                    <span class="text-[10px] font-black uppercase text-roseAccent mb-2 block">CAPEX Covered</span>
-                                    <div id="view-capex-total" class="text-2xl lg:text-4xl font-black italic text-white">Rp 0</div>
+                                <div class="glass-panel p-4 rounded-xl border border-roseAccent/20">
+                                    <span class="text-[8px] font-black uppercase text-roseAccent mb-1 block">CAPEX Covered</span>
+                                    <div id="view-capex-total" class="text-lg lg:text-4xl font-black italic text-white leading-tight">Rp 0</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="p-8 lg:p-20 rounded-[3rem] lg:rounded-[5rem] bg-gradient-to-r from-blue-950 to-dashboardDark border border-roseAccent/20 text-center lg:text-right">
-                        <span class="text-roseAccent font-black text-[10px] uppercase tracking-[0.5em] block mb-4">5-Year Savings Projection</span>
-                        <h2 id="view-five-year-saving" class="text-4xl lg:text-[8rem] font-black italic text-roseAccent leading-none">Rp 0</h2>
+                    <!-- 5-Year Projection: One-liner on Mobile -->
+                    <div class="p-5 lg:p-16 rounded-2xl lg:rounded-[5rem] bg-gradient-to-r from-blue-950/40 to-dashboardDark border border-roseAccent/20 flex flex-col sm:flex-row justify-between items-center gap-2">
+                        <span class="text-roseAccent font-black text-[8px] lg:text-[10px] uppercase tracking-[0.5em]">5-Year Savings Projection</span>
+                        <h2 id="view-five-year-saving" class="text-2xl lg:text-[8rem] font-black italic text-roseAccent leading-tight">Rp 0</h2>
                     </div>
 
-                    <div class="flex justify-center pt-4">
-                        <button onclick="downloadReport()" id="btn-download" class="w-full sm:w-auto px-12 py-7 bg-roseAccent rounded-2xl text-[11px] font-black uppercase tracking-widest text-white shadow-2xl transition-transform active:scale-95">
-                            Download Strategic Audit PDF
-                        </button>
-                    </div>
+                    <button onclick="downloadReport()" id="btn-download" class="w-full py-5 bg-roseAccent rounded-xl text-[10px] font-black uppercase tracking-widest text-white shadow-2xl active:scale-95 transition-transform">
+                        Download Strategic Audit PDF
+                    </button>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 5: ROADMAP TRANSISI -->
-        <section class="py-16 lg:py-32 bg-white">
+        <!-- SECTION 5: ROADMAP TRANSISI (Compact) -->
+        <section class="py-12 lg:py-32 bg-white">
             <div class="max-w-[1200px] mx-auto px-4">
-                <header class="mb-16 lg:mb-24 text-center">
+                <header class="mb-10 lg:mb-24 text-center">
                     <span class="kicker">Roadmap Transisi</span>
-                    <h2 class="text-3xl lg:text-5xl font-black uppercase leading-tight">Integrasi Paralel: <br/><span class="text-royalBlue">Zero Downtime.</span></h2>
+                    <h2 class="text-2xl lg:text-5xl font-black uppercase leading-tight">Integrasi Paralel: <br/><span class="text-royalBlue">Zero Downtime.</span></h2>
                 </header>
 
-                <div class="max-w-3xl mx-auto">
+                <div class="max-w-2xl mx-auto">
                     <div class="roadmap-step">
-                        <h4 class="font-black text-ink uppercase text-lg mb-2">01. Strategic Audit</h4>
-                        <p class="text-slate-500 font-light text-lg">Membedah inefisiensi kas untuk memetakan penghematan nyata.</p>
+                        <h4 class="font-black text-ink uppercase text-base mb-1">01. Strategic Audit</h4>
+                        <p class="text-slate-500 font-light text-sm">Membedah inefisiensi kas untuk penghematan nyata.</p>
                     </div>
                     <div class="roadmap-step">
-                        <h4 class="font-black text-ink uppercase text-lg mb-2">02. Precision Engineering</h4>
-                        <p class="text-slate-500 font-light text-lg">Merancang blueprint sistem modular khusus untuk site Anda.</p>
+                        <h4 class="font-black text-ink uppercase text-base mb-1">02. Precision Engineering</h4>
+                        <p class="text-slate-500 font-light text-sm">Merancang blueprint sistem modular khusus site.</p>
                     </div>
                     <div class="roadmap-step">
-                        <h4 class="font-black text-ink uppercase text-lg mb-2">03. Parallel Integration</h4>
-                        <p class="text-slate-500 font-light text-lg">Instalasi tanpa mengganggu jalannya operasional pabrik.</p>
+                        <h4 class="font-black text-ink uppercase text-base mb-1">03. Parallel Integration</h4>
+                        <p class="text-slate-500 font-light text-sm">Instalasi tanpa mengganggu operasional pabrik.</p>
                     </div>
                     <div class="roadmap-step border-transparent pb-0">
-                        <h4 class="font-black text-ink uppercase text-lg mb-2">04. Intelligence Handover</h4>
-                        <p class="text-slate-500 font-light text-lg">Aktivasi dashboard untuk transparansi data mutlak.</p>
+                        <h4 class="font-black text-ink uppercase text-base mb-1">04. Intelligence Handover</h4>
+                        <p class="text-slate-500 font-light text-sm">Aktivasi dashboard transparansi data mutlak.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION: DIGITAL CONTROL CENTER (MOBILE FRIENDLY) -->
-        <section class="py-16 lg:py-32 bg-slate-950">
+        <!-- SECTION: DIGITAL CONTROL CENTER -->
+        <section class="py-12 lg:py-32 bg-slate-950">
             <div class="max-w-[1440px] mx-auto px-4">
-                <div class="text-center mb-12">
+                <div class="text-center mb-8">
                     <span class="kicker text-blue-500">Live Operations</span>
-                    <h2 class="text-white text-3xl lg:text-5xl font-black uppercase mb-6">Digital <span class="text-blue-500">Control Center</span></h2>
+                    <h2 class="text-white text-2xl lg:text-5xl font-black uppercase mb-4">Digital <span class="text-blue-500">Control Center</span></h2>
                 </div>
 
-                <div class="dashboard-container min-h-[500px] lg:h-[800px] flex overflow-hidden border border-white/5 shadow-2xl">
-                    <!-- Desktop Sidebar Only -->
-                    <aside class="hidden lg:flex w-64 border-r border-slate-800 p-8 flex-col space-y-6 bg-black">
-                        <div class="flex items-center space-x-2">
-                            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white">I</div>
-                            <span class="text-xl font-bold tracking-tight text-white uppercase">Invila™</span>
-                        </div>
-                        <nav class="flex-1 space-y-2">
-                            <button class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl bg-blue-600 text-white font-bold text-sm">
-                                <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
-                                <span>Main KPI</span>
-                            </button>
-                            <button class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-500 font-bold text-sm hover:bg-slate-900 transition-colors">
-                                <i data-lucide="activity" class="w-4 h-4"></i>
-                                <span>Analysis</span>
-                            </button>
-                        </nav>
-                        <div class="p-4 bg-slate-900 rounded-xl">
-                            <div class="flex items-center gap-2 text-[10px] text-green-400 font-black uppercase">
-                                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div> Online
-                            </div>
-                        </div>
-                    </aside>
-
-                    <!-- Dashboard Main -->
-                    <main class="flex-1 p-6 lg:p-12 overflow-y-auto custom-scrollbar">
-                        <header class="flex flex-col sm:flex-row justify-between gap-6 mb-10">
-                            <div>
-                                <h3 class="text-white text-xl font-bold">Visibility Dashboard</h3>
-                                <p class="text-slate-500 text-xs">Real-time infrastructure monitoring</p>
-                            </div>
-                            <div class="flex items-center gap-4 bg-slate-900 p-3 rounded-2xl border border-white/5">
-                                <div class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center">
-                                    <i data-lucide="user" class="w-5 h-5 text-slate-400"></i>
-                                </div>
-                                <span class="text-xs font-bold text-white uppercase tracking-widest">Operator</span>
-                            </div>
-                        </header>
-
-                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-10">
-                            <div class="bg-slate-900 p-5 rounded-2xl border border-white/5">
-                                <span class="text-[9px] font-black text-slate-500 uppercase block mb-2">Flow Rate</span>
+                <div class="dashboard-container h-[450px] lg:h-[800px] flex overflow-hidden border border-white/5">
+                    <main class="flex-1 p-5 lg:p-12 overflow-y-auto custom-scrollbar">
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+                            <div class="bg-slate-900 p-4 rounded-xl border border-white/5">
+                                <span class="text-[8px] font-black text-slate-500 uppercase block mb-1">Flow</span>
                                 <div class="flex items-baseline gap-1">
-                                    <span id="val-flow" class="text-2xl font-black text-white">125.4</span>
-                                    <span class="text-[10px] text-slate-500">m³/h</span>
+                                    <span id="val-flow" class="text-xl font-black text-white">125.4</span>
+                                    <span class="text-[8px] text-slate-500">m³/h</span>
                                 </div>
                             </div>
-                            <div class="bg-slate-900 p-5 rounded-2xl border border-white/5">
-                                <span class="text-[9px] font-black text-slate-500 uppercase block mb-2">Turbidity</span>
+                            <div class="bg-slate-900 p-4 rounded-xl border border-white/5">
+                                <span class="text-[8px] font-black text-slate-500 uppercase block mb-1">Turbidity</span>
                                 <div class="flex items-baseline gap-1">
-                                    <span id="val-turbidity" class="text-2xl font-black text-white">1.21</span>
-                                    <span class="text-[10px] text-slate-500">NTU</span>
-                                </div>
-                            </div>
-                            <div class="bg-slate-900 p-5 rounded-2xl border border-white/5">
-                                <span class="text-[9px] font-black text-slate-500 uppercase block mb-2">Energy</span>
-                                <div class="flex items-baseline gap-1">
-                                    <span class="text-2xl font-black text-white">0.42</span>
-                                    <span class="text-[10px] text-slate-500">kWh</span>
-                                </div>
-                            </div>
-                            <div class="bg-slate-900 p-5 rounded-2xl border border-white/5">
-                                <span class="text-[9px] font-black text-slate-500 uppercase block mb-2">Uptime</span>
-                                <div class="flex items-baseline gap-1">
-                                    <span class="text-2xl font-black text-white">99.8</span>
-                                    <span class="text-[10px] text-slate-500">%</span>
+                                    <span id="val-turbidity" class="text-xl font-black text-white">1.21</span>
+                                    <span class="text-[8px] text-slate-500">NTU</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                            <div class="bg-slate-900 p-8 rounded-3xl border border-white/5">
-                                <h4 class="text-white font-bold mb-6 flex items-center gap-2"><i data-lucide="database" class="w-4 h-4 text-blue-500"></i> Sludge Control</h4>
-                                <div class="h-40 bg-black rounded-2xl relative overflow-hidden flex flex-col justify-end border border-white/5">
-                                    <div id="sludge-bar" class="bg-blue-600 w-full transition-all duration-1000" style="height: 45%;">
-                                        <div class="absolute top-0 left-0 w-full h-1 bg-blue-400 animate-pulse"></div>
-                                    </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            <div class="bg-slate-900 p-5 rounded-2xl border border-white/5">
+                                <h4 class="text-white text-xs font-bold mb-4 flex items-center gap-2"><i data-lucide="database" class="w-3 h-3 text-blue-500"></i> Sludge</h4>
+                                <div class="h-24 bg-black rounded-xl relative overflow-hidden flex flex-col justify-end">
+                                    <div id="sludge-bar" class="bg-blue-600 w-full transition-all duration-1000" style="height: 45%;"></div>
                                     <div class="absolute inset-0 flex items-center justify-center">
-                                        <span id="sludge-text" class="text-3xl font-black text-white mix-blend-difference">45%</span>
+                                        <span id="sludge-text" class="text-xl font-black text-white mix-blend-difference">45%</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="bg-slate-900 p-8 rounded-3xl border border-white/5 flex flex-col justify-between">
-                                <div class="space-y-6">
-                                    <div class="flex justify-between items-center pb-4 border-b border-white/5">
-                                        <span class="text-sm text-slate-500">System Pressure</span>
-                                        <span class="text-sm font-bold text-green-400">0.25 bar</span>
-                                    </div>
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-sm text-slate-500">Media Status</span>
-                                        <span class="text-sm font-bold text-white italic">Optimal</span>
-                                    </div>
-                                </div>
-                                <button onclick="simulateBackwash()" id="btn-backwash" class="w-full mt-10 py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs tracking-widest transition-all">
-                                    MANUAL BACKWASH
-                                </button>
-                            </div>
+                            <button onclick="simulateBackwash()" id="btn-backwash" class="w-full py-4 bg-blue-600 text-white rounded-xl font-bold text-[10px] tracking-widest">
+                                MANUAL BACKWASH
+                            </button>
                         </div>
                     </main>
                 </div>
@@ -411,24 +338,24 @@
         </section>
 
         <!-- SECTION 7: CLOSING -->
-        <section class="py-24 lg:py-48 bg-white border-t border-slate-100">
+        <section class="py-16 lg:py-48 bg-white border-t border-slate-100">
             <div class="max-w-[1100px] mx-auto px-4 text-center">
-                <h3 class="font-serif italic text-2xl lg:text-5xl font-black mb-12 text-ink leading-tight uppercase tracking-tight">
+                <h3 class="font-serif italic text-xl lg:text-5xl font-black mb-8 text-ink leading-tight uppercase">
                     "Dengan <span class="text-royalBlue">INVILA™</span>, utilitas air bukan lagi biaya, melainkan fondasi kokoh untuk lompatan besar Anda."
                 </h3>
-                <div class="flex flex-col items-center gap-8">
-                    <a href="https://wa.me/6285219493322" class="bg-ink text-white px-12 py-8 rounded-full font-black text-[12px] uppercase tracking-widest shadow-2xl w-full sm:w-auto">Jadwalkan Konsultasi CEO</a>
-                    <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em] italic">Transisi selesai, kedaulatan air dimulai..</p>
+                <div class="flex flex-col items-center gap-6">
+                    <a href="https://wa.me/6285219493322" class="bg-ink text-white px-10 py-6 rounded-full font-black text-[11px] uppercase tracking-widest shadow-2xl w-full sm:w-auto text-center">Jadwalkan Konsultasi CEO</a>
+                    <p class="text-slate-400 text-[9px] font-bold uppercase tracking-[0.5em] italic">Transisi selesai, kedaulatan air dimulai..</p>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- FOOTER -->
-    <footer class="py-20 bg-ink text-white">
+    <footer class="py-12 bg-ink text-white">
         <div class="max-w-[1440px] mx-auto px-6 text-center">
-            <h1 class="brand-text text-white/20 tracking-tight uppercase mb-8 font-serif">INVILA<span class="brand-tm">TM</span></h1>
-            <p class="text-slate-500 text-[10px] font-black uppercase tracking-[0.5em]">Standardizing Smart Water Infrastructure</p>
+            <h1 class="brand-text text-white/20 tracking-tight uppercase mb-4 font-serif">INVILA<span class="brand-tm">TM</span></h1>
+            <p class="text-slate-500 text-[9px] font-black uppercase tracking-[0.5em]">Standardizing Smart Water Infrastructure</p>
         </div>
     </footer>
 
@@ -463,7 +390,7 @@
     </div>
 
     <script>
-        // --- REAL-TIME STATS SIMULATION ---
+        // --- REAL-TIME STATS ---
         let d_flow = 125.4;
         let d_turbidity = 1.21;
         let d_sludge = 45;
@@ -497,7 +424,7 @@
             }, 3000);
         }
 
-        // --- AUDIT CALCULATOR LOGIC ---
+        // --- CALCULATOR LOGIC ---
         const CONFIG = { flowRate: 1500, legacyCost: 14600, invilaTariff: 5500, capexPerLPS: 360000000 };
         let currentData = { ...CONFIG };
 
@@ -517,16 +444,27 @@
             const lps = flow / 86.4; 
             const capex = lps * CONFIG.capexPerLPS;
 
-            document.getElementById('view-monthly-saving').innerText = formatRp(monthly);
-            document.getElementById('view-annual-saving').innerText = formatRp(annual);
-            document.getElementById('view-five-year-saving').innerText = formatRp(fiveYear);
-            document.getElementById('view-capex-total').innerText = formatRp(capex);
+            const mS = document.getElementById('view-monthly-saving');
+            const aS = document.getElementById('view-annual-saving');
+            const fS = document.getElementById('view-five-year-saving');
+            const cT = document.getElementById('view-capex-total');
 
-            document.getElementById('pdf-table-flow').innerText = flow.toLocaleString("id-ID") + " m³/hari";
-            document.getElementById('pdf-table-legacy').innerText = "Rp " + currentData.legacyCost.toLocaleString("id-ID");
-            document.getElementById('pdf-table-tariff').innerText = "Rp " + currentData.invilaTariff.toLocaleString("id-ID");
-            document.getElementById('pdf-val-monthly').innerText = formatRp(monthly);
-            document.getElementById('pdf-val-capex').innerText = formatRp(capex);
+            if(mS) mS.innerText = formatRp(monthly);
+            if(aS) aS.innerText = formatRp(annual);
+            if(fS) fS.innerText = formatRp(fiveYear);
+            if(cT) cT.innerText = formatRp(capex);
+
+            const pF = document.getElementById('pdf-table-flow');
+            const pL = document.getElementById('pdf-table-legacy');
+            const pT = document.getElementById('pdf-table-tariff');
+            const pVM = document.getElementById('pdf-val-monthly');
+            const pVC = document.getElementById('pdf-val-capex');
+
+            if(pF) pF.innerText = flow.toLocaleString("id-ID") + " m³/hari";
+            if(pL) pL.innerText = "Rp " + currentData.legacyCost.toLocaleString("id-ID");
+            if(pT) pT.innerText = "Rp " + currentData.invilaTariff.toLocaleString("id-ID");
+            if(pVM) pVM.innerText = formatRp(monthly);
+            if(pVC) pVC.innerText = formatRp(capex);
         }
 
         async function downloadReport() {
@@ -543,12 +481,6 @@
                 pdf.save(`Invila-Audit-${Date.now()}.pdf`);
             } catch (err) { console.error(err); } 
             finally { btn.innerText = 'DOWNLOAD STRATEGIC AUDIT PDF'; }
-        }
-
-        function toggleVideo() {
-            const video = document.getElementById('hero-video');
-            if (video.paused) video.play();
-            else video.pause();
         }
 
         window.addEventListener('scroll', function() {
