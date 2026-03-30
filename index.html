@@ -47,7 +47,7 @@
             --ink: #01040a;
         }
 
-        /* TIPOGRAFI PERSIS GAMBAR REFERENSI */
+        /* TIPOGRAFI */
         .brand-text { font-size: 24px; line-height: 1; font-weight: 700; font-family: 'Noto Serif', serif; }
         .brand-tm { font-size: 10px; vertical-align: super; }
         .sub-brand-text { font-size: 7px; letter-spacing: 0.05em; line-height: 1.2; font-weight: 900; font-family: 'Inter', sans-serif; }
@@ -89,7 +89,7 @@
         .text-value-main { font-size: 1.85rem; font-weight: 900; line-height: 1; color: white; letter-spacing: -0.05em; font-family: 'Inter', sans-serif; }
         @media (min-width: 1024px) { .text-value-main { font-size: 6rem; } }
 
-        .graph-bar { transition: height 1s cubic-bezier(0.4, 0, 0.2, 1); min-height: 2px; }
+        .graph-bar { transition: height 1s cubic-bezier(0.4, 0, 0.2, 1); min-height: 4px; }
 
         select.compact-input {
             appearance: none;
@@ -101,12 +101,9 @@
 
         .diagnostic-table tr:nth-child(even) { background-color: #f8fafc; }
         .diagnostic-table th { background-color: #f1f5f9; color: #0f172a; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 900; font-size: 9px; padding: 12px 10px; font-family: 'Inter', sans-serif; }
-        .comparison-table td, .comparison-table th { border-bottom: 1px solid #e2e8f0; padding: 1.5rem 1rem; }
         .executive-para { border-left: 5px solid #2257d8; padding-left: 35px; }
 
-        section { scroll-margin-top: 80px; }
         .header-scrolled { background-color: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 25px rgba(0,0,0,0.06); }
-
         .chart-title { font-family: 'Inter', sans-serif; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.02em; }
         
         .client-logo-grid { filter: grayscale(100%) opacity(0.5); transition: all 0.4s ease; cursor: pointer; }
@@ -119,8 +116,8 @@
     <header id="main-header" class="fixed top-0 left-0 right-0 bg-white border-b border-slate-100 transition-all duration-300 z-[100]">
         <div class="max-w-[1440px] mx-auto px-4 lg:px-12 flex justify-between items-center h-16 lg:h-20">
             <div class="flex items-center group cursor-pointer">
-                <div class="logo-container hanging-logo overflow-hidden bg-white rounded-full">
-                    <img src="logo-invila.png" alt="INVILA" class="w-10 h-10 lg:w-20 lg:h-20 object-contain" onerror="this.src='https://via.placeholder.com/150?text=I'">
+                <div class="logo-container hanging-logo overflow-hidden bg-white rounded-full border border-slate-100">
+                    <div class="w-10 h-10 lg:w-20 lg:h-20 flex items-center justify-center bg-royalBlue text-white font-bold text-xl lg:text-3xl">I</div>
                 </div>
                 <div class="ml-3 lg:ml-6 flex flex-col justify-center">
                     <h1 class="brand-text text-ink tracking-tight uppercase">INVILA<span class="brand-tm">TM</span></h1>
@@ -131,7 +128,6 @@
             <div class="hidden xl:flex items-center gap-12">
                 <nav class="flex items-center gap-8">
                     <a href="#overview" class="text-[10px] font-black tracking-widest text-slate-500 uppercase hover:text-royalBlue transition-colors">Analisis</a>
-                    <a href="#waas-model" class="text-[10px] font-black tracking-widest text-slate-500 uppercase hover:text-royalBlue transition-colors">Model WaaS</a>
                     <a href="#audit-tool" class="text-[10px] font-black tracking-widest text-royalBlue uppercase underline decoration-2 underline-offset-4">Audit EBITDA</a>
                     <a href="#strategic-projections" class="text-[10px] font-black tracking-widest text-slate-500 uppercase hover:text-royalBlue transition-colors">Proyeksi</a>
                 </nav>
@@ -154,7 +150,7 @@
 
     <main>
         <!-- HERO -->
-        <section id="hero" class="pt-24 lg:pt-[220px] pb-12 lg:pb-24 px-4 lg:px-12 bg-white">
+        <section id="hero" class="pt-32 lg:pt-[220px] pb-12 lg:pb-24 px-4 lg:px-12 bg-white">
             <div class="max-w-[1400px] mx-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                     <div class="lg:col-span-7 text-center lg:text-left">
@@ -165,28 +161,31 @@
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
                             <div class="flex items-center gap-3 p-5 bg-offWhite/50 rounded-2xl border border-slate-100 shadow-sm">
                                 <i data-lucide="shield-check" class="w-5 h-5 text-royalBlue"></i>
-                                <span class="text-[10px] font-black text-ink uppercase tracking-tight">Zero Capex Investasi</span>
+                                <span class="text-[10px] font-black text-ink uppercase tracking-tight text-left">Zero Capex Investasi</span>
                             </div>
                             <div class="flex items-center gap-3 p-5 bg-offWhite/50 rounded-2xl border border-slate-100 shadow-sm">
                                 <i data-lucide="line-chart" class="w-5 h-5 text-royalBlue"></i>
-                                <span class="text-[10px] font-black text-ink uppercase tracking-tight">Controlled Opex</span>
+                                <span class="text-[10px] font-black text-ink uppercase tracking-tight text-left">Controlled Opex</span>
                             </div>
                             <div class="flex items-center gap-3 p-5 bg-offWhite/50 rounded-2xl border border-slate-100 shadow-sm">
                                 <i data-lucide="activity" class="w-5 h-5 text-royalBlue"></i>
-                                <span class="text-[10px] font-black text-ink uppercase tracking-tight">SLA Performa 100%</span>
+                                <span class="text-[10px] font-black text-ink uppercase tracking-tight text-left">SLA Performa 100%</span>
                             </div>
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <a href="https://wa.me/6285219493322" target="_blank" class="bg-royalBlue text-white px-12 py-6 rounded-full font-black text-[12px] uppercase tracking-widest shadow-2xl inline-flex items-center gap-3 hover:scale-105 transition-transform">
-                                <i data-lucide="phone-call" class="w-4 h-4"></i> Jadwalkan Call Eksekutif
-                            </a>
+                            <button onclick="document.getElementById('audit-tool').scrollIntoView({behavior: 'smooth'})" class="bg-royalBlue text-white px-12 py-6 rounded-full font-black text-[12px] uppercase tracking-widest shadow-2xl inline-flex items-center gap-3 hover:scale-105 transition-transform">
+                                <i data-lucide="calculator" class="w-4 h-4"></i> Mulai Audit Finansial
+                            </button>
                         </div>
                     </div>
                     <div class="lg:col-span-5">
                         <div class="rounded-[3rem] overflow-hidden bg-ink aspect-video lg:aspect-[4/5] shadow-2xl relative border border-slate-200">
-                             <div class="absolute inset-0 bg-slate-800 flex items-center justify-center text-white italic text-center p-8 text-xs lg:text-base font-black">
-                                [Industrial Water Plant Visualization]
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center text-white italic text-center p-8 text-xs lg:text-base font-black">
+                                <div class="space-y-4">
+                                    <i data-lucide="waves" class="w-16 h-16 mx-auto text-blue-400"></i>
+                                    <p>[Industrial Water Plant Visualization]</p>
+                                </div>
                             </div>
                             <div class="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent"></div>
                             <p class="absolute bottom-10 left-10 right-10 text-white font-serif italic text-sm lg:text-2xl text-center leading-tight">Operasional riil menjamin kesinambungan produksi Anda.</p>
@@ -196,26 +195,7 @@
             </div>
         </section>
 
-        <!-- LOGO KLIEN (SOCIAL PROOF) -->
-        <section class="py-12 bg-white border-y border-slate-50 px-4 lg:px-12">
-            <div class="max-w-[1400px] mx-auto">
-                <div class="flex flex-col items-center gap-10">
-                    <span class="text-[10px] font-black text-slate-400 uppercase tracking-[0.5em] italic">Dipercaya Oleh Industri Terkemuka</span>
-                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 lg:gap-12 items-center w-full">
-                        <img src="petrokimia-gresik.png" alt="Petrokimia" class="client-logo-grid h-8 lg:h-10 mx-auto object-contain" onerror="this.src='https://via.placeholder.com/100x40?text=PETROKIMIA'">
-                        <img src="united-tractors.png" alt="United Tractors" class="client-logo-grid h-8 lg:h-10 mx-auto object-contain" onerror="this.src='https://via.placeholder.com/100x40?text=UT'">
-                        <img src="kievit.png" alt="Kievit" class="client-logo-grid h-8 lg:h-10 mx-auto object-contain" onerror="this.src='https://via.placeholder.com/100x40?text=KIEVIT'">
-                        <img src="kiw.png" alt="KIW" class="client-logo-grid h-8 lg:h-10 mx-auto object-contain" onerror="this.src='https://via.placeholder.com/100x40?text=KIW'">
-                        <img src="patria-maritim-perkasa.png" alt="Patria" class="client-logo-grid h-8 lg:h-10 mx-auto object-contain" onerror="this.src='https://via.placeholder.com/100x40?text=PATRIA'">
-                        <img src="cemerlang-samudra-kontrindo.png" alt="CSK" class="client-logo-grid h-8 lg:h-10 mx-auto object-contain" onerror="this.src='https://via.placeholder.com/100x40?text=CSK'">
-                        <img src="tirta-asasta-depok.png" alt="Tirta Asasta" class="client-logo-grid h-8 lg:h-10 mx-auto object-contain" onerror="this.src='https://via.placeholder.com/100x40?text=TIRTA'">
-                        <img src="dinkes depok.png" alt="Dinkes" class="client-logo-grid h-8 lg:h-10 mx-auto object-contain" onerror="this.src='https://via.placeholder.com/100x40?text=DINKES'">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 1: PROBLEM IDENTIFICATION -->
+        <!-- PROBLEM SECTION -->
         <section id="overview" class="py-12 lg:py-32 bg-surface px-4 lg:px-12">
             <div class="max-w-[1400px] mx-auto">
                 <div class="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
@@ -282,29 +262,28 @@
                         <aside class="lg:col-span-4 space-y-6">
                             <div class="bg-white/5 border border-white/10 p-6 lg:p-10 rounded-3xl space-y-8">
                                 <div class="space-y-2">
-                                    <label class="text-[11px] font-black uppercase text-slate-400 tracking-wider">Klien Perusahaan</label>
+                                    <label class="text-[11px] font-black uppercase text-slate-400 tracking-wider">Pilih Klien</label>
                                     <select id="select-client" class="compact-input p-5">
-                                        <option value="custom" data-logo="">-- Pilih Klien --</option>
-                                        <option value="Kievit" data-logo="kievit.png">PT Kievit Indonesia</option>
-                                        <option value="United Tractors" data-logo="united-tractors.png">United Tractors</option>
-                                        <option value="Petrokimia Gresik" data-logo="petrokimia-gresik.png">Petrokimia Gresik</option>
-                                        <option value="KIW" data-logo="kiw.png">KIW Wijayakusuma</option>
+                                        <option value="custom">-- Input Manual --</option>
+                                        <option value="Kievit">PT Kievit Indonesia</option>
+                                        <option value="United Tractors">United Tractors</option>
+                                        <option value="Petrokimia Gresik">Petrokimia Gresik</option>
                                     </select>
                                 </div>
                                 <div id="custom-name-wrapper" class="space-y-2">
-                                    <label class="text-[11px] font-black uppercase text-slate-400 tracking-wider">Input Nama Manual</label>
+                                    <label class="text-[11px] font-black uppercase text-slate-400 tracking-wider">Nama Perusahaan</label>
                                     <input type="text" id="input-client-name" value="PT. Industri Maju Jaya" class="compact-input p-5">
                                 </div>
                                 <div class="space-y-2">
-                                    <label class="text-[11px] font-black uppercase text-slate-400 tracking-wider">Debit (m³/hari)</label>
+                                    <label class="text-[11px] font-black uppercase text-slate-400 tracking-wider">Debit Produksi (m³/hari)</label>
                                     <input type="text" id="input-flow" value="1,500" class="compact-input p-5">
                                 </div>
                                 <div class="space-y-2">
-                                    <label class="text-[11px] font-black uppercase text-slate-400 tracking-wider">Tarif PDAM (Rp/m³)</label>
+                                    <label class="text-[11px] font-black uppercase text-slate-400 tracking-wider">Tarif Eksisting (Rp/m³)</label>
                                     <input type="text" id="input-legacy" value="14,600" class="compact-input p-5">
                                 </div>
                                 <div class="space-y-2">
-                                    <label class="text-[11px] font-black uppercase text-roseAccent tracking-wider">Tarif INVILA (Rp/m³)</label>
+                                    <label class="text-[11px] font-black uppercase text-roseAccent tracking-wider">Tarif Target INVILA (Rp/m³)</label>
                                     <input type="text" id="input-tariff" value="5,500" class="compact-input p-5 !text-roseAccent">
                                 </div>
                             </div>
@@ -322,7 +301,7 @@
                                     <div id="view-annual-saving" class="text-3xl lg:text-5xl font-black italic text-white tracking-tighter">Rp 0</div>
                                 </div>
                                 <div class="p-10 rounded-3xl border border-roseAccent/20 bg-roseAccent/10">
-                                    <span class="text-[11px] font-black uppercase text-roseAccent mb-4 block tracking-widest">Project Value</span>
+                                    <span class="text-[11px] font-black uppercase text-roseAccent mb-4 block tracking-widest">Estimated Project Value</span>
                                     <div id="view-capex-total" class="text-3xl lg:text-5xl font-black italic text-white tracking-tighter">Rp 0</div>
                                 </div>
                             </div>
@@ -339,54 +318,59 @@
         <section id="strategic-projections" class="py-12 lg:py-32 bg-white px-4 lg:px-12">
             <div class="max-w-[1400px] mx-auto">
                 <div class="text-center mb-20 lg:mb-32">
-                    <h2 class="text-2xl lg:text-6xl font-black uppercase text-ink leading-tight mb-8 px-4">
-                        Valuasi Keuntungan: <br/>PDAM vs <span class="text-royalBlue">Skema INVILA™</span>
+                    <h2 class="text-2xl lg:text-6xl font-black uppercase text-ink leading-tight mb-8">
+                        Valuasi Keuntungan: <br/>Eksisting vs <span class="text-royalBlue">Skema INVILA™</span>
                     </h2>
                 </div>
 
-                <div class="bg-surface p-10 lg:p-20 rounded-[4rem] border border-slate-100 shadow-sm relative overflow-hidden mb-32">
+                <div class="bg-surface p-6 lg:p-20 rounded-[2rem] lg:rounded-[4rem] border border-slate-100 shadow-sm relative overflow-hidden mb-32">
                     <div class="flex items-center gap-4 mb-12">
                         <i data-lucide="bar-chart-2" class="text-royalBlue w-10 h-10"></i>
                         <h3 class="chart-title text-xl lg:text-3xl text-ink">Proyeksi Akumulasi Efisiensi (RP)</h3>
                     </div>
 
-                    <div class="flex items-end justify-between gap-4 lg:gap-14 h-[500px] lg:h-[750px] mb-16 border-b-4 border-slate-200 px-4 lg:px-20 relative">
-                        <!-- Bar Years Group -->
+                    <div class="flex items-end justify-between gap-2 lg:gap-14 h-[400px] lg:h-[600px] mb-16 border-b-4 border-slate-200 px-2 lg:px-20 relative">
+                        <!-- Bar Years -->
                         <div class="flex-1 flex items-end justify-center gap-1 lg:gap-5 h-full relative group">
-                            <div id="legacy-bar-1" class="w-1/2 bg-roseAccent/10 border-t-4 border-roseAccent graph-bar rounded-t-lg shadow-sm"></div>
-                            <div id="invila-bar-1" class="w-1/2 bg-royalBlue graph-bar rounded-t-lg shadow-xl relative">
-                                <span id="label-bar-1" class="absolute -top-14 left-1/2 -translate-x-1/2 text-[10px] lg:text-[14px] font-black text-ink bg-white/90 backdrop-blur px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm whitespace-nowrap">0.00 M</span>
+                            <div id="legacy-bar-1" class="w-1/2 bg-roseAccent/10 border-t-4 border-roseAccent graph-bar rounded-t-lg"></div>
+                            <div id="invila-bar-1" class="w-1/2 bg-royalBlue graph-bar rounded-t-lg relative">
+                                <span id="label-bar-1" class="absolute -top-10 left-1/2 -translate-x-1/2 text-[9px] lg:text-[12px] font-black text-ink whitespace-nowrap">0.00 M</span>
                             </div>
-                            <span class="absolute -bottom-12 text-[11px] font-black text-slate-400 uppercase tracking-widest">Y1</span>
+                            <span class="absolute -bottom-10 text-[10px] font-black text-slate-400 uppercase">Y1</span>
                         </div>
                         <div class="flex-1 flex items-end justify-center gap-1 lg:gap-5 h-full relative group">
-                            <div id="legacy-bar-2" class="w-1/2 bg-roseAccent/10 border-t-4 border-roseAccent graph-bar rounded-t-lg shadow-sm"></div>
-                            <div id="invila-bar-2" class="w-1/2 bg-royalBlue graph-bar rounded-t-lg shadow-xl relative">
-                                <span id="label-bar-2" class="absolute -top-14 left-1/2 -translate-x-1/2 text-[10px] lg:text-[14px] font-black text-ink bg-white/90 backdrop-blur px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm whitespace-nowrap">0.00 M</span>
+                            <div id="legacy-bar-2" class="w-1/2 bg-roseAccent/10 border-t-4 border-roseAccent graph-bar rounded-t-lg"></div>
+                            <div id="invila-bar-2" class="w-1/2 bg-royalBlue graph-bar rounded-t-lg relative">
+                                <span id="label-bar-2" class="absolute -top-10 left-1/2 -translate-x-1/2 text-[9px] lg:text-[12px] font-black text-ink whitespace-nowrap">0.00 M</span>
                             </div>
-                            <span class="absolute -bottom-12 text-[11px] font-black text-slate-400 uppercase tracking-widest">Y2</span>
+                            <span class="absolute -bottom-10 text-[10px] font-black text-slate-400 uppercase">Y2</span>
                         </div>
                         <div class="flex-1 flex items-end justify-center gap-1 lg:gap-5 h-full relative group">
-                            <div id="legacy-bar-3" class="w-1/2 bg-roseAccent/10 border-t-4 border-roseAccent graph-bar rounded-t-lg shadow-sm"></div>
-                            <div id="invila-bar-3" class="w-1/2 bg-royalBlue graph-bar rounded-t-lg shadow-xl relative">
-                                <span id="label-bar-3" class="absolute -top-14 left-1/2 -translate-x-1/2 text-[10px] lg:text-[14px] font-black text-ink bg-white/90 backdrop-blur px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm whitespace-nowrap">0.00 M</span>
+                            <div id="legacy-bar-3" class="w-1/2 bg-roseAccent/10 border-t-4 border-roseAccent graph-bar rounded-t-lg"></div>
+                            <div id="invila-bar-3" class="w-1/2 bg-royalBlue graph-bar rounded-t-lg relative">
+                                <span id="label-bar-3" class="absolute -top-10 left-1/2 -translate-x-1/2 text-[9px] lg:text-[12px] font-black text-ink whitespace-nowrap">0.00 M</span>
                             </div>
-                            <span class="absolute -bottom-12 text-[11px] font-black text-slate-400 uppercase tracking-widest">Y3</span>
+                            <span class="absolute -bottom-10 text-[10px] font-black text-slate-400 uppercase">Y3</span>
                         </div>
                         <div class="flex-1 flex items-end justify-center gap-1 lg:gap-5 h-full relative group">
-                            <div id="legacy-bar-4" class="w-1/2 bg-roseAccent/10 border-t-4 border-roseAccent graph-bar rounded-t-lg shadow-sm"></div>
-                            <div id="invila-bar-4" class="w-1/2 bg-royalBlue graph-bar rounded-t-lg shadow-xl relative">
-                                <span id="label-bar-4" class="absolute -top-14 left-1/2 -translate-x-1/2 text-[10px] lg:text-[14px] font-black text-ink bg-white/90 backdrop-blur px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm whitespace-nowrap">0.00 M</span>
+                            <div id="legacy-bar-4" class="w-1/2 bg-roseAccent/10 border-t-4 border-roseAccent graph-bar rounded-t-lg"></div>
+                            <div id="invila-bar-4" class="w-1/2 bg-royalBlue graph-bar rounded-t-lg relative">
+                                <span id="label-bar-4" class="absolute -top-10 left-1/2 -translate-x-1/2 text-[9px] lg:text-[12px] font-black text-ink whitespace-nowrap">0.00 M</span>
                             </div>
-                            <span class="absolute -bottom-12 text-[11px] font-black text-slate-400 uppercase tracking-widest">Y4</span>
+                            <span class="absolute -bottom-10 text-[10px] font-black text-slate-400 uppercase">Y4</span>
                         </div>
                         <div class="flex-1 flex items-end justify-center gap-1 lg:gap-5 h-full relative group">
-                            <div id="legacy-bar-5" class="w-1/2 bg-roseAccent/10 border-t-4 border-roseAccent graph-bar rounded-t-lg shadow-sm"></div>
-                            <div id="invila-bar-5" class="w-1/2 bg-royalBlue graph-bar rounded-t-lg shadow-2xl relative">
-                                <span id="label-bar-5" class="absolute -top-16 left-1/2 -translate-x-1/2 text-[12px] lg:text-[18px] font-black text-white bg-royalBlue px-4 py-2 rounded-xl shadow-lg whitespace-nowrap scale-110 uppercase">SAVING: <span id="final-saving-val">0.00 M</span></span>
+                            <div id="legacy-bar-5" class="w-1/2 bg-roseAccent/10 border-t-4 border-roseAccent graph-bar rounded-t-lg"></div>
+                            <div id="invila-bar-5" class="w-1/2 bg-royalBlue graph-bar rounded-t-lg relative shadow-2xl">
+                                <span class="absolute -top-16 left-1/2 -translate-x-1/2 text-[10px] lg:text-[16px] font-black text-white bg-royalBlue px-4 py-2 rounded-xl whitespace-nowrap scale-110 uppercase shadow-lg">SAVING: <span id="final-saving-val">0.00 M</span></span>
                             </div>
-                            <span class="absolute -bottom-12 text-[11px] font-black text-ink uppercase tracking-widest">Y5 (Final)</span>
+                            <span class="absolute -bottom-10 text-[10px] font-black text-ink uppercase">Y5 (Final)</span>
                         </div>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center gap-8 mt-4 text-[10px] font-black uppercase tracking-widest">
+                        <div class="flex items-center gap-2"><span class="w-4 h-4 bg-roseAccent"></span> Cost PDAM Eksisting</div>
+                        <div class="flex items-center gap-2"><span class="w-4 h-4 bg-royalBlue"></span> Cost Model INVILA™</div>
                     </div>
                 </div>
             </div>
@@ -404,62 +388,73 @@
     <!-- PDF TEMPLATE (HIDDEN) -->
     <div style="position: absolute; top: -9999px; left: -9999px;">
         <div id="pdf-report-container" style="width: 210mm; background: #ffffff; color: #01040a; font-family: 'Inter', sans-serif;">
-            <!-- Halaman 1 -->
             <div id="pdf-page-1" style="height: 297mm; padding: 25mm; position: relative; background: white;">
                 <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #f1f5f9; padding-bottom: 12mm; margin-bottom: 15mm;">
                     <div style="font-family: 'Noto Serif', serif; font-size: 28px; font-weight: 700; color: #2257d8; text-transform: uppercase;">INVILA™</div>
-                    <div style="text-align: right; display: flex; align-items: center; gap: 6mm;">
-                        <div style="text-align: right;">
-                            <div style="font-size: 10px; font-weight: 900; color: #64748b; text-transform: uppercase; letter-spacing: 2px;">PREPARED FOR</div>
-                            <div id="pdf-client-name-header" style="font-size: 14px; font-weight: 900; color: #01040a; text-transform: uppercase;">-</div>
-                        </div>
+                    <div style="text-align: right;">
+                        <div style="font-size: 10px; font-weight: 900; color: #64748b; text-transform: uppercase; letter-spacing: 2px;">PREPARED FOR</div>
+                        <div id="pdf-client-name-header" style="font-size: 14px; font-weight: 900; color: #01040a; text-transform: uppercase;">-</div>
                     </div>
                 </div>
                 <div style="margin-bottom: 20mm; line-height: 1.8;">
                     <h2 style="font-size: 24px; font-weight: 900; color: #2257d8; text-transform: uppercase; font-style: italic; letter-spacing: -1px;">Strategic Audit Report</h2>
-                    <p style="font-size: 13px; margin-top: 8mm; font-weight: 500;">Kepada Manajemen <b id="pdf-client-name-bold" style="font-weight: 900;">-</b>,</p>
-                    <p style="font-size: 13px; margin-top: 5mm; font-weight: 500;">Analisis menunjukkan potensi efisiensi tahunan sebesar <span id="pdf-letter-annual" style="font-weight: 900; color: #2257d8;">-</span> melalui model WaaS INVILA™.</p>
+                    <p style="font-size: 13px; margin-top: 8mm; font-weight: 500;">Manajemen <b id="pdf-client-name-bold" style="font-weight: 900;">-</b>,</p>
+                    <p style="font-size: 13px; margin-top: 5mm; font-weight: 500;">Berikut adalah ringkasan potensi efisiensi operasional melalui pengalihan infrastruktur air limbah menjadi air bersih siap pakai.</p>
                 </div>
-                <div style="background: #01040a; border-radius: 20px; padding: 15mm; color: white; text-align: center; margin-top: 15mm; border-top: 6px solid #d4af37;">
-                    <span style="font-size: 12px; color: #d4af37; font-weight: 900; text-transform: uppercase; letter-spacing: 4px;">5-Year Savings Potential</span>
-                    <div id="pdf-val-5year-top" style="font-size: 48px; font-weight: 900; margin-top: 6mm; font-style: italic;">-</div>
+                
+                <div style="background: #f8fafc; border-radius: 20px; padding: 15mm; margin-bottom: 15mm;">
+                    <table style="width: 100%; font-size: 14px;">
+                        <tr><td style="padding: 10px 0; color: #64748b;">Annual Saving:</td><td id="pdf-letter-annual" style="text-align: right; font-weight: 900; color: #2257d8;">-</td></tr>
+                        <tr><td style="padding: 10px 0; color: #64748b;">5-Year Total Saving:</td><td id="pdf-val-5year-top" style="text-align: right; font-weight: 900; color: #2257d8;">-</td></tr>
+                    </table>
+                </div>
+
+                <div style="background: #01040a; border-radius: 20px; padding: 15mm; color: white; text-align: center; border-top: 6px solid #f43f5e;">
+                    <span style="font-size: 12px; color: #f43f5e; font-weight: 900; text-transform: uppercase; letter-spacing: 4px;">Investment Strategy</span>
+                    <p style="font-size: 14px; margin-top: 4mm;">INVILA menanggung 100% Capex & Resiko Operasional.</p>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Hidden sync elements for JS safety -->
+    <div class="hidden">
+        <span id="sync-5year-box"></span>
+        <span id="sync-legacy-tariff"></span>
+        <span id="sync-invila-tariff"></span>
+        <span id="sync-legacy-5yr"></span>
+        <span id="sync-invila-5yr"></span>
     </div>
 
     <script>
         const CONFIG = { capexPerLPS: 360000000 };
 
         function formatRp(v) {
+            if (!v || isNaN(v)) return "Rp 0";
             const abs = Math.abs(v);
             if (abs >= 1e9) return `Rp ${(v / 1e9).toFixed(2)} Miliar`;
             if (abs >= 1e6) return `Rp ${(v / 1e6).toFixed(1)} Juta`;
             return `Rp ${Math.round(v).toLocaleString("id-ID")}`;
         }
 
-        function formatM(v) { return `${(v / 1e9).toFixed(2)} M`; }
+        function formatM(v) { 
+            if (!v || isNaN(v)) return "0.00 M";
+            return `${(v / 1e9).toFixed(2)} M`; 
+        }
 
         function updateAuditDashboard() {
             const clientSelect = document.getElementById('select-client');
             const selectedOption = clientSelect.options[clientSelect.selectedIndex];
-            const clientLogo = selectedOption.getAttribute('data-logo');
             let clientName = (clientSelect.value === 'custom') ? document.getElementById('input-client-name').value : selectedOption.text;
 
             const headerImg = document.getElementById('client-logo-header');
             const headerPlaceholder = document.getElementById('client-logo-placeholder');
 
-            if (clientLogo && clientLogo !== "") {
-                headerImg.src = clientLogo;
-                headerImg.onload = () => { headerImg.classList.remove('hidden'); headerPlaceholder.classList.add('hidden'); };
-                headerImg.onerror = () => { headerImg.classList.add('hidden'); headerPlaceholder.classList.remove('hidden'); };
-            } else {
-                headerImg.classList.add('hidden'); headerPlaceholder.classList.remove('hidden');
-            }
-
-            const flow = parseInt(document.getElementById('input-flow').value.replace(/\D/g, "")) || 0;
-            const legacyRate = parseInt(document.getElementById('input-legacy').value.replace(/\D/g, "")) || 0;
-            const invilaRate = parseInt(document.getElementById('input-tariff').value.replace(/\D/g, "")) || 0;
+            const getVal = (id) => parseInt(document.getElementById(id).value.replace(/,/g, "")) || 0;
+            
+            const flow = getVal('input-flow');
+            const legacyRate = getVal('input-legacy');
+            const invilaRate = getVal('input-tariff');
 
             const savingsPerMonth = (legacyRate - invilaRate) * flow * 30;
             const annualSavings = savingsPerMonth * 12;
@@ -471,39 +466,52 @@
             document.getElementById('view-monthly-saving').innerText = formatRp(savingsPerMonth);
             document.getElementById('view-annual-saving').innerText = formatRp(annualSavings);
             document.getElementById('view-capex-total').innerText = formatRp(capex);
-            document.getElementById('sync-5year-box').innerText = formatRp(annualSavings * 5);
-            document.getElementById('final-saving-val').innerText = formatM(annualSavings * 5);
+            
+            const updateText = (id, val) => {
+                const el = document.getElementById(id);
+                if (el) el.innerText = val;
+            };
 
-            document.getElementById('sync-legacy-tariff').innerText = "Rp " + legacyRate.toLocaleString("id-ID");
-            document.getElementById('sync-invila-tariff').innerText = "Rp " + invilaRate.toLocaleString("id-ID");
-            document.getElementById('sync-legacy-5yr').innerText = formatRp(legacyAnnualCost * 5);
-            document.getElementById('sync-invila-5yr').innerText = formatRp(invilaAnnualCost * 5);
+            updateText('sync-5year-box', formatRp(annualSavings * 5));
+            updateText('final-saving-val', formatM(annualSavings * 5));
+            updateText('sync-legacy-tariff', "Rp " + legacyRate.toLocaleString("id-ID"));
+            updateText('sync-invila-tariff', "Rp " + invilaRate.toLocaleString("id-ID"));
 
-            const maxRef = legacyAnnualCost * 5;
+            const maxRef = (legacyAnnualCost * 5) || 1;
             for(let i=1; i<=5; i++) {
                 const legacyH = ((legacyAnnualCost * i) / maxRef) * 90;
                 const invilaH = ((invilaAnnualCost * i) / maxRef) * 90;
-                if(document.getElementById('legacy-bar-' + i)) document.getElementById('legacy-bar-' + i).style.height = legacyH + '%';
-                if(document.getElementById('invila-bar-' + i)) document.getElementById('invila-bar-' + i).style.height = invilaH + '%';
-                if(document.getElementById('label-bar-' + i)) document.getElementById('label-bar-' + i).innerText = formatM(annualSavings * i);
+                const lb = document.getElementById('legacy-bar-' + i);
+                const ib = document.getElementById('invila-bar-' + i);
+                const lbl = document.getElementById('label-bar-' + i);
+                
+                if(lb) lb.style.height = legacyH + '%';
+                if(ib) ib.style.height = invilaH + '%';
+                if(lbl) lbl.innerText = formatM(annualSavings * i);
             }
 
-            document.getElementById('pdf-client-name-header').innerText = clientName;
-            document.getElementById('pdf-client-name-bold').innerText = clientName;
-            document.getElementById('pdf-letter-annual').innerText = formatRp(annualSavings);
-            document.getElementById('pdf-val-5year-top').innerText = formatRp(annualSavings * 5);
+            updateText('pdf-client-name-header', clientName);
+            updateText('pdf-client-name-bold', clientName);
+            updateText('pdf-letter-annual', formatRp(annualSavings));
+            updateText('pdf-val-5year-top', formatRp(annualSavings * 5));
         }
 
         async function downloadReport() {
             const btn = event.currentTarget;
-            btn.innerText = 'GENERATING...'; btn.disabled = true;
+            const originalText = btn.innerText;
+            btn.innerText = 'GENERATING PDF...'; btn.disabled = true;
             try {
                 const { jsPDF } = window.jspdf;
+                const container = document.getElementById('pdf-report-container');
+                const canvas = await html2canvas(container, { scale: 2 });
                 const pdf = new jsPDF("p", "mm", "a4");
-                const canvas = await html2canvas(document.getElementById('pdf-page-1'), { scale: 2 });
                 pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 210, 297);
                 pdf.save(`Invila-Audit-${document.getElementById('display-client-name-header').innerText}.pdf`);
-            } catch (err) { console.error(err); } finally { btn.innerText = 'Download Strategic Savings Report PDF'; btn.disabled = false; }
+            } catch (err) { 
+                console.error(err); 
+            } finally { 
+                btn.innerText = originalText; btn.disabled = false; 
+            }
         }
 
         document.querySelectorAll('input, select').forEach(el => {
@@ -516,7 +524,11 @@
             });
         });
 
-        window.onload = () => { if (typeof lucide !== 'undefined') lucide.createIcons(); updateAuditDashboard(); };
+        window.onload = () => { 
+            if (typeof lucide !== 'undefined') lucide.createIcons(); 
+            updateAuditDashboard(); 
+        };
+
         window.addEventListener('scroll', () => {
             const header = document.getElementById('main-header');
             if (window.scrollY > 40) header.classList.add('header-scrolled');
