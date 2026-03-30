@@ -48,7 +48,7 @@
             --rose: #f43f5e;
         }
 
-        /* --- STYLES LOCKED --- */
+        /* --- STYLES --- */
         .brand-text { font-size: 24px; line-height: 1; font-weight: 700; font-family: 'Noto Serif', serif; }
         .brand-tm { font-size: 10px; vertical-align: super; }
         .sub-brand-text { font-size: 7px; letter-spacing: 0.15em; line-height: 1.2; font-weight: 900; font-family: 'Inter', sans-serif; }
@@ -59,12 +59,25 @@
             .sub-brand-text { font-size: 13px; }
         }
 
-        .logo-container { height: 45px; display: flex; align-items: center; }
-        .hanging-logo { transform: translateY(6px); filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.1)); z-index: 60; }
+        /* EFEK LOGO MENGGANTUNG TANPA BACKGROUND */
+        .logo-container { 
+            display: flex; 
+            align-items: center; 
+            position: relative;
+            z-index: 110;
+        }
+
+        .hanging-logo-img {
+            transform: translateY(8px);
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+            transition: transform 0.3s ease;
+        }
         
         @media (min-width: 1024px) {
-            .logo-container { height: 110px; }
-            .hanging-logo { transform: translateY(18px); }
+            .hanging-logo-img { 
+                transform: translateY(22px); 
+                height: 100px;
+            }
         }
 
         .kicker { font-size: 0.6rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.25em; color: var(--brand); margin-bottom: 8px; display: block; font-family: 'Inter', sans-serif; }
@@ -148,8 +161,6 @@
         }
 
         .project-card:hover img { transform: scale(1.05); }
-
-        .executive-para { border-left: 5px solid var(--brand); padding-left: 35px; }
     </style>
 </head>
 <body class="bg-offWhite font-sans text-slate-900 leading-normal overflow-x-hidden">
@@ -158,8 +169,8 @@
     <header id="main-header" class="fixed top-0 left-0 right-0 bg-white border-b border-slate-100 transition-all duration-300 z-[100]">
         <div class="max-w-[1440px] mx-auto px-4 lg:px-12 flex justify-between items-center h-16 lg:h-24">
             <div class="flex items-center group cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-                <div class="logo-container hanging-logo overflow-hidden bg-white rounded-full p-1 shadow-md">
-                    <img src="logo-invila.png" alt="INVILA Logo" class="w-10 h-10 lg:w-20 lg:h-20 object-contain" onerror="this.src='https://via.placeholder.com/150?text=I'">
+                <div class="logo-container">
+                    <img src="logo-invila.png" alt="INVILA Logo" class="hanging-logo-img h-10 lg:h-20 object-contain" onerror="this.src='https://via.placeholder.com/150?text=I'">
                 </div>
                 <div class="ml-3 lg:ml-6 flex flex-col justify-center">
                     <h1 class="brand-text text-ink tracking-tight uppercase">INVILA<span class="brand-tm">TM</span></h1>
@@ -180,8 +191,8 @@
                         <span class="text-[8px] font-black text-slate-400 uppercase tracking-widest">Prepared for</span>
                         <span id="display-client-name-header" class="text-[10px] font-black text-ink uppercase tracking-tight">Client Company</span>
                     </div>
-                    <div class="w-12 h-12 bg-surface rounded-lg flex items-center justify-center border border-slate-100 shadow-inner overflow-hidden">
-                        <i data-lucide="building-2" class="w-6 h-6 text-slate-300"></i>
+                    <div class="w-10 h-10 bg-surface rounded flex items-center justify-center border border-slate-100 shadow-inner overflow-hidden">
+                        <i data-lucide="building-2" class="w-5 h-5 text-slate-300"></i>
                     </div>
                 </div>
             </div>
@@ -191,9 +202,8 @@
     </header>
 
     <main>
-        <!-- HERO SECTION WITH VIDEO -->
+        <!-- HERO SECTION WITH VIDEO BACKGROUND -->
         <section id="hero" class="relative min-h-[85vh] flex items-center pt-24 overflow-hidden bg-ink">
-            <!-- Background Video Terintegrasi -->
             <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-40">
                 <source src="Invila Landing Page Depan.mp4" type="video/mp4">
             </video>
@@ -224,6 +234,7 @@
             <p class="text-center text-[10px] font-black uppercase tracking-[0.6em] text-slate-400 pt-10 italic">DIPERCAYA OLEH INDUSTRI TERKEMUKA</p>
             <div class="marquee-wrapper">
                 <div class="marquee-content">
+                    <!-- Iterasi 1 -->
                     <div class="client-logo-item"><img src="petrokimia-gresik.png" alt="Petrokimia Gresik"></div>
                     <div class="client-logo-item"><img src="united-tractors.png" alt="United Tractors"></div>
                     <div class="client-logo-item"><img src="kievit.png" alt="Kievit"></div>
@@ -234,7 +245,7 @@
                     <div class="client-logo-item"><img src="dinkes depok.png" alt="Dinkes"></div>
                     <div class="client-logo-item"><img src="tirtanadi.png" alt="Tirtanadi"></div>
                     <div class="client-logo-item"><img src="wika.png" alt="WIKA"></div>
-                    <!-- Duplicate for loop -->
+                    <!-- Iterasi 2 -->
                     <div class="client-logo-item"><img src="petrokimia-gresik.png" alt="Petrokimia Gresik"></div>
                     <div class="client-logo-item"><img src="united-tractors.png" alt="United Tractors"></div>
                     <div class="client-logo-item"><img src="kievit.png" alt="Kievit"></div>
@@ -249,7 +260,7 @@
             </div>
         </section>
 
-        <!-- PORTFOLIO IMPLEMENTASI -->
+        <!-- PORTFOLIO -->
         <section id="projects" class="py-24 bg-white px-4 lg:px-12 text-center lg:text-left">
             <div class="max-w-[1400px] mx-auto">
                 <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-6">
@@ -260,23 +271,23 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="group cursor-pointer">
+                    <div class="group cursor-pointer project-card">
                         <div class="rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-lg mb-6 aspect-video">
-                            <img src="SPAM II KIW (Modular) WaaS.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="KIW WaaS">
+                            <img src="SPAM II KIW (Modular) WaaS.png" class="w-full h-full object-cover transition-transform duration-500" alt="KIW WaaS">
                         </div>
                         <h4 class="text-lg font-black uppercase tracking-tight text-ink">SPAM II KIW (Modular) WaaS</h4>
                         <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-2">Kawasan Industri Wijayakusuma</p>
                     </div>
-                    <div class="group cursor-pointer">
+                    <div class="group cursor-pointer project-card">
                         <div class="rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-lg mb-6 aspect-video">
-                            <img src="WTP 300 LPS Tirta Asasta Legong.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Tirta Asasta Legong">
+                            <img src="WTP 300 LPS Tirta Asasta Legong.png" class="w-full h-full object-cover transition-transform duration-500" alt="Tirta Asasta Legong">
                         </div>
                         <h4 class="text-lg font-black uppercase tracking-tight text-ink">WTP 300 LPS Tirta Asasta Legong</h4>
                         <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-2">Depok, Jawa Barat</p>
                     </div>
-                    <div class="group cursor-pointer">
+                    <div class="group cursor-pointer project-card">
                         <div class="rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-lg mb-6 aspect-video">
-                            <img src="SPAM United Tractor - Patria Maritim Perkasa.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="United Tractor">
+                            <img src="SPAM United Tractor - Patria Maritim Perkasa.png" class="w-full h-full object-cover transition-transform duration-500" alt="United Tractor">
                         </div>
                         <h4 class="text-lg font-black uppercase tracking-tight text-ink">SPAM UT - Patria Maritim</h4>
                         <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-2">Batam Project</p>
@@ -370,7 +381,7 @@
 
     <footer class="py-24 bg-ink text-white">
         <div class="max-w-[1440px] mx-auto px-6 text-center">
-            <img src="logo-invila.png" alt="INVILA Logo Footer" class="w-32 mx-auto mb-10 opacity-30 brightness-0 invert">
+            <img src="logo-invila.png" alt="INVILA Logo Footer" class="w-24 lg:w-32 mx-auto mb-10 opacity-30 brightness-0 invert">
             <p class="text-[10px] font-black uppercase tracking-[0.8em] text-slate-500 mb-4">Integrated Water Infrastructure Solutions</p>
             <div class="w-16 h-px bg-white/10 mx-auto mb-4"></div>
             <p class="text-[8px] font-bold uppercase tracking-[0.4em] text-slate-700">© 2024 INVILA™ CORPORATE. ALL RIGHTS RESERVED.</p>
