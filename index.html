@@ -111,7 +111,7 @@
         @media (min-width: 1024px) { .text-value-main { font-size: 5.5rem; } }
 
         /* GRAPH BARS */
-        .graph-bar { transition: height 1s cubic-bezier(0.4, 0, 0.2, 1); min-height: 5px; }
+        .graph-bar { transition: height 1s cubic-bezier(0.4, 0, 0.2, 1); min-height: 2px; }
 
         section { scroll-margin-top: 80px; position: relative; z-index: 10; }
         #main-header { z-index: 100; }
@@ -188,53 +188,6 @@
             </div>
         </section>
 
-        <!-- DIAGNOSTIC -->
-        <section id="overview" class="py-12 lg:py-32 bg-surface section-padding">
-            <div class="max-w-[1400px] mx-auto">
-                <div class="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-                    <div class="lg:col-span-4">
-                        <span class="kicker">Audit Masalah Eksekutif</span>
-                        <h3 class="font-serif italic text-2xl lg:text-4xl text-ink mb-6 uppercase font-bold leading-tight">Risiko Finansial <span class="text-royalBlue">Sistem Air</span> Industri Anda</h3>
-                    </div>
-                    <div class="lg:col-span-8">
-                        <div class="bg-white p-4 lg:p-10 rounded-3xl border border-slate-100 shadow-sm">
-                            <div class="overflow-x-auto rounded-xl border border-slate-100 mb-6">
-                                <table class="w-full text-left diagnostic-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Masalah Utama</th>
-                                            <th>Tantangan Operasional</th>
-                                            <th>Dampak Strategis</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-[11px] leading-relaxed">
-                                        <tr>
-                                            <td class="p-4 font-bold">1. Disrupsi ABT</td>
-                                            <td class="p-4">Pengetatan regulasi Air Bawah Tanah.</td>
-                                            <td class="p-4 font-bold text-roseAccent uppercase">Lonjakan OpEx Tak Terkendali.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-4 font-bold">2. Tarif Industri</td>
-                                            <td class="p-4">Tarif PDAM meningkat secara progresif.</td>
-                                            <td class="p-4 font-bold text-roseAccent uppercase">Erosi Margin Laba Bersih.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-4 font-bold">3. Asset Deadweight</td>
-                                            <td class="p-4">Infrastruktur hanya untuk buangan.</td>
-                                            <td class="p-4 font-bold text-roseAccent uppercase">Aset Tanpa Nilai ROI.</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="executive-para border-royalBlue">
-                                <p class="text-xs lg:text-base text-slate-700 italic">"Manajemen utilitas bukan lagi sekadar urusan teknis, melainkan variabel penentu kesehatan EBITDA perusahaan."</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- INTELLIGENCE SAVING AUDIT (CALCULATOR) -->
         <section id="audit-tool" class="py-12 lg:py-24 bg-offWhite section-padding overflow-hidden">
             <div class="max-w-[1400px] mx-auto">
@@ -251,25 +204,23 @@
                     </header>
 
                     <div class="grid lg:grid-cols-12 gap-6 lg:gap-10">
-                        <!-- Left: Inputs -->
                         <aside class="lg:col-span-4 space-y-4">
                             <div class="bg-white/5 border border-white/10 p-5 lg:p-8 rounded-2xl space-y-6">
                                 <div class="space-y-1">
                                     <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider">Debit Produksi (m³/hari)</label>
-                                    <input type="text" value="1,500" class="compact-input p-4" readonly>
+                                    <input type="text" id="input-flow" value="1,500" class="compact-input p-4" data-key="flowRate">
                                 </div>
                                 <div class="space-y-1">
                                     <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider">Tarif PDAM (Rp/m³)</label>
-                                    <input type="text" value="14,600" class="compact-input p-4" readonly>
+                                    <input type="text" id="input-legacy" value="14,600" class="compact-input p-4" data-key="legacyCost">
                                 </div>
                                 <div class="space-y-1">
                                     <label class="text-[10px] font-bold uppercase text-roseAccent tracking-wider">Tarif INVILA (Rp/m³)</label>
-                                    <input type="text" value="5,500" class="compact-input p-4 !text-roseAccent" readonly>
+                                    <input type="text" id="input-tariff" value="5,500" class="compact-input p-4 !text-roseAccent" data-key="invilaTariff">
                                 </div>
                             </div>
                         </aside>
 
-                        <!-- Right: Main Result -->
                         <div class="lg:col-span-8 flex flex-col gap-4">
                             <div class="p-8 lg:p-14 rounded-[2rem] lg:rounded-[3rem] border-l-4 border-royalBlue bg-gradient-to-br from-blue-950/20 to-dashboardDark flex flex-col justify-center shadow-inner">
                                 <span class="text-blue-400 font-black text-[10px] lg:text-[14px] uppercase tracking-[0.4em] mb-4">Potensi EBITDA Savings (Per Bulan)</span>
@@ -295,92 +246,118 @@
             </div>
         </section>
 
-        <!-- OPTIMASI EBITDA & COMPARISON -->
+        <!-- STRATEGIC PROJECTIONS (GRAPH: COMPARATIVE BARS) -->
         <section id="strategic-projections" class="py-12 lg:py-32 bg-white section-padding">
             <div class="max-w-[1400px] mx-auto">
                 <div class="text-center mb-16 lg:mb-24">
-                    <h2 class="text-2xl lg:text-5xl font-black uppercase text-ink leading-tight mb-6">
-                        Optimasi EBITDA Melalui Transformasi Infrastruktur: <br/>
-                        <span class="text-royalBlue">Efisiensi Hingga <span id="sync-annual-efficiency">Rp 0</span> per Tahun</span>
+                    <h2 class="text-2xl lg:text-5xl font-black uppercase text-ink leading-tight mb-6 px-4">
+                        Valuasi Keuntungan: <br/>Biaya PDAM vs <span class="text-royalBlue">Skema INVILA™</span>
                     </h2>
-                    <p class="max-w-4xl mx-auto text-slate-500 text-sm lg:text-xl font-light leading-relaxed">Transisi mulus menuju model Water-as-a-Service (WaaS) dari INVILA™ untuk stabilitas arus kas jangka panjang.</p>
+                    <p class="max-w-4xl mx-auto text-slate-500 text-sm lg:text-xl font-light leading-relaxed italic">
+                        Perbandingan biaya operasional kumulatif tahun ke tahun. Celah antara batang merah dan biru merepresentasikan penghematan kas perusahaan.
+                    </p>
                 </div>
 
-                <!-- 5-YEAR SAVINGS HIGHLIGHT BOX -->
-                <div class="bg-ink rounded-[2.5rem] lg:rounded-[5rem] p-10 lg:p-20 mb-16 lg:mb-28 text-center border-t-4 border-goldAccent relative overflow-hidden group shadow-2xl mobile-full-width">
-                    <div class="absolute top-0 right-0 p-10 opacity-10 group-hover:scale-110 transition-transform"><i data-lucide="award" class="w-64 h-64 text-goldAccent"></i></div>
-                    <span class="text-goldAccent font-black text-[12px] lg:text-[16px] uppercase tracking-[0.5em] mb-8 block">Total Value Creation</span>
-                    <h3 class="text-white text-sm lg:text-2xl uppercase font-bold tracking-widest mb-6 opacity-80 italic">Estimasi Penghematan Selama 5 Tahun</h3>
-                    <h2 id="sync-5year-box" class="text-white text-4xl lg:text-9xl font-black italic tracking-tighter drop-shadow-2xl">Rp 0</h2>
-                    <div class="mt-10 flex justify-center items-center gap-6">
-                        <span class="w-16 h-[1px] bg-goldAccent/40"></span>
-                        <p class="text-goldAccent text-[10px] lg:text-[14px] font-bold uppercase tracking-[0.4em]">Strategic Cash Flow Advantage</p>
-                        <span class="w-16 h-[1px] bg-goldAccent/40"></span>
+                <!-- THE GRAPH (BALOK SAJA - SIDE BY SIDE) -->
+                <div class="bg-surface p-8 lg:p-14 rounded-[3rem] border border-slate-100 shadow-sm relative overflow-hidden mb-24">
+                    <div class="flex flex-wrap gap-8 mb-12 text-[10px] font-bold uppercase tracking-widest">
+                        <div class="flex items-center gap-3"><span class="w-4 h-4 bg-roseAccent rounded-sm"></span> Biaya Kumulatif Saat Ini (PDAM)</div>
+                        <div class="flex items-center gap-3"><span class="w-4 h-4 bg-royalBlue rounded-sm"></span> Biaya Kumulatif Skema INVILA™</div>
+                        <div class="flex items-center gap-3"><span class="w-4 h-[2px] bg-emerald-500"></span> Total Saving Realized</div>
                     </div>
-                </div>
 
-                <!-- GRAPH & COMPARISON SECTION -->
-                <div class="grid lg:grid-cols-12 gap-8 lg:gap-16 items-stretch mb-24">
-                    <!-- Graph -->
-                    <div class="lg:col-span-7">
-                        <div class="bg-surface p-8 lg:p-14 rounded-[3rem] border border-slate-100 h-full flex flex-col justify-between shadow-sm">
-                            <h4 class="text-ink text-sm lg:text-2xl font-black uppercase mb-12 italic flex items-center gap-4">
-                                <i data-lucide="bar-chart-big" class="text-royalBlue w-6 h-6"></i> Proyeksi Akumulasi Efisiensi (Rp)
-                            </h4>
-                            <div class="flex items-end justify-between gap-3 lg:gap-6 h-80 lg:h-96 mb-10 border-b border-slate-200">
-                                <div class="flex-1 flex flex-col items-center gap-2">
-                                    <span id="label-bar-1" class="text-[9px] font-black text-slate-500 mb-1">Rp 0</span>
-                                    <div id="bar-1" class="w-full bg-slate-200 rounded-t-xl graph-bar"></div>
-                                    <span class="text-[9px] font-black text-slate-400">Y1</span>
-                                </div>
-                                <div class="flex-1 flex flex-col items-center gap-2">
-                                    <span id="label-bar-2" class="text-[9px] font-black text-slate-500 mb-1">Rp 0</span>
-                                    <div id="bar-2" class="w-full bg-slate-200 rounded-t-xl graph-bar"></div>
-                                    <span class="text-[9px] font-black text-slate-400">Y2</span>
-                                </div>
-                                <div class="flex-1 flex flex-col items-center gap-2">
-                                    <span id="label-bar-3" class="text-[9px] font-black text-slate-500 mb-1">Rp 0</span>
-                                    <div id="bar-3" class="w-full bg-slate-200 rounded-t-xl graph-bar"></div>
-                                    <span class="text-[9px] font-black text-slate-400">Y3</span>
-                                </div>
-                                <div class="flex-1 flex flex-col items-center gap-2">
-                                    <span id="label-bar-4" class="text-[9px] font-black text-slate-500 mb-1">Rp 0</span>
-                                    <div id="bar-4" class="w-full bg-slate-300 rounded-t-xl graph-bar"></div>
-                                    <span class="text-[9px] font-black text-slate-400">Y4</span>
-                                </div>
-                                <div class="flex-1 flex flex-col items-center gap-2">
-                                    <span id="label-bar-5" class="text-[10px] font-black text-royalBlue mb-1">Rp 0</span>
-                                    <div id="bar-5" class="w-full bg-royalBlue rounded-t-xl graph-bar shadow-lg shadow-royalBlue/20"></div>
-                                    <span class="text-[9px] font-black text-ink">Y5</span>
-                                </div>
+                    <div class="flex items-end justify-between gap-2 lg:gap-12 h-[450px] lg:h-[650px] mb-12 border-b-2 border-slate-200 px-2 lg:px-12 relative">
+                        <!-- Year Groups -->
+                        <div class="flex-1 flex items-end justify-center gap-1 lg:gap-4 h-full relative">
+                            <div id="legacy-bar-1" class="w-1/2 bg-roseAccent/20 border-t-2 border-roseAccent graph-bar rounded-t-sm shadow-sm"></div>
+                            <div id="invila-bar-1" class="w-1/2 bg-royalBlue graph-bar rounded-t-sm shadow-xl relative group">
+                                <span id="label-bar-1" class="absolute -top-12 left-1/2 -translate-x-1/2 text-[8px] lg:text-[10px] font-black text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md border border-emerald-100 shadow-sm whitespace-nowrap opacity-0 group-hover:opacity-100 lg:opacity-100 transition-opacity">Rp 0</span>
                             </div>
-                            <p class="text-[11px] lg:text-sm text-slate-500 italic">Akumulasi penghematan bersih setelah implementasi sistem pengelolaan mandiri INVILA™.</p>
+                            <span class="absolute -bottom-8 text-[9px] font-black text-slate-400">Y1</span>
+                        </div>
+                        <div class="flex-1 flex items-end justify-center gap-1 lg:gap-4 h-full relative">
+                            <div id="legacy-bar-2" class="w-1/2 bg-roseAccent/20 border-t-2 border-roseAccent graph-bar rounded-t-sm shadow-sm"></div>
+                            <div id="invila-bar-2" class="w-1/2 bg-royalBlue graph-bar rounded-t-sm shadow-xl relative group">
+                                <span id="label-bar-2" class="absolute -top-12 left-1/2 -translate-x-1/2 text-[8px] lg:text-[10px] font-black text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md border border-emerald-100 shadow-sm whitespace-nowrap opacity-0 group-hover:opacity-100 lg:opacity-100 transition-opacity">Rp 0</span>
+                            </div>
+                            <span class="absolute -bottom-8 text-[9px] font-black text-slate-400">Y2</span>
+                        </div>
+                        <div class="flex-1 flex items-end justify-center gap-1 lg:gap-4 h-full relative">
+                            <div id="legacy-bar-3" class="w-1/2 bg-roseAccent/20 border-t-2 border-roseAccent graph-bar rounded-t-sm shadow-sm"></div>
+                            <div id="invila-bar-3" class="w-1/2 bg-royalBlue graph-bar rounded-t-sm shadow-xl relative group">
+                                <span id="label-bar-3" class="absolute -top-12 left-1/2 -translate-x-1/2 text-[8px] lg:text-[10px] font-black text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md border border-emerald-100 shadow-sm whitespace-nowrap opacity-0 group-hover:opacity-100 lg:opacity-100 transition-opacity">Rp 0</span>
+                            </div>
+                            <span class="absolute -bottom-8 text-[9px] font-black text-slate-400">Y3</span>
+                        </div>
+                        <div class="flex-1 flex items-end justify-center gap-1 lg:gap-4 h-full relative">
+                            <div id="legacy-bar-4" class="w-1/2 bg-roseAccent/20 border-t-2 border-roseAccent graph-bar rounded-t-sm shadow-sm"></div>
+                            <div id="invila-bar-4" class="w-1/2 bg-royalBlue graph-bar rounded-t-sm shadow-xl relative group">
+                                <span id="label-bar-4" class="absolute -top-12 left-1/2 -translate-x-1/2 text-[8px] lg:text-[10px] font-black text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md border border-emerald-100 shadow-sm whitespace-nowrap opacity-0 group-hover:opacity-100 lg:opacity-100 transition-opacity">Rp 0</span>
+                            </div>
+                            <span class="absolute -bottom-8 text-[9px] font-black text-slate-400">Y4</span>
+                        </div>
+                        <div class="flex-1 flex items-end justify-center gap-1 lg:gap-4 h-full relative">
+                            <div id="legacy-bar-5" class="w-1/2 bg-roseAccent/20 border-t-2 border-roseAccent graph-bar rounded-t-sm shadow-sm"></div>
+                            <div id="invila-bar-5" class="w-1/2 bg-royalBlue graph-bar rounded-t-sm shadow-2xl relative group">
+                                <span id="label-bar-5" class="absolute -top-14 left-1/2 -translate-x-1/2 text-[10px] lg:text-[12px] font-black text-white bg-emerald-600 px-3 py-1.5 rounded-md shadow-lg whitespace-nowrap opacity-100 transition-all scale-110">SAVING: <span id="final-saving-val">Rp 0</span></span>
+                            </div>
+                            <span class="absolute -bottom-8 text-[9px] font-black text-ink">Y5 (FINAL)</span>
                         </div>
                     </div>
-                    
-                    <!-- Comparison Table -->
-                    <div class="lg:col-span-5">
+                </div>
+
+                <!-- STRATEGIC COMPARISON TABLE -->
+                <div class="grid lg:grid-cols-12 gap-12 items-start">
+                    <div class="lg:col-span-4">
+                        <div class="p-8 bg-ink rounded-[3rem] text-white border-t-4 border-goldAccent shadow-2xl">
+                            <span class="text-goldAccent font-black text-[12px] uppercase tracking-[0.5em] mb-6 block">Strategic Highlight</span>
+                            <h3 class="text-2xl font-black italic tracking-tighter mb-4 uppercase">Total Net Savings <br/>(5 Tahun)</h3>
+                            <h2 id="sync-5year-box" class="text-4xl lg:text-6xl font-black italic text-roseAccent tracking-tighter">Rp 0</h2>
+                            <div class="mt-8 pt-8 border-t border-white/10">
+                                <p class="text-[11px] text-slate-400 italic">Nilai ini merepresentasikan likuiditas bersih yang dapat direalokasikan untuk ekspansi bisnis utama Anda.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-8">
                         <div class="bg-surface p-8 lg:p-14 rounded-[3rem] border border-slate-100 shadow-xl shadow-slate-200/40">
-                            <div class="flex items-center gap-3 mb-10"><div class="w-3 h-3 bg-emerald-500 rounded-full"></div><span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Operational Comparison</span></div>
-                            <h4 class="text-xl lg:text-3xl font-black mb-10 italic">Analisis Komparasi Tarif</h4>
-                            <div class="overflow-hidden rounded-2xl border border-slate-100 bg-white">
+                            <div class="flex items-center gap-3 mb-10"><div class="w-3 h-3 bg-emerald-500 rounded-full"></div><span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Strategic Comparison Matrix</span></div>
+                            <div class="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm">
                                 <table class="w-full text-left comparison-table border-collapse">
                                     <thead class="bg-slate-50">
                                         <tr>
-                                            <th class="text-[10px] font-black uppercase text-slate-500">Kategori</th>
-                                            <th class="text-[10px] font-black uppercase text-slate-500 text-center">PDAM</th>
-                                            <th class="text-[10px] font-black uppercase text-royalBlue text-center">INVILA™</th>
+                                            <th class="text-[10px] font-black uppercase text-slate-500">Parameter Strategis</th>
+                                            <th class="text-[10px] font-black uppercase text-slate-500 text-center">Eksisting (PDAM)</th>
+                                            <th class="text-[10px] font-black uppercase text-royalBlue text-center font-black">WaaS INVILA™</th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-[11px] lg:text-sm">
-                                        <tr><td class="font-bold text-slate-600">Tarif / m³</td><td id="sync-legacy-tariff" class="text-center">Rp 0</td><td id="sync-invila-tariff" class="text-royalBlue font-black text-center">Rp 0</td></tr>
-                                        <tr><td class="font-bold text-slate-600">Hemat Bulanan</td><td class="text-center text-slate-300">-</td><td id="sync-monthly-savings" class="text-emerald-600 font-black text-center">Rp 0</td></tr>
-                                        <tr><td class="font-bold text-slate-600">Investasi Awal</td><td class="text-center text-roseAccent font-bold">Miliaran</td><td class="text-royalBlue font-black text-center">Rp 0 (ZERO)</td></tr>
+                                        <tr>
+                                            <td class="font-bold text-slate-600">Investasi Kapital (CapEx)</td>
+                                            <td class="text-center text-roseAccent font-bold" id="sync-legacy-capex-ref">Rp 6.25 Miliar+</td>
+                                            <td class="text-royalBlue font-black text-center bg-blue-50/50">Rp 0 (ZERO)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-slate-600">Tarif Unit (Rp/m³)</td>
+                                            <td id="sync-legacy-tariff" class="text-center font-medium">Rp 14,600</td>
+                                            <td id="sync-invila-tariff" class="text-royalBlue font-black text-center bg-blue-50/50">Rp 5,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-slate-600">Risiko Infrastruktur</td>
+                                            <td class="text-center text-slate-500">Internal Klien</td>
+                                            <td class="text-royalBlue font-black text-center bg-blue-50/50">Full Outsource</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-slate-600">Monitoring & AI</td>
+                                            <td class="text-center text-slate-500">Manual</td>
+                                            <td class="text-royalBlue font-black text-center bg-blue-50/50 font-bold">Smart Automation</td>
+                                        </tr>
+                                        <tr class="bg-blue-900 text-white">
+                                            <td class="font-black italic uppercase">Total Valuasi 5 Tahun</td>
+                                            <td id="sync-legacy-5yr" class="text-center opacity-60">Rp 0</td>
+                                            <td id="sync-invila-5yr" class="text-center font-black">Rp 0</td>
+                                        </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                            <div class="mt-8 p-6 bg-blue-50/50 rounded-2xl border border-blue-100">
-                                <p class="text-[11px] lg:text-sm text-blue-900 italic font-medium">Strategic Note: INVILA™ menanggung sepenuhnya infrastruktur senilai <span id="sync-capex-value" class="font-black text-royalBlue">Rp 0</span>.</p>
                             </div>
                         </div>
                     </div>
@@ -388,31 +365,31 @@
             </div>
         </section>
 
-        <!-- 4 STEPS -->
-        <section id="precision-steps" class="py-12 lg:py-32 bg-surface section-padding">
+        <!-- 4 STEPS PRECISION -->
+        <section class="py-12 lg:py-32 bg-surface section-padding">
             <div class="max-w-[1400px] mx-auto">
-                <div class="bg-white p-8 lg:p-16 rounded-[4rem] border border-slate-100 shadow-sm">
+                <div class="bg-white p-8 lg:p-16 rounded-[4rem] border border-slate-100">
                     <h4 class="font-black text-ink uppercase text-[14px] lg:text-[16px] tracking-[0.5em] mb-12 flex items-center gap-6"><span class="w-16 h-[3px] bg-royalBlue"></span> 4 Langkah Presisi Invila</h4>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div class="p-10 bg-slate-50 rounded-[3rem] border border-slate-100 hover:border-royalBlue/30 hover:shadow-lg transition-all">
+                        <div class="p-10 bg-slate-50 rounded-[3rem] border border-slate-100 hover:shadow-lg transition-all">
                             <div class="text-royalBlue font-black text-4xl mb-6">01</div>
-                            <h5 class="font-black text-ink uppercase tracking-[0.2em] mb-4 text-xs lg:text-sm">Audit & Pemetaan</h5>
-                            <p class="text-slate-500 text-xs lg:text-sm leading-relaxed">Analisis karakteristik air dan kondisi aset untuk identifikasi potensi penghematan maksimal.</p>
+                            <h5 class="font-black text-ink uppercase mb-4 text-xs">Audit Strategis</h5>
+                            <p class="text-slate-500 text-xs">Analisis pola konsumsi dan inefisiensi kas.</p>
                         </div>
-                        <div class="p-10 bg-slate-50 rounded-[3rem] border border-slate-100 hover:border-royalBlue/30 hover:shadow-lg transition-all">
+                        <div class="p-10 bg-slate-50 rounded-[3rem] border border-slate-100 hover:shadow-lg transition-all">
                             <div class="text-royalBlue font-black text-4xl mb-6">02</div>
-                            <h5 class="font-black text-ink uppercase tracking-[0.2em] mb-4 text-xs lg:text-sm">Integrasi Otomasi</h5>
-                            <p class="text-slate-500 text-xs lg:text-sm leading-relaxed">Teknologi monitoring real-time yang memastikan distribusi air berjalan presisi 24/7 tanpa human error.</p>
+                            <h5 class="font-black text-ink uppercase mb-4 text-xs">Otomasi Sistem</h5>
+                            <p class="text-slate-500 text-xs">Integrasi sensor real-time untuk distribusi presisi.</p>
                         </div>
-                        <div class="p-10 bg-slate-50 rounded-[3rem] border border-slate-100 hover:border-royalBlue/30 hover:shadow-lg transition-all">
-                            <div class="text-royalBlue font-black text-4xl mb-6">03</div>
-                            <h5 class="font-black text-ink uppercase tracking-[0.2em] mb-4 text-xs lg:text-sm">Transisi Mandiri</h5>
-                            <p class="text-slate-500 text-xs lg:text-sm leading-relaxed">Migrasi terukur dari ketergantungan tarif industri menuju kedaulatan air dan biaya.</p>
+                        <div class="p-10 bg-slate-50 rounded-[3rem] border border-slate-100 hover:shadow-lg transition-all">
+                            <div class="text-royalBlue font-black text-4xl mb-6">03.</div>
+                            <h5 class="font-black text-ink uppercase mb-4 text-xs">Migrasi Mandiri</h5>
+                            <p class="text-slate-500 text-xs">Transisi bertahap menuju kedaulatan air industri.</p>
                         </div>
-                        <div class="p-10 bg-slate-50 rounded-[3rem] border border-slate-100 hover:border-royalBlue/30 hover:shadow-lg transition-all">
-                            <div class="text-royalBlue font-black text-4xl mb-6">04</div>
-                            <h5 class="font-black text-ink uppercase tracking-[0.2em] mb-4 text-xs lg:text-sm">Optimasi Neraca</h5>
-                            <p class="text-slate-500 text-xs lg:text-sm leading-relaxed">Konversi efisiensi operasional menjadi performa finansial positif di laporan tahunan.</p>
+                        <div class="p-10 bg-slate-50 rounded-[3rem] border border-slate-100 hover:shadow-lg transition-all">
+                            <div class="text-royalBlue font-black text-4xl mb-6">04.</div>
+                            <h5 class="font-black text-ink uppercase mb-4 text-xs">Optimasi Neraca</h5>
+                            <p class="text-slate-500 text-xs">Pelaporan efisiensi sebagai performa finansial positif.</p>
                         </div>
                     </div>
                 </div>
@@ -422,12 +399,12 @@
         <!-- CLOSING -->
         <section class="py-16 lg:py-48 bg-white border-t border-slate-100 section-padding">
             <div class="max-w-[1100px] mx-auto text-center">
-                <h3 class="font-serif italic text-2xl lg:text-5xl font-bold mb-12 text-ink leading-tight px-4">
-                    "Setiap hari tanpa sistem yang optimal adalah biaya yang terbuang. Segera jadwalkan konsultasi teknis bersama tim Invila™ untuk mentransformasi biaya air Anda menjadi efisiensi finansial yang terukur."
+                <h3 class="font-serif italic text-2xl lg:text-5xl font-bold mb-12 text-ink leading-tight px-4 uppercase">
+                    Hentikan Kebocoran Laba. <br/><span class="text-royalBlue">Mulai Transisi Efisiensi Sekarang.</span>
                 </h3>
                 <div class="flex flex-col items-center gap-8">
-                    <a href="https://wa.me/6285219493322" target="_blank" class="bg-ink text-white px-12 py-6 rounded-full font-black text-[11px] lg:text-[13px] uppercase tracking-widest shadow-2xl hover:scale-105 transition-transform active:scale-95">Dapatkan Asesmen Teknis Gratis</a>
-                    <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.6em] italic">Transisi selesai, kedaulatan air dimulai..</p>
+                    <a href="https://wa.me/6285219493322" target="_blank" class="bg-ink text-white px-12 py-6 rounded-full font-black text-[11px] lg:text-[13px] uppercase tracking-widest shadow-2xl hover:scale-105 transition-transform">Dapatkan Audit Teknis Gratis</a>
+                    <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.6em] italic">Standardizing Smart Water Infrastructure for Industry</p>
                 </div>
             </div>
         </section>
@@ -437,101 +414,76 @@
     <footer class="py-16 bg-ink text-white">
         <div class="max-w-[1400px] mx-auto px-6 text-center">
             <h1 class="brand-text text-white/20 uppercase mb-6 font-serif tracking-[0.1em]">INVILA<span class="brand-tm">TM</span></h1>
-            <p class="text-slate-500 text-[9px] font-black uppercase tracking-[0.6em]">Standardizing Smart Water Infrastructure for Industry</p>
         </div>
     </footer>
 
     <!-- PDF TEMPLATE (Hidden) -->
     <div style="position: absolute; top: -9999px; left: -9999px;">
-        <div id="pdf-report-container" style="width: 210mm; background: #ffffff; color: #01040a; font-family: 'Inter', sans-serif; padding: 20mm;">
-            <!-- PDF Header -->
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f1f5f9; padding-bottom: 10mm; margin-bottom: 10mm;">
-                <div>
-                    <div style="font-weight: 900; font-size: 28px; color: #2257d8; font-family: 'Noto Serif', serif;">INVILA™</div>
-                    <div style="font-size: 9px; font-weight: 800; color: #2257d8; letter-spacing: 2px;">INTELLIGENCE SYSTEM</div>
+        <div id="pdf-report-container" style="width: 210mm; background: #ffffff; color: #01040a; font-family: 'Inter', sans-serif;">
+            <!-- PDF PAGE 1 -->
+            <div id="pdf-page-1" style="height: 297mm; padding: 20mm; position: relative;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f1f5f9; padding-bottom: 8mm; margin-bottom: 10mm;">
+                    <div>
+                        <div style="font-weight: 900; font-size: 28px; color: #2257d8; font-family: 'Noto Serif', serif;">INVILA™</div>
+                        <div style="font-size: 9px; font-weight: 800; color: #2257d8; letter-spacing: 2px;">INTELLIGENCE SYSTEM</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="font-size: 10px; font-weight: 800; color: #ef4444; text-transform: uppercase; letter-spacing: 2px;">CONFIDENTIAL INDUSTRIAL REPORT</div>
+                        <div id="pdf-date" style="font-size: 10px; color: #64748b; margin-top: 2px;">-</div>
+                    </div>
                 </div>
-                <div style="text-align: right;">
-                    <div style="font-size: 10px; font-weight: 800; color: #ef4444; text-transform: uppercase; letter-spacing: 2px;">CONFIDENTIAL INDUSTRIAL REPORT</div>
-                    <div id="pdf-date" style="font-size: 10px; color: #64748b; margin-top: 2px;">-</div>
-                </div>
-            </div>
-
-            <!-- PDF COVER LETTER -->
-            <div style="margin-bottom: 15mm; line-height: 1.6;">
-                <h2 style="font-size: 14px; font-weight: 900; border-left: 4px solid #2257d8; padding-left: 10px; margin-bottom: 5mm; text-transform: uppercase;">STRATEGIC AUDIT: TRANSISI EFISIENSI AIR INDUSTRI</h2>
-                <p style="font-size: 11px; margin-bottom: 4mm;">Kepada Yth. Manajemen Operasional & Finansial,</p>
-                <p style="font-size: 11px; margin-bottom: 4mm;">Seiring dengan meningkatnya kompleksitas biaya operasional industri, ketepatan dalam manajemen utilitas kini menjadi penentu utama daya saing perusahaan. Melalui laporan Strategic Audit ini, kami menyajikan analisis mendalam mengenai potensi transformasi sistem air di fasilitas Anda.</p>
-                <p style="font-size: 11px; margin-bottom: 4mm;">Kami memahami bahwa pengelolaan air industri sering kali terjebak dalam dilema antara tarif eksternal yang tinggi dan risiko besar dalam pemeliharaan aset internal. Fokus utama dari simulasi ini adalah menunjukkan bagaimana model Water-as-a-Service (WaaS) dari Invila™ dapat memberikan <b>Likuiditas Instan</b>, <b>Kepastian Biaya</b>, dan <b>Fokus Inti Bisnis</b>.</p>
-                <p style="font-size: 11px; margin-bottom: 4mm;">Laporan ini adalah undangan untuk mengevaluasi kembali efisiensi neraca keuangan Anda. Kami percaya bahwa efisiensi sebesar <span id="pdf-letter-annual" style="font-weight: 900; color: #2257d8;">-</span> per tahun, atau akumulasi penghematan hingga <span id="pdf-letter-5year" style="font-weight: 900; color: #2257d8;">-</span> dalam periode 5 tahun adalah langkah awal yang signifikan bagi pertumbuhan berkelanjutan perusahaan Anda.</p>
-                <p style="font-size: 11px; margin-bottom: 4mm;">Besar harapan kami untuk dapat mendiskusikan hasil audit ini lebih lanjut dan melakukan verifikasi teknis secara langsung di lokasi Anda.</p>
-                <div style="margin-top: 8mm; font-size: 11px;">
-                    Hormat kami,<br/><br/><br/>
-                    <b>Piator Simbolon</b><br/>
-                    085990135959<br/>
-                    INVILA™ Head Engineer
+                <div style="margin-bottom: 15mm; line-height: 1.6;">
+                    <h2 style="font-size: 14px; font-weight: 900; border-left: 4px solid #2257d8; padding-left: 10px; margin-bottom: 5mm; text-transform: uppercase;">STRATEGIC AUDIT: TRANSISI EFISIENSI AIR INDUSTRI</h2>
+                    <p style="font-size: 11px; margin-bottom: 4mm;">Kepada Yth. Manajemen Operasional & Finansial,</p>
+                    <p style="font-size: 11px; margin-bottom: 4mm;">Seiring dengan meningkatnya kompleksitas biaya operasional industri, ketepatan dalam manajemen utilitas kini menjadi penentu utama daya saing perusahaan. Melalui laporan Strategic Audit ini, kami menyajikan analisis mendalam mengenai potensi transformasi sistem air di fasilitas Anda.</p>
+                    <p style="font-size: 11px; margin-bottom: 4mm;">Fokus utama dari simulasi ini adalah menunjukkan bagaimana model Water-as-a-Service (WaaS) dari Invila™ dapat memberikan <b>Likuiditas Instan</b>, <b>Kepastian Biaya</b>, dan <b>Fokus Inti Bisnis</b>.</p>
+                    <p style="font-size: 11px; margin-bottom: 4mm;">Analisis menunjukkan potensi efisiensi sebesar <span id="pdf-letter-annual" style="font-weight: 900; color: #2257d8;">-</span> per tahun, atau akumulasi penghematan hingga <span id="pdf-letter-5year" style="font-weight: 900; color: #2257d8;">-</span> dalam periode 5 tahun adalah langkah awal yang signifikan bagi pertumbuhan berkelanjutan perusahaan Anda.</p>
+                    <div style="margin-top: 10mm; font-size: 11px;">Hormat kami,<br/><br/><br/><b>Piator Simbolon</b><br/>INVILA™ Head Engineer</div>
                 </div>
             </div>
 
-            <div style="page-break-after: always; height: 1px;"></div>
-
-            <!-- PDF 5-YEAR HIGHLIGHT -->
-            <div style="background: #01040a; border-top: 4px solid #d4af37; border-radius: 12px; padding: 12mm; color: white; text-align: center; margin-bottom: 12mm;">
-                <span style="font-size: 10px; color: #d4af37; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 5mm;">Projected 5-Year Efficiency Value</span>
-                <div id="pdf-val-5year-top" style="font-size: 42px; font-weight: 900; color: #ffffff;">-</div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 10mm; margin-bottom: 12mm;">
-                <!-- PDF COMPARISON -->
-                <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 8mm;">
-                    <h3 style="font-size: 11px; font-weight: 900; margin-bottom: 6mm; color: #2257d8; text-transform: uppercase; letter-spacing: 1px;">Analisis Komparasi</h3>
-                    <table style="width: 100%; border-collapse: collapse; font-size: 10px;">
-                        <tr style="background: #f8fafc;"><td style="padding: 3mm; border: 1px solid #f1f5f9; font-weight: 600;">Tarif / m³</td><td style="padding: 3mm; border: 1px solid #f1f5f9; color: #94a3b8; text-align: center;" id="pdf-comp-legacy">-</td><td style="padding: 3mm; border: 1px solid #f1f5f9; font-weight: 800; color: #2257d8; text-align: center;" id="pdf-comp-invila">-</td></tr>
-                        <tr><td style="padding: 3mm; border: 1px solid #f1f5f9; font-weight: 600;">Hemat Bulanan</td><td style="padding: 3mm; border: 1px solid #f1f5f9; color: #94a3b8; text-align: center;">-</td><td style="padding: 3mm; border: 1px solid #f1f5f9; font-weight: 800; color: #10b981; text-align: center;" id="pdf-comp-monthly">-</td></tr>
-                        <tr style="background: #f8fafc;"><td style="padding: 3mm; border: 1px solid #f1f5f9; font-weight: 600;">Investasi Awal</td><td style="padding: 3mm; border: 1px solid #f1f5f9; color: #ef4444; font-weight: bold; text-align: center;">Miliaran</td><td style="padding: 3mm; border: 1px solid #f1f5f9; font-weight: 800; color: #2257d8; text-align: center;">Rp 0</td></tr>
-                        <tr><td style="padding: 3mm; border: 1px solid #f1f5f9; font-weight: 600;">CapEx Value</td><td style="padding: 3mm; border: 1px solid #f1f5f9; color: #94a3b8; text-align: center;">-</td><td style="padding: 3mm; border: 1px solid #f1f5f9; font-weight: 800; color: #2257d8; text-align: center;" id="pdf-comp-capex">-</td></tr>
-                    </table>
+            <!-- PDF PAGE 2 -->
+            <div id="pdf-page-2" style="height: 297mm; padding: 20mm; position: relative; background: white;">
+                <div style="background: #01040a; border-top: 4px solid #d4af37; border-radius: 12px; padding: 12mm; color: white; text-align: center; margin-bottom: 12mm;">
+                    <span style="font-size: 10px; color: #d4af37; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 5mm;">Total Value Creation (5 Tahun)</span>
+                    <div id="pdf-val-5year-top" style="font-size: 42px; font-weight: 900; color: #ffffff;">-</div>
                 </div>
-                <!-- PDF CHART AREA -->
-                <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 8mm; text-align: center; display: flex; flex-direction: column; justify-content: center;">
-                    <h3 style="font-size: 11px; font-weight: 900; margin-bottom: 8mm; text-transform: uppercase; letter-spacing: 1px;">Growth Projection</h3>
-                    <div style="display: flex; gap: 4mm; align-items: flex-end; height: 45mm; border-bottom: 2px solid #e2e8f0; padding-bottom: 2mm; margin: 0 auto 4mm auto; width: 90%;">
-                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
-                            <span id="pdf-label-bar-1" style="font-size: 6px; font-weight: 800; margin-bottom: 1mm;">0</span>
-                            <div id="pdf-bar-1" style="width: 100%; background: #cbd5e1; border-radius: 2px 2px 0 0;"></div>
+                <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 10mm; margin-bottom: 12mm;">
+                    <h3 style="font-size: 11px; font-weight: 900; margin-bottom: 8mm; text-transform: uppercase; text-align: center;">Proyeksi Biaya Kumulatif: PDAM vs INVILA™</h3>
+                    <div style="display: flex; gap: 5mm; align-items: flex-end; height: 60mm; border-bottom: 2px solid #e2e8f0; padding-bottom: 2mm; margin: 0 auto; width: 95%;">
+                        <div style="flex: 1; display: flex; align-items: flex-end; gap: 1mm; height: 100%;">
+                            <div id="pdf-legacy-bar-1" style="flex: 1; background: #fee2e2; border-top: 1px solid #f87171;"></div>
+                            <div id="pdf-invila-bar-1" style="flex: 1; background: #2257d8;"></div>
                         </div>
-                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
-                            <span id="pdf-label-bar-2" style="font-size: 6px; font-weight: 800; margin-bottom: 1mm;">0</span>
-                            <div id="pdf-bar-2" style="width: 100%; background: #cbd5e1; border-radius: 2px 2px 0 0;"></div>
+                        <div style="flex: 1; display: flex; align-items: flex-end; gap: 1mm; height: 100%;">
+                            <div id="pdf-legacy-bar-2" style="flex: 1; background: #fee2e2; border-top: 1px solid #f87171;"></div>
+                            <div id="pdf-invila-bar-2" style="flex: 1; background: #2257d8;"></div>
                         </div>
-                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
-                            <span id="pdf-label-bar-3" style="font-size: 6px; font-weight: 800; margin-bottom: 1mm;">0</span>
-                            <div id="pdf-bar-3" style="width: 100%; background: #cbd5e1; border-radius: 2px 2px 0 0;"></div>
+                        <div style="flex: 1; display: flex; align-items: flex-end; gap: 1mm; height: 100%;">
+                            <div id="pdf-legacy-bar-3" style="flex: 1; background: #fee2e2; border-top: 1px solid #f87171;"></div>
+                            <div id="pdf-invila-bar-3" style="flex: 1; background: #2257d8;"></div>
                         </div>
-                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
-                            <span id="pdf-label-bar-4" style="font-size: 6px; font-weight: 800; margin-bottom: 1mm;">0</span>
-                            <div id="pdf-bar-4" style="width: 100%; background: #94a3b8; border-radius: 2px 2px 0 0;"></div>
+                        <div style="flex: 1; display: flex; align-items: flex-end; gap: 1mm; height: 100%;">
+                            <div id="pdf-legacy-bar-4" style="flex: 1; background: #fee2e2; border-top: 1px solid #f87171;"></div>
+                            <div id="pdf-invila-bar-4" style="flex: 1; background: #2257d8;"></div>
                         </div>
-                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
-                            <span id="pdf-label-bar-5" style="font-size: 7px; font-weight: 900; color: #2257d8; margin-bottom: 1mm;">0</span>
-                            <div id="pdf-bar-5" style="width: 100%; background: #2257d8; border-radius: 2px 2px 0 0;"></div>
+                        <div style="flex: 1; display: flex; align-items: flex-end; gap: 1mm; height: 100%;">
+                            <div id="pdf-legacy-bar-5" style="flex: 1; background: #fee2e2; border-top: 1px solid #f87171;"></div>
+                            <div id="pdf-invila-bar-5" style="flex: 1; background: #2257d8;"></div>
                         </div>
                     </div>
-                    <span style="font-size: 8px; color: #94a3b8; font-weight: 600; margin-top: 2mm;">Cumulative Saving Trend (Tahun 1 - 5)</span>
                 </div>
-            </div>
-
-            <div style="background: #f1f5f9; padding: 8mm; border-radius: 12px; font-size: 10px; line-height: 1.5; color: #475569; border-left: 4px solid #2257d8;">
-                <b>Integrity & Strategic Note:</b> Seluruh nilai di atas adalah hasil sinkronisasi sistem INVILA™. Infrastruktur senilai <span id="pdf-final-capex" style="font-weight: 800; color: #2257d8;">-</span> sepenuhnya menjadi tanggung jawab INVILA™.
-            </div>
-
-            <div style="border-top: 1px solid #f1f5f9; margin-top: 12mm; padding-top: 6mm; text-align: center; color: #cbd5e1; font-size: 8px; letter-spacing: 1px;">
-                Generated by INVILA™ Intelligence System | Jakarta, Indonesia | piator@invila.com
+                <table style="width: 100%; border-collapse: collapse; font-size: 10px; margin-top: 5mm;">
+                    <tr style="background: #f1f5f9;"><th style="padding: 3mm; border: 1px solid #e2e8f0; text-align: left;">Parameter Strategis</th><th style="padding: 3mm; border: 1px solid #e2e8f0;">Eksisting</th><th style="padding: 3mm; border: 1px solid #e2e8f0; color: #2257d8;">INVILA™</th></tr>
+                    <tr><td style="padding: 2mm; border: 1px solid #e2e8f0;">Investasi CapEx</td><td style="padding: 2mm; border: 1px solid #e2e8f0; text-align: center; color: #ef4444;" id="pdf-legacy-capex">-</td><td style="padding: 2mm; border: 1px solid #e2e8f0; text-align: center; font-weight: bold; color: #2257d8;">Rp 0</td></tr>
+                    <tr><td style="padding: 2mm; border: 1px solid #e2e8f0;">Valuasi 5 Thn</td><td style="padding: 2mm; border: 1px solid #e2e8f0; text-align: center;" id="pdf-legacy-5yr">-</td><td style="padding: 2mm; border: 1px solid #e2e8f0; text-align: center; font-weight: bold; color: #2257d8;" id="pdf-invila-5yr">-</td></tr>
+                </table>
             </div>
         </div>
     </div>
 
     <script>
-        const CONFIG = { flowRate: 1500, legacyCost: 14600, invilaTariff: 5500, capexPerLPS: 360000000 };
+        const CONFIG = { capexPerLPS: 360000000 };
 
         function formatRp(v) {
             const abs = Math.abs(v);
@@ -546,53 +498,72 @@
         }
 
         function updateAuditDashboard() {
-            const flow = CONFIG.flowRate;
-            const savingsPerM3 = CONFIG.legacyCost - CONFIG.invilaTariff;
-            const monthly = savingsPerM3 * flow * 30;
-            const annual = monthly * 12;
-            const fiveYear = annual * 5;
+            const flow = parseInt(document.getElementById('input-flow').value.replace(/\D/g, "")) || 0;
+            const legacyRate = parseInt(document.getElementById('input-legacy').value.replace(/\D/g, "")) || 0;
+            const invilaRate = parseInt(document.getElementById('input-tariff').value.replace(/\D/g, "")) || 0;
+
+            const savingsPerM3 = legacyRate - invilaRate;
+            const annualSavings = savingsPerM3 * flow * 30 * 12;
+            const fiveYearSavings = annualSavings * 5;
+            
+            const legacyAnnualCost = legacyRate * flow * 30 * 12;
+            const invilaAnnualCost = invilaRate * flow * 30 * 12;
+
             const lps = flow / 86.4; 
             const capex = lps * CONFIG.capexPerLPS;
 
             const dateStr = new Intl.DateTimeFormat('id-ID', { dateStyle: 'long' }).format(new Date());
 
-            safeSetText('view-monthly-saving', formatRp(monthly));
-            safeSetText('view-annual-saving', formatRp(annual));
+            // UI
+            safeSetText('view-monthly-saving', formatRp(savingsPerM3 * flow * 30));
+            safeSetText('view-annual-saving', formatRp(annualSavings));
             safeSetText('view-capex-total', formatRp(capex));
-            safeSetText('sync-annual-efficiency', formatRp(annual));
-            safeSetText('sync-5year-box', formatRp(fiveYear));
-            safeSetText('sync-legacy-tariff', "Rp " + CONFIG.legacyCost.toLocaleString("id-ID"));
-            safeSetText('sync-invila-tariff', "Rp " + CONFIG.invilaTariff.toLocaleString("id-ID"));
-            safeSetText('sync-monthly-savings', formatRp(monthly));
-            safeSetText('sync-annual-savings', formatRp(annual));
-            safeSetText('sync-capex-value', formatRp(capex));
+            safeSetText('sync-5year-box', formatRp(fiveYearSavings));
+            safeSetText('final-saving-val', formatRp(fiveYearSavings).replace("Rp ", ""));
 
-            // Multi-year bars with labels
+            // Table
+            safeSetText('sync-legacy-tariff', "Rp " + legacyRate.toLocaleString("id-ID"));
+            safeSetText('sync-invila-tariff', "Rp " + invilaRate.toLocaleString("id-ID"));
+            safeSetText('sync-legacy-capex-ref', formatRp(capex * 1.5));
+            safeSetText('sync-legacy-5yr', formatRp(legacyAnnualCost * 5));
+            safeSetText('sync-invila-5yr', formatRp(invilaAnnualCost * 5));
+
+            // GRAPH SCALE
+            // We want bars to be tall. Let's make the Legacy Year 5 the 90% reference.
+            const maxRef = legacyAnnualCost * 5;
+
             for(let i=1; i<=5; i++) {
-                const cumulative = annual * i;
-                const formatted = formatRp(cumulative).replace("Rp ", "").replace("Miliar", "M").replace("Juta", "J");
-                
-                // Landing Page Graph
-                const bar = document.getElementById('bar-' + i);
-                if(bar) bar.style.height = (i * 20) + '%';
-                safeSetText('label-bar-' + i, formatted);
+                const legacyCum = legacyAnnualCost * i;
+                const invilaCum = invilaAnnualCost * i;
+                const savingCum = annualSavings * i;
 
-                // PDF Graph
-                const pdfBar = document.getElementById('pdf-bar-' + i);
-                if(pdfBar) pdfBar.style.height = (i * 7) + 'mm';
-                safeSetText('pdf-label-bar-' + i, formatted);
+                const legacyH = (legacyCum / maxRef) * 90;
+                const invilaH = (invilaCum / maxRef) * 90;
+
+                // UI Bars
+                const lBar = document.getElementById('legacy-bar-' + i);
+                const iBar = document.getElementById('invila-bar-' + i);
+                if(lBar) lBar.style.height = legacyH + '%';
+                if(iBar) iBar.style.height = invilaH + '%';
+
+                const label = document.getElementById('label-bar-' + i);
+                if(label) label.innerText = "+" + formatRp(savingCum).replace("Rp ", "").replace("Miliar", "M").replace("Juta", "J");
+
+                // PDF Bars
+                const plBar = document.getElementById('pdf-legacy-bar-' + i);
+                const piBar = document.getElementById('pdf-invila-bar-' + i);
+                if(plBar) plBar.style.height = legacyH + '%';
+                if(piBar) piBar.style.height = invilaH + '%';
             }
 
+            // PDF
             safeSetText('pdf-date', "Jakarta, " + dateStr);
-            safeSetText('pdf-val-5year-top', formatRp(fiveYear));
-            safeSetText('pdf-val-annual-top', formatRp(annual));
-            safeSetText('pdf-letter-annual', formatRp(annual));
-            safeSetText('pdf-letter-5year', formatRp(fiveYear));
-            safeSetText('pdf-comp-legacy', "Rp " + CONFIG.legacyCost.toLocaleString("id-ID"));
-            safeSetText('pdf-comp-invila', "Rp " + CONFIG.invilaTariff.toLocaleString("id-ID"));
-            safeSetText('pdf-comp-monthly', formatRp(monthly));
-            safeSetText('pdf-comp-capex', formatRp(capex));
-            safeSetText('pdf-final-capex', formatRp(capex));
+            safeSetText('pdf-val-5year-top', formatRp(fiveYearSavings));
+            safeSetText('pdf-letter-annual', formatRp(annualSavings));
+            safeSetText('pdf-letter-5year', formatRp(fiveYearSavings));
+            safeSetText('pdf-legacy-capex', formatRp(capex * 1.5));
+            safeSetText('pdf-legacy-5yr', formatRp(legacyAnnualCost * 5));
+            safeSetText('pdf-invila-5yr', formatRp(invilaAnnualCost * 5));
         }
 
         async function downloadReport() {
@@ -602,24 +573,24 @@
             try {
                 const { jsPDF } = window.jspdf;
                 const pdf = new jsPDF("p", "mm", "a4");
-                const el = document.getElementById('pdf-report-container');
-                const originalPos = el.parentElement.style.position;
-                el.parentElement.style.position = 'static';
-                const canvas = await html2canvas(el, { scale: 3, useCORS: true });
-                el.parentElement.style.position = originalPos;
-                const imgData = canvas.toDataURL("image/png");
-                pdf.addImage(imgData, "PNG", 0, 0, 210, 297);
-                pdf.save(`INVILA-Strategic-Audit-Report.pdf`);
+                const page1 = document.getElementById('pdf-page-1');
+                const canvas1 = await html2canvas(page1, { scale: 3, useCORS: true });
+                pdf.addImage(canvas1.toDataURL("image/png"), "PNG", 0, 0, 210, 297);
+                pdf.addPage();
+                const page2 = document.getElementById('pdf-page-2');
+                const canvas2 = await html2canvas(page2, { scale: 3, useCORS: true });
+                pdf.addImage(canvas2.toDataURL("image/png"), "PNG", 0, 0, 210, 297);
+                pdf.save(`Invila-Strategic-Audit-Report.pdf`);
             } catch (err) { console.error(err); } 
             finally { btn.innerText = 'Download Strategic Savings Report PDF'; btn.disabled = false; }
         }
 
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('main-header');
-            if (header) {
-                if (window.scrollY > 40) header.classList.add('header-scrolled');
-                else header.classList.remove('header-scrolled');
-            }
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', (e) => {
+                const raw = e.target.value.replace(/\D/g, "");
+                e.target.value = raw ? parseInt(raw).toLocaleString("en-US") : "";
+                updateAuditDashboard();
+            });
         });
 
         window.onload = () => {
