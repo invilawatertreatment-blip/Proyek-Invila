@@ -85,49 +85,55 @@
         @media (min-width: 1024px) { .executive-para { padding: 10px 0 10px 35px; border-left-width: 4px; } }
 
         /* REFINED COMPACT AUDIT UI */
-        .dashboard-wrapper { background-color: #01040a; border-radius: 1.2rem; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .dashboard-wrapper { background-color: #01040a; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.05); }
         @media (min-width: 1024px) { .dashboard-wrapper { border-radius: 4rem; } }
 
         .compact-input { 
-            background: rgba(255, 255, 255, 0.04); 
-            border: 1px solid rgba(255, 255, 255, 0.15); 
-            border-radius: 0.6rem; 
-            padding: 0.6rem 0.75rem; 
+            background: rgba(255, 255, 255, 0.03); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 0.75rem; 
+            padding: 0.75rem 1rem; 
             width: 100%; 
             font-weight: 700; 
-            font-size: 1rem; 
+            font-size: 1.1rem; 
             color: white; 
             outline: none; 
-            transition: all 0.2s ease; 
+            transition: all 0.3s ease; 
         }
-        .compact-input:focus { border-color: #f43f5e; background: rgba(244, 63, 94, 0.08); }
+        .compact-input:focus { border-color: #f43f5e; background: rgba(244, 63, 94, 0.05); box-shadow: 0 0 15px rgba(244, 63, 94, 0.1); }
 
-        .text-value-main { font-size: 1.6rem; font-weight: 900; line-height: 1; color: white; letter-spacing: -0.02em; }
+        .text-value-main { font-size: 1.85rem; font-weight: 900; line-height: 1; color: white; letter-spacing: -0.03em; }
         @media (min-width: 1024px) { .text-value-main { font-size: 6rem; } }
 
         /* HMI FRAME STYLING */
         .hmi-frame { 
             background: #0a0c10;
-            border: 6px solid #1a1d23;
-            border-radius: 1.5rem;
+            border: 8px solid #1a1d23;
+            border-radius: 2rem;
             position: relative;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 0 5px 20px rgba(0,0,0,0.5);
+            box-shadow: 
+                inset 0 0 15px rgba(0,0,0,0.8),
+                0 10px 40px rgba(0,0,0,0.6);
         }
         .hmi-screen {
             background: radial-gradient(circle at center, #0d1117 0%, #020617 100%);
-            border: 1px solid #2d333d;
-            border-radius: 1rem;
-            margin: 2px;
+            border: 2px solid #2d333d;
+            border-radius: 1.2rem;
+            margin: 4px;
         }
 
-        .roadmap-step { border-left: 2px solid #e2e8f0; padding-left: 18px; position: relative; padding-bottom: 24px; }
-        .roadmap-step::before { content: ""; position: absolute; left: -6px; top: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--brand); border: 2px solid white; }
+        .roadmap-step { border-left: 2px solid #e2e8f0; padding-left: 20px; position: relative; padding-bottom: 30px; }
+        .roadmap-step::before { content: ""; position: absolute; left: -7px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--brand); border: 2px solid white; }
         
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-thumb { background: #2257d8; border-radius: 10px; }
 
-        section { scroll-margin-top: 60px; }
+        section { scroll-margin-top: 80px; }
         body { -webkit-font-smoothing: antialiased; }
+
+        /* Table Styling */
+        .diagnostic-table tr:nth-child(even) { background-color: #f8fafc; }
+        .diagnostic-table th { background-color: #f1f5f9; color: #0f172a; text-transform: uppercase; letter-spacing: 0.05em; }
     </style>
 </head>
 <body class="bg-offWhite font-sans text-slate-900 leading-normal overflow-x-hidden">
@@ -137,19 +143,19 @@
         <div class="max-w-[1440px] mx-auto px-4 md:px-12 flex justify-between items-center h-14 md:h-20">
             <div class="flex items-center group cursor-pointer">
                 <div class="logo-container hanging-logo">
-                    <img src="logo-invila.png" alt="Logo INVILA" class="logo-img">
+                    <div class="w-12 h-12 md:w-20 md:h-20 bg-royalBlue rounded-full flex items-center justify-center text-white font-serif italic text-2xl">I</div>
                 </div>
                 <div class="ml-3 md:ml-6 flex flex-col justify-center">
                     <h1 class="brand-text text-ink tracking-tight uppercase">INVILA<span class="brand-tm">TM</span></h1>
                     <p class="sub-brand-text text-royalBlue uppercase tracking-widest font-bold font-serif italic">ZERO CAPEX WATER INFRASTRUCTURE</p>
                 </div>
             </div>
-            <nav class="hidden xl:flex items-center text-[11px] font-black tracking-widest">
-                <a href="#overview" class="nav-link px-4">ANALISIS</a>
-                <a href="#audit-tool" class="nav-link px-4 text-royalBlue">AUDIT EBITDA</a>
-                <a href="#solution" class="nav-link px-4">KOMITMEN</a>
-                <a href="#technology" class="nav-link px-4 text-ink">TRANSISI</a>
-                <a href="https://wa.me/6285219493322" target="_blank" class="bg-royalBlue ml-6 px-8 py-3 rounded-full text-white uppercase tracking-widest hover:scale-105 transition-transform">Asesmen Eksekutif</a>
+            <nav class="hidden xl:flex items-center">
+                <a href="#overview" class="nav-link px-4 py-2 text-[11px] font-bold tracking-widest text-slate-500 hover:text-royalBlue transition-colors uppercase">Analisis</a>
+                <a href="#audit-tool" class="nav-link px-4 text-royalBlue font-black py-2 text-[11px] font-bold tracking-widest transition-colors uppercase">Audit EBITDA</a>
+                <a href="#solution" class="nav-link px-4 py-2 text-[11px] font-bold tracking-widest text-slate-500 hover:text-royalBlue transition-colors uppercase">Komitmen</a>
+                <a href="#technology" class="nav-link px-4 text-ink py-2 text-[11px] font-bold tracking-widest transition-colors uppercase">Transisi</a>
+                <a href="https://wa.me/6285219493322" target="_blank" class="bg-royalBlue ml-6 px-8 py-3 rounded-full text-[10px] font-black text-white uppercase tracking-widest hover:scale-105 transition-transform shadow-lg shadow-royalBlue/20">Asesmen Eksekutif</a>
             </nav>
             <div class="xl:hidden p-2">
                 <i data-lucide="menu" class="w-6 h-6 text-ink"></i>
@@ -158,35 +164,49 @@
     </header>
 
     <main>
-        <!-- SECTION 1: HERO -->
-        <section id="hero" class="pt-24 md:pt-[280px] pb-10 lg:pb-32">
+        <!-- HERO SECTION -->
+        <section id="hero" class="pt-28 md:pt-[280px] pb-12 lg:pb-32">
             <div class="max-w-[1200px] mx-auto px-4 md:px-6">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                     <div class="lg:col-span-7 text-center lg:text-left">
                         <span class="kicker">Integrated Water Infrastructure Solutions</span>
-                        <h2 class="headline uppercase mb-4 lg:mb-10 leading-tight">Transformasi Air Limbah Industri Menjadi <span class="text-royalBlue">Air Bersih</span></h2>
-                        <p class="text-sm lg:text-xl text-slate-500 font-light leading-relaxed mb-6 max-w-[750px] mx-auto lg:mx-0">
-                            Dapatkan suplai air bersih siap produksi tanpa CapEx awal. Solusi tepat untuk biaya PDAM tinggi dan pembatasan ABT industri.
-                        </p>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mb-6">
-                            <div class="flex items-center gap-2 p-3 bg-white rounded-xl border border-slate-100 shadow-sm">
-                                <i data-lucide="shield-check" class="w-3 h-3 text-royalBlue shrink-0"></i>
-                                <p class="text-[9px] font-black text-ink uppercase leading-tight">Zero CapEx Investasi</p>
+                        <h2 class="headline uppercase mb-5 lg:mb-10 leading-tight">Transformasi Air Limbah Industri Menjadi <span class="text-royalBlue">Air Bersih</span></h2>
+                        <div class="text-base lg:text-xl text-slate-500 font-light leading-relaxed mb-8 max-w-[750px] mx-auto lg:mx-0">
+                            <p>
+                                Dapatkan suplai air bersih siap produksi tanpa CapEx . Solusi tepat untuk pembatasan kuota ABT dan tarif PDAM industri.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+                            <div class="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-royalBlue shrink-0"></i>
+                                <p class="text-[10px] font-black text-ink uppercase leading-tight">Zero CapEx Investasi</p>
                             </div>
-                            <div class="flex items-center gap-2 p-3 bg-white rounded-xl border border-slate-100 shadow-sm">
-                                <i data-lucide="activity" class="w-3 h-3 text-royalBlue shrink-0"></i>
-                                <p class="text-[9px] font-black text-ink uppercase leading-tight">SLA Performa 100%</p>
+                            <div class="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <i data-lucide="bar-chart-3" class="w-4 h-4 text-royalBlue shrink-0"></i>
+                                <p class="text-[10px] font-black text-ink uppercase leading-tight">Controlled and measurable Opex</p>
+                            </div>
+                            <div class="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <i data-lucide="activity" class="w-4 h-4 text-royalBlue shrink-0"></i>
+                                <p class="text-[10px] font-black text-ink uppercase leading-tight">SLA Performa 100%</p>
                             </div>
                         </div>
-                        <a href="https://wa.me/6285219493322" target="_blank" class="bg-royalBlue text-white px-8 py-4 rounded-full font-black text-[10px] uppercase tracking-widest shadow-xl flex items-center justify-center gap-2 w-full sm:w-max mx-auto lg:mx-0 transition-transform active:scale-95">
-                            <i data-lucide="phone-call" class="w-4 h-4"></i> Jadwalkan Call Eksekutif
-                        </a>
+                        
+                        <!-- SUMMARY TEXT -->
+                        <p class="text-[9px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest text-center mb-8 px-2 lg:px-0">
+                            <span class="text-royalBlue">RINGAN</span> di investasi, <span class="text-royalBlue">TERUKUR</span> di operasional, dan lebih <span class="text-royalBlue">PASTI</span> di performa.
+                        </p>
+
+                        <div class="flex justify-center lg:justify-start">
+                            <a href="https://wa.me/6285219493322" target="_blank" class="bg-royalBlue text-white px-8 py-4 rounded-full font-black text-[11px] uppercase tracking-widest shadow-xl flex items-center justify-center gap-3 w-full sm:w-max mx-auto lg:mx-0 hover:scale-105 transition-transform">
+                                <i data-lucide="phone-call" class="w-4 h-4"></i> Jadwalkan Call Eksekutif
+                            </a>
+                        </div>
                     </div>
-                    <div class="lg:col-span-5 hidden md:block">
+                    <div class="lg:col-span-5">
                         <div class="rounded-2xl lg:rounded-[40px] overflow-hidden bg-ink aspect-video lg:aspect-[4/5] shadow-2xl relative border border-slate-200">
-                            <video id="hero-video" class="w-full h-full object-cover opacity-60" autoplay muted loop playsinline>
-                                <source src="KIW 1.mp4" type="video/mp4">
-                            </video>
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center text-white italic text-center p-8">
+                                <p>Industrial Wastewater Plant Operations Visualization</p>
+                            </div>
                             <div class="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent"></div>
                             <div class="absolute bottom-4 left-4 right-4 text-center">
                                 <p class="text-white font-serif italic text-sm md:text-lg leading-tight">Skala masif operasional riil yang menjamin kesinambungan produksi Anda.</p>
@@ -197,262 +217,283 @@
             </div>
         </section>
 
-        <!-- SECTION 2: EXECUTIVE AUDIT (THE PAIN) -->
-        <section id="overview" class="py-10 lg:py-32 bg-surface">
-            <div class="max-w-[1100px] mx-auto px-4">
-                <div class="grid md:grid-cols-2 gap-6 lg:gap-24 items-center">
-                    <div>
+        <!-- EXECUTIVE AUDIT (THE PAIN) -->
+        <section id="overview" class="py-12 lg:py-32 bg-surface">
+            <div class="max-w-[1200px] mx-auto px-4">
+                <div class="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start mb-16">
+                    <div class="lg:col-span-5">
                         <span class="kicker">Audit Masalah Eksekutif</span>
-                        <h3 class="font-serif italic text-xl lg:text-4xl text-ink mb-4 lg:mb-10 uppercase font-bold leading-tight">
-                            Sistem Air Anda Adalah <span class="text-royalBlue">Kebocoran Laba</span> yang Tersembunyi.
+                        <h3 class="font-serif italic text-2xl lg:text-4xl text-ink mb-5 lg:mb-10 uppercase font-bold leading-tight">
+                            Mengapa Sistem Air Industri Menjadi <span class="text-royalBlue">Risiko Finansial</span> yang Terus Membesar?
                         </h3>
                         <div class="executive-para border-royalBlue">
-                            <p class="text-sm lg:text-xl text-slate-700 font-light leading-relaxed">
-                                Inefisiensi utilitas adalah pemborosan kas 24 jam nonstop. Faktanya, Tarif PDAM Industri yang tinggi menekan EBITDA secara langsung setiap harinya, menggerus profitabilitas yang seharusnya bisa dialokasikan untuk ekspansi pasar.
+                            <p class="text-base lg:text-xl text-slate-700 font-light leading-relaxed">
+                                Ketika biaya air industri terus meningkat, akses sumber air makin terbatas, dan sistem tidak memberikan visibilitas yang cukup, tekanan ini langsung terasa pada biaya operasional, kontinuitas produksi, dan EBITDA.
                             </p>
                         </div>
                     </div>
-                    <div class="bg-white p-6 lg:p-12 rounded-2xl lg:rounded-[3.5rem] shadow-sm border border-slate-100">
-                        <h4 class="font-black text-royalBlue uppercase text-[8px] tracking-[0.3em] mb-3 underline decoration-4 underline-offset-8">The Cost Trap</h4>
-                        <h3 class="text-base lg:text-2xl font-black mb-3 leading-snug">Hentikan Pemborosan pada Aset yang <span class="text-royalBlue">Menyusut Nilainya.</span></h3>
-                        <p class="text-xs lg:text-base text-slate-500 font-light italic leading-relaxed">
-                            Bebaskan neraca keuangan Anda dari "bangkai" infrastruktur yang salah desain atau manajemen utilitas yang buruk. INVILA™ hadir untuk mengonversi liabilitas tersebut menjadi penghematan kas yang terukur.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3: STRATEGIC COMMITMENT -->
-        <section id="solution" class="py-12 lg:py-32 bg-white">
-            <div class="max-w-[1200px] mx-auto px-4">
-                <header class="text-center mb-12 lg:mb-24">
-                    <span class="kicker text-royalBlue">Value Creation Strategy</span>
-                    <h2 class="text-2xl lg:text-5xl font-black uppercase text-ink leading-tight">Bebaskan Fokus Engineering Anda.</h2>
-                </header>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-surface p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-all group">
-                        <div class="w-12 h-12 bg-royalBlue/10 rounded-xl flex items-center justify-center text-royalBlue mb-6 group-hover:bg-royalBlue group-hover:text-white transition-colors"><i data-lucide="landmark"></i></div>
-                        <h4 class="font-black text-ink text-lg uppercase mb-3 tracking-tighter">Financial Sovereignty</h4>
-                        <p class="text-slate-500 text-sm leading-relaxed">Bebaskan CAPEX untuk ekspansi pasar, bukan untuk utilitas yang menyusut nilainya.</p>
-                    </div>
-                    <div class="bg-surface p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-all group">
-                        <div class="w-12 h-12 bg-royalBlue/10 rounded-xl flex items-center justify-center text-royalBlue mb-6 group-hover:bg-royalBlue group-hover:text-white transition-colors"><i data-lucide="clipboard-check"></i></div>
-                        <h4 class="font-black text-ink text-lg uppercase mb-3 tracking-tighter">Operational Accountability</h4>
-                        <p class="text-slate-500 text-sm leading-relaxed">Kembalikan tim engineering ke lini produksi utama melalui jaminan SLA performa penuh.</p>
-                    </div>
-                    <div class="bg-surface p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-all group">
-                        <div class="w-12 h-12 bg-royalBlue/10 rounded-xl flex items-center justify-center text-royalBlue mb-6 group-hover:bg-royalBlue group-hover:text-white transition-colors"><i data-lucide="zap"></i></div>
-                        <h4 class="font-black text-ink text-lg uppercase mb-3 tracking-tighter">Growth Scalability</h4>
-                        <p class="text-slate-500 text-sm leading-relaxed">Sistem modular adaptif yang siap mendukung lompatan besar kapasitas produksi pabrik Anda.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 4: INTELLIGENCE SAVING AUDIT (COMPACT & COMPREHENSIVE) -->
-        <section id="audit-tool" class="py-6 lg:py-24 bg-offWhite">
-            <div class="container mx-auto px-3 lg:px-6">
-                <div class="dashboard-wrapper p-3 lg:p-16 space-y-3 lg:space-y-10 relative overflow-hidden shadow-2xl">
-                    <header class="border-b border-white/10 pb-2 relative z-10 flex flex-row justify-between items-end">
-                        <div>
-                            <h2 class="text-sm lg:text-3xl font-black text-white uppercase italic tracking-tighter">INTELLIGENCE <span class="text-roseAccent">SAVING AUDIT</span></h2>
-                            <p class="text-[7px] lg:text-[10px] uppercase tracking-[0.3em] text-white/70">Industrial Operational Performance Savings Analysis</p>
+                    <div class="lg:col-span-7">
+                        <div class="bg-white p-6 lg:p-10 rounded-3xl shadow-sm border border-slate-100">
+                            <h4 class="font-black text-royalBlue uppercase text-[10px] tracking-[0.3em] mb-6 flex items-center gap-3">
+                                <i data-lucide="alert-triangle" class="w-4 h-4 text-roseAccent"></i> Strategic Diagnostic Map
+                            </h4>
+                            
+                            <!-- MODERN DIAGNOSTIC TABLE -->
+                            <div class="overflow-x-auto rounded-xl border border-slate-100">
+                                <table class="w-full text-left diagnostic-table border-collapse">
+                                    <thead>
+                                        <tr>
+                                            <th class="p-4 text-[10px] font-black border-b border-slate-100 bg-slate-50">Masalah Utama</th>
+                                            <th class="p-4 text-[10px] font-black border-b border-slate-100 bg-slate-50">Tantangan Operasional</th>
+                                            <th class="p-4 text-[10px] font-black border-b border-slate-100 bg-slate-50">Efisiensi Biaya Hilang</th>
+                                            <th class="p-4 text-[10px] font-black border-b border-slate-100 bg-slate-50">Dampak Strategis</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-[11px] leading-relaxed">
+                                        <tr>
+                                            <td class="p-4 font-bold text-ink border-b border-slate-100">1. Disrupsi Kuota ABT</td>
+                                            <td class="p-4 text-slate-600 border-b border-slate-100">Pengetatan regulasi Air Bawah Tanah (ABT) mengganggu ketersediaan bahan baku.</td>
+                                            <td class="p-4 text-slate-600 border-b border-slate-100">Migrasi paksa ke tarif PDAM Industri tanpa kesiapan sistem mandiri.</td>
+                                            <td class="p-4 font-bold text-roseAccent border-b border-slate-100">Lonjakan OpEx yang langsung menggerus laba bersih.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4 font-bold text-ink border-b border-slate-100">2. Tarif PDAM Industri</td>
+                                            <td class="p-4 text-slate-600 border-b border-slate-100">Struktur profit reaktif terhadap kebijakan publik & suplai eksternal.</td>
+                                            <td class="p-4 text-slate-600 border-b border-slate-100">Tarif fluktuatif (hingga 3x rumah tangga) & meningkat tiap tahun.</td>
+                                            <td class="p-4 font-bold text-roseAccent border-b border-slate-100">Ketidakpastian finansial jangka panjang tanpa nilai tambah.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4 font-bold text-ink border-b border-slate-100">3. Asset Deadweight</td>
+                                            <td class="p-4 text-slate-600 border-b border-slate-100">Unit dibangun hanya untuk baku mutu, bukan penciptaan nilai.</td>
+                                            <td class="p-4 text-slate-600 border-b border-slate-100">Margin menguap dari setiap liter effluent yang tetap dibuang.</td>
+                                            <td class="p-4 font-bold text-roseAccent border-b border-slate-100">Depresiasi tinggi tanpa ROI penghematan air.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4 font-bold text-ink border-b border-slate-100">4. Blind-Spot Operasional</td>
+                                            <td class="p-4 text-slate-600 border-b border-slate-100">Minim digitalisasi IoT; efisiensi kimia & energi tak terukur.</td>
+                                            <td class="p-4 text-slate-600 border-b border-slate-100">Celah akuntabilitas dari pengelolaan manual & human error.</td>
+                                            <td class="p-4 font-bold text-roseAccent border-b border-slate-100">Risiko denda & biaya perbaikan darurat tak terencana.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="mt-5 text-[9px] text-slate-400 italic flex items-center gap-2">
+                                <i data-lucide="info" class="w-3 h-3"></i> Gunakan Audit EBITDA di bawah untuk menghitung angka kerugian riil Anda.
+                            </p>
                         </div>
-                        <div class="flex items-center gap-1">
-                            <span class="w-1.5 h-1.5 bg-roseAccent rounded-full animate-pulse"></span>
-                            <span class="text-[7px] font-black text-roseAccent uppercase tracking-widest">Live EBITDA Savings Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STRATEGIC PILLARS -->
+        <section id="solution" class="py-12 lg:py-32 bg-white">
+            <div class="max-w-[1200px] mx-auto px-4 text-center">
+                <header class="mb-12 lg:mb-24">
+                    <span class="kicker text-royalBlue">Strategic Commitment</span>
+                    <h2 class="text-2xl lg:text-5xl font-black uppercase text-ink">Bebaskan Fokus Operasional.</h2>
+                </header>
+                <div class="grid md:grid-cols-3 gap-6 text-left">
+                    <div class="bg-surface p-8 rounded-3xl border border-slate-100 group hover:shadow-xl transition-all">
+                        <div class="w-12 h-12 bg-royalBlue/10 rounded-xl flex items-center justify-center text-royalBlue mb-6 group-hover:bg-royalBlue group-hover:text-white transition-colors"><i data-lucide="landmark"></i></div>
+                        <h4 class="font-black text-ink text-lg uppercase mb-3">Financial Sovereignty</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed">Bebaskan CAPEX untuk ekspansi pasar, bukan utilitas yang menyusut nilainya.</p>
+                    </div>
+                    <div class="bg-surface p-8 rounded-3xl border border-slate-100 group hover:shadow-xl transition-all">
+                        <div class="w-12 h-12 bg-royalBlue/10 rounded-xl flex items-center justify-center text-royalBlue mb-6 group-hover:bg-royalBlue group-hover:text-white transition-colors"><i data-lucide="clipboard-check"></i></div>
+                        <h4 class="font-black text-ink text-lg uppercase mb-3">Operational Accountability</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed">Kembalikan tim engineering ke lini produksi utama melalui jaminan SLA penuh.</p>
+                    </div>
+                    <div class="bg-surface p-8 rounded-3xl border border-slate-100 group hover:shadow-xl transition-all">
+                        <div class="w-12 h-12 bg-royalBlue/10 rounded-xl flex items-center justify-center text-royalBlue mb-6 group-hover:bg-royalBlue group-hover:text-white transition-colors"><i data-lucide="zap"></i></div>
+                        <h4 class="font-black text-ink text-lg uppercase mb-3">Growth Scalability</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed">Sistem modular adaptif yang siap mendukung lompatan besar kapasitas produksi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTELLIGENCE SAVING AUDIT (COMPACT PROFESSIONAL) -->
+        <section id="audit-tool" class="py-12 lg:py-24 bg-offWhite">
+            <div class="container mx-auto px-4 lg:px-6">
+                <div class="dashboard-wrapper p-4 lg:p-16 space-y-6 lg:space-y-10 relative overflow-hidden shadow-2xl">
+                    <header class="border-b border-white/10 pb-4 relative z-10 flex flex-col lg:flex-row justify-between lg:items-end gap-3">
+                        <div>
+                            <h2 class="text-lg lg:text-3xl font-black text-white uppercase italic tracking-tighter">INTELLIGENCE <span class="text-roseAccent">SAVING AUDIT</span> </h2>
+                            <p class="text-[8px] lg:text-[10px] uppercase tracking-[0.4em] text-slate-500 mt-1">Industrial Operational Performance Savings Analysis</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-roseAccent rounded-full animate-pulse"></span>
+                            <span class="text-[9px] font-black text-roseAccent uppercase tracking-widest">Live EBITDA Savings Analysis</span>
                         </div>
                     </header>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-10 relative z-10">
-                        <!-- Input Column -->
-                        <aside class="lg:col-span-4 flex flex-col gap-2">
-                            <div class="bg-white/5 border border-white/10 p-3 rounded-xl space-y-3">
-                                <div class="flex justify-between items-center border-b border-white/5 pb-1">
-                                    <h4 class="text-[8px] font-black text-white uppercase tracking-widest">Input Parameter</h4>
-                                    <span class="bg-roseAccent/20 text-roseAccent text-[6px] font-black px-1.5 py-0.5 rounded uppercase tracking-widest">Isian Klien</span>
+                    <div class="grid lg:grid-cols-12 gap-4 lg:gap-10 relative z-10">
+                        <aside class="lg:col-span-4 flex flex-col gap-4">
+                            <div class="bg-white/5 border border-white/10 p-4 rounded-2xl space-y-5">
+                                <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                    <h4 class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Input Parameter</h4>
+                                    <span class="bg-roseAccent/20 text-roseAccent text-[8px] font-black px-2 py-1 rounded uppercase tracking-widest">Isian Klien</span>
                                 </div>
-                                
-                                <div class="grid grid-cols-2 lg:grid-cols-1 gap-2">
-                                    <div class="col-span-2 lg:col-span-1 space-y-0.5">
-                                        <label class="text-[7px] font-bold uppercase text-white tracking-wider">Debit Produksi (m³/hari)</label>
-                                        <input type="text" id="input-flow" data-key="flowRate" class="compact-input h-9" value="1,500">
+                                <div class="grid gap-4">
+                                    <div class="space-y-1">
+                                        <label class="text-[9px] font-bold uppercase text-slate-500 tracking-wider">Debit Produksi (m³/hari)</label>
+                                        <input type="text" id="input-flow" data-key="flowRate" class="compact-input" value="1,500">
                                     </div>
-                                    <div class="space-y-0.5">
-                                        <label class="text-[7px] font-bold uppercase text-white tracking-wider">Tarif PDAM Industri (Rp)</label>
-                                        <input type="text" id="input-legacy" data-key="legacyCost" class="compact-input h-9" value="14,600">
+                                    <div class="space-y-1">
+                                        <label class="text-[9px] font-bold uppercase text-slate-500 tracking-wider">Tarif PDAM Industri (Rp/m³)</label>
+                                        <input type="text" id="input-legacy" data-key="legacyCost" class="compact-input" value="14,600">
                                     </div>
-                                    <div class="space-y-0.5">
-                                        <label class="text-[7px] font-bold uppercase text-roseAccent tracking-wider">Target Tarif INVILA (Rp)</label>
-                                        <input type="text" id="input-tariff" data-key="invilaTariff" class="compact-input h-9 !text-roseAccent" value="5,500">
+                                    <div class="space-y-1">
+                                        <label class="text-[9px] font-bold uppercase text-roseAccent tracking-wider">Target Tarif INVILA (Rp/m³)</label>
+                                        <input type="text" id="input-tariff" data-key="invilaTariff" class="compact-input !text-roseAccent" value="5,500">
                                     </div>
                                 </div>
-                                
-                                <!-- Tech Note -->
-                                <p class="text-[6px] lg:text-[9px] text-white/40 leading-relaxed italic">
-                                    *EBITDA Savings dihitung sebagai efisiensi kas operasional langsung dari pengurangan biaya variabel utilitas air.
+                            </div>
+                            <div class="hidden lg:block bg-blue-900/10 border border-blue-500/10 p-4 rounded-2xl">
+                                <p class="text-[10px] text-slate-400 leading-relaxed italic">
+                                    *Analisis ini menggunakan perbandingan tarif dasar air industri (PDAM) vs Biaya Layanan Unit INVILA. EBITDA savings dihitung sebagai efisiensi kas langsung.
                                 </p>
                             </div>
                         </aside>
 
-                        <!-- Results Column -->
-                        <div class="lg:col-span-8 flex flex-col gap-2">
-                            <!-- Main Savings -->
-                            <div class="glass-panel p-4 lg:p-12 rounded-xl lg:rounded-[3rem] border-l-4 border-royalBlue bg-gradient-to-br from-blue-950/20 to-transparent flex flex-col justify-center">
-                                <span class="text-blue-400 font-black text-[7px] lg:text-[12px] uppercase tracking-[0.4em] mb-1 block">Potensi EBITDA Savings (Per Bulan)</span>
+                        <div class="lg:col-span-8 flex flex-col gap-4">
+                            <div class="glass-panel p-6 lg:p-12 rounded-2xl lg:rounded-[3rem] border-l-4 border-royalBlue bg-gradient-to-br from-blue-950/20 to-transparent flex flex-col justify-center">
+                                <span class="text-blue-400 font-black text-[9px] lg:text-[12px] uppercase tracking-[0.4em] mb-4 block">Potensi EBITDA Savings (Per Bulan)</span>
                                 <h2 id="view-monthly-saving" class="text-value-main">Rp 0</h2>
                             </div>
-                            
-                            <!-- Sub Metrics -->
-                            <div class="grid grid-cols-2 gap-2">
-                                <div class="glass-panel p-3 lg:p-8 rounded-xl border border-white/5">
-                                    <span class="text-[7px] lg:text-[10px] font-black uppercase text-white tracking-widest mb-1 block">Annual Savings</span>
-                                    <div id="view-annual-saving" class="text-sm lg:text-3xl font-black italic text-white">Rp 0</div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="glass-panel p-5 lg:p-8 rounded-2xl border border-white/5">
+                                    <span class="text-[8px] lg:text-[10px] font-black uppercase text-slate-500 mb-2 block tracking-widest">Annual Savings</span>
+                                    <div id="view-annual-saving" class="text-base lg:text-3xl font-black italic text-white leading-tight">Rp 0</div>
                                 </div>
-                                <div class="glass-panel p-3 lg:p-8 rounded-xl border border-roseAccent/20 bg-roseAccent/5">
-                                    <span class="text-[7px] lg:text-[10px] font-black uppercase text-roseAccent tracking-widest mb-1 block">CAPEX INVILA Covered</span>
-                                    <div id="view-capex-total" class="text-sm lg:text-3xl font-black italic text-white">Rp 0</div>
+                                <div class="glass-panel p-5 lg:p-8 rounded-2xl border border-roseAccent/20 bg-roseAccent/5">
+                                    <span class="text-[8px] lg:text-[10px] font-black uppercase text-roseAccent mb-2 block tracking-widest">CAPEX Savings Value</span>
+                                    <div id="view-capex-total" class="text-base lg:text-3xl font-black italic text-white leading-tight">Rp 0</div>
                                 </div>
                             </div>
-
-                            <!-- 5 Year Projection -->
-                            <div class="p-3 lg:p-10 rounded-xl lg:rounded-[3rem] bg-gradient-to-r from-blue-950/40 to-dashboardDark border border-white/10 flex flex-row justify-between items-center px-4 group">
-                                <div class="hidden lg:block">
-                                    <span class="text-roseAccent font-black text-[11px] uppercase tracking-[0.5em]">5-Year Strategic Projection</span>
-                                    <p class="text-[9px] text-white/40 italic">Akumulasi penghematan jangka menengah.</p>
+                            <div class="p-5 lg:p-10 rounded-2xl lg:rounded-[3rem] bg-gradient-to-r from-blue-950/40 to-dashboardDark border border-white/10 flex flex-col sm:flex-row justify-between items-center gap-2 group">
+                                <div class="text-center sm:text-left">
+                                    <span class="text-roseAccent font-black text-[9px] lg:text-[11px] uppercase tracking-[0.5em] block">5-Year Strategic Savings Projection</span>
+                                    <p class="hidden lg:block text-[10px] text-slate-500 mt-1 italic">Akumulasi efisiensi kas jangka menengah.</p>
                                 </div>
-                                <span class="lg:hidden text-roseAccent font-black text-[7px] uppercase tracking-[0.4em]">5-Year Savings</span>
-                                <h2 id="view-five-year-saving" class="text-base lg:text-[4.5rem] font-black italic text-roseAccent tracking-tighter transition-transform group-hover:scale-105">Rp 0</h2>
+                                <h2 id="view-five-year-saving" class="text-xl lg:text-[4.5rem] font-black italic text-roseAccent leading-tight tracking-tighter">Rp 0</h2>
                             </div>
                         </div>
                     </div>
 
-                    <button onclick="downloadReport()" id="btn-download" class="w-full py-4 bg-roseAccent rounded-xl text-[8px] font-black uppercase tracking-[0.3em] text-white shadow-lg active:scale-95 transition-all">
+                    <button onclick="downloadReport()" id="btn-download" class="w-full py-5 bg-roseAccent rounded-xl text-[10px] font-black uppercase tracking-[0.3em] text-white shadow-xl hover:bg-red-600 active:scale-95 transition-all">
                         Download Strategic Savings Report PDF
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 5: ROADMAP TRANSISI -->
-        <section id="technology" class="py-10 lg:py-32 bg-white">
+        <!-- ROADMAP TRANSISI -->
+        <section id="technology" class="py-12 lg:py-32 bg-white">
             <div class="max-w-[1200px] mx-auto px-4">
                 <header class="mb-10 lg:mb-24 text-center">
                     <span class="kicker text-royalBlue">Transition Roadmap</span>
-                    <h2 class="text-xl lg:text-5xl font-black uppercase leading-tight">Integrasi Paralel: <br/><span class="text-royalBlue">Zero Production Downtime.</span></h2>
+                    <h2 class="text-2xl lg:text-5xl font-black uppercase leading-tight">Integrasi Paralel: <br/><span class="text-royalBlue">Zero Production Downtime.</span></h2>
                 </header>
                 <div class="max-w-2xl mx-auto">
                     <div class="roadmap-step">
-                        <h4 class="font-black text-ink uppercase text-sm mb-1 tracking-tighter">01. Strategic Value Audit</h4>
-                        <p class="text-slate-500 font-light text-xs">Membedah karakteristik air baku dan inefisiensi kas operasional eksisting.</p>
+                        <h4 class="font-black text-ink uppercase text-base mb-1">01. Strategic Value Audit</h4>
+                        <p class="text-slate-500 font-light text-sm">Membedah karakteristik air dan inefisiensi kas.</p>
                     </div>
                     <div class="roadmap-step">
-                        <h4 class="font-black text-ink uppercase text-sm mb-1 tracking-tighter">02. Precision Engineering</h4>
-                        <p class="text-slate-500 font-light text-xs">Merancang blueprint sistem modular yang disesuaikan khusus untuk site Anda.</p>
+                        <h4 class="font-black text-ink uppercase text-base mb-1">02. Precision Engineering</h4>
+                        <p class="text-slate-500 font-light text-sm">Merancang blueprint sistem modular khusus site.</p>
                     </div>
                     <div class="roadmap-step">
-                        <h4 class="font-black text-ink uppercase text-sm mb-1 tracking-tighter">03. Parallel Integration</h4>
-                        <p class="text-slate-500 font-light text-xs">Instalasi infrastruktur tanpa sedikitpun mengganggu operasional produksi pabrik.</p>
+                        <h4 class="font-black text-ink uppercase text-base mb-1">03. Parallel Integration</h4>
+                        <p class="text-slate-500 font-light text-sm">Instalasi tanpa mengganggu operasional pabrik.</p>
                     </div>
                     <div class="roadmap-step border-transparent pb-0">
-                        <h4 class="font-black text-ink uppercase text-sm mb-1 tracking-tighter">04. Intelligence Handover</h4>
-                        <p class="text-slate-500 font-light text-xs">Aktivasi dashboard kendali digital untuk transparansi data mutlak 24/7.</p>
+                        <h4 class="font-black text-ink uppercase text-base mb-1">04. Intelligence Handover</h4>
+                        <p class="text-slate-500 font-light text-sm">Aktivasi dashboard transparansi data mutlak.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 6: DIGITAL CONTROL CENTER (HMI) -->
-        <section class="py-10 lg:py-32 bg-slate-950">
+        <!-- DIGITAL CONTROL CENTER (HMI VERSION) -->
+        <section class="py-12 lg:py-32 bg-slate-900">
             <div class="max-w-[1440px] mx-auto px-4">
                 <div class="text-center mb-8">
-                    <span class="kicker text-blue-500">Live Operations Handover</span>
-                    <h2 class="text-white text-xl lg:text-5xl font-black uppercase leading-tight">Digital <span class="text-blue-500">Control Center</span></h2>
+                    <span class="kicker text-blue-500">Live Operations</span>
+                    <h2 class="text-white text-2xl lg:text-5xl font-black uppercase mb-4">Digital <span class="text-blue-500">Control Center</span></h2>
                 </div>
                 
+                <!-- HMI FRAME WRAPPER -->
                 <div class="hmi-frame max-w-5xl mx-auto overflow-hidden">
-                    <div class="hmi-screen h-[400px] lg:h-[700px] flex overflow-hidden border border-white/5 shadow-inner">
-                        <main class="flex-1 p-4 lg:p-10 overflow-y-auto custom-scrollbar">
-                            
-                            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-6">
-                                <div class="bg-[#1a1d23]/90 p-4 rounded-xl border border-white/10 text-center lg:text-left">
-                                    <span class="text-[10px] font-black text-white uppercase block mb-1 tracking-widest">Flow Rate</span>
-                                    <div class="flex items-baseline justify-center lg:justify-start gap-1">
-                                        <span id="val-flow" class="text-2xl lg:text-4xl font-black text-blue-400 drop-shadow-[0_0_10px_rgba(96,165,250,0.4)]">125.4</span>
-                                        <span class="text-[9px] text-white/50">m³/h</span>
-                                    </div>
-                                </div>
-                                <div class="bg-[#1a1d23]/90 p-4 rounded-xl border border-white/10 text-center lg:text-left">
-                                    <span class="text-[10px] font-black text-white uppercase block mb-1 tracking-widest">Turbidity</span>
-                                    <div class="flex items-baseline justify-center lg:justify-start gap-1">
-                                        <span id="val-turbidity" class="text-2xl lg:text-4xl font-black text-emerald-400 drop-shadow-[0_0_10px_rgba(52,211,153,0.4)]">1.21</span>
-                                        <span class="text-[9px] text-white/50">NTU</span>
-                                    </div>
-                                </div>
-                                <div class="bg-[#1a1d23]/90 p-4 rounded-xl border border-white/10 text-center lg:text-left hidden lg:block">
-                                    <span class="text-[10px] font-black text-white/60 uppercase block mb-1 tracking-widest">Energy Index</span>
+                    <div class="hmi-screen h-[450px] lg:h-[700px] flex overflow-hidden border border-white/5">
+                        <main class="flex-1 p-5 lg:p-10 overflow-y-auto custom-scrollbar">
+                            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
+                                <div class="bg-[#1a1d23]/80 p-5 rounded-xl border border-white/10 shadow-inner">
+                                    <span class="text-[10px] font-black text-white uppercase block mb-2 tracking-widest">Flow Rate</span>
                                     <div class="flex items-baseline gap-1">
-                                        <span class="text-2xl font-black text-white">0.42</span>
-                                        <span class="text-[9px] text-white/50">kWh</span>
+                                        <span id="val-flow" class="text-3xl font-black text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)]">125.4</span>
+                                        <span class="text-[10px] text-slate-400">m³/h</span>
                                     </div>
                                 </div>
-                                <div class="bg-[#1a1d23]/90 p-4 rounded-xl border border-white/10 text-center lg:text-left hidden lg:block">
-                                    <span class="text-[10px] font-black text-white/60 uppercase block mb-1 tracking-widest">System Uptime</span>
+                                <div class="bg-[#1a1d23]/80 p-5 rounded-xl border border-white/10 shadow-inner">
+                                    <span class="text-[10px] font-black text-white uppercase block mb-2 tracking-widest">Turbidity</span>
                                     <div class="flex items-baseline gap-1">
-                                        <span class="text-2xl font-black text-white">99.8</span>
-                                        <span class="text-[9px] text-white/50">%</span>
+                                        <span id="val-turbidity" class="text-3xl font-black text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]">1.21</span>
+                                        <span class="text-[10px] text-slate-400">NTU</span>
+                                    </div>
+                                </div>
+                                <div class="bg-[#1a1d23]/80 p-5 rounded-xl border border-white/10 shadow-inner">
+                                    <span class="text-[10px] font-black text-slate-500 uppercase block mb-2 tracking-widest">Energy Index</span>
+                                    <div class="flex items-baseline gap-1">
+                                        <span class="text-3xl font-black text-white">0.42</span>
+                                        <span class="text-[10px] text-slate-400">kWh</span>
+                                    </div>
+                                </div>
+                                <div class="bg-[#1a1d23]/80 p-5 rounded-xl border border-white/10 shadow-inner">
+                                    <span class="text-[10px] font-black text-slate-500 uppercase block mb-2 tracking-widest">System Uptime</span>
+                                    <div class="flex items-baseline gap-1">
+                                        <span class="text-3xl font-black text-white">99.8</span>
+                                        <span class="text-[10px] text-slate-400">%</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                <!-- Sludge Control In-Line -->
-                                <div class="bg-[#1a1d23]/90 p-5 rounded-xl border border-white/10 shadow-lg">
-                                    <div class="flex justify-between items-center mb-5">
-                                        <h4 class="text-white text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
-                                            <i data-lucide="database" class="w-3 h-3 text-blue-500"></i> Sludge Control
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                <div class="bg-[#1a1d23]/80 p-6 rounded-2xl border border-white/10 shadow-lg">
+                                    <div class="flex justify-between items-center mb-6">
+                                        <h4 class="text-white text-sm font-black uppercase tracking-widest flex items-center gap-2">
+                                            <i data-lucide="database" class="w-4 h-4 text-blue-500"></i> Sludge Control
                                         </h4>
                                         <span id="sludge-text" class="text-xl font-black text-blue-400 tabular-nums">45%</span>
                                     </div>
-                                    <div class="h-24 bg-black/60 rounded-lg relative overflow-hidden border border-white/5 p-1">
-                                        <div id="sludge-bar" class="bg-blue-600/80 w-full transition-all duration-1000 shadow-[0_0_20px_rgba(37,99,235,0.3)]" style="height: 45%;"></div>
-                                        <!-- Grid Pattern for HMI feel -->
+                                    <div class="h-32 bg-black/50 rounded-xl relative overflow-hidden border border-white/10 p-1">
+                                        <div id="sludge-bar" class="bg-blue-600/80 w-full transition-all duration-1000 shadow-[0_0_15px_rgba(37,99,235,0.4)]" style="height: 45%;"></div>
                                         <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
                                     </div>
                                 </div>
-                                
-                                <div class="flex flex-col gap-3">
-                                    <div class="bg-[#1a1d23]/90 p-5 rounded-xl border border-white/10 flex-1 flex flex-col justify-center">
-                                        <div class="flex justify-between items-center mb-3">
-                                            <span class="text-[9px] font-black text-white/50 uppercase tracking-widest">Pressure Status</span>
-                                            <span class="text-[9px] font-black text-emerald-400 tracking-widest animate-pulse">NOMINAL</span>
-                                        </div>
-                                        <div class="h-1.5 bg-black/40 rounded-full overflow-hidden">
-                                            <div class="bg-emerald-500 h-full w-2/3 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
-                                        </div>
-                                    </div>
-                                    <button onclick="simulateBackwash()" id="btn-backwash" class="w-full py-4 bg-blue-600 text-white rounded-xl font-black text-[9px] tracking-[0.2em] shadow-lg hover:bg-blue-500 transition-all active:scale-95">
-                                        MANUAL BACKWASH SEQUENCE
+                                <div class="flex flex-col gap-4">
+                                    <button onclick="simulateBackwash()" id="btn-backwash" class="w-full py-5 bg-blue-600 text-white rounded-xl font-black text-xs tracking-[0.2em] shadow-xl hover:bg-blue-500 active:scale-95 transition-all mt-auto">
+                                        MANUAL BACKWASH
                                     </button>
                                 </div>
                             </div>
                         </main>
                     </div>
                 </div>
-                <p class="text-center text-white/40 text-[9px] font-bold uppercase tracking-[0.5em] mt-8">Transparansi Data 24/7 • Integrasi SCADA Terpusat</p>
             </div>
         </section>
 
-        <!-- SECTION 7: CLOSING -->
-        <section class="py-16 lg:py-48 bg-white border-t border-slate-100 text-center">
-            <div class="max-w-[1100px] mx-auto px-4">
-                <h3 class="font-serif italic text-xl lg:text-5xl font-black mb-10 text-ink leading-tight uppercase">
+        <!-- CLOSING -->
+        <section class="py-16 lg:py-48 bg-white border-t border-slate-100">
+            <div class="max-w-[1100px] mx-auto px-4 text-center">
+                <h3 class="font-serif italic text-xl lg:text-5xl font-black mb-8 text-ink leading-tight uppercase">
                     "Dengan <span class="text-royalBlue">INVILA™</span>, utilitas air bukan lagi biaya, melainkan fondasi kokoh untuk lompatan besar Anda."
                 </h3>
                 <div class="flex flex-col items-center gap-6">
-                    <a href="https://wa.me/6285219493322" target="_blank" class="bg-ink text-white px-10 py-6 rounded-full font-black text-[11px] uppercase tracking-widest shadow-2xl w-full sm:w-auto transition-transform active:scale-95">Jadwalkan Konsultasi CEO</a>
-                    <p class="text-slate-400 text-[9px] font-bold uppercase tracking-[0.5em] italic">Kedaulatan air industri dimulai di sini..</p>
+                    <a href="https://wa.me/6285219493322" target="_blank" class="bg-ink text-white px-10 py-6 rounded-full font-black text-[11px] uppercase tracking-widest shadow-2xl w-full sm:w-auto text-center hover:scale-105 transition-transform">Jadwalkan Konsultasi CEO</a>
+                    <p class="text-slate-400 text-[9px] font-bold uppercase tracking-[0.5em] italic">Transisi selesai, kedaulatan air dimulai..</p>
                 </div>
             </div>
         </section>
@@ -462,8 +503,7 @@
     <footer class="py-12 bg-ink text-white border-t border-white/5">
         <div class="max-w-[1440px] mx-auto px-6 text-center">
             <h1 class="brand-text text-white/20 tracking-tight uppercase mb-4 font-serif">INVILA<span class="brand-tm">TM</span></h1>
-            <p class="text-white/30 text-[9px] font-black uppercase tracking-[0.5em] mb-4">Standardizing Smart Water Infrastructure for Industry</p>
-            <div class="text-[8px] text-white/10 uppercase tracking-widest">© 2024 INVILA INTEGRATED SOLUTIONS. ALL RIGHTS RESERVED.</div>
+            <p class="text-slate-500 text-[9px] font-black uppercase tracking-[0.5em]">Standardizing Smart Water Infrastructure for Industry</p>
         </div>
     </footer>
 
@@ -487,14 +527,14 @@
                 </div>
             </div>
             <div style="background: #ffffff; padding: 40px; border-radius: 35px; border: 3px solid #f43f5e; margin-bottom: 40px;">
-                <div style="font-size: 12px; font-weight: 800; color: #f43f5e; text-transform: uppercase;">EBITDA Savings Bulanan</div>
+                <div style="font-size: 12px; font-weight: 800; color: #f43f5e; text-transform: uppercase;">Savings Bulanan</div>
                 <div id="pdf-val-monthly" style="font-size: 40px; font-weight: 900; color: #01040a; margin-top: 10px;">-</div>
             </div>
         </div>
     </div>
 
     <script>
-        // --- REAL-TIME STATS LOGIC ---
+        // --- REAL-TIME STATS ---
         let d_flow = 125.4;
         let d_turbidity = 1.21;
         let d_sludge = 45;
@@ -522,19 +562,19 @@
             btn.innerText = 'PROCESSING...';
             setTimeout(() => {
                 btn.disabled = false;
-                btn.innerText = 'MANUAL BACKWASH SEQUENCE';
+                btn.innerText = 'MANUAL BACKWASH';
                 d_sludge = 10;
                 updateDashboardStats();
             }, 3000);
         }
 
-        // --- AUDIT CALCULATOR LOGIC ---
+        // --- AUDIT CALCULATOR ---
         const CONFIG = { flowRate: 1500, legacyCost: 14600, invilaTariff: 5500, capexPerLPS: 360000000 };
         let currentData = { ...CONFIG };
 
         function formatRp(v) {
             const abs = Math.abs(v);
-            if (abs >= 1e9) return `Rp ${(v / 1e9).toFixed(1)} M`;
+            if (abs >= 1e9) return `Rp ${(v / 1e9).toFixed(2)} Miliar`;
             if (abs >= 1e6) return `Rp ${(v / 1e6).toFixed(1)} Juta`;
             return `Rp ${Math.round(v).toLocaleString("id-ID")}`;
         }
@@ -558,7 +598,6 @@
             if(fS) fS.innerText = formatRp(fiveYear);
             if(cT) cT.innerText = formatRp(capex);
 
-            // Sync hidden PDF elements
             const pF = document.getElementById('pdf-table-flow');
             const pL = document.getElementById('pdf-table-legacy');
             const pT = document.getElementById('pdf-table-tariff');
@@ -572,34 +611,26 @@
 
         async function downloadReport() {
             const btn = document.getElementById('btn-download');
-            btn.innerText = 'GENERATING PDF...';
+            btn.innerText = 'GENERATING...';
             try {
                 const { jsPDF } = window.jspdf;
                 const pdf = new jsPDF("p", "mm", "a4");
                 const el = document.getElementById('pdf-page-1');
-                
-                // Temporary positioning for capture
                 el.parentElement.style.position = 'static';
                 const canvas = await html2canvas(el, { scale: 3, useCORS: true });
                 el.parentElement.style.position = 'absolute';
-                
                 pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 210, 297);
-                pdf.save(`Invila-Strategic-Audit-${Date.now()}.pdf`);
-            } catch (err) { 
-                console.error(err);
-            } finally { 
-                btn.innerText = 'Download Strategic Savings Report PDF'; 
-            }
+                pdf.save(`Invila-Audit-Savings-Report.pdf`);
+            } catch (err) { console.error(err); } 
+            finally { btn.innerText = 'DOWNLOAD STRATEGIC SAVINGS REPORT PDF'; }
         }
 
-        // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('main-header');
             if (window.scrollY > 40) header.classList.add('header-scrolled');
             else header.classList.remove('header-scrolled');
         });
 
-        // Input listeners
         document.querySelectorAll('input').forEach(input => {
             input.addEventListener('input', (e) => {
                 const key = e.target.dataset.key;
