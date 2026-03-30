@@ -131,7 +131,7 @@
         
         .comparison-table td, .comparison-table th { border-bottom: 1px solid rgba(255,255,255,0.05); padding: 1.25rem 1rem; }
 
-        /* Infinite Marquee Styling */
+        /* Infinite Marquee Styling - Adjusted for Spacing */
         .marquee-container {
             width: 100%;
             overflow: hidden;
@@ -142,10 +142,10 @@
         .marquee-content {
             display: flex;
             width: max-content;
-            animation: scroll 40s linear infinite;
+            animation: scroll 60s linear infinite; /* Slower speed for better readability with more space */
+            flex-wrap: nowrap;
         }
 
-        /* Duplicate to ensure seamless loop */
         .marquee-content:hover {
             animation-play-state: paused;
         }
@@ -161,8 +161,9 @@
             transition: all 0.4s ease; 
             max-height: 40px; 
             width: auto; 
-            margin: 0 40px;
+            margin: 0 80px; /* Increased margin to prevent overlap */
             flex-shrink: 0;
+            display: block;
         }
         
         .client-logo:hover { 
@@ -172,7 +173,10 @@
         }
 
         @media (min-width: 1024px) {
-            .client-logo { max-height: 50px; margin: 0 60px; }
+            .client-logo { 
+                max-height: 50px; 
+                margin: 0 100px; /* Even more space on desktop */
+            }
         }
     </style>
 </head>
@@ -252,7 +256,7 @@
             </div>
         </section>
 
-        <!-- INFINITE LOOP CLIENT LOGO SECTION -->
+        <!-- INFINITE LOOP CLIENT LOGO SECTION - IMPROVED SPACING -->
         <section class="py-12 border-y border-slate-100 bg-white">
             <div class="max-w-[1200px] mx-auto px-4 overflow-hidden">
                 <p class="text-center text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] mb-12 italic">Dipercaya Oleh Pemimpin Industri & Mitra Strategis</p>
@@ -260,7 +264,7 @@
                 <div class="marquee-container">
                     <div class="marquee-content" id="marquee-inner">
                         <!-- Group 1 -->
-                        <div class="flex items-center">
+                        <div class="flex items-center flex-nowrap">
                             <img src="kiw.png" alt="KIW" class="client-logo">
                             <img src="petrokimia-gresik.png" alt="Petrokimia Gresik" class="client-logo">
                             <img src="united-tractors.png" alt="United Tractors" class="client-logo">
@@ -273,7 +277,7 @@
                             <img src="dinkes depok.png" alt="Dinkes Depok" class="client-logo">
                         </div>
                         <!-- Group 2 (Duplicate for seamless loop) -->
-                        <div class="flex items-center">
+                        <div class="flex items-center flex-nowrap">
                             <img src="kiw.png" alt="KIW" class="client-logo">
                             <img src="petrokimia-gresik.png" alt="Petrokimia Gresik" class="client-logo">
                             <img src="united-tractors.png" alt="United Tractors" class="client-logo">
