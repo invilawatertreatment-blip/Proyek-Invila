@@ -78,7 +78,6 @@
             color: #34d399; 
             line-height: 1.2; 
             letter-spacing: -0.02em;
-            /* CLAMP FIX: Prevent overflow on mobile */
             font-size: clamp(1.2rem, 4vw, 2.5rem) !important;
             white-space: normal !important;
             display: block;
@@ -115,7 +114,20 @@
 
         .header-scrolled { background-color: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 30px rgba(0,0,0,0.03); }
 
-        /* PDF TEMPLATE STYLING - MARGIN 15MM */
+        /* ODOMETER FIX - Preventing clipping and ensuring balance */
+        #odometer-total {
+            font-family: 'Inter', sans-serif; 
+            font-weight: 900;
+            font-style: italic;
+            display: inline-block;
+            line-height: 1;
+            padding: 0 0.15em; 
+            background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* PDF TEMPLATE STYLING - MARGIN 15MM (Efficiency) */
         #pdf-template {
             width: 210mm;
             background: white;
@@ -150,7 +162,7 @@
                     <img src="logo-invila.png" alt="INVILA Logo" class="h-6 md:h-16 w-auto" onerror="this.src='https://via.placeholder.com/150x50?text=INVILA'">
                 </div>
                 <div class="ml-3 md:ml-8 flex flex-col">
-                    <h1 class="brand-text-xl text-ink uppercase leading-none">INVILA<span class="brand-font italic lowercase text-[10px] md:text-xl"><sup>™</sup></span></h1>
+                    <h1 class="brand-text-xl text-ink uppercase leading-none font-serif font-bold">INVILA<span class="italic lowercase text-[10px] md:text-xl"><sup>™</sup></span></h1>
                     <p class="text-[6px] md:text-[10px] text-royalBlue uppercase tracking-[0.2em] font-black italic">Strategic Water Infrastructure</p>
                 </div>
             </div>
@@ -164,7 +176,7 @@
     </header>
 
     <main>
-        <!-- HERO SECTION - COMPRESSED MOBILE (Above the Fold) -->
+        <!-- HERO SECTION -->
         <section class="pt-20 pb-4 lg:pt-64 lg:pb-40 px-6">
             <div class="max-w-[1200px] mx-auto text-center lg:text-left">
                 <div class="grid lg:grid-cols-12 gap-6 lg:gap-16 items-center">
@@ -191,7 +203,7 @@
             </div>
         </section>
 
-        <!-- EBITDA RECOVERY SUITE (AUDIT TOOL) - PRIORITY POSITION -->
+        <!-- EBITDA RECOVERY SUITE (AUDIT TOOL) -->
         <section id="audit-tool" class="py-8 lg:py-48 bg-midnightNavy text-slate-100 relative">
             <div class="max-w-[1440px] mx-auto px-6 md:px-12">
                 <div class="text-center mb-10 lg:mb-32">
@@ -271,16 +283,16 @@
 
         <!-- PROOF OF SCALE (79M) -->
         <section class="py-12 lg:py-48 bg-ink text-white text-center">
-            <div class="max-w-[1200px] mx-auto px-6">
+            <div class="max-w-[1440px] mx-auto px-6">
                 <span class="kicker text-royalBlue mb-6 lg:mb-12 uppercase tracking-[0.4em]">Verified Industrial Performance</span>
-                <h2 class="headline-serif text-xl lg:text-4xl uppercase mb-8 lg:mb-16 tracking-widest font-serif italic">
-                    Akumulasi Kapasitas Terpasang <br class="lg:hidden"> <span class="text-white not-italic font-bold font-serif">INVILA<sup>™</sup></span>
+                <h2 class="font-serif font-bold text-xl lg:text-4xl uppercase mb-8 lg:mb-16 tracking-widest italic">
+                    AKUMULASI KAPASITAS TERPASANG <span class="not-italic">INVILA<sup class="text-sm lg:text-lg">™</sup></span>
                 </h2>
-                <div class="flex items-baseline justify-center gap-2 lg:gap-4 mb-4 lg:mb-8 overflow-hidden">
-                    <span id="odometer-total" class="text-4xl lg:text-[10rem] font-black italic text-white tracking-tighter">79.154.776</span>
+                <div class="flex items-baseline justify-center gap-2 lg:gap-4 mb-4 lg:mb-12">
+                    <span id="odometer-total" class="text-5xl md:text-7xl lg:text-[10rem] tracking-tight">79.154.776</span>
                     <span class="text-lg lg:text-5xl font-serif italic text-royalBlue font-bold">m<sup>3</sup>/thn</span>
                 </div>
-                <p class="text-[7px] lg:text-sm font-black uppercase tracking-[0.3em] lg:tracking-[0.5em] text-slate-500 mb-8 lg:mb-16">Global Cumulative Volume Managed by <span class="font-serif">INVILA<sup>™</sup></span> Technology</p>
+                <p class="text-[7px] lg:text-sm font-black uppercase tracking-[0.3em] lg:tracking-[0.5em] text-slate-500 mb-8 lg:mb-16">Global Cumulative Volume Managed by <span class="font-serif">INVILA<sup class="italic">™</sup></span> Technology</p>
                 <a href="https://ccpi.zerocapexwaterinfrastructure.com/" target="_blank" class="inline-block border border-white/20 text-white px-6 py-3 lg:px-12 lg:py-6 rounded-full font-black text-[8px] lg:text-[10px] uppercase tracking-[0.3em] hover:bg-white hover:text-ink transition-all">Lihat Portofolio Terpasang</a>
             </div>
         </section>
@@ -327,9 +339,9 @@
             <div style="height: 297mm; padding: 15mm 25mm 25mm 25mm; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; background: #ffffff;">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 3px solid #0a1128; padding-bottom: 25px;">
                     <div style="display: flex; align-items: center;">
-                        <img src="logo-invila.png" style="height: 60px; width: auto; margin-right: 25px;">
+                        <img src="logo-invila.png" style="height: 70px; width: auto; margin-right: 25px;">
                         <div>
-                            <h1 style="font-size: 30px; font-weight: 700; color: #0a1128; margin: 0; font-family: 'Noto Serif', serif; line-height: 1;">INVILA<sup>™</sup></h1>
+                            <h1 style="font-size: 34px; font-weight: 700; color: #0a1128; margin: 0; font-family: 'Noto Serif', serif; line-height: 1;">INVILA<sup>™</sup></h1>
                             <p style="font-size: 10px; font-weight: 900; letter-spacing: 3px; color: #2257d8; margin: 5px 0 0 0; font-family: 'Inter', sans-serif; text-transform: uppercase;">ZERO CAPEX WATER INFRASTRUCTURE</p>
                         </div>
                     </div>
@@ -341,9 +353,9 @@
                 
                 <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; margin-bottom: 40px;">
                     <p style="font-size: 13px; font-weight: 900; color: #2257d8; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 20px; font-family: 'Inter', sans-serif;">Strategic Assessment Report</p>
-                    <h2 style="font-size: 30pt; font-weight: 700; line-height: 1.1; margin-bottom: 40px; font-family: 'Noto Serif', serif; color: #0a1128;">INVILA<sup>™</sup> INTELLIGENCE EBITDA SAVINGS RECOVERY REPORT</h2>
-                    <div style="width: 160px; height: 5px; background: #2257d8; margin-bottom: 40px;"></div>
-                    <p style="font-size: 14pt; line-height: 1.8; color: #334155; font-family: 'Noto Serif', serif; font-style: italic; max-width: 95%;">
+                    <h2 style="font-size: 32pt; font-weight: 700; line-height: 1.1; margin-bottom: 40px; font-family: 'Noto Serif', serif; color: #0a1128;">INVILA<sup>™</sup> INTELLIGENCE EBITDA SAVINGS RECOVERY REPORT</h2>
+                    <div style="width: 200px; height: 6px; background: #2257d8; margin-bottom: 40px;"></div>
+                    <p style="font-size: 15pt; line-height: 1.8; color: #334155; font-family: 'Noto Serif', serif; font-style: italic; max-width: 95%;">
                         "Analisis komprehensif dampak finansial transisi model infrastruktur Asset-Light untuk optimalisasi EBITDA perusahaan manufaktur."
                     </p>
                 </div>
@@ -351,11 +363,11 @@
                 <div style="border-top: 1px solid #e2e8f0; padding-top: 25px;">
                     <div style="display: flex; justify-content: space-between;">
                         <div>
-                            <p style="font-size: 11px; color: #64748b; font-family: 'Inter', sans-serif;">Issued Date: <span id="pdf-date"></span></p>
-                            <p style="font-size: 11px; color: #64748b; font-family: 'Inter', sans-serif; margin-top: 8px;">Document Validity: Board Level Review</p>
+                            <p style="font-size: 13px; color: #64748b; font-family: 'Inter', sans-serif;">Issued Date: <span id="pdf-date"></span></p>
+                            <p style="font-size: 13px; color: #64748b; font-family: 'Inter', sans-serif; margin-top: 8px;">Document Validity: Board Level Review</p>
                         </div>
                         <div style="text-align: right;">
-                            <p style="font-size: 10px; font-weight: 800; color: #0a1128; font-family: 'Inter', sans-serif; text-transform: uppercase;">Standardized Audit Suite 2026</p>
+                            <p style="font-size: 12px; font-weight: 800; color: #0a1128; font-family: 'Inter', sans-serif; text-transform: uppercase;">Standardized Audit Suite 2026</p>
                         </div>
                     </div>
                 </div>
@@ -371,38 +383,51 @@
                 <h3 style="font-size: 20pt; font-weight: 700; margin-bottom: 20px; font-family: 'Noto Serif', serif; color: #0a1128;">STRATEGIC ASSESSMENT METRICS</h3>
                 <table style="width: 100%; border-collapse: collapse; margin-bottom: 40px; font-family: 'Noto Serif', serif;">
                     <tr style="background: #f0fdf4;">
-                        <td style="padding: 20px; font-size: 12pt; color: #0a1128; border-bottom: 2px solid #059669; font-family: 'Inter', sans-serif; font-weight: 900; letter-spacing: 1px;">PROJECTED 5-YEAR EBITDA RECOVERY</td>
+                        <td style="padding: 20px; font-size: 12pt; color: #0a1128; border-bottom: 2px solid #059669; font-family: 'Inter', sans-serif; font-weight: 900; letter-spacing: 1px;">PROJECTED 5-YEAR EBITDA RECOVERY (Akumulasi Laba)</td>
                         <td id="pdf-five-year" style="padding: 20px; font-size: 20pt; font-weight: 700; text-align: right; border-bottom: 2px solid #059669; color: #059669;">-</td>
                     </tr>
                     <tr>
-                        <td style="padding: 15px 20px; font-size: 12pt; color: #64748b; border-bottom: 1px solid #cbd5e1; font-family: 'Inter', sans-serif; font-weight: 700;">ANNUAL EBITDA RECOVERY (SAVINGS)</td>
+                        <td style="padding: 15px 20px; font-size: 12pt; color: #64748b; border-bottom: 1px solid #cbd5e1; font-family: 'Inter', sans-serif; font-weight: 700;">ANNUAL EBITDA RECOVERY (Laba Operasional)</td>
                         <td id="pdf-annual" style="padding: 15px 20px; font-size: 12pt; font-weight: 700; text-align: right; border-bottom: 1px solid #cbd5e1;">-</td>
                     </tr>
                     <tr>
-                        <td style="padding: 15px 20px; font-size: 12pt; color: #64748b; border-bottom: 1px solid #cbd5e1; font-family: 'Inter', sans-serif; font-weight: 700;">CAPEX COVERED BY <span class="font-serif">INVILA<sup>™</sup></span></td>
-                        <td id="pdf-capex" style="padding: 15px 20px; font-size: 12pt; font-weight: 700; text-align: right; border-bottom: 1px solid #cbd5e1; color: #059669;">-</td>
+                        <td style="padding: 15px 20px; font-size: 12pt; color: #64748b; border-bottom: 1px solid #cbd5e1; font-family: 'Inter', sans-serif; font-weight: 700;">CAPEX COVERED BY <span class="font-serif">INVILA<sup>™</sup></span> (Investasi Aset)</td>
+                        <td id="pdf-capex" style="padding: 15px 20px; font-size: 12pt; font-weight: 700; text-align: right; border-bottom: 1px solid #cbd5e1; color: #059669;">Rp 6,25 Milyar</td>
                     </tr>
                     <tr>
                         <td style="padding: 15px 20px; font-size: 12pt; color: #64748b; border-bottom: 1px solid #cbd5e1; font-family: 'Inter', sans-serif; font-weight: 700;">BASELINE TARIFF EXPOSURE (EXISTING)</td>
                         <td id="pdf-legacy" style="padding: 15px 20px; font-size: 12pt; font-weight: 700; text-align: right; border-bottom: 1px solid #cbd5e1;">-</td>
                     </tr>
                     <tr>
-                        <td style="padding: 15px 20px; font-size: 12pt; color: #64748b; border-bottom: 1px solid #cbd5e1; font-family: 'Inter', sans-serif; font-weight: 700;">OPTIMIZED STRATEGIC TARIFF (INVILA<sup>™</sup>)</td>
+                        <td style="padding: 15px 20px; font-size: 12pt; color: #64748b; border-bottom: 1px solid #cbd5e1; font-family: 'Inter', sans-serif; font-weight: 700;">OPTIMIZED STRATEGIC TARIFF (<span class="font-serif">INVILA<sup>™</sup></span>)</td>
                         <td id="pdf-tariff" style="padding: 15px 20px; font-size: 12pt; font-weight: 700; text-align: right; border-bottom: 1px solid #cbd5e1; color: #2257d8;">-</td>
                     </tr>
                 </table>
 
                 <h3 style="font-size: 18pt; font-weight: 700; margin-bottom: 20px; font-family: 'Noto Serif', serif; color: #0a1128;">AUDITOR'S STRATEGIC OPINION</h3>
-                <p id="pdf-opinion" style="font-size: 13pt; color: #334155; margin-bottom: 50px; line-height: 1.8; font-style: italic; text-align: justify; padding: 25px; background: #f8fafc; border-radius: 15px; border-left: 6px solid #2257d8; word-spacing: 3px;">
+                <p id="pdf-opinion" style="font-size: 13pt; color: #334155; margin-bottom: 30px; line-height: 1.8; font-style: italic; text-align: justify; padding: 25px; background: #f8fafc; border-radius: 15px; border-left: 6px solid #2257d8; word-spacing: 3px;">
                     "Berdasarkan parameter audit yang disediakan, transisi operasional menuju sistem mandiri akan memberikan pemulihan margin EBITDA secara instan. Strategi ini secara fundamental memperbaiki struktur biaya utilitas perusahaan dan memitigasi ketergantungan pada tarif publik yang volatil secara terukur melalui solusi infrastruktur terintegrasi <span class="font-serif font-bold">INVILA<sup>™</sup></span>."
                 </p>
 
+                <!-- Financial Glossary (Professional Footnote) -->
+                <div style="margin-bottom: 40px; padding: 15px 25px; border: 1px solid #e2e8f0; border-radius: 10px;">
+                    <p style="font-size: 9pt; font-weight: 700; color: #4b5563; margin-bottom: 8px; font-family: 'Noto Serif', serif; text-transform: uppercase; letter-spacing: 1px;">Catatan Finansial: EBITDA adalah singkatan dari:</p>
+                    <div style="display: grid; grid-template-cols: 1fr 1fr; gap: 5px 20px; font-size: 9pt; color: #4b5563; font-family: 'Noto Serif', serif;">
+                        <p><strong>Earnings:</strong> Laba</p>
+                        <p><strong>Taxes:</strong> Pajak</p>
+                        <p><strong>Before:</strong> Sebelum</p>
+                        <p><strong>Depreciation:</strong> Penyusutan aset fisik (mesin/bangunan)</p>
+                        <p><strong>Interest:</strong> Bunga hutang</p>
+                        <p><strong>Amortization:</strong> Penyusutan aset tak berwujud</p>
+                    </div>
+                </div>
+
                 <!-- Signature Block -->
-                <div style="margin-top: 40px; border-top: 2px solid #0a1128; padding-top: 15px;">
+                <div style="margin-top: 20px; border-top: 2px solid #0a1128; padding-top: 15px;">
                   <p style="font-size: 10pt; color: #64748b; margin-bottom: 5px; font-family: 'Inter', sans-serif;">VALIDATED & ISSUED BY SENIOR STRATEGIC ENGINEER:</p>
                   <h3 style="font-family: 'Noto Serif'; font-size: 18pt; margin: 5px 0; font-weight: 700; color: #0a1128; text-transform: uppercase;">PIATOR SIMBOLON</h3>
                   <p style="font-size: 11pt; font-weight: 400; color: #475569; margin: 2px 0 0 0; text-transform: uppercase;">Senior Water & Strategic Engineer</p>
-                  <p style="font-size: 11pt; font-weight: 800; color: #2257d8; letter-spacing: 1px; margin-top: 4px; text-transform: uppercase; font-family: 'Inter', sans-serif;">INVILA<sup>™</sup> | INTEGRATED WATER INFRASTRUCTURE</p>
+                  <p style="font-size: 11pt; font-weight: 800; color: #2257d8; letter-spacing: 1px; margin-top: 4px; text-transform: uppercase; font-family: 'Inter', sans-serif;"><span class="font-serif">INVILA<sup>™</sup></span> | INTEGRATED WATER INFRASTRUCTURE</p>
                 </div>
             </div>
         </div>
@@ -451,7 +476,7 @@
             const annual = monthly * 12;
             const fiveYear = annual * 5;
             
-            // Fixed CapEx value based on engineering requirement for display
+            // Fixed CapEx value senilai Rp 6,25 Milyar
             const fixedCapex = 6250000000; 
 
             safeSetText('view-annual-saving', formatStrategicValue(annual));
@@ -479,7 +504,7 @@
                 el.parentElement.style.position = 'static';
                 
                 const canvas = await html2canvas(el, { 
-                    scale: 3, 
+                    scale: 3, // High-Fidelity Rendering
                     useCORS: true,
                     backgroundColor: "#ffffff",
                     onclone: (clonedDoc) => {
